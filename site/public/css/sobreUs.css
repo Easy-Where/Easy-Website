@@ -1,0 +1,64 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3%;
+}
+
+.container .esquerda,
+.direita {
+    /* width: 50%; */
+    height: 70vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    /* background-color: #45454512; */
+}
+
+
+/* Titulo e subTitulo */
+.container .esquerda {
+    padding-top: 3%;
+    width: 35%;
+    align-items: center;
+    /* background-color: #fff; */
+}
+
+.container .direita {
+    width: 55%;
+    justify-content: space-around;
+}
+
+.container .esquerda h2 {
+    font-size: 70px;
+    /* margin-bottom: 3%; */
+    position: absolute;
+    animation: entradaTitulo 2.5s ease-in-out;
+}
+
+@keyframes entradaTitulo {
+    0% {
+        left: 50px;
+        filter: opacity(0);
+    }
+
+    100% {
+        left: 11.99999%;
+    }
+}
+
+.container .esquerda h4 {
+    font-size: 70px;
+    font-weight: 100;
+    margin-top: 25%;
+}
+
+
+/* Texto informativo */
+.container .direita p{
+    font-size: 22px;   
+}
