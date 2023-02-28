@@ -1,6 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
+/* Identificador da página */
+ .navbar a:nth-child(1) {
+    text-decoration: underline 2px;
+    animation: here 1s forwards;
+}
 
+nav {
+    height: 15vh;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    padding: 0px 30px 20px 30px;
+    align-items: center;
+}
+
+nav .hambur span {
+    font-size: 35px;
+}
+
+.fecharNav{
+    position: absolute;
+    /* top: 0; */
+    right: -10%;
+    transform: rotate(180deg);
+    transition: all 2s;
+}
+
+nav .navEs {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    right: -50%;
+    top: 0;
+    background-color: #f1f1f1fd;
+    transition: all 2s ease-out;
+}
+
+nav .navEs .navbar, nav .navEs .signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav .navEs .signup{
+    margin-top: 15%;
+}
+
+
+@keyframes here {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* Responsividade da Nav */
+@media only screen and (max-width: 770px){
+
+    .header {
+        display: none;
+    }
+    nav{
+        display: flex;
+    }
+}
+
+
+
+
+/* Div princial que contém todo conteúdo fora a nav */
 .container {
     display: flex;
     align-items: center;
@@ -8,29 +86,23 @@
     padding: 3%;
 }
 
+
 .container .esquerda,
 .direita {
-    /* width: 50%; */
     height: 70vh;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    /* background-color: #45454512; */
 }
 
 
-/* Titulo e subTitulo */
+/* Div que contém o Titulo e subTitulo */
 .container .esquerda {
     padding-top: 3%;
     width: 35%;
     align-items: center;
     /* background-color: #fff; */
-}
-
-.container .direita {
-    width: 55%;
-    justify-content: space-around;
 }
 
 .container .esquerda h2 {
@@ -58,7 +130,61 @@
 }
 
 
+/* Div que contém o texto principal */
+.container .direita {
+    width: 55%;
+    justify-content: space-around;
+}
+
 /* Texto informativo */
-.container .direita p{
-    font-size: 22px;   
+.container .direita p {
+    font-size: 22px;
+}
+
+.container .direita a {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #383838;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 1024px) {
+
+    .container .esquerda h2,
+    .container .esquerda h4 {
+        font-size: 50px;
+    }
+
+    /* .container .direita {
+        justify-content: space-evenly;
+    } */
+
+    .container .direita p {
+        font-size: 20px;
+    }
+
+    .container .direita p:nth-child(3) {
+        display: block;
+    }
+
+    .container .direita p:nth-child(4) {
+        display: none;
+    }
+
+    .container .direita p:nth-child(5) {
+        visibility: hidden;
+    }
+
+
+@keyframes entradaTitulo {
+    0% {
+        left: 20px;
+        filter: opacity(0);
+    }
+
+    100% {
+        left: 8.7%;
+    }
+}
 }
