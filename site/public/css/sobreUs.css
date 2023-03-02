@@ -102,7 +102,7 @@ nav .navEs .signup {
 }
 
 .container .esquerda h2 {
-    font-size: 4.5em;
+    font-size: max(50px, 5.7vw);
     /* margin-bottom: 3%; */
     position: absolute;
     animation: entradaTitulo 2.5s ease-in-out;
@@ -120,7 +120,7 @@ nav .navEs .signup {
 }
 
 .container .esquerda h4 {
-    font-size: 4.5em;
+    font-size: max(45px, 4.3vw);
     font-weight: 100;
     margin-top: 25%;
 }
@@ -134,7 +134,7 @@ nav .navEs .signup {
 
 /* Texto informativo */
 .container .direita p {
-    font-size: 1.2em;
+    font-size: min(18px, 2vw);
 }
 
 /* Responsividade */
@@ -147,29 +147,14 @@ nav .navEs .signup {
 
 @media only screen and (max-width: 1184px) {
 
-    .container .esquerda h2,
-    .container .esquerda h4 {
-        font-size: 3em;
-    }
-
     .container .esquerda{
         padding-top: 0;
     }
-    /* .container .direita {
-        justify-content: space-evenly;
-    } */
 
-    .container .direita p {
-        font-size: 1em;
+    .container .direita p:nth-child(4){
+        display: none;
     }
-
-    /* .container .direita p:nth-child(3) {
-        display: block;
-    } */
-
-
-    .container .direita p:nth-child(5), p:nth-child(4) {
-        font-size: 0.2vh;
+    .container .direita p:nth-child(5) {
         display: flex;
         visibility: hidden;
     }
@@ -232,14 +217,24 @@ nav .navEs .signup {
 @media only screen and (max-width: 700px){
 
     .container .esquerda h2{
-        font-size: 3em;
-    }
-    .container .esquerda h4{
-        font-size: 2.7em;
+        font-size: max(40px, 4.3vw);
     }
 
+    .container .esquerda h4{
+        font-size: max(35px, 3.5vw);
+
+    }
+
+    .container .direita{
+        padding-top: 5%;
+        height: 70vh;
+    }
+    .container .direita p{
+        font-size: min(15px, 3vw);
+        padding-bottom: 5%;
+        z-index: 30;
+    }
     .container .direita p:nth-child(3){
-        font-size: 10px;
         visibility: hidden;
     }
 }
