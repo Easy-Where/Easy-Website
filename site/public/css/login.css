@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.background-img {
+	background-image: url('file:///C:/Users/dusda/Downloads/TelaLogin.png');
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.login-container {
+	background-color: rgba(255, 255, 255, 0);
+	padding: 40px;
+	text-align: center;
+    margin-left: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 80px;
+    margin-top: 30px;
+;
+
+}
+
+.text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+.text p{
+    margin-left: 0;
+    text-align: start;
+}
+.text h1{
+    margin-bottom: 30px;
+}
+
+
+input {
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+    height: 50px;
+    
+}
+
+.submit {
+	display: block;
+	margin: 20px auto;
+	padding: 10px;
+	width: 100%;
+	background-color: #232423;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+    height: 50px;
+}
+
+.voltar{
+    display: flex;
+}
+
+
+.content-login{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.select{
+    display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+    height: 50px;
+}
+
+.options-content{
+display: flex;
+flex-direction: row;
+align-items: center;
+align-content: space-between;
+justify-content: space-between;
+gap: 20px;
+}
