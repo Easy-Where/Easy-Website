@@ -3,6 +3,8 @@
     height: 100vh;
     width: 100vw;
     display: flex;
+    position: relative;
+    z-index: 1;
 }
 
 .menu {
@@ -100,6 +102,7 @@
     font-weight: 500;
     background-color: #FFFFFF;
     border-radius: 4px;
+    border: none;
 }
 
 button:hover {
@@ -117,4 +120,184 @@ button:hover {
     width: 100%;
     background-color: #FFFFFF;
     border-radius: 4px;
+}
+
+.adicionar {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.adicionar h1 {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.adicionar button {
+    width: 15vw;
+    height: 6vh;
+    background-color: #8172DD;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.lista {
+    width: 100%;
+    height: 80%;
+    padding: 20px;
+}
+
+.column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.column .name, .email, .senha, .funcao, .acess {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.column h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.column p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.body2 {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2.5px);
+    position: absolute;
+    z-index: 2;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.container2 {
+    width: 30vw;
+    height: 75vh;
+    background-color: rgba(37, 37, 37, 0.9);
+    border-radius: 5px;
+
+}
+
+.lines {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.lines .clear {
+    width: 80%;
+    height: 100%;
+}
+
+.lines .box {
+    width: 20%;
+    height: 100%;
+    padding: 30px 0px 0px 30px;
+}
+
+.line1 {
+    height: 0.3vh;
+    width: 1.5vw;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    margin: -1px 0px -2px;
+}
+
+.line2 {
+    height: 0.3vh;
+    width: 1.5vw;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+}
+
+.line1:hover, .line2:hover {
+    cursor: pointer;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #FFFFFF;
+    padding: 0px 5vw;
+}
+
+.labels h1 {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.labelBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    gap: 5px;
+}
+
+.labelBox label {
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.labelBox input {
+    width: 100%;
+    height: 5vh;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    font-size: 10px;
+}
+
+.labelBox select {
+    width: 100%;
+    height: 5vh;
+    border: none;
+    border-radius: 3px;
+    padding-left: 10px;
+    font-size: 10px;
+}
+
+.labels .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.labels .buttons button {
+    width: 50%;
+    height: 5vh;
+    font-weight: 600;
+    border-radius: 3px;
+    border: none;
+}
+
+.labels .buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
 }
