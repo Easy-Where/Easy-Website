@@ -125,3 +125,10 @@ width: 100%;
 	gap: 20px;
 	width: 100%;
 }
+.content-empresa{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
