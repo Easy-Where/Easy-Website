@@ -1,0 +1,68 @@
+.container{
+    height: 70vh;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.produto-main{
+    width: 40%;
+    padding: 20px;
+}
+
+.produto-main h1{
+    font-size: 60px;
+}
+
+.produto-main p{
+    font-size: 24px;
+    padding-top: 20px;
+}
+
+.box-monitoring{
+    background-color: #fff;
+    width: 35%;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px  1px 3px black;
+}
+
+.box-monitoring h2{
+    font-size: 30px;
+    padding: 20px 0 40px;
+}
+
+.box-monitoring p{
+    margin: 0 30px;
+    padding-bottom: 40px;
+}
+
+.box-monitoring b{
+    margin-right: 30px;
+    color: #000;
+    transition: 0.5s;
+}
+
+b{
+    color: #63B2F0;
+}
+
+.box-monitoring button{
+    background-color: #63B2F0;
+    width: 150px;
+    height: 35px;
+    margin: 0 30px;
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.box-monitoring button:hover{
+    scale: 1.05;
+    opacity: 0.9;
+}
+
+.box-monitoring:hover b {
+    color: #63B2F0;
+}
