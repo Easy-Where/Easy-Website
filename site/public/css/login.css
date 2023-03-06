@@ -43,6 +43,7 @@
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 0;
+	
 }
 .text p{
     margin-left: 0;
@@ -100,11 +101,13 @@ input {
 
 .options-content{
 display: flex;
-flex-direction: row;
-align-items: center;
-align-content: space-between;
-justify-content: space-between;
-gap: 20px;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+}
+.options-content input{
+	margin-bottom: 2px;
+	width: 100%;
 }
 
 .btn-voltar{
@@ -112,4 +115,13 @@ gap: 20px;
 	background-color: none;
 	cursor: pointer;
 	width: 0 auto;
+}
+
+.content-text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+	width: 100%;
 }
