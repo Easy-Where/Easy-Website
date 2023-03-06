@@ -112,7 +112,7 @@ b {
 
     .produto-main {
         width: 70%;
-        height: 40vh;
+        height: 30vh;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -131,10 +131,13 @@ b {
     }
 
     .box-monitoring p {
-        font-size: min(14px, 2.7vw);
+        font-size: min(18px, 2.9vw);
     }
-
-    .box-monitoring .botao {
+    .box-monitoring .texto{
+        height: 80%;
+    }
+    .box-monitoring .botao, .box-monitoring .titulo{
+        height: 10%;
         justify-content: center;
     }
 }
