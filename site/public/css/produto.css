@@ -1,40 +1,40 @@
-
 /* Identificador da página */
 .navbar a:nth-child(2) {
     text-decoration: underline 2px;
 }
 
-.container{
+.container {
     height: 80vh;
     padding-top: 50px;
     display: flex;
     justify-content: space-around;
 }
 
-.produto-main{
+.produto-main {
     width: 40%;
     padding: 20px;
 }
 
-.produto-main h1{
-    font-size: max(50px, 4.3vw);
+.produto-main h1 {
+    font-size: max(40px, 4vw);
 }
 
-.produto-main p{
+.produto-main p {
     font-size: 24px;
     padding-top: 20px;
 }
 
-.box-monitoring{
+.box-monitoring {
     background-color: #fff;
     width: 35%;
     height: 60vh;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 1px  1px 3px black;
+    box-shadow: 1px 1px 3px black;
 }
 
-.box-monitoring .titulo, .box-monitoring .botao{
+.box-monitoring .titulo,
+.box-monitoring .botao {
     width: 90%;
     height: 30%;
     margin: 0 auto;
@@ -44,7 +44,7 @@
     flex-direction: row;
 }
 
-.box-monitoring .texto{
+.box-monitoring .texto {
     width: 80%;
     height: 40%;
     margin: 0 auto;
@@ -54,27 +54,36 @@
     flex-direction: column;
 }
 
-.box-monitoring h2{
+.box-monitoring h2 {
     width: 100%;
     font-size: max(25px, 2.5vw);
     /* padding: 20px 0 40px; */
 }
 
-.box-monitoring p{
-    font-size: min(15px, 2.4vw);
+.box-monitoring p {
+    font-size: min(17px, 2.4vw);
 }
 
-.box-monitoring b{
+.box-monitoring b {
     margin-right: 3%;
     color: #000;
     transition: 0.5s;
 }
 
-b{
+b {
+    animation: titulo 3s forwards;
     color: #63B2F0;
 }
 
-.box-monitoring button{
+@keyframes titulo {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+.box-monitoring button {
     background-color: #63B2F0;
     width: 150px;
     height: 35px;
@@ -85,7 +94,7 @@ b{
     transition: 0.5s;
 }
 
-.box-monitoring button:hover{
+.box-monitoring button:hover {
     scale: 1.05;
     opacity: 0.9;
 }
@@ -94,25 +103,38 @@ b{
     color: #63B2F0;
 }
 
-@media only screen and (max-width: 1000px){
-    .container{
+@media only screen and (max-width: 1000px) {
+    .container {
         flex-direction: column;
         padding: 0;
         margin: 0;
     }
 
-    .produto-main{
+    .produto-main {
         width: 70%;
-        height: 30vh;
+        height: 40vh;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         padding: 0;
     }
-    .box-monitoring{
+
+    .box-monitoring {
         width: 80%;
         height: 40vh;
         margin: 0 auto;
+    }
+
+    .box-monitoring b {
+        color: #63B2F0;
+    }
+
+    .box-monitoring p {
+        font-size: min(14px, 2.7vw);
+    }
+
+    .box-monitoring .botao {
+        justify-content: center;
     }
 }
