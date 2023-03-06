@@ -28,9 +28,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+	align-items: center;
     width: 100%;
     margin-bottom: 80px;
     margin-top: 30px;
+	
 ;
 
 }
@@ -103,4 +105,11 @@ align-items: center;
 align-content: space-between;
 justify-content: space-between;
 gap: 20px;
+}
+
+.btn-voltar{
+	border: none;
+	background-color: none;
+	cursor: pointer;
+	width: 0 auto;
 }
