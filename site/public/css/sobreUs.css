@@ -11,6 +11,7 @@ nav {
     width: 100%;
     display: none;
     justify-content: space-between;
+    flex-direction: row-reverse;
     padding: 0px 30px 20px 30px;
     align-items: center;
 }
@@ -22,9 +23,9 @@ nav .hambur span {
 
 .fecharNav {
     position: absolute;
+    z-index: 1500;
     /* top: 0; */
-    right: -10%;
-    transform: rotate(180deg);
+    left: -10%;
     transition: all 2s;
     cursor: pointer;
 }
@@ -37,11 +38,12 @@ nav .navEs {
     align-items: center;
     flex-direction: column;
     position: absolute;
-    right: -80%;
+    left: -80%;
     top: 0;
-    z-index: 10;
-    background-color: #f1f1f1;
+    z-index: 1000;
+    background-color: #f1f1f1ff;
     transition: all 2s ease-out;
+    box-shadow: 1px 0 10px 0px #383838;
 }
 
 nav .navEs .navbar,
@@ -50,6 +52,10 @@ nav .navEs .signup {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+nav .navEs .navbar{
+    flex-direction: column-reverse;
 }
 
 nav .navEs .signup {
@@ -110,12 +116,11 @@ nav .navEs .signup {
 
 @keyframes entradaTitulo {
     0% {
-        left: 50px;
         filter: opacity(0);
     }
 
     100% {
-        left: 11.99999%;
+        filter: opacity(1);
     }
 }
 
@@ -134,7 +139,7 @@ nav .navEs .signup {
 
 /* Texto informativo */
 .container .direita p {
-    font-size: min(18px, 2vw);
+    font-size: min(20px, 1.9vw);
 }
 
 /* Responsividade */
@@ -158,32 +163,9 @@ nav .navEs .signup {
         display: flex;
         visibility: hidden;
     }
-
-
-    @keyframes entradaTitulo {
-        0% {
-            left: 20px;
-            filter: opacity(0);
-        }
-
-        100% {
-            left: 10%;
-        }
-    }
 }
 
 @media only screen and (max-width: 1000px){
-
-    @keyframes entradaTitulo {
-        0% {
-            left: 20px;
-            filter: opacity(0);
-        }
-
-        100% {
-            left: 14.5%;
-        }
-    }
 
     .container {
         width: 95%;
