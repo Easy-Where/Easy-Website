@@ -10,37 +10,62 @@
 
     <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login-and-register.css">
 
 </head>
 <body>
 
-    <div class="background-img" style="background-image: url(assets/imgs/TelaCadastro.png);"></div>
-	<div class="login-container">
-		<form class="content-login">
-            <div class="content">
-                <button class="btn-voltar"><img src="assets/imgs/back.png" alt=""></button>
-            <h3>Easy•Ware</h3>
-            </div>
-            <div class="text"><h1>Registro Pessoal</h1>
-                
-			<div class="content-text">
-                <input class="text" placeholder="Nome">
-            <input class="text" placeholder="Sobrenome">
-            </div>
-			
-            <input class="text" placeholder="E-mail">
-
-            <div class="options-content">
-                <input class="password" placeholder="Senha">
-                <input class="password" placeholder="Confirmar Senha">
-
+    <div class="container-fix">
+        <div class="background-img"></div>
+        
+        <div class="login-container">
+            <div class="content-login">
+                <div class="content">
+                    <a href="index.html">
+                        <button class="btn-voltar">
+                            <img src="assets/imgs/back.png" alt="">
+                            <p>Voltar</p>
+                        </button>
+                    </a>
+                        <h2>Easy•Ware</h2>
                 </div>
-			
-			<button class="submit">Avançar</button>
-            <p>Já tem conta? <b>Clique aqui</b></p>
-		</form>
-	</div>
+    
+                <div class="text">
+                    <h1>Registro Pessoal</h1>
+                </div>
+
+                <div class="content-text">
+                    <div class="content-text-name">
+                        <label for="Name">Nome</label>
+                        <input class="text" placeholder="Nome">
+                    </div>
+                    <div class="content-text-sobrenome">
+                        <label for="Sobrenome">Sobrenome</label>
+                        <input class="text" placeholder="Sobrenome">
+                    </div>
+                </div>
+    
+                    <div class="content-text-email">
+                        <label for="Email">Email</label>
+                        <input class="text" placeholder="E-mail">
+                    </div>
+    
+                <!-- <div class="options-content"> -->
+                    <div class="content-text-password">
+                        <label for="Password">Senha</label>
+                        <input class="password" placeholder="Senha">
+                    </div>
+                    <div class="content-text-passwordConfirm">
+                        <label for="PasswordConfirm">Confirmar Senha</label>
+                        <input class="password" placeholder="Confirmar Senha">
+                    </div>
+                <!-- </div> -->
+                
+                <button class="submit"><a href="cadastroEmpresa.html">Avançar</a></button>
+                <p>Já tem conta? <b><a href="login.html" style="color: black;">Clique aqui</a></b></p>
+                </div>
+        </div>
+    </div>
 
 </body>
 </html>

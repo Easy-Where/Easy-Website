@@ -1,0 +1,186 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container-fix {
+	width: 100%;
+	height: 100vh;
+	background-image: url(../assets/imgs/background-register.png);
+	background-size: cover;
+	display: flex;
+
+}
+
+.background-img {
+	background-image: url(../assets/imgs/mulher-home-office.png);
+	background-size: cover;
+	width: 150%;
+	height: 100vh;
+}
+
+.login-container {
+	background-color: rgba(255, 255, 255, 0);
+	/* padding: 40px; */
+	/* text-align: center; */
+    /* margin-left: 800px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 0;
+	padding: 2% 6% 2% 6%;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	align-items: center;
+    width: 100%;
+    /* margin-bottom: 80px; */
+    /* margin-top: 30px; */
+	height: 10vh
+;
+
+}
+
+/* .text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 0;
+	padding: 4%;
+} */
+
+.text p{
+    margin-left: 0;
+    text-align: start;
+}
+
+.text h1{
+    margin-bottom: 20px;
+	font-weight: 500;
+}
+
+input {
+	display: flex;
+	/* margin: 20px auto; */
+	padding: 10px;
+	width: 100%;
+	border-radius: 6px;
+	border: none;
+    height: 50px;
+    border: 1px solid #979797;
+	color: #979797;;
+}
+
+.submit {
+	display: block;
+	margin: 20px auto;
+	padding: 10px;
+	width: 100%;
+	background-color: #232423;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+    height: 50px;
+}
+
+.voltar{
+    display: flex;
+}
+
+
+.content-login{
+    width: 100%;
+	height: 100vh;
+    margin: 0;
+}
+
+.select{
+    display: flex;
+	/* margin: 20px auto; */
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+    height: 50px;
+	border: 1px solid #979797;
+	background-color: white;
+	color: gray;
+}
+
+/* .options-content{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+} */
+
+/* .options-content input{
+	margin-bottom: 2px;
+	width: 100%;
+} */
+
+.btn-voltar{
+	border: none;
+	background-color: none;
+	cursor: pointer;
+	background-color: #f1f1f1;
+	width: 10vw;
+	display: flex;
+	gap: 10px;
+	justify-content: start;
+	align-items: center;
+}
+
+.btn-voltar img {
+	width: 30px;
+}
+
+.content-text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 20px;
+	width: 100%;
+	/* height: 100%; */
+}
+
+.content-text-name, .content-text-sobrenome, 
+	.content-text-email, .content-text-password,
+		.content-text-passwordConfirm, .content-empresa,
+			.content-cnpj {
+	width: 100%;
+	height: 13vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	gap: 10px;
+}
+
+.login-container label {
+	margin-left: 0px;
+	color: #242424;
+	font-size: 15px;
+}
+
+h2 {
+	font-weight: 500;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}

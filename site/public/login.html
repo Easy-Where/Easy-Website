@@ -11,38 +11,60 @@
     <script src="./js/funcoes.js"></script>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login-and-register.css">
 
 </head>
 
 <body>
 
-    
-	<div class="background-img"></div>
-	<div class="login-container">
-		<form class="content-login">
-            <div class="content">
-                <button class="btn-voltar"><img src="assets/imgs/back.png" alt=""></button>
-            <h3>Easy•Ware</h3>
+    <div class="container-fix" style="background-image: url(../public/assets/imgs/background-login.png);">
+        <div class="background-img"></div>
+
+        <div class="login-container">
+            <div class="content-login">
+
+                <div class="content">
+                    <a href="index.html">
+                        <button class="btn-voltar">
+                            <img src="assets/imgs/back.png" alt="">
+                            <p>Voltar</p>
+                        </button>
+                    </a>
+                        <h2>Easy•Ware</h2>
+                </div>
+
+                <div class="text"><h1>Login</h1>
+                    <p class="description" style="margin-bottom: 20px;">
+                        Seja bem-vindo de volta!
+                        <br>por favor entre com suas informações
+                    </p>
+                
+                        <div class="content-text-email">
+                            <label for="Email">Email</label>
+                            <input class="text" placeholder="Insira seu Email">
+                        </div>
+                        
+                        <div class="content-text">
+                            <div class="content-text-password">
+                                <label for="Senha">Senha</label>
+                                <input class="password" placeholder="Senha">
+                            </div>
+                            <div class="content-text-email">
+                                <label for="Cargo">Cargo</label>
+                                <select name="slc-cargo" class="select">
+                                    <option value="">Informe o seu cargo</option>
+                                    <option value="gerente">Gerente</option>
+                                    <option value="ti">Técnico de TI</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button class="submit"><a href="dashboard/dashboard.html">Entrar</a></button>
+                        <p>Não tem conta? <b><a href="cadastroPessoal.html" style="color: black;">Clique aqui</a></b></p>
+                </div>
             </div>
-            <div class="text"><h1>Login</h1>
-                <p class="description">Seja bem-vindo de volta!
-                    <br>por favor entre com suas informações</p></div>
-			
-			<input class="text" placeholder="Usuário">
-            <div class="options-content"><input class="password" placeholder="Senha">
-                <select name="slc-cargo" class="select">
-                    <option value="">Informe o seu cargo</option>
-                    <option value="gerente">Gerente</option>
-                    <option value="ti">Técnico de TI</option>
-                </select></div>
-			
-			<button class="submit">Entrar</button>
-            <p>Não tem conta? <b>Clique aqui</b></p>
-		</form>
-	</div>
-
-
+        </div>
+    </div>
 
 </body>
 
