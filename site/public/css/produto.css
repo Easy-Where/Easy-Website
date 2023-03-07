@@ -131,7 +131,7 @@ b {
     }
 
     .box-monitoring p {
-        font-size: min(20px, 3vw);
+        font-size: min(22px, 3vw);
     }
     .box-monitoring .texto{
         height: 80%;
