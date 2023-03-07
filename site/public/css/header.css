@@ -1,59 +1,59 @@
 .header {
-  height: 15vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 30px 20px 30px;
-  align-items: center;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px 20px 30px;
+    align-items: center;
 
 }
 
 h1 {
-  font-size: 25px;
-  color: aqua;
+    font-size: 25px;
+    color: aqua;
 }
 
 .navbar {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
 }
 
-.navbar a,
+.navbar a, 
 .signup a {
-  text-decoration: none;
-  text-transform: none;
-  color: #252525;
+    text-decoration: none;
+    text-transform: none;
+    color: #252525;
 }
 
 .signup {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup a {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .signup button {
-  width: 130px;
-  height: 30px;
-  background-color: #252525;
-  border-radius: 5px;
-  color: #f1f1f1;
-  font-size: 14px;
-  border: 0;
+    width: 130px;
+    height: 30px;
+    background-color: #252525;
+    border-radius: 5px;
+    color: #f1f1f1;
+    font-size: 14px;
+    border: 0;
 }
 
 button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .container {
-  width: 100%;
-  height: 85vh;
+    width: 100%;
+    height: 85vh;
 }
 
 nav {
@@ -115,14 +115,73 @@ nav .navEs .signup {
 
 
 
-/* Responsividade da Nav */
-@media only screen and (max-width: 1000px) {
-
-  .header {
+nav {
+    height: 15vh;
+    width: 100%;
     display: none;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0px 30px 20px 30px;
+    align-items: center;
   }
-
-  nav {
+  
+  nav .hambur span {
+    font-size: 35px;
+    cursor: pointer;
+  }
+  
+  .fecharNav {
+    position: absolute;
+    z-index: 1500;
+    /* top: 0; */
+    left: -10%;
+    transition: all 1s ease-in;
+    cursor: pointer;
+  }
+  
+  nav .navEs {
+    width: 60%;
+    height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: -80%;
+    top: 0;
+    z-index: 1000;
+    background-color: #f1f1f1ff;
+    transition: all 2s ease-out;
+    box-shadow: 1px 0 10px 0px #383838;
   }
-}
+  
+  nav .navEs .navbar,
+  nav .navEs .signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  nav .navEs .navbar {
+    flex-direction: column-reverse;
+  }
+  
+  nav .navEs .signup {
+    margin-top: 15%;
+  }
+  
+  
+  
+  
+  /* Responsividade da Nav */
+  @media only screen and (max-width: 1000px) {
+  
+    .header {
+      display: none;
+    }
+  
+    nav {
+      display: flex;
+    }
+  }
