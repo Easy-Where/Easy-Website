@@ -1,0 +1,83 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textHome {
+    height: 500px;
+    width: 100%;
+    margin: 0 2%;
+}
+
+.divShadow {
+    position: absolute;
+    background-color: rgba(99, 178, 240, 1);
+    height: 55px;
+    width: 27%;
+    z-index: -1;
+    margin-left: -1%;
+    margin-top: 1.4%;
+}
+
+.textShadow {
+    height: 300px;
+    font-size: 60px;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.textHome p {
+    font-size: 20px;
+    margin-bottom: 2%;
+}
+
+.textHome button {
+    width: 200px;
+    height: 55px;
+    background-color: rgba(99, 178, 240, 1);
+    border-radius: 5px;
+    color: #252525;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ultimaDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+
+}
+
+.ultimaFrase{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.img1, .img2{
+    
+    width: 35%;
+    /* height: 60%; *
+    z-index: 2;
+    /* rotate:calc(30deg); */
+}
+
+.img1{
+    margin-top: -12%;
+    rotate:calc(5deg);
+    position: absolute;
+    margin-left: -46%;
+}
+
+.img2{
+    margin-top: -16%;
+    rotate:calc(-5deg);
+    position: absolute;
+   margin-left: -50%;
+}
