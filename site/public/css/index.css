@@ -1,35 +1,100 @@
 
 .container {
+    width: 100%;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .textHome {
-    height: 500px;
-    width: 85%;
-    margin: 0 auto;
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.textHome  .textShadow {
+    width: 80%;
+    height: 30vh;
+    font-size: 60px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: #f50; */
+}
+.textHome .textShadow  h2{
+    font-size: max(45px, 3.4vw);
 }
 
+.textHome .textoInfo{
+    width: 80%;
+    height: 10vh;
+}
+
+.textHome .textoInfo p{
+    font-size: max(20px, 1.5vw);
+}
+
+
 .divShadow {
+    width: 100%;
+    height: 55px;
     position: absolute;
     background-color: rgba(99, 178, 240, 1);
-    height: 55px;
     width: 27%;
     z-index: -1;
     margin-left: -1%;
     margin-top: 1.4%;
 }
 
-.textShadow {
-    height: 300px;
-    font-size: 60px;
-    font-weight: 800;
+.ultimaDiv{
+    width: 80%;
+    height: 10vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ultimaDiv button{
+    width: 25%;
+    height: 6vh;
+    background-color: #63B2F0;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    font-size: 18px;
+    margin-right: 5%;
+}
+.ultimaDiv button:hover{
+    transform: scale(1.1);
+}
+.imagens{
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
+.imagens img{
+    width: 35%;
+    height: 45vh;
+    position: absolute;
+    border-radius: 15px;
+}
+
+.imagens img:nth-child(2){
+    bottom: 25%;
+    right: 20%;
+    transform: rotate(-20deg);
+    box-shadow: 1px 0 10px 1px #050505;
+}
+
+/*
 .textHome p {
     font-size: 20px;
     margin-bottom: 2%;
@@ -46,14 +111,6 @@
     font-weight: 600;
 }
 
-.ultimaDiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 25%;
-
-}
-
 .ultimaFrase{
     font-size: 12px;
     font-weight: 600;
@@ -65,7 +122,7 @@
     width: 35%;
     /* height: 60%; *
     z-index: 2;
-    /* rotate:calc(30deg); */
+    /* rotate:calc(30deg); 
     border-radius: 20px;
 }
 
@@ -81,4 +138,59 @@
     rotate:calc(-5deg);
     position: absolute;
    margin-left: -50%;
+}
+
+
+*/
+@media only screen and (max-width: 1350px) {
+    .imagens img{
+        width: max(100px, 40%);
+        height: max(100px, 35vh);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .textHome{
+        width: 100%;
+    }
+
+    .imagens img{
+        width: max(430px, 2.5vw);
+        height: max(240px, 20vh);
+        bottom: 10% !important;
+        right: auto !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .textHome .textShadow {
+        height: 20vh;
+    }
+    .textHome .textShadow h2{
+        font-size: 40px;
+    }
+
+    .textHome .textoInfo{
+        font-size: 20px;
+    }
+    
+    .textHome .ultimaDiv {
+        height: 10vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .textHome .ultimaDiv button{
+        width: 50%;
+    }
+    .imagens img{
+        width: max(400px, 2.5vw);
+        height: max(230px, 20vh);
+    }
 }
