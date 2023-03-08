@@ -41,13 +41,13 @@
                 
                         <div class="content-text-email">
                             <label for="Email">Email</label>
-                            <input class="text" placeholder="Insira seu Email">
+                            <input id="email_input.value" class="text" placeholder="Insira seu Email">
                         </div>
                         
                         <div class="content-text">
                             <div class="content-text-password">
                                 <label for="Senha">Senha</label>
-                                <input class="password" placeholder="Senha">
+                                <input id="senha_input.value" class="password" placeholder="Senha">
                             </div>
                             <div class="content-text-email">
                                 <label for="Cargo">Cargo</label>
@@ -115,7 +115,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dashboard/dashboardGerente.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

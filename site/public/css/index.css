@@ -42,7 +42,7 @@
     border-radius: 5px;
     color: #252525;
     border: 0;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -51,7 +51,7 @@
     justify-content: space-between;
     align-items: center;
     width: 25%;
-
+    gap: 20px;
 }
 
 .ultimaFrase{
@@ -79,5 +79,5 @@
     margin-top: -16%;
     rotate:calc(-5deg);
     position: absolute;
-   margin-left: -50%;
+    margin-left: -50%;
 }
