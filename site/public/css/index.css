@@ -206,5 +206,6 @@
   .imagens img {
     width: max(300px, 2.5vw);
     height: max(200px, 20vh);
+    bottom: 15% !important;
   }
 }
