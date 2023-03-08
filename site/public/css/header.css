@@ -135,7 +135,7 @@ nav {
     z-index: 1500;
     /* top: 0; */
     left: -10%;
-    transition: all 1s ease-in;
+    transition: all 1.4s ease-in;
     cursor: pointer;
   }
   

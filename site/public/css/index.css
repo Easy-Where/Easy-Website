@@ -7,8 +7,8 @@
 
 .textHome {
     height: 500px;
-    width: 100%;
-    margin: 0 2%;
+    width: 85%;
+    margin: 0 auto;
 }
 
 .divShadow {
@@ -66,6 +66,7 @@
     /* height: 60%; *
     z-index: 2;
     /* rotate:calc(30deg); */
+    border-radius: 20px;
 }
 
 .img1{
