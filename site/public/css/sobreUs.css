@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
 
-/* Identificador da página */
-.navbar a:nth-child(1) {
-    text-decoration: underline 2px;
-}
 
 
 /* Div princial que contém todo conteúdo fora a nav */
-.container {
+.container:nth-child(3) {
     display: flex;
     align-items: center;
     justify-content: space-around;

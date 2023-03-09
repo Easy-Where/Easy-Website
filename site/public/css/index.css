@@ -1,4 +1,13 @@
-.container {
+section{
+  width: 300%;
+  height: 100vh; 
+  display: flex;
+  position: relative;
+  right: 0;
+  transition: all 0.8s;
+}
+
+.container:nth-child(1) {
   width: 100%;
   height: 80vh;
   display: flex;
