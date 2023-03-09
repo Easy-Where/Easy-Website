@@ -13,7 +13,7 @@
 }
 
 .produto-main h1 {
-    font-size: max(40px, 4vw);
+    font-size: max(30px, 3.3vw);
 }
 
 .produto-main p {
@@ -130,6 +130,10 @@ b {
 
     .box-monitoring p {
         font-size: min(22px, 3vw);
+    }
+
+    .box-monitoring .titulo h2 {
+        font-size: max(25px, 3vw);
     }
     .box-monitoring .texto{
         height: 70%;
