@@ -10,7 +10,14 @@
 	background-image: url(../assets/imgs/background-register.png);
 	background-size: cover;
 	display: flex;
+}
 
+.container-fix2 {
+	width: 100%;
+	height: 100vh;
+	background-image: url(../assets/imgs/background-login.png);
+	background-size: cover;
+	display: flex;
 }
 
 .background-img {
@@ -183,4 +190,12 @@ h2 {
 a {
 	color: white;
 	text-decoration: none;
+}
+
+input:focus {
+	color: #232423;
+}
+
+select:focus {
+	color: #232423;
 }
