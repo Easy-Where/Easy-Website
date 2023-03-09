@@ -54,7 +54,7 @@
 
 .box-monitoring h2 {
     width: 100%;
-    font-size: max(25px, 2.5vw);
+    font-size: max(24px, 2.5vw);
     /* padding: 20px 0 40px; */
 }
 
@@ -132,10 +132,14 @@ b {
         font-size: min(22px, 3vw);
     }
     .box-monitoring .texto{
-        height: 80%;
+        height: 70%;
     }
     .box-monitoring .botao, .box-monitoring .titulo{
-        height: 10%;
+        height: 20%;
         justify-content: center;
+    }
+
+    .box-monitoring .botao {
+        align-items: flex-start;
     }
 }

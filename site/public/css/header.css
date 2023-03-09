@@ -58,7 +58,8 @@ button:hover {
 }
 
 nav {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   height: 10vh;
   display: none;
   justify-content: space-between;
