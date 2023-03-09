@@ -1,9 +1,6 @@
-/* Identificador da página */
-.navbar a:nth-child(2) {
-    text-decoration: underline 2px;
-}
 
-.container {
+
+.container:nth-child(2) {
     height: 80vh;
     padding-top: 50px;
     display: flex;
