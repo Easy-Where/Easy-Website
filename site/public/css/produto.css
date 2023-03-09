@@ -133,7 +133,7 @@ b {
     }
 
     .box-monitoring .titulo h2 {
-        font-size: max(25px, 3vw);
+        font-size: max(18px, 2.7vw);
     }
     .box-monitoring .texto{
         height: 70%;
