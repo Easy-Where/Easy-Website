@@ -8,14 +8,14 @@ function regis() {
 
 // Navbar Responsividade
 function mostrarNav() {
-    document.getElementById('nave').style.top = "0"
-    document.getElementById('fe-nave').style.top = "3%"
+    document.getElementById('nave').style.left = "0"
+    document.getElementById('fe-nave').style.left = "47%"
 }
 
 function feNave() {
     
-    document.getElementById('nave').style.top = "-110%"
-    document.getElementById('fe-nave').style.top = "-70%"
+    document.getElementById('nave').style.left = "-110%"
+    document.getElementById('fe-nave').style.left = "-70%"
 }
 
 var pagina = document.getElementById('section').style

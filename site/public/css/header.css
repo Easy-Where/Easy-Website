@@ -78,11 +78,10 @@ nav .hambur span {
   position: absolute;
   z-index: 1500;
   /* top: 0; */
-  top: -30%;
-  left: 50%;
-  transition: all 2s ;
+  left: -30%;
+  top: 3%;
+  transition: all 1s ;
   cursor: pointer;
-  transform: rotate(90deg);
 }
 
 nav .navEs {
@@ -93,11 +92,11 @@ nav .navEs {
   align-items: center;
   flex-direction: column;
   position: absolute;
-  left: 0%;
-  top: -110%;
+  left: -110%;
+  top: 0%;
   z-index: 1000;
   background-color: #f1f1f1ff;
-  transition: all 1.4s ease-out;
+  transition: all 0.6s ease-out;
   box-shadow: 1px 0 10px 0px #383838;
 }
 
