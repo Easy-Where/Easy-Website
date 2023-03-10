@@ -1,5 +1,3 @@
-
-
 .container:nth-child(2) {
     height: 80vh;
     padding-top: 50px;
@@ -9,6 +7,7 @@
 
 .produto-main {
     width: 40%;
+    height: 50vh;
     padding: 20px;
 }
 
@@ -59,7 +58,7 @@
 }
 
 .box-monitoring p {
-    font-size: min(17px, 2.4vw);
+    font-size: min(20px, 2vw);
 }
 
 .box-monitoring b {
@@ -69,27 +68,33 @@
 }
 
 b {
-    animation: titulo 3s forwards;
     color: #63B2F0;
+}
+
+.efeito2 {
+    animation: titulo 3s forwards;
 }
 
 @keyframes titulo {
     0% {
         opacity: 0;
-    } 100% {
+    }
+
+    100% {
         opacity: 1;
     }
 }
 
 .box-monitoring button {
     background-color: #63B2F0;
-    width: 150px;
-    height: 35px;
+    width: 35%;
+    height: 6vh;
     /* margin: 0 30px; */
     border-radius: 15px;
     border: none;
     font-weight: bold;
     transition: 0.5s;
+    font-size: 15px;
 }
 
 .box-monitoring button:hover {
@@ -99,6 +104,18 @@ b {
 
 .box-monitoring:hover b {
     color: #63B2F0;
+}
+
+@media only screen and (max-width: 1350px) {
+    .box-monitoring .texto p {
+        font-size: 17px;
+    }
+
+    .box-monitoring button {
+        width: 35%;
+        height: 5vh;
+        font-size: 15px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -122,28 +139,54 @@ b {
         width: 80%;
         height: 40vh;
         margin: 0 auto;
+        padding-bottom: 10%;
     }
 
     .box-monitoring b {
         color: #63B2F0;
     }
 
-    .box-monitoring p {
+    .box-monitoring .texto p {
         font-size: min(22px, 3vw);
     }
 
     .box-monitoring .titulo h2 {
-        font-size: max(18px, 2.7vw);
+        font-size: max(25px, 2.9vw);
     }
-    .box-monitoring .texto{
+
+    .box-monitoring .texto {
         height: 70%;
     }
-    .box-monitoring .botao, .box-monitoring .titulo{
+
+    .box-monitoring .botao,
+    .box-monitoring .titulo {
         height: 20%;
         justify-content: center;
     }
 
     .box-monitoring .botao {
-        align-items: flex-start;
+        height: 8vh;
+        align-items: flex-end;
+    }
+
+    .box-monitoring button {
+        width: 35%;
+        height: 5vh;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .box-monitoring .texto {
+        height: 20vh;
+    }
+
+    .box-monitoring .texto p {
+        font-size: min(20px, 2.7vw);
+    }
+
+    .box-monitoring .botao {
+        height: 6vh;
     }
 }
