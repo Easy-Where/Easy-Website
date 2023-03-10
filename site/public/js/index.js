@@ -2,6 +2,10 @@ function pageHome() {
     window.location = "./index.html"
 }
 
+function regis() {
+    window.location = "./cadastroPessoal.html"
+}
+
 // Navbar Responsividade
 function mostrarNav() {
     document.getElementById('nave').style.top = "0"
