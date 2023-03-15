@@ -11,6 +11,7 @@
 h1 {
   font-size: 30px;
   color: #252525;
+  cursor: pointer;
 }
 
 .navbar {
