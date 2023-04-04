@@ -1,0 +1,363 @@
+:root {
+    --blue-light: #b8d6f1;
+    --mid-blue: #329afc;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textodivulga {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 200;
+    font-size: 60px;
+    color: var(--luz);
+    margin-top: 130px;
+    text-align: center;
+}
+
+.textodivulga h1 {
+    font-weight: 300;
+}
+
+.textodivulga span {
+    color: var(--clr);
+}
+
+.cardempresa {
+    border-radius: 30px;
+    height: 90%;
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    margin: 40px;
+    color: var(--luz);
+}
+
+.segmento {
+    width: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+}
+
+.face {
+    width: 300px;
+    height: 200px;
+}
+
+.face1 {
+    position: relative;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+    border-radius: 30px;
+}
+
+.card:hover .face.face1 {
+    transform: rotateY(0);
+    box-shadow: inset 0 0 60px whitesmoke,
+        inset 20px 0 80px var(--clr),
+        inset -20px 0 80px #0ff,
+        inset 20px 0 300px var(--clr),
+        inset -20px 0 300px #0ff,
+        0 0 50px #fff,
+        -10px 0 80px var(--clr),
+        10px 0 80px #0ff;
+    border-radius: 30px 30px 0 0;
+    transition: .6s;
+}
+
+.card:not(:hover) .face.face1 {
+    transition: .6s;
+}
+
+.content {
+    transition: .5s;
+    text-align: center;
+}
+
+.card:hover .face.face1 .content {
+    opacity: 1;
+}
+
+.content i {
+    font-size: 3em;
+    color: white;
+    display: inline-block;
+}
+
+.content h1 {
+    font-size: 1em;
+    color: white;
+    text-align: center;
+}
+
+.content a {
+    transition: .5s;
+}
+
+.face2 {
+    position: relative;
+    background: var(--luz);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px #000000cc;
+    transform: translateY(-100px);
+    border-radius: 35px;
+}
+
+.card:hover .face.face2 {
+    transform: translateY(0);
+    border-radius: 0 0 30px 30px;
+    transition: .6s;
+}
+
+.card:not(:hover) .face.face2 {
+    transition: .6s;
+}
+
+.content a {
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: var(--bg-color);
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content a:hover {
+    background: var(--clr);
+}
+
+.content p {
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.content img {
+    width: 150px;
+    border-radius: 500px;
+}
+
+.content i {
+    font-size: 30px;
+    color: var(--luz);
+}
+
+.contato {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    height: 60px;
+}
+
+.textovalores {
+    font-weight: 200;
+    font-size: 60px;
+    color: var(--luz);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.textovalores h1 {
+    font-weight: 300;
+}
+
+.textovalores span {
+    color: var(--clr);
+}
+
+.cardliquido {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.square {
+    position: relative;
+    margin: 0 10px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square span:nth-child(1) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--mid-blue);
+    border-radius: 32% 58% 69% 43% / 48% 32% 59% 55%;
+    transition: 0.5s;
+    animation: animate 6s linear infinite;
+}
+
+.linkedin:hover span:nth-child(1) {
+    border: none;
+    background: var(--mid-blue);
+}
+
+.twitter:hover span:nth-child(1) {
+    border: none;
+    background: var(--mid-blue);
+}
+
+.github:hover span:nth-child(1) {
+    border: none;
+    background: var(--mid-blue);
+}
+
+.square span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--blue-light);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    transition: 0.5s;
+    animation: animate 6s linear infinite;
+}
+
+.linkedin:hover span:nth-child(2) {
+    border: none;
+    background: var(--blue-light);
+}
+
+.twitter:hover span:nth-child(2) {
+    border: none;
+    background: var(--blue-light);
+}
+
+.github:hover span:nth-child(2) {
+    border: none;
+    background: var(--blue-light);
+}
+
+.square span:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--clr);
+    border-radius: 31% 45% 74% 35% / 38% 56% 51% 87%;
+    transition: 0.5s;
+    animation: animate2 10s linear infinite;
+}
+
+.linkedin:hover span:nth-child(3) {
+    border: none;
+    background: var(--clr);
+}
+
+.twitter:hover span:nth-child(3) {
+    border: none;
+    background: var(--clr);
+}
+
+.github:hover span:nth-child(3) {
+    border: none;
+    background: var(--clr);
+}
+
+.conteudo {
+    position: relative;
+    padding: 40px 60px;
+    text-align: center;
+    transition: 0.5s;
+    z-index: 1;
+    color: var(--luz);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.square:hover {
+    color: white;
+}
+
+.conteudo i{
+    font-size: 30px;
+    margin: 15px;
+}
+
+.conteudo label {
+    position: relative;
+    margin-top: 10px;
+    border: 2px solid #ffffff;
+    padding: 6px 18px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+    font-size: 25px;
+}
+
+.conteudo:hover {
+    color: #ffffff;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.textocolaboradores{
+    font-size: 60px;
+    color: var(--luz);
+    margin: 100px 0 50px 0;
+    text-align: center;
+}
+
+.textocolaboradores h1 {
+    font-weight: 300;
+}
+
+.textocolaboradores span {
+    color: var(--clr);
+}

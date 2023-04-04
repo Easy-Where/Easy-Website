@@ -1,0 +1,449 @@
+/* Preparando CSS e padronizando elementos */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #252525;
+    --luz: #f1f1f1;
+    --clr: rgb(17, 117, 209);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: #25252511;
+    backdrop-filter: blur(30px);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1175d1;
+    border-radius: 1px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+
+    list-style: none;
+    text-decoration: none;
+
+    font-size: 100%;
+    vertical-align: baseline;
+
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    background: var(--bg-color);
+    padding: .3rem;
+    height: 90px;
+    position: fixed;
+    z-index: 10;
+    transition: .5s ease;
+
+    background: #25252511;
+    backdrop-filter: blur(30px);
+}
+
+button {
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Blur */
+.efeito-blur {
+    width: 100%;
+    max-width: 1920px;
+    position: absolute;
+    z-index: -1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+
+}
+
+.lado {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50rem;
+}
+
+.blur {
+    position: relative;
+    opacity: .5;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(200px);
+    background-color: var(--clr);
+}
+
+.lado.direito {
+    padding-top: 40rem;
+}
+
+.lado.esquerdo .blur:nth-child(1),
+.lado.esquerdo .blur:nth-child(2),
+.lado.esquerdo .blur:nth-child(3) {
+    right: 10rem;
+    bottom: 10rem;
+}
+
+.lado.direito .blur:nth-child(1),
+.lado.direito .blur:nth-child(2),
+.lado.direito .blur:nth-child(3) {
+    position: relative;
+    bottom: 10rem;
+    left: 10rem;
+}
+
+
+@media screen and (max-width: 720px) {
+    .blur {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.secoes ul {
+    position: relative;
+    display: flex;
+    gap: 40px;
+}
+
+.secoes ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.secoes ul li a {
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--luz);
+}
+
+.secoes ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    color: var(--clr);
+    width: 0;
+    overflow: hidden;
+    transition: .5s;
+    border-right: 2px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+}
+
+.secoes ul li a:hover::before {
+    width: 100%;
+    filter: drop-shadow(0 0 25px var(--clr));
+}
+
+.btnconectar a {
+    position: relative;
+    background: var(--luz);
+    color: var(--luz);
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.btnconectar a:hover {
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+
+.btnconectar a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--bg-color);
+}
+
+.btnconectar a span {
+    position: relative;
+    z-index: 1;
+}
+
+.btnconectar a i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.btnconectar a i::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background: var(--bg-color);
+    transform: translate(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.btnconectar a:hover i::before {
+    width: 20px;
+    left: 20%;
+}
+
+.btnconectar a i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background: var(--bg-color);
+    transform: translate(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.btnconectar a:hover i::after {
+    width: 20px;
+    left: 80%;
+}
+
+/* Footer */
+
+footer {
+    height: 400px;
+    background: var(--clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teste {
+    background: var(--luz);
+    height: 400px;
+}
+
+.container-footer {
+    position: relative;
+    text-align: center;
+    color: var(--luz);
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+/* Animação de Onda */
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* Animação Mobile */
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+}
+
+.container-redes {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu {
+    position: relative;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 1.25s;
+    z-index: 1000;
+}
+
+.menu.active .toggle {
+    transform: rotate(360deg);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15),
+        0 0 0 2px #1175d1,
+        0 0 0 8px #fff;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform: rotate(calc(360deg/8 * var(--i)));
+    transform-origin: 140px;
+    scale: 0;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.menu.active ul li {
+    scale: 1;
+}
+
+.menu ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(calc(360deg/-8 * var(--i)));
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: var(--color);
+    border-radius: 50%;
+    font-size: 1.75rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.menu ul li:hover a {
+    font-size: 2.25rem;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15),
+        0 0 0 2px var(--color),
+        0 0 0 8px #fff;
+}
+
+.secoes-footer{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.secao-footer h1{
+    color: var(--luz);
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+.secao-footer li{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--luz);
+    cursor: pointer;
+} 
+
+.secao-footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bar{
+    position: relative;
+    width: 0;
+    height: 3px;
+    background-color: var(--luz);
+    transition: .4s ease;
+}
+
+.secao-footer ul li:hover .bar{
+    background: var(--luz);
+    height: 3px;
+    width: 50%;
+    border-radius: 10px;
+}
