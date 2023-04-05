@@ -61,43 +61,43 @@
 
 @keyframes giragirafrases {
     10% {
-        transform: translateY(-5%);
+        transform: translateY(5%);
     }
 
     20% {
-        transform: translateY(0%);
-    }
-
-    30% {
         transform: translateY(-105%);
     }
 
-    40% {
+    30% {
         transform: translateY(-100%);
     }
 
-    50% {
+    40% {
         transform: translateY(-205%);
     }
 
-    60% {
+    50% {
         transform: translateY(-200%);
     }
 
-    70% {
+    60% {
         transform: translateY(-305%);
     }
 
-    80% {
+    70% {
         transform: translateY(-300%);
     }
 
-    90% {
+    80% {
         transform: translateY(-405%);
     }
 
-    100% {
+    90% {
         transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(-500%);
     }
 }
 
@@ -134,43 +134,43 @@
 
 @keyframes giragiraimage {
     10% {
-        transform: translateY(-5%);
+        transform: translateY(5%);
     }
 
     20% {
-        transform: translateY(0%);
-    }
-
-    30% {
         transform: translateY(-105%);
     }
 
-    40% {
+    30% {
         transform: translateY(-100%);
     }
 
-    50% {
+    40% {
         transform: translateY(-205%);
     }
 
-    60% {
+    50% {
         transform: translateY(-200%);
     }
 
-    70% {
+    60% {
         transform: translateY(-305%);
     }
 
-    80% {
+    70% {
         transform: translateY(-300%);
     }
 
-    90% {
+    80% {
         transform: translateY(-405%);
     }
 
-    100% {
+    90% {
         transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(-500%);
     }
 }
 
