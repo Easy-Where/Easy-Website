@@ -327,6 +327,10 @@
     box-shadow: 0 25px 45px #00000025;
 }
 
+.servicos h2{
+    font-family: 'Oxanium';
+}
+
 .quadrado-principal {
     width: 100%;
     height: 280px;
@@ -341,6 +345,7 @@
     width: 210px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .servico-chamado i,
