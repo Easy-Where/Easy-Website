@@ -623,7 +623,6 @@ input:valid~label {
     border-color: transparent;
     border-radius: 5px;
     height: 40px;
-
     display: flex;
     justify-content: center;
     align-items: center;
