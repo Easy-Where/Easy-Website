@@ -60,18 +60,18 @@
                         <div class="field-input">
                             <div class="field-group">
                                 <div class="input-group">
-                                    <input required="" type="text" name="text" autocomplete="off">
+                                    <input required="" type="text" name="text" autocomplete="off" id="nome_input">
                                     <label class="user-label">Nome</label>
                                 </div>
                                 <div class="input-group">
-                                    <input required="" type="text" name="text" autocomplete="off">
+                                    <input required="" type="text" name="text" autocomplete="off" id="sobrenome_input">
                                     <label class="user-label">Sobrenome</label>
                                 </div>
                             </div>
                         </div>
                         <div class="field-input">
                             <div class="input-group">
-                                <input required="" type="text" name="text" autocomplete="off">
+                                <input required="" type="text" name="text" autocomplete="off" id="emailCad_input">
                                 <label class="user-label">E-mail</label>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                     <div class="field">
                         <div class="field-input">
                             <div class="input-group">
-                                <input required="" type="text" name="text" autocomplete="off">
+                                <input required="" type="text" name="text" autocomplete="off" id="empresa_input">
                                 <label class="user-label">Empresa</label>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
         <div class="form-container sign-in-container">
             <h1>Bem-vindo de volta!</h1>
             <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off">
+                <input required="" type="text" name="text" autocomplete="off" id="email_input">
                 <label class="user-label">E-mail</label>
             </div>
             <div class="input-group">
@@ -152,7 +152,7 @@
             </div>
             <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
             <div class="btnentrada">
-                <a href="#">
+                <a href="#" onclick="entrar()">
                     <span>Acessar</span><i></i>
                 </a>
             </div>
@@ -171,7 +171,7 @@
                 <div class="overlay-panel overlay-right">
                     <img src="assets/conectar-background-cadastro.png" alt="Imagem para cadastro">
                     <h1>Primeira vez?</h1>
-                    <button class="cta" id="signUp">
+                    <button class="cta" id="signUp" onclick="cadastrar()">
                         <span>Cadastrar</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>

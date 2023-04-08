@@ -124,3 +124,119 @@ nextBtn.forEach(btn => {
 prevBtn.forEach(btn => {
     btn.addEventListener('click', handlePrev);
 });
+
+// web-data-viz
+
+function entrar() {
+    
+    var emailVar = email_input.value;
+    var senhaVar = senha2.value;
+
+    if (emailVar == "" || senhaVar == "") {
+
+        return false;
+    } else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "./dashboard/cards.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+            console.log("Houve um erro ao tentar realizar o login!");
+            resposta.text().then(texto => {
+                console.error(texto);
+                
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var sobrenomeVar = sobrenome_input.value;
+    var emailVar = emailCad_input.value;
+    var empresaVar = empresa_input.value;
+    var pidVar = pid.value;
+    var senhaVar = senha.value;
+    var confirmacaoSenhaVar = confirmasenha.value;
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || sobrenomeVar == "" || empresaVar == "" || pidVar == "") {
+        return false;
+
+    } else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+            sobrenomeServer: sobrenomeVar,
+            empresaServer: empresaVar,
+            pidServer: pidVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000")
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
