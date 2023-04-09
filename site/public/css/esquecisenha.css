@@ -123,7 +123,7 @@ body {
     position: relative;
     width: 400px;
     min-height: 400px;
-    background: linear-gradient(to right, #1175d1, #182848);
+    background: #ffffff10;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -156,7 +156,7 @@ a {
 }
 
 .input-group input {
-    border: solid 1.5px var(--bg-color);
+    border: solid 1.5px var(--luz);
     border-radius: 10px;
     background: none;
     padding: 12px;
@@ -182,7 +182,7 @@ a {
     position: absolute;
     bottom: 28px;
     left: 15px;
-    color: var(--bg-color);
+    color: var(--luz);
     pointer-events: none;
     transform: translateY(1rem);
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -191,22 +191,15 @@ a {
 input:focus,
 input:valid {
     outline: none;
-    border: 1.5px solid var(--luz);
+    border: 1.5px solid var(--clr);
 }
 
 input:focus~label,
 input:valid~label {
     transform: translateY(-40%) scale(0.8);
     padding: 0 .2em;
-    color: var(--bg-color);
-}
-
-#primeira{
-    background: linear-gradient(to right, #1362af, #145395);
-}
-
-#ultima {
-    background: linear-gradient(to right, #1260ac, #15477f);
+    color: var(--clr);
+    background: #333;
 }
 
 .btnenviar a {
@@ -227,8 +220,8 @@ input:valid~label {
     left: -1px;
     width: 10px;
     height: 10px;
-    border-top: 2px solid var(--luz);
-    border-left: 2px solid var(--luz);
+    border-top: 2px solid var(--clr);
+    border-left: 2px solid var(--clr);
     transition: .3s;
     transition-delay: .1s;
 }
@@ -240,8 +233,8 @@ input:valid~label {
     right: -1px;
     width: 10px;
     height: 10px;
-    border-bottom: 2px solid var(--luz);
-    border-right: 2px solid var(--luz);
+    border-bottom: 2px solid var(--clr);
+    border-right: 2px solid var(--clr);
     transition: .3s;
     transition-delay: .1s;
 }
