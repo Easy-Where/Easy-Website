@@ -513,7 +513,7 @@
     align-items: center;
     text-align: center;
     font-size: 18px;
-    color: var(--luz);
+    color: var(--bg-color);
     padding: 15px;
 }
 
@@ -527,7 +527,23 @@
     font-weight: 600;
 }
 
+.cardcliente span{
+    color: var(--luz);
+}
+
 .cardcliente img{
     border-radius: 50%;
     width: 150px;
+}
+
+.cardvantagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #329afc, #182848);
+    padding-bottom: 70px;
+}
+
+.cardvantagem img{
+    width: 300px;
 }

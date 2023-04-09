@@ -1,25 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oxanium:wght@200;300;400;500;600;700;800&display=swap');
-
-:root {
-    --bg-color: #252525;
-    --luz: #f1f1f1;
-    --clr: #1175d1;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
 body {
-    background: var(--bg-color);
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: -20px 0 50px;
-    overflow: hidden;
+    width: 1520px;
 }
 
 #setavoltar {
@@ -45,6 +34,15 @@ body {
     background: linear-gradient(to right, #1175d1, #182848);
     width: 45px;
     border-radius: 10px;
+}
+
+.escolha {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 600px;
+    width: 90%;
 }
 
 .container-servicos {
@@ -201,7 +199,7 @@ input:valid~label {
     color: var(--bg-color);
 }
 
-#primeira{
+#primeira {
     background: linear-gradient(to right, #1362af, #145395);
 }
 
