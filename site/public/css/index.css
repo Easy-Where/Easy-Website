@@ -178,7 +178,7 @@
     position: relative;
     padding: 10px 30px;
     margin: 45px 0;
-    color: var(--clr);
+    color: var(--luz);
     font-size: 20px;
     text-transform: uppercase;
     transition: .5s;
@@ -364,7 +364,7 @@
     position: relative;
     padding: 10px 30px;
     margin: 45px 0;
-    color: var(--clr);
+    color: var(--luz);
     font-size: 20px;
     text-transform: uppercase;
     transition: .5s;
