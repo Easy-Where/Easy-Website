@@ -327,7 +327,7 @@
     box-shadow: 0 25px 45px #00000025;
 }
 
-.servicos h2{
+.servicos h2 {
     font-family: 'Oxanium';
 }
 
@@ -497,17 +497,7 @@
     text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
 }
 
-.carousel-item .num {
-    position: absolute;
-    z-index: 1;
-    color: #fff;
-    top: 10px;
-    left: 20px;
-    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
-    font-size: clamp(20px, 10vw, 80px);
-}
-
-.cardcliente{
+.cardcliente {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -517,21 +507,21 @@
     padding: 15px;
 }
 
-.cardcliente h1{
+.cardcliente h1 {
     font-size: 25px;
     color: var(--luz);
 }
 
-.cardcliente p{
+.cardcliente p {
     padding-top: 12px;
     font-weight: 600;
 }
 
-.cardcliente span{
+.cardcliente span {
     color: var(--luz);
 }
 
-.cardcliente img{
+.cardcliente img {
     border-radius: 50%;
     width: 150px;
 }
@@ -544,6 +534,38 @@
     padding-bottom: 70px;
 }
 
-.cardvantagem img{
+.cardvantagem img {
     width: 300px;
+}
+
+.textcard {
+    position: absolute;
+    z-index: 1;
+    color: #b8d6f1;
+    font-weight: 600;
+    bottom: 35px;
+    left: 15px;
+    font-size: 25px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+}
+
+.subtextcard {
+    color: var(--bg-color);
+}
+
+.ultimocard {
+    background: #182848;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ultimocard h1{
+    color: var(--luz);
+    font-size: 35px;
+}
+
+.ultimocard img{
+    width: 180px;
 }
