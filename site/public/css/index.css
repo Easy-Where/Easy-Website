@@ -17,8 +17,14 @@
 .textochamativo {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     width: 100%;
+}
+
+.textochamativo img{
+    width: 350px;
 }
 
 .textochamativo h1 {
@@ -342,16 +348,14 @@
 }
 
 .servico-chamado {
-    width: 210px;
+    width: 310px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
-.servico-chamado i,
-.servico-chamado h2 {
-    font-size: 30px;
-    color: var(--luz);
+.servico-chamado img{
+    width: 250px;
 }
 
 .quadrado-principal p {
