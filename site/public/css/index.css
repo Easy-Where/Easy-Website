@@ -23,7 +23,7 @@
     width: 100%;
 }
 
-.textochamativo img{
+.textochamativo img {
     width: 350px;
 }
 
@@ -354,7 +354,7 @@
     align-items: center;
 }
 
-.servico-chamado img{
+.servico-chamado img {
     width: 250px;
 }
 
@@ -542,19 +542,19 @@
     width: 300px;
 }
 
+.cardtexto {
+    background-color: #b8d6f1;
+}
+
 .textcard {
     position: absolute;
     z-index: 1;
-    color: #b8d6f1;
+    color: var(--bg-color);
     font-weight: 600;
     bottom: 35px;
     left: 15px;
-    font-size: 25px;
+    font-size: 24px;
     text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
-}
-
-.subtextcard {
-    color: var(--bg-color);
 }
 
 .ultimocard {
@@ -565,11 +565,11 @@
     align-items: center;
 }
 
-.ultimocard h1{
+.ultimocard h1 {
     color: var(--luz);
     font-size: 35px;
 }
 
-.ultimocard img{
+.ultimocard img {
     width: 180px;
 }
