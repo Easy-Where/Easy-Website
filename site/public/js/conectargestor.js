@@ -110,6 +110,19 @@ prevBtn.forEach(btn => {
     btn.addEventListener('click', handlePrev);
 });
 
+// Padronizar CNPJ
+function criaMascara(mascaraInput) {
+    const maximoInput = document.getElementById(`cnpj_input`).maxLength;
+    let valorInput = document.getElementById(`cnpj_input`).value;
+    let valorSemPonto = document.getElementById(`cnpj_input`).value.replace(/([^0-9])+/g, "");
+    const mascaras = {
+        cnpj: valorInput.replace(/[^\d]/g, "").replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")
+    };
+
+    valorInput.length === maximoInput ? document.getElementById(`cnpj_input`).value = mascaras[mascaraInput]
+        : document.getElementById(`cnpj_input`).value = valorSemPonto;
+}
+
 // web-data-viz
 
 function entrar() {
@@ -178,7 +191,6 @@ function cadastrar() {
     var sobrenomeVar = sobrenome_input.value;
     var emailVar = emailCad_input.value;
     var empresaVar = empresa_input.value;
-    var pidVar = pid.value;
     var senhaVar = senha.value;
     var confirmacaoSenhaVar = confirmasenha.value;
 

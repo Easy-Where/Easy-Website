@@ -95,10 +95,6 @@ a {
     cursor: pointer;
 }
 
-.input-group img:hover {
-    filter: contrast(var(--clr));
-}
-
 .user-label {
     position: absolute;
     bottom: 28px;
@@ -506,7 +502,7 @@ input:valid~label {
 }
 
 /* Cadastro */
-.pages{
+.pages {
     margin-top: 10px;
     width: 300px;
     height: 280px;
@@ -562,11 +558,11 @@ input:valid~label {
     gap: .5rem;
 }
 
-.btn button:hover{
+.btn button:hover {
     transform: scale(1.1);
 }
 
-#btnconectar{
+#btnconectar {
     background-color: var(--clr);
     color: var(--luz);
     width: 150px;

@@ -88,20 +88,21 @@
                     <h1>Sobre sua empresa</h1>
                     <div class="field">
                         <div class="field-input">
-                            <div class="input-group">
-                                <input required="" type="text" name="text" autocomplete="off" id="empresa_input">
-                                <label class="user-label">Empresa</label>
+                            <div class="field-group">
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="empresa_input">
+                                    <label class="user-label">Empresa</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="cnpj_input"
+                                    maxlength="14" onkeyup="criaMascara('cnpj')">
+                                    <label class="user-label">CNPJ</label>
+                                </div>
                             </div>
                         </div>
                         <div class="field-input">
                             <div class="input-group">
-                                <input required="" type="password" name="text" autocomplete="off" id="cnpj_input">
-                                <label class="user-label">CNPJ</label>
-                            </div>
-                        </div>
-                        <div class="field-input">
-                            <div class="input-group">
-                                <input required="" type="password" name="text" autocomplete="off" id="dono_input">
+                                <input required="" type="text" name="text" autocomplete="off" id="dono_input">
                                 <label class="user-label">Dono</label>
                             </div>
                         </div>
