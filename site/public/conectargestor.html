@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy | Conectar-se</title>
     <link rel="icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="css/conectar.css">
+    <link rel="stylesheet" href="css/conectargestor.css">
     <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
 </head>
 
@@ -95,9 +95,14 @@
                         </div>
                         <div class="field-input">
                             <div class="input-group">
-                                <input required="" type="password" name="text" autocomplete="off" id="pid">
-                                <label class="user-label">PID</label>
-                                <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigurapid">
+                                <input required="" type="password" name="text" autocomplete="off" id="cnpj_input">
+                                <label class="user-label">CNPJ</label>
+                            </div>
+                        </div>
+                        <div class="field-input">
+                            <div class="input-group">
+                                <input required="" type="password" name="text" autocomplete="off" id="dono_input">
+                                <label class="user-label">Dono</label>
                             </div>
                         </div>
                     </div>
@@ -153,10 +158,10 @@
                 <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigura2">
             </div>
             <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
-            <div class="btnentrada">
-                <a href="#" onclick="entrar()">
-                    <span>Acessar</span><i></i>
-                </a>
+            <div class="btn">
+                <button type="submit" id="btnconectar">
+                    Conectar
+                </button>
             </div>
         </div>
 
@@ -182,7 +187,7 @@
             </div>
         </div>
     </div>
-    <script src="js/conectar.js"></script>
+    <script src="js/conectargestor.js"></script>
 </body>
 
 </html>

@@ -359,81 +359,6 @@ input:valid~label {
     transition: .5s ease;
 }
 
-.btnentrada {
-    margin: 15px;
-    cursor: pointer;
-}
-
-.btnentrada a {
-    position: relative;
-    background: var(--bg-color);
-    color: var(--bg-color);
-    text-transform: uppercase;
-    font-size: 18px;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-    padding: 10px 30px;
-    transition: 0.5s;
-}
-
-.btnentrada a:hover {
-    background: var(--clr);
-    color: var(--clr);
-    box-shadow: 0 0 35px var(--clr);
-}
-
-.btnentrada a::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    background: var(--luz);
-}
-
-.btnentrada a span {
-    position: relative;
-    z-index: 1;
-}
-
-.btnentrada a i {
-    position: absolute;
-    inset: 0;
-    display: block;
-}
-
-.btnentrada a i::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 80%;
-    width: 10px;
-    height: 4px;
-    background: var(--luz);
-    transform: translate(-50%) skewX(325deg);
-    transition: 0.5s;
-}
-
-.btnentrada a:hover i::before {
-    width: 20px;
-    left: 20%;
-}
-
-.btnentrada a i::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-    width: 10px;
-    height: 4px;
-    background: var(--luz);
-    transform: translate(-50%) skewX(325deg);
-    transition: 0.5s;
-}
-
-.btnentrada a:hover i::after {
-    width: 20px;
-    left: 80%;
-}
-
 .cta {
     position: relative;
     padding: 12px 18px;
@@ -628,11 +553,23 @@ input:valid~label {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: .4s;
+    font-size: 18px;
+}
+
+.btn button:hover{
+    transform: scale(1.1);
 }
 
 .btn {
     display: flex;
     gap: .5rem;
+}
+
+#btnconectar{
+    background-color: var(--clr);
+    color: var(--luz);
+    width: 150px;
 }
 
 #next-btn,
