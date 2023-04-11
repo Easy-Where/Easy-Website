@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/easyware.css">
     <link rel="stylesheet" href="css/padronizar.css">
     <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
@@ -57,16 +58,72 @@
                 </div>
 
                 <div class="btnconectar">
-                    <a href="conectar.html">
+                    <a href="preconectar.html">
                         <span>Conectar-se</span><i></i>
                     </a>
                 </div>
             </div>
         </header>
-        
+
+        <!-- Home -->
+        <section>
+            <div class="container_easy-ware">
+                <div class="textochamativo">
+                    <img src="assets/easy-ware-logotipo-light.png" alt="Logotipo Easy Ware">
+                    <p>In everywhere</p>
+                </div>
+
+                <div class="imagem_dash">
+                    <img src="assets/easy_teste.png" alt="Imagem dashboard do sistema" id="img_sobrepoe">
+                    <img src="assets/easy_teste.png" alt="Imagem dashboard do sistema">
+                </div>
+            </div>
+        </section>
+
         <!-- Apresentação do Easy • Ware -->
         <section>
-            
+            <div class="simulador_container">
+                <h1>Simule seus <span>ganhos</span> conosco</h1>
+                <div class="container_total">
+                    <div class="total_inputs">
+                        <div class="inputs-coletores">
+                            <div class="input-group">
+                                <input required="" type="number" name="text" autocomplete="off" id="vendedores_input">
+                                <i class="fa-solid fa-user"></i>
+                                <label class="user-label" id="label1">Vendedores</label>
+                            </div>
+                            <div class="input-group">
+                                <input required="" type="number" name="text" autocomplete="off" id="ocorrencias_input">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <label class="user-label" id="label2">Ocorrências (1 Mês)</label>
+                            </div>
+                            <div class="input-group">
+                                <input required="" type="number" name="text" autocomplete="off" id="tempo_input">
+                                <i class="fa-solid fa-business-time"></i>
+                                <label class="user-label" id="label3">Tempo Ocorrências</label>
+                            </div>
+                        </div>
+                        <div class="btncalcular" onclick="calculofinanceiro()">
+                            <a href="">
+                                <span>Calcular</span><i></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="resultado">
+                        <h1>Resultados</h1>
+                        <div class="caixas_calculo">
+                            <div class="perdas">
+                            </div>
+                            <div class="evita">
+                            </div>
+                            <div class="lucros">
+                            </div>
+                        </div>
+                        <div class="explica">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Footer -->
