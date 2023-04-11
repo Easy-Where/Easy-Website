@@ -59,15 +59,20 @@
 }
 
 .container_total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 30px;
     width: 90%;
-    height: 500px;
+    height: 715px;
     background: #ffffff1a;
     border-radius: 20px;
     box-shadow: 0 25px 45px #0000001a;
 }
 
 .total_inputs {
+    width: 98%;
     margin-top: 15px;
     height: 190px;
     display: flex;
@@ -77,7 +82,7 @@
 }
 
 .inputs-coletores {
-    width: 98%;
+    width: 100%;
     display: flex;
     background: #ffffff1a;
     box-shadow: 0 25px 45px #0000001a;
@@ -94,7 +99,7 @@
 }
 
 .input-group input {
-    border: solid 1.5px var(--bg-color);
+    border: solid 1.5px var(--luz);
     border-radius: 10px;
     background: none;
     padding: 14px 10px 14px 50px;
@@ -112,10 +117,10 @@
     position: absolute;
     width: 40px;
     height: 100%;
-    background-color: var(--bg-color);
+    background-color: var(--luz);
     border-radius: 10px 0 0 10px;
     font-size: 20px;
-    color: var(--luz);
+    color: var(--bg-color);
     align-self: center;
 }
 
@@ -123,7 +128,7 @@
     position: absolute;
     bottom: 31px;
     left: 50px;
-    color: var(--bg-color);
+    color: var(--luz);
     pointer-events: none;
     transform: translateY(1rem);
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -154,13 +159,14 @@ input:valid~#label2 {
 
 input:focus~#label3,
 input:valid~#label3 {
-    background: linear-gradient(to right, #4d5359, #4d575f );
+    background: linear-gradient(to right, #4d5359, #4d575f);
 }
 
 
 input:focus~i,
 input:valid~i {
     background: var(--clr);
+    color: var(--luz);
 }
 
 .btncalcular a {
@@ -172,7 +178,7 @@ input:valid~i {
     text-decoration: none;
 }
 
-.btncalcular span{
+.btncalcular span {
     color: var(--luz);
 }
 
@@ -214,4 +220,53 @@ input:valid~i {
     color: var(--luz);
     box-shadow: 0 0 50px var(--clr);
     transition-delay: .2s;
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    height: 450px;
+    background: #ffffff1a;
+    box-shadow: 0 25px 45px #0000001a;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.resultado h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.caixas_calculo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 200px;
+}
+
+.caixa {
+    width: 370px;
+    height: 85%;
+    border-radius: 10px;
+    background: var(--clr);
+    box-shadow: 0 25px 45px #0000001a;
+    transition: .4s;
+}
+
+.explica {
+    width: 95%;
+    height: 35%;
+    background-color: #ffffff49;
+    border-radius: 10px;
+    transition: .4s;
+    background: var(--clr);
+}
+
+.caixa:hover, .explica:hover{
+    transform: scaleY(1.1);
 }
