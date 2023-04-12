@@ -39,9 +39,29 @@
     z-index: 1;
 }
 
+/* Texto de Explicação do Easy • Ware */
+.alinhartexto{
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardexplicacao{
+    height: 90%;
+    width: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    color: var(--luz);
+    padding: 0 60px;
+}
+
 /* Simulador Financeiro */
 .simulador_container {
-    margin-top: 150px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,7 +85,7 @@
     justify-content: space-between;
     margin-top: 30px;
     width: 90%;
-    height: 800px;
+    height: 590px;
     background: #ffffff1a;
     border-radius: 20px;
     box-shadow: 0 25px 45px #0000001a;
@@ -253,7 +273,7 @@ select option {
     justify-content: center;
     align-items: center;
     width: 98%;
-    height: 450px;
+    height: 250px;
     background: #ffffff1a;
     box-shadow: 0 25px 45px #0000001a;
     border-radius: 20px;
@@ -282,30 +302,33 @@ select option {
     box-shadow: 0 25px 45px #0000001a;
     transition: .4s;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+}
+
+.caixa p{
+    font-size: 18px;
+    text-align: center;
+    color: var(--luz);
 }
 
 .caixa h1,
 .caixa span {
+    margin: 0 0 10px 0;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 .caixa span {
     color: #329afc;
 }
 
-.explica {
-    width: 95%;
-    height: 35%;
-    background-color: #ffffff49;
-    border-radius: 10px;
-    transition: .4s;
-    background: var(--clr);
-}
-
 .caixa:hover,
 .explica:hover {
-    transform: scaleY(1.1);
+    box-shadow: 20px 25px 20px var(--bg-color);
+    transform: translateY(-10px);
 }
+
+/* Botão de download */

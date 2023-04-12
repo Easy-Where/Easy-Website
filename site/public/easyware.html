@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -82,6 +82,18 @@
 
         <!-- Explicação -->
         <section>
+            <div class="alinhartexto">
+                <div class="cardexplicacao">
+                    <p>
+                        A melhor solução digital para Home-Office! <br>
+                        Inicialmente focado no setor de vendas, o Easy • Ware tem se consolidado no mercado de tecnologia
+                        como a mais nova inovação para um Home-Office livre e com responsabilidade. o foco da nossa
+                        aplicação é trazer a você todo o suporte para uma melhor administração dos dados de seus
+                        funcionários, empresa e máquinas. Com isso contamos com o mais alto nível da tecnologia para
+                        auxiliar você de forma EASY a tomar as melhores decisões dentro de seu negócio.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Apresentação do Easy • Ware -->
@@ -93,7 +105,7 @@
                         <div class="inputs-coletores">
                             <div class="grupo_input">
                                 <div class="input-group">
-                                    <select required="" name="" id="segmento_input">
+                                    <select required="" id="segmento_input">
                                         <option value="">-Escolha um segmento-</option>
                                         <option value="autonomo">Autonômo</option>
                                         <option value="telemarketing">Telemarketing</option>
@@ -102,18 +114,18 @@
                                         <option value="energia">Energia</option>
                                         <option value="seguranca">Segurança</option>
                                     </select>
-                                    <i class="fa-solid fa-tag"></i>
+                                    <i class="ph-bold ph-chart-line-up"></i>
                                 </div>
                                 <div class="input-group">
                                     <input required="" type="number" name="text" autocomplete="off" id="vendas_input">
                                     <i id="especial1" class="fa-solid fa-credit-card"></i>
-                                    <label class="user-label" id="label2">Vendas (No Mês)</label>
+                                    <label class="user-label" id="label2">Vendas (No mês)</label>
                                 </div>
                                 <div class="input-group">
                                     <input required="" type="number" name="text" autocomplete="off"
-                                        id="investimento_input">
-                                    <i id="especial2" class="ph-bold ph-chart-line-up"></i>
-                                    <label class="user-label" id="label3">Investimento (No Mês)</label>
+                                        id="valorvenda_input">
+                                    <i id="especial2" class="fa-solid fa-tag"></i>
+                                    <label class="user-label" id="label3">Valor da venda</label>
                                 </div>
                             </div>
                             <div class="grupo_input">
@@ -127,26 +139,26 @@
                                     <input required="" type="number" name="text" autocomplete="off"
                                         id="ocorrencias_input">
                                     <i class="fa-solid fa-circle-exclamation"></i>
-                                    <label class="user-label" id="label2">Ocorrências (No Mês)</label>
+                                    <label class="user-label" id="label2">Ocorrências (No mês)</label>
                                 </div>
                                 <div class="input-group">
                                     <input required="" type="number" name="text" autocomplete="off" id="tempo_input">
                                     <i class="fa-solid fa-business-time"></i>
-                                    <label class="user-label" id="label3">Downtime (No Mês)</label>
+                                    <label class="user-label" id="label3">Downtime (Minutos)</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="btncalcular" onclick="calculofinanceiro()">
-                            <a href="">
+                        <div class="btncalcular" onclick="calculofinanceiro()" id="resultado">
+                            <a href="#resultado">
                                 <span>Calcular</span><i></i>
                             </a>
                         </div>
                     </div>
-                    <div class="resultado">
+                    <div class="resultado" id="container_resultado">
                         <h1>Resultados</h1>
                         <div class="caixas_calculo">
                             <div class="caixa">
-                                <h1>Seu <span>prejuízo</span> atual</h1>
+                                <h1>Seus <span>dados</span> atuais</h1>
                                 <div id="prejuizo"></div>
                             </div>
                             <div class="caixa">
@@ -158,15 +170,21 @@
                                 <div id="lucro"></div>
                             </div>
                         </div>
-                        <div class="explica">
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Download -->
+        <section>
+            <div class="fazerdownload">
+                <h1>Baixe nossa solução aqui</h1>
+                
+            </div>
+        </section>
+
         <!-- Footer -->
-        <!-- <div class="container-footer" id="contato">
+        <div class="container-footer" id="contato">
             <div>
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -251,12 +269,13 @@
                     <h1>Nossos serviços</h1>
                     <ul>
                         <a href="easyware.html">
-                            <li>Easy • Ware<div class="bar"></div></li>
+                            <li>Easy • Ware<div class="bar"></div>
+                            </li>
                         </a>
                     </ul>
                 </div>
             </div>
-        </footer> -->
+        </footer>
     </main>
     <script src="js/easyware.js"></script>
 </body>
@@ -279,35 +298,62 @@
     //]]>
 
     //Simulador Financeiro
-    let segmento = Number(segmento_input.value)
-    let vendas = Number(vendas_input.value)
-    let vendedores = Number(vendedores_input.value)
-    let Investimento = Number(investimento_input.value)
-    let ocorrencias = Number(ocorrencias_input.value)
-    let downtime = Number(tempo_input.value)
-    let prejuizo = 0
-    let lucro = 0
-    let prevencao = 0
-
     function calculofinanceiro() {
-        if (segmento == "autonomo") {
-            vendas *= 6666
-             
-        } else if (segmento == "telemarketing") {
-            vendas *= 10000
+        const segmento = segmento_input.value
+        const vendas = Number(vendas_input.value)
+        const valorvenda = Number(valorvenda_input.value)
+        const vendedores = Number(vendedores_input.value)
+        const ocorrencias = Number(ocorrencias_input.value)
+        const downtime = Number(tempo_input.value)
+        let faturamentoMedia = 0
+        let faturamentoCliente = vendas * valorvenda
+        let porcentagemProblemas = (ocorrencias / vendedores) * 100
+        let tempoPerdido = ocorrencias * downtime
+        let respostaFaturamento = ''
+        let respostaPorcentagem = ''
 
-        } else if (segmento == "financas") {
-            vendas *= 750000000
-
-        } else if (segmento == "varejo") {
-            vendas *= 108000
-
-        } else if (segmento == "energia") {
-            vendas *= 33333333
+        if (segmento == "" || vendas <= 0 || valorvenda <= 0 || vendedores <= 0 || ocorrencias <= 0 || downtime <= 0) {
+            prejuizo.innerHTML = ""
+            evitar.innerHTML = ""
+            lucro.innerHTML = ""
+            alert('Campos vazios ou inválidos')
         } else {
-            vendas *= 140000
-        }
+            if (segmento == "autonomo") {
+                faturamentoMedia = 6666
+            } else if (segmento == "telemarketing") {
+                faturamentoMedia = 10000
+            } else if (segmento == "financas") {
+                faturamentoMedia = 750000000
+            } else if (segmento == "varejo") {
+                faturamentoMedia = 108000
+            } else if (segmento == "energia") {
+                faturamentoMedia = 33333333
+            } else {
+                faturamentoMedia = 140000
+            }
 
-        prejuizo.innerHTML = ``
+            if (faturamentoMedia > faturamentoCliente) {
+                respostaFaturamento = "abaixo da média"
+            } else {
+                respostaFaturamento = "acima da média"
+            }
+
+            if (porcentagemProblemas >= 80) {
+                respostaPorcentagem = "muito acima da média"
+            } else if (porcentagemProblemas >= 50) {
+                respostaPorcentagem = "acima da média"
+            } else if (porcentagemProblemas >= 40) {
+                respostaPorcentagem = "altas"
+            } else if (porcentagemProblemas >= 20) {
+                respostaPorcentagem = "médias"
+            } else {
+                respostaPorcentagem = "controladas"
+            }
+            let faturamentoFormatado = faturamentoMedia.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" });
+
+            prejuizo.innerHTML = `<p>Faturamento de ${faturamentoCliente.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })} está ${respostaFaturamento}. <br> Ocorrências em ${porcentagemProblemas.toFixed(0)}%, ${respostaPorcentagem}</p>`
+            evitar.innerHTML = `<p>${faturamentoCliente * 30 / 100}%</p>`
+            lucro.innerHTML = `<p>${faturamentoFormatado}</p>`
+        }
     }
 </script>
