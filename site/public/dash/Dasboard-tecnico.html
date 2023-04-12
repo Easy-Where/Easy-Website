@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Suporte T.I</title>
+
+    <link rel="stylesheet" href="../css/padronizar.css">
+    <link rel="stylesheet" href="dashSuporteTI.css">
+
+    <!-- Icones da Google -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+
+</head>
+
+<body>
+    <main>
+        <!-- Blur Background -->
+        <div class="efeito-blur">
+            <div class="lado esquerdo">
+                <div class="blur"></div>
+            </div>
+            <div class="lado direito">
+                <div class="blur"></div>
+            </div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="decor"></div>
+        <section>
+            <div class="Navbar-dash">
+                <div class="first-piece">
+                    <div class="logo-navbar-dash">
+                        <div class="hover" onclick="goHome()">
+                            <span class="material-symbols-outlined">
+                                memory
+                            </span>
+                            <h3>Easy Ware</h3>
+                        </div>
+                    </div>
+                    <div class="info-user-navbar-dash">
+                        <div class="photo-user-navbar-dash"></div>
+                        <div class="info-user">
+                            <p>Welcome back,</p>
+                            <h4>{$USER}</h4>
+                        </div>
+                    </div>
+                    <div class="options-navbar-dash">
+                        <div class="primeira selecionado" id="primeira-opcao-nav" onclick="mudarOpcao1()">
+                            <div class="hover">
+                                <i>D</i>
+                                <p>Dashboard</p>
+                            </div>
+                        </div>
+                        <div class="segunda" id="segunda-opcao-nav" onclick="mudarOpcao2()">
+                            <div class="hover">
+                                <i>M</i>
+                                <p>Machines</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensagem de HELP -->
+                <div class="second-piece">
+                    <div class="mensage">
+                        <div class="btn-Voltar">
+                            <span class="material-symbols-outlined">
+                                arrow_right_alt
+                            </span>
+                        </div>
+                        <div class="text">
+                            <h5>Help Center</h5>
+                            <p>Please contact us for more questions.</p>
+                        </div>
+                        <div class="btn-Help">
+                            <button>Go to help center</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Container">
+                <div class="container">
+                    <div class="overview">
+                        <div class="title">
+                            <h4>Overview</h4>
+                        </div>
+
+
+                        <div class="info">
+
+
+                            <div class="users">
+                                <div class="foto">
+
+                                </div>
+                                <div class="name">
+                                    <p>${USER}</p>
+                                    <span class="material-symbols-outlined">
+                                        expand_more
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="notifications">
+                                <span class="material-symbols-outlined">
+                                    notifications
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="little-dash">
+                        <div class="first">
+                            <span>Disco Average</span>
+                            <div class="dash1">
+                                <div class="graph">
+                                    <canvas id="Dash-1"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    const dash1 = document.getElementById('Dash-1');
+
+                                    new Chart(dash1, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                data: [2, 8, 10, 15, 10, 14, 17, 19, 2, 18],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="second">
+                            <span>Ram Average</span>
+                            <div class="dash2">
+                                <div class="graph">
+                                    <canvas id="Dash-2"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    const dash2 = document.getElementById('Dash-2');
+
+                                    new Chart(dash2, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                backgroundColor: 'orange',
+                                                borderColor: 'orangered',
+                                                data: [2, 8, 10, 1, 4, 3, 6, 9, 10, 18],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="third">
+                            <div class="dash3">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="second-dash">
+                        <div class="first">
+                            <span>CPU Average</span>
+                            <div class="dash1">
+                                <div class="graph1">
+                                    <canvas id="Second-Dash-2"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    const seconddash2 = document.getElementById('Second-Dash-2');
+
+                                    new Chart(seconddash2, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                backgroundColor: 'orange',
+                                                borderColor: 'orangered',
+                                                data: [2, 8, 10, 1, 4, 3, 6, 9, 10, 18],
+                                                borderWidth: 1,
+                                                padding: 90
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    ticks: {
+                                                        
+                                                        padding: 30
+                                                    }
+                                                    // The axis for this scale is determined from the first letter of the id as `'x'`
+                                                    // It is recommended to specify `position` and / or `axis` explicitly.
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="second">
+                            <div class="dash-2">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics">
+                        <span>Analytics</span>
+                        <div class="kpis">
+                            <div class="kpi">
+
+                            </div>
+                            <div class="porcentagens">
+                                <div class="porcen"></div>
+                                <div class="porcen"></div>
+                                <div class="porcen"></div>
+                                <div class="porcen"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
+
+<script>
+    function goHome() {
+        window.location = '../index.html'
+    }
+
+    var opcao1 = document.getElementById('primeira-opcao-nav')
+    var opcao2 = document.getElementById('segunda-opcao-nav')
+
+    function mudarOpcao1() {
+        opcao1.classList.add('selecionado')
+        opcao2.classList.remove('selecionado')
+    }
+
+    function mudarOpcao2() {
+        opcao1.classList.remove('selecionado')
+        opcao2.classList.add('selecionado')
+    }
+</script>
