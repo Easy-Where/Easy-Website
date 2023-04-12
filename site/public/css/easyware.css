@@ -65,7 +65,7 @@
     justify-content: space-between;
     margin-top: 30px;
     width: 90%;
-    height: 715px;
+    height: 800px;
     background: #ffffff1a;
     border-radius: 20px;
     box-shadow: 0 25px 45px #0000001a;
@@ -74,7 +74,7 @@
 .total_inputs {
     width: 98%;
     margin-top: 15px;
-    height: 190px;
+    height: 265px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,11 +84,19 @@
 .inputs-coletores {
     width: 100%;
     display: flex;
+    flex-direction: column;
     background: #ffffff1a;
     box-shadow: 0 25px 45px #0000001a;
     border-radius: 20px;
     justify-content: space-around;
     padding: 30px;
+}
+
+.grupo_input {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
 }
 
 .input-group {
@@ -98,7 +106,8 @@
     margin: 8px 0;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
     border: solid 1.5px var(--luz);
     border-radius: 10px;
     background: none;
@@ -135,7 +144,9 @@
 }
 
 input:focus,
-input:valid {
+input:valid,
+select:focus,
+select:valid {
     outline: none;
     border: 1.5px solid var(--clr);
 }
@@ -164,9 +175,23 @@ input:valid~#label3 {
 
 
 input:focus~i,
-input:valid~i {
+input:valid~i,
+select:focus~i,
+select:valid~i {
     background: var(--clr);
     color: var(--luz);
+}
+
+#especial1 {
+    height: 98%;
+}
+
+#especial2 {
+    height: 98%;
+}
+
+select option {
+    background-color: var(--bg-color);
 }
 
 .btncalcular a {
@@ -253,9 +278,22 @@ input:valid~i {
     width: 370px;
     height: 85%;
     border-radius: 10px;
-    background: var(--clr);
+    background: #182848;
     box-shadow: 0 25px 45px #0000001a;
     transition: .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa h1,
+.caixa span {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.caixa span {
+    color: #329afc;
 }
 
 .explica {
@@ -267,6 +305,7 @@ input:valid~i {
     background: var(--clr);
 }
 
-.caixa:hover, .explica:hover{
+.caixa:hover,
+.explica:hover {
     transform: scaleY(1.1);
 }

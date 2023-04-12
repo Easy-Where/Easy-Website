@@ -80,6 +80,10 @@
             </div>
         </section>
 
+        <!-- Explicação -->
+        <section>
+        </section>
+
         <!-- Apresentação do Easy • Ware -->
         <section>
             <div class="simulador_container">
@@ -87,20 +91,49 @@
                 <div class="container_total">
                     <div class="total_inputs">
                         <div class="inputs-coletores">
-                            <div class="input-group">
-                                <input required="" type="number" name="text" autocomplete="off" id="vendedores_input">
-                                <i class="fa-solid fa-user"></i>
-                                <label class="user-label" id="label1">Vendedores</label>
+                            <div class="grupo_input">
+                                <div class="input-group">
+                                    <select required="" name="" id="segmento_input">
+                                        <option value="">-Escolha um segmento-</option>
+                                        <option value="autonomo">Autonômo</option>
+                                        <option value="telemarketing">Telemarketing</option>
+                                        <option value="financas">Finanças</option>
+                                        <option value="varejo">Varejo</option>
+                                        <option value="energia">Energia</option>
+                                        <option value="seguranca">Segurança</option>
+                                    </select>
+                                    <i class="fa-solid fa-tag"></i>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="number" name="text" autocomplete="off" id="vendas_input">
+                                    <i id="especial1" class="fa-solid fa-credit-card"></i>
+                                    <label class="user-label" id="label2">Vendas (No Mês)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="number" name="text" autocomplete="off"
+                                        id="investimento_input">
+                                    <i id="especial2" class="ph-bold ph-chart-line-up"></i>
+                                    <label class="user-label" id="label3">Investimento (No Mês)</label>
+                                </div>
                             </div>
-                            <div class="input-group">
-                                <input required="" type="number" name="text" autocomplete="off" id="ocorrencias_input">
-                                <i class="fa-solid fa-circle-exclamation"></i>
-                                <label class="user-label" id="label2">Ocorrências (1 Mês)</label>
-                            </div>
-                            <div class="input-group">
-                                <input required="" type="number" name="text" autocomplete="off" id="tempo_input">
-                                <i class="fa-solid fa-business-time"></i>
-                                <label class="user-label" id="label3">Tempo Ocorrências</label>
+                            <div class="grupo_input">
+                                <div class="input-group">
+                                    <input required="" type="number" name="text" autocomplete="off"
+                                        id="vendedores_input">
+                                    <i class="fa-solid fa-user"></i>
+                                    <label class="user-label" id="label1">Vendedores</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="number" name="text" autocomplete="off"
+                                        id="ocorrencias_input">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <label class="user-label" id="label2">Ocorrências (No Mês)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="number" name="text" autocomplete="off" id="tempo_input">
+                                    <i class="fa-solid fa-business-time"></i>
+                                    <label class="user-label" id="label3">Downtime (No Mês)</label>
+                                </div>
                             </div>
                         </div>
                         <div class="btncalcular" onclick="calculofinanceiro()">
@@ -113,10 +146,16 @@
                         <h1>Resultados</h1>
                         <div class="caixas_calculo">
                             <div class="caixa">
+                                <h1>Seu <span>prejuízo</span> atual</h1>
+                                <div id="prejuizo"></div>
                             </div>
                             <div class="caixa">
+                                <h1>Quanto <span>evitaria</span> perder</h1>
+                                <div id="evitar"></div>
                             </div>
                             <div class="caixa">
+                                <h1><span>Lucro</span> a longo prazo</h1>
+                                <div id="lucro"></div>
                             </div>
                         </div>
                         <div class="explica">
@@ -238,4 +277,37 @@
         + '&ref=' + encodeURIComponent(document.URL);
     document.body.appendChild(ttChatLoaderS);
     //]]>
+
+    //Simulador Financeiro
+    let segmento = Number(segmento_input.value)
+    let vendas = Number(vendas_input.value)
+    let vendedores = Number(vendedores_input.value)
+    let Investimento = Number(investimento_input.value)
+    let ocorrencias = Number(ocorrencias_input.value)
+    let downtime = Number(tempo_input.value)
+    let prejuizo = 0
+    let lucro = 0
+    let prevencao = 0
+
+    function calculofinanceiro() {
+        if (segmento == "autonomo") {
+            vendas *= 6666
+             
+        } else if (segmento == "telemarketing") {
+            vendas *= 10000
+
+        } else if (segmento == "financas") {
+            vendas *= 750000000
+
+        } else if (segmento == "varejo") {
+            vendas *= 108000
+
+        } else if (segmento == "energia") {
+            vendas *= 33333333
+        } else {
+            vendas *= 140000
+        }
+
+        prejuizo.innerHTML = ``
+    }
 </script>

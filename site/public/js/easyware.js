@@ -5,3 +5,6 @@ let textofooter = document.querySelector('h1#textofooter')
 toggle.onclick = function () {
     menu.classList.toggle('active')
 }
+
+
+
