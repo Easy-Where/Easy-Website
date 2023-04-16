@@ -332,3 +332,77 @@ select option {
 }
 
 /* Botão de download */
+.fazerdownload{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fazerdownload h1 {
+    font-size: 60px;
+    font-weight: 300;
+    color: var(--luz);
+}
+
+.fazerdownload span {
+    color: var(--clr);
+}
+
+.btndownload{
+    margin: 50px;
+}
+
+.btndownload a {
+    position: relative;
+    padding: 10px 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.btndownload span {
+    color: var(--luz);
+}
+
+.btndownload a::before {
+    content: " ";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid var(--clr);
+    border-left: 2px solid var(--clr);
+    transition: .3s;
+    transition-delay: .1s;
+}
+
+.btndownload a::after {
+    content: " ";
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--clr);
+    border-right: 2px solid var(--clr);
+    transition: .3s;
+    transition-delay: .1s;
+}
+
+.btndownload a:hover::before,
+.btndownload a:hover::after {
+    width: 100%;
+    height: 100%;
+    transition-delay: 0s;
+}
+
+.btndownload a:hover {
+    background: var(--clr);
+    color: var(--luz);
+    box-shadow: 0 0 50px var(--clr);
+    transition-delay: .2s;
+}
