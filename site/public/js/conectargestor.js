@@ -205,11 +205,14 @@ function cadastrar() {
             cnpjServer: cnpjVar,
             donoServer: donoVar
         })
+
     }).then(function (resposta) {
-        if (resposta.ok) {
-            cadastrarGestor(resposta);
-        } else {
+        if (json.id == null) {
+            console.log("If do Then ")
             cadastrarEmpresa();
+        } else {
+            console.log("Else do Then ")
+            cadastrarGestor(resposta);
         }
         
     }).catch(function (resposta) {
@@ -224,6 +227,8 @@ function cadastrarEmpresa() {
     var cnpjVar = cnpj_input.value;
     var donoVar = dono_input.value;
 
+    console.log("Estou no CadastrarEmpresa");
+
     fetch("/usuarios/cadastrarEmpresa", {
         method: "POST",
         headers: {
@@ -235,8 +240,9 @@ function cadastrarEmpresa() {
             donoServer: donoVar
         })
     }).then(function (resposta) {
+        console.log(resposta)
         if (resposta.ok) {
-            cadastrarGestor(resposta);
+            cadastrar();
         } else {
             console.log("Deu erro ao cadastrar Empresa");
         }
@@ -251,8 +257,8 @@ function cadastrarGestor(resposta) {
     var nomeVar = nome_input.value;
     var sobrenomeVar = sobrenome_input.value;
     var emailVar = emailCad_input.value;
-    var empresaVar = resposta.id;
-    var pidVar = cnpj_input.value;
+    var empresaVar = json.id;
+    var cnpjVar = cnpj_input.value;
     var senhaVar = senha.value;
     
 
@@ -267,7 +273,7 @@ function cadastrarGestor(resposta) {
             senhaServer: senhaVar,
             sobrenomeServer: sobrenomeVar,
             empresaServer: empresaVar,
-            pidServer: pidVar
+            cnpjServer: cnpjVar
         })
     }).then(function (resposta) {
 

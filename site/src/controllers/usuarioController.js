@@ -102,9 +102,12 @@ function cadastrarEmpresa(req, res) {
 
 function cadastrarGestor(req, res) {
 
-    var empresa = req.body.empresaServer;
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var sobrenome = req.body.sobrenomeServer;
+    var empresaCad = req.body.empresaServer;
     var cnpj = req.body.cnpjServer;
-    var dono = req.body.donoServer;
 
     if (empresa == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -114,7 +117,7 @@ function cadastrarGestor(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        usuarioModel.cadastrarGestor(empresa, cnpj, dono)
+        usuarioModel.cadastrarGestor(nome, email, senha, sobrenome, empresaCad)
             .then(
                 function (resultado) {
                     res.json(resultado);
