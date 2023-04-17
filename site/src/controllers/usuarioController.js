@@ -1,29 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
 
-var sessoes = [];
-
-function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
-    res.json("ESTAMOS FUNCIONANDO!");
-}
-
-function listar(req, res) {
-    usuarioModel.listar()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -60,32 +36,21 @@ function entrar(req, res) {
 
 }
 
-function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var sobrenome = req.body.sobrenomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var empresa = req.body.empresaServer;
-    var pid = req.body.pidServer;
+function validacaoEmpresa(req, res) {
 
-    // Faça as validações dos valores
-    if (nome == undefined) {
+    var empresa = req.body.empresaServer;
+    var cnpj = req.body.cnpjServer;
+    var dono = req.body.donoServer;
+
+    if (empresa == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
+    } else if (cnpj == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (empresa == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (pid == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (sobrenome == undefined) {
+    } else if (dono == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, senha, empresa, pid)
+        usuarioModel.validacaoEmpresa(empresa, cnpj, dono)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -103,9 +68,75 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarEmpresa(req, res) {
+
+    var empresa = req.body.empresaServer;
+    var cnpj = req.body.cnpjServer;
+    var dono = req.body.donoServer;
+
+    if (empresa == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
+    } else if (dono == undefined) {
+        res.status(400).send("Seu dono está undefined!");
+    } else {
+        
+        usuarioModel.cadastrarEmpresa(empresa, cnpj, dono)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastrarGestor(req, res) {
+
+    var empresa = req.body.empresaServer;
+    var cnpj = req.body.cnpjServer;
+    var dono = req.body.donoServer;
+
+    if (empresa == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (dono == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else {
+        
+        usuarioModel.cadastrarGestor(empresa, cnpj, dono)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
+
 module.exports = {
     entrar,
-    cadastrar,
-    listar,
-    testar
+    validacaoEmpresa,
+    cadastrarEmpresa,
+    cadastrarGestor
 }

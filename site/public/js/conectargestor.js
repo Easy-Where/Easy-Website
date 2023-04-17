@@ -134,7 +134,7 @@ function entrar() {
 
         return false;
     } else {
-        setInterval(sumirMensagem, 5000)
+        
     }
 
     console.log("FORM LOGIN: ", emailVar);
@@ -151,7 +151,7 @@ function entrar() {
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
-
+        console.log(resposta)
         if (resposta.ok) {
             console.log(resposta);
             resposta.json().then(json => {
@@ -163,7 +163,7 @@ function entrar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    window.location = "./dashboard/cards.html";
+                    window.location = "./dashboard/index.html";
                 }, 1000); // apenas para exibir o loading
 
             });
@@ -183,33 +183,85 @@ function entrar() {
     return false;
 }
 
+//
 function cadastrar() {
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var sobrenomeVar = sobrenome_input.value;
-    var emailVar = emailCad_input.value;
     var empresaVar = empresa_input.value;
-    var senhaVar = senha.value;
-    var confirmacaoSenhaVar = confirmasenha.value;
+    var cnpjVar = cnpj_input.value;
+    var donoVar = dono_input.value;
 
-    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || sobrenomeVar == "" || empresaVar == "" || pidVar == "") {
+    if (empresaVar == "" || cnpjVar == "" || donoVar == "") {
         return false;
-
     } else {
-        setInterval(sumirMensagem, 5000)
+        console.log("Todos os campos estão certos");
     }
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuarios/validacao", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
+            empresaServer: empresaVar,
+            cnpjServer: cnpjVar,
+            donoServer: donoVar
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            cadastrarGestor(resposta);
+        } else {
+            cadastrarEmpresa();
+        }
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        cadastrarEmpresa();
+    });
+    
+}
+
+function cadastrarEmpresa() {
+    var empresaVar = empresa_input.value;
+    var cnpjVar = cnpj_input.value;
+    var donoVar = dono_input.value;
+
+    fetch("/usuarios/cadastrarEmpresa", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            empresaServer: empresaVar,
+            cnpjServer: cnpjVar,
+            donoServer: donoVar
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            cadastrarGestor(resposta);
+        } else {
+            console.log("Deu erro ao cadastrar Empresa");
+        }
+        
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+function cadastrarGestor(resposta) {
+
+    var nomeVar = nome_input.value;
+    var sobrenomeVar = sobrenome_input.value;
+    var emailVar = emailCad_input.value;
+    var empresaVar = resposta.id;
+    var pidVar = cnpj_input.value;
+    var senhaVar = senha.value;
+    
+
+    fetch("/usuarios/cadastrarGestor", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
@@ -224,11 +276,12 @@ function cadastrar() {
         if (resposta.ok) {
 
             setTimeout(() => {
-                window.location = "login.html";
+                window.location = "index.html";
             }, "2000")
 
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
+        
         }
         
     }).catch(function (resposta) {
