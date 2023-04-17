@@ -3,13 +3,12 @@ body {
 }
 
 .decor {
-    width: 100%;
-    height: 5vh;
+    display: none;
 }
 
 section {
     width: 100%;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     justify-content: flex-end;
 
@@ -18,6 +17,7 @@ section {
 
 .hover {
     display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -36,6 +36,8 @@ section {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+
+    z-index: 100;
 }
 
 .first-piece {
@@ -82,7 +84,7 @@ section {
     height: 100px;
 
     border-radius: 100%;
-    background-image: url('../assets/augusto.jpg');
+    background-image: url('../assets/sobre-augusto.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -137,7 +139,6 @@ section {
 
     border-radius: 0 30px 30px 0;
     background-color: #252525;
-
     position: absolute;
     left: 0;
 }
@@ -155,7 +156,7 @@ section {
 }
 
 .mensage {
-    width: 70%;
+    width: 75%;
     height: 80%;
 
     display: flex;
@@ -234,6 +235,8 @@ section {
 .container {
     width: 95%;
     height: 85vh;
+
+    position: relative;
     /* background-color: #ff224379; */
 
 }
@@ -244,7 +247,7 @@ section {
 
 .overview {
     width: 100%;
-    height: 12vh;
+    height: 13vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -288,7 +291,7 @@ section {
     height: 60px;
     border-radius: 100%;
 
-    background-image: url('../assets/augusto.jpg');
+    background-image: url('../assets/sobre-augusto.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -320,6 +323,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
+    /* left: 0; */
+    transition: all 200ms ease-out;
 }
 
 .first,
@@ -357,19 +364,50 @@ section {
 
 .little-dash .first .dash1 {
     border: 2px solid #55c1ff;
-    box-shadow: 0 0px 15px 0px #55c1ff;
+    animation: sombra1 700ms infinite alternate;
 }
 
 .little-dash .dash2 {
     border: 2px solid #ffa500;
-    box-shadow: 0 0 15px 0px  #ffa500;
+    animation: sombra2 700ms infinite alternate;
+}
+
+@keyframes sombra2 {
+    0% {
+
+        box-shadow: 0 0px 15px 0px #ffa60015;
+
+
+    }
+
+    100% {
+
+        box-shadow: 0 0 15px 0px #ffa500;
+    }
+}
+
+@keyframes sombra1 {
+
+    0% {
+
+        box-shadow: 0 0px 15px 0px #55c1ff04;
+
+
+    }
+
+    100% {
+
+        box-shadow: 0 0px 15px 0px #55c1ff;
+
+    }
+
 }
 
 .little-dash .first:hover,
 .little-dash .second:hover {
     width: 600px;
     height: 300px;
-    z-index: 300;
+    z-index: 3000;
 }
 
 
@@ -404,19 +442,49 @@ section {
     background-color: #242424;
 }
 
+.third .dash3 .texto {
+    width: 85%;
+    height: 60%;
+    /* background-color: #177; */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #5d5d5d;
+}
+
+
+
+.third .dash3 .texto span {
+    font-size: 2.5em;
+    color: #0b58a0;
+}
+
+.third .dash3 .ancora {
+    width: 85%;
+    margin: 1em auto;
+}
+
+.third .dash3 .ancora p {
+    display: flex;
+    align-items: center;
+}
+
 .second-dash {
     width: 80%;
-    height: 30vh;
+    height: 35vh;
     margin: 1vh auto 0;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    /* left: 0; */
+    transition: all 900ms ;
 }
 
 .second-dash .first {
     width: 60%;
-    height: 30vh;
 }
 
 .second-dash .first span {
@@ -430,16 +498,19 @@ section {
 
 .second-dash .first .dash1 {
     width: 100%;
-    height: 85%;
+    height: 32vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: #fff;
-    border: 2px solid #DDD;
+    border: 2px solid #6A65DF;
 
 }
 
-.graph1{
+.graph1 {
     width: 100%;
-    height: 99%;
+    height: 30vh;
 
     display: flex;
     align-items: center;
@@ -448,10 +519,10 @@ section {
 
 .second-dash .second {
     width: 35%;
-    height: 100%;
+    height: 32vh;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 
 .second-dash .second .dash-2 {
@@ -468,7 +539,7 @@ section {
 .analytics {
     width: 80%;
     height: 22vh;
-    margin: 2vh auto 0;
+    margin: 0 auto 3em;
 
     display: flex;
     align-items: flex-start;
@@ -476,12 +547,8 @@ section {
     flex-direction: column;
 }
 
-.analytics span {
-    width: 80%;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.analytics * {
+    color: #242424;
 }
 
 .analytics .kpis {
@@ -504,6 +571,31 @@ section {
     border: 1px solid #5d5d5d;
 }
 
+.analytics .kpis .kpi .titulo{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    float: right;
+}
+
+
+.analytics .kpis .kpi .indicadores {
+    width: 95%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.71em;
+    float: right;
+}
+
+.analytics .kpis .kpi .indicadores p {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
 .analytics .kpis .porcentagens {
     width: 70%;
     height: 70%;
@@ -517,8 +609,75 @@ section {
 .analytics .kpis .porcentagens .porcen {
     width: 22%;
     height: 100%;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     border: 1px solid #c5c5c5;
+    font-size: 1.5em;
+    color: #0084ff;
 }
 
+.analytics .kpis .porcentagens .porcen:nth-child(2){
+    color: #00ff2a;
+}
+.analytics .kpis .porcentagens .porcen:nth-child(3){
+    color: #ffae00;
+}
+.analytics .kpis .porcentagens .porcen:nth-child(4){
+    color: #ff0000;
+}
+
+
+
+
+
+
+.machines{
+    width: 90%;
+    height: 60vh;
+    position: absolute;
+    top: 35vh;
+    margin: 0 5em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    right: -200%;
+    background-color: #f5f5f5;
+    border-radius: 0.6em;
+    transition: all 800ms;
+}
+
+.machines *{
+    color: #242424;
+}
+
+.machines .tituloPrincipal{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    /* float: right; */
+}
+
+.machines .tituloPrincipal h2{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.machines .content{
+    width: 95%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.machines .content .card{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.machines .content .card .titulo{
+    font-size: 1.2em;
+}
