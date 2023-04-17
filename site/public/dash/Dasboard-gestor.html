@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Suporte T.I</title>
+
+    <link rel="stylesheet" href="../css/padronizar.css">
+    <link rel="stylesheet" href="dashSuporteTI.css">
+
+    <!-- Icones da Google -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+
+</head>
+
+<body>
+    <main>
+        <!-- Blur Background -->
+        <div class="efeito-blur">
+            <div class="lado esquerdo">
+                <div class="blur"></div>
+            </div>
+            <div class="lado direito">
+                <div class="blur"></div>
+            </div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="decor"></div>
+        <section>
+            <div class="Navbar-dash">
+                <div class="first-piece">
+                    <div class="logo-navbar-dash">
+                        <div class="hover" onclick="goHome()">
+                            <span class="material-symbols-outlined">
+                                memory
+                            </span>
+                            <h3>Easy Ware</h3>
+                        </div>
+                    </div>
+                    <div class="info-user-navbar-dash">
+                        <div class="photo-user-navbar-dash"></div>
+                        <div class="info-user">
+                            <p>Welcome back,</p>
+                            <h4>{$USER}</h4>
+                        </div>
+                    </div>
+                    <div class="options-navbar-dash">
+                        <div class="primeira selecionado" id="primeira-opcao-nav" onclick="mudarOpcao1()">
+                            <div class="hover">
+                                <span class="material-symbols-outlined">
+                                    equalizer
+                                </span>
+                                <p>Dashboard</p>
+                            </div>
+                        </div>
+                        <div class="segunda" id="segunda-opcao-nav" onclick="mudarOpcao2()">
+                            <div class="hover">
+                                <span class="material-symbols-outlined">
+                                    memory
+                                </span>
+                                <p>Machines</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensagem de HELP -->
+                <div class="second-piece">
+                    <div class="mensage">
+                        <div class="btn-Voltar">
+                            <span class="material-symbols-outlined">
+                                arrow_right_alt
+                            </span>
+                        </div>
+                        <div class="text">
+                            <h5>Help Center</h5>
+                            <p>Please contact us for more questions.</p>
+                        </div>
+                        <div class="btn-Help">
+                            <button>Go to help center</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Container">
+                <div class="container">
+                    <div class="overview">
+                        <div class="title">
+                            <h4>Overview</h4>
+                        </div>
+
+
+                        <div class="info">
+
+
+                            <div class="users">
+                                <div class="foto">
+
+                                </div>
+                                <div class="name">
+                                    <p>${USER}</p>
+                                    <span class="material-symbols-outlined">
+                                        expand_more
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="notifications">
+                                <span class="material-symbols-outlined">
+                                    notifications
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics">
+                        <span>Analytics</span>
+                        <div class="kpis">
+                            <div class="kpi">
+                                <div class="titulo">
+                                    <h5>KPIS</h5>
+                                </div>
+                                <div class="indicadores">
+                                    <p><span class="material-symbols-outlined">
+                                            warning
+                                        </span>Ideal</p>
+                                    <p><span class="material-symbols-outlined">
+                                            warning
+                                        </span>Alerta</p>
+                                    <p><span class="material-symbols-outlined">
+                                            warning
+                                        </span>Perigoso</p>
+                                </div>
+                            </div>
+                            <div class="porcentagens">
+                                <div class="porcen" id="demo">0% Ideal</div>
+                                <div class="porcen">25% Ideal</div>
+                                <div class="porcen">75% Alerta</div>
+                                <div class="porcen">100% Perigo</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="little-dash" id="parte-1">
+                        <div class="first">
+                            <span>Disco Average</span>
+                            <div class="dash1">
+                                <div class="graph">
+                                    <canvas id="Dash-1"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+
+                                    // setInterval(att, 5000)
+
+                                    // function att() {
+                                    //     window.location.reload();
+                                    // }
+
+                                    var aleato1 = (1 + Math.random() * 5).toFixed(0)
+                                    var aleato2 = (1 + Math.random() * 5).toFixed(0)
+                                    var aleato3 = (1 + Math.random() * 5).toFixed(0)
+                                    var aleato4 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato5 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato6 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato7 = (15 + Math.random() * 20).toFixed(0)
+                                    var aleato8 = (15 + Math.random() * 20).toFixed(0)
+                                    var aleato9 = (15 + Math.random() * 20).toFixed(0)
+                                    var aleato10 = (15 + Math.random() * 20).toFixed(0)
+
+
+                                    const dash1 = document.getElementById('Dash-1');
+
+                                    new Chart(dash1, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            },
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+
+                                    });
+
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="second">
+                            <span>Ram Average</span>
+                            <div class="dash2">
+                                <div class="graph">
+                                    <canvas id="Dash-2"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    var aleato1 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato2 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato3 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato4 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato5 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato6 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato7 = (5 + Math.random() * 10).toFixed(0)
+                                    var aleato8 = (1 + Math.random() * 5).toFixed(0)
+                                    var aleato9 = (1 + Math.random() * 5).toFixed(0)
+                                    var aleato10 = (1 + Math.random() * 5).toFixed(0)
+
+
+                                    const dash2 = document.getElementById('Dash-2');
+
+                                    new Chart(dash2, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                backgroundColor: 'orange',
+                                                borderColor: 'orangered',
+                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            },
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="third">
+                            <div class="dash3">
+                                <div class="texto">
+                                    <div class="quantidade">
+                                        <span>120</span>
+                                        <p>Total de maquinas</p>
+                                    </div>
+                                    <span class="material-symbols-outlined">
+                                        memory
+                                    </span>
+                                </div>
+                                <div class="ancora">
+                                    <p>Ir para maquinas
+                                        <span class="material-symbols-outlined">
+                                            arrow_right
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="second-dash" id="parte-2">
+                        <div class="first">
+                            <span>CPU Average</span>
+                            <div class="dash1">
+                                <div class="graph1">
+                                    <canvas id="Second-Dash-2"></canvas>
+                                </div>
+
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    const seconddash2 = document.getElementById('Second-Dash-2');
+
+                                    new Chart(seconddash2, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                backgroundColor: '#6A65DF',
+                                                borderColor: '#6A65ab',
+                                                border: '8px',
+                                                data: [2, 8, 10, 1, 4, 3, 6, 9, 10, 18],
+                                                borderWidth: 1,
+                                                padding: 90
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            },
+                                            scales: {
+                                                y: {
+                                                    ticks: {
+
+                                                        padding: 30
+                                                    }
+                                                    // The axis for this scale is determined from the first letter of the id as `'x'`
+                                                    // It is recommended to specify `position` and / or `axis` explicitly.
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="second">
+                            <div class="dash-2">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Machines -->
+                    <div class="machines" id="parte-3">
+                        <div class="tituloPrincipal">
+                            <h2>Funcionários</h2>
+                        </div>
+                        <div class="content">
+                            <div class="card nome">
+                                <div class="titulo"><h3>Nome</h3>
+                                    <p>${user} <br> ${user}</p>
+                                </div>
+                            </div>
+                            <div class="card Email">
+                                <div class="titulo"><h3>Email</h3>
+                                    <p>${user} <br> ${user}</p>
+                                </div>
+                            </div>
+                            <div class="card Senha">
+                                <div class="titulo"><h3>Senha</h3>
+                                    <p>${user} <br> ${user}</p>
+                                </div>
+                            </div>
+                            <div class="card Função">
+                                <div class="titulo"><h3>Função</h3>
+                                    <p>${user} <br> ${user}</p>
+                                </div>
+                            </div>
+                            <div class="card Status">
+                                <div class="titulo"><h3>Status</h3>
+                                    <p>${user} <br> ${user}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
+
+<script>
+    function goHome() {
+        window.location = '../index.html'
+    }
+
+    var opcao1 = document.getElementById('primeira-opcao-nav')
+    var opcao2 = document.getElementById('segunda-opcao-nav')
+
+    var parte1 = document.getElementById('parte-1')
+    var parte2 = document.getElementById('parte-2')
+    var parte3 = document.getElementById('parte-3')
+
+    function mudarOpcao1() {
+        opcao1.classList.add('selecionado')
+        opcao2.classList.remove('selecionado')
+
+        parte1.style.left = '0'
+        parte2.style.left = '0'
+        parte3.style.right = '-200%'
+    }
+
+    function mudarOpcao2() {
+        opcao1.classList.remove('selecionado')
+        opcao2.classList.add('selecionado')
+
+        parte1.style.left = '-300%'
+        parte2.style.left = '-200%'
+        parte3.style.right = '0%'
+    }
+</script>
