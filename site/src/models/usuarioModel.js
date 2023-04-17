@@ -3,7 +3,16 @@ var database = require("../database/config")
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Gestor';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function entrar2(email, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
+    var instrucao = `
+        SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Tecnico';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -47,21 +56,9 @@ function cadastrarUsuario(nome, email, senha, sobrenome, pid, empresaCad) {
     return database.executar(instrucao);
 }
 
-
-function cadastrarUsuarioEmpresa(nome, email, senha, sobrenome, pid, empresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
-    var instrucao = `
-        INSERT INTO Empresa (nome, cnpj, dono) VALUES ('${empresa}', '${cnpj}', '${dono}');
-        INSERT INTO Usuario (nome, email, senha, fkEmpresa, donoEmpresa) 
-            VALUES ('${nome}', '${sobrenome}', '${email}', '${senha}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 module.exports = {
     entrar,
+    entrar2,
     validacaoEmpresa,
     cadastrarGestor,
     cadastrarUsuario,

@@ -188,111 +188,113 @@ function cadastrar() {
     var empresaVar = empresa_input.value;
     var cnpjVar = cnpj_input.value;
     var donoVar = dono_input.value;
-
+  
     if (empresaVar == "" || cnpjVar == "" || donoVar == "") {
-        return false;
+      return false;
     } else {
-        console.log("Todos os campos estão certos");
+      console.log("Todos os campos estão certos");
     }
-
+  
     fetch("/usuarios/validacao", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            empresaServer: empresaVar,
-            cnpjServer: cnpjVar,
-            donoServer: donoVar
-        })
-
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        empresaServer: empresaVar,
+        cnpjServer: cnpjVar,
+        donoServer: donoVar
+      })
+  
     }).then(function (resposta) {
-        if (json.id == null) {
-            console.log("If do Then ")
-            cadastrarEmpresa();
-        } else {
-            console.log("Else do Then ")
-            cadastrarGestor(resposta);
-        }
-        
+      if (resposta.ok) {
+        resposta.json().then(function (json) {
+          if (json[0].id == null) {
+            console.log("Cadastrando empresa...");
+            console.log(json)
+            cadastrarEmpresa()
+          } else {
+            console.log("Cadastrando gestor...");
+            cadastrarGestor(json[0].id);
+          }
+        });
+      } else {
+        console.log("Erro ao validar dados");
+      }
+  
     }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        cadastrarEmpresa();
+      console.log(`#ERRO: ${resposta}`);
     });
-    
-}
-
-function cadastrarEmpresa() {
+  
+  }
+  
+  function cadastrarEmpresa() {
     var empresaVar = empresa_input.value;
     var cnpjVar = cnpj_input.value;
     var donoVar = dono_input.value;
-
+  
     console.log("Estou no CadastrarEmpresa");
-
+  
     fetch("/usuarios/cadastrarEmpresa", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            empresaServer: empresaVar,
-            cnpjServer: cnpjVar,
-            donoServer: donoVar
-        })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        empresaServer: empresaVar,
+        cnpjServer: cnpjVar,
+        donoServer: donoVar
+      })
     }).then(function (resposta) {
-        console.log(resposta)
-        if (resposta.ok) {
-            cadastrar();
-        } else {
-            console.log("Deu erro ao cadastrar Empresa");
-        }
-        
+      console.log(resposta)
+      if (resposta.ok) {
+        console.log("Empresa cadastrada com sucesso");
+        cadastrar();
+      } else {
+        console.log("Deu erro ao cadastrar Empresa");
+      }
+  
     }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+      console.log(`#ERRO: ${resposta}`);
     });
-}
-
-function cadastrarGestor(resposta) {
-
+  }
+  
+  function cadastrarGestor(empresaId) {
     var nomeVar = nome_input.value;
     var sobrenomeVar = sobrenome_input.value;
     var emailVar = emailCad_input.value;
-    var empresaVar = json.id;
+    var empresaVar = empresaId;
     var cnpjVar = cnpj_input.value;
     var senhaVar = senha.value;
-    
-
+  
     fetch("/usuarios/cadastrarGestor", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
-            sobrenomeServer: sobrenomeVar,
-            empresaServer: empresaVar,
-            cnpjServer: cnpjVar
-        })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        sobrenomeServer: sobrenomeVar,
+        empresaServer: empresaVar,
+        cnpjServer: cnpjVar
+      })
     }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-
-            setTimeout(() => {
-                window.location = "index.html";
-            }, "2000")
-
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-        
-        }
-        
+      console.log("resposta: ", resposta);
+  
+      if (resposta.ok) {
+        console.log("Gestor cadastrado com sucesso");
+        setTimeout(() => {
+          window.location = "index.html";
+        }, "2000");
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
     }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+      console.log(`#ERRO: ${resposta}`);
     });
-
+  
     return false;
-}
+  }
+  
