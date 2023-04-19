@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Suporte T.I</title>
+    <title>Dashboard Gestor</title>
 
     <link rel="stylesheet" href="../css/padronizar.css">
     <link rel="stylesheet" href="dashGestor.css">
@@ -51,14 +51,14 @@
                         </div>
                     </div>
                     <div class="options-navbar-dash">
-                        <div class="primeira selecionado" id="primeira-opcao-nav" onclick="mudarOpcao1()">
+                        <!-- <div class="primeira selecionado" id="primeira-opcao-nav" onclick="mudarOpcao1()">
                             <div class="hover">
                                 <span class="material-symbols-outlined">
                                     equalizer
                                 </span>
                                 <p>Dashboard</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="segunda" id="segunda-opcao-nav" onclick="mudarOpcao2()">
                             <div class="hover">
                                 <span class="material-symbols-outlined">
@@ -116,225 +116,6 @@
                                 <span class="material-symbols-outlined">
                                     notifications
                                 </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="analytics">
-                        <span>Analytics</span>
-                        <div class="kpis">
-                            <div class="kpi">
-                                <div class="titulo">
-                                    <h5>KPIS</h5>
-                                </div>
-                                <div class="indicadores">
-                                    <p><span class="material-symbols-outlined">
-                                            warning
-                                        </span>Ideal</p>
-                                    <p><span class="material-symbols-outlined">
-                                            warning
-                                        </span>Alerta</p>
-                                    <p><span class="material-symbols-outlined">
-                                            warning
-                                        </span>Perigoso</p>
-                                </div>
-                            </div>
-                            <div class="porcentagens">
-                                <div class="porcen" id="demo">0% Ideal</div>
-                                <div class="porcen">25% Ideal</div>
-                                <div class="porcen">75% Alerta</div>
-                                <div class="porcen">100% Perigo</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="little-dash" id="parte-1">
-                        <div class="first">
-                            <span>Disco Average</span>
-                            <div class="dash1">
-                                <div class="graph">
-                                    <canvas id="Dash-1"></canvas>
-                                </div>
-
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <script>
-
-                                    // setInterval(att, 5000)
-
-                                    // function att() {
-                                    //     window.location.reload();
-                                    // }
-
-                                    var aleato1 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato2 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato3 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato4 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato5 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato6 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato7 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato8 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato9 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato10 = (15 + Math.random() * 20).toFixed(0)
-
-
-                                    const dash1 = document.getElementById('Dash-1');
-
-                                    new Chart(dash1, {
-                                        type: 'line',
-                                        data: {
-                                            labels: ['', '', '', '', '', '', '', '', '', ''],
-                                            datasets: [{
-                                                label: '',
-                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
-                                                borderWidth: 1
-                                            }]
-                                        },
-                                        options: {
-                                            plugins: {
-                                                legend: {
-                                                    display: false
-                                                }
-                                            },
-                                            scales: {
-                                                y: {
-                                                    beginAtZero: true
-                                                }
-                                            }
-                                        }
-
-                                    });
-
-                                </script>
-                            </div>
-                        </div>
-
-                        <div class="second">
-                            <span>Ram Average</span>
-                            <div class="dash2">
-                                <div class="graph">
-                                    <canvas id="Dash-2"></canvas>
-                                </div>
-
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <script>
-                                    var aleato1 = (10 + Math.random() * 20).toFixed(0)
-                                    var aleato2 = (10 + Math.random() * 20).toFixed(0)
-                                    var aleato3 = (10 + Math.random() * 20).toFixed(0)
-                                    var aleato4 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato5 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato6 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato7 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato8 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato9 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato10 = (1 + Math.random() * 5).toFixed(0)
-
-
-                                    const dash2 = document.getElementById('Dash-2');
-
-                                    new Chart(dash2, {
-                                        type: 'line',
-                                        data: {
-                                            labels: ['', '', '', '', '', '', '', '', '', ''],
-                                            datasets: [{
-                                                label: '',
-                                                backgroundColor: 'orange',
-                                                borderColor: 'orangered',
-                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
-                                                borderWidth: 1
-                                            }]
-                                        },
-                                        options: {
-                                            plugins: {
-                                                legend: {
-                                                    display: false
-                                                }
-                                            },
-                                            scales: {
-                                                y: {
-                                                    beginAtZero: true
-                                                }
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-
-                        <div class="third">
-                            <div class="dash3">
-                                <div class="texto">
-                                    <div class="quantidade">
-                                        <span>120</span>
-                                        <p>Total de maquinas</p>
-                                    </div>
-                                    <span class="material-symbols-outlined">
-                                        memory
-                                    </span>
-                                </div>
-                                <div class="ancora">
-                                    <p>Ir para maquinas
-                                        <span class="material-symbols-outlined">
-                                            arrow_right
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="second-dash" id="parte-2">
-                        <div class="first">
-                            <span>CPU Average</span>
-                            <div class="dash1">
-                                <div class="graph1">
-                                    <canvas id="Second-Dash-2"></canvas>
-                                </div>
-
-                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-                                <script>
-                                    const seconddash2 = document.getElementById('Second-Dash-2');
-
-                                    new Chart(seconddash2, {
-                                        type: 'bar',
-                                        data: {
-                                            labels: ['', '', '', '', '', '', '', '', '', '', '', ''],
-                                            datasets: [{
-                                                label: '',
-                                                backgroundColor: '#6A65DF',
-                                                borderColor: '#6A65ab',
-                                                border: '8px',
-                                                data: [2, 8, 10, 1, 4, 3, 6, 9, 10, 18],
-                                                borderWidth: 1,
-                                                padding: 90
-                                            }]
-                                        },
-                                        options: {
-                                            plugins: {
-                                                legend: {
-                                                    display: false
-                                                }
-                                            },
-                                            scales: {
-                                                y: {
-                                                    ticks: {
-
-                                                        padding: 30
-                                                    }
-                                                    // The axis for this scale is determined from the first letter of the id as `'x'`
-                                                    // It is recommended to specify `position` and / or `axis` explicitly.
-                                                }
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                        <div class="second">
-                            <div class="dash-2">
-
                             </div>
                         </div>
                     </div>

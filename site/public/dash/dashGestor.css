@@ -642,7 +642,6 @@ section {
     display: flex;
     align-items: center;
     flex-direction: column;
-    right: -200%;
     background-color: #f5f5f5;
     border-radius: 0.6em;
     transition: all 800ms;
