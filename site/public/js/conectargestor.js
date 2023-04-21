@@ -209,12 +209,14 @@ function cadastrar() {
     }).then(function (resposta) {
       if (resposta.ok) {
         resposta.json().then(function (json) {
-          if (json[0].id == null) {
+          console.log(json)
+          if (json.length < 1) {
             console.log("Cadastrando empresa...");
             console.log(json)
             cadastrarEmpresa()
           } else {
             console.log("Cadastrando gestor...");
+            console.log(json[0].id);
             cadastrarGestor(json[0].id);
           }
         });
@@ -264,7 +266,6 @@ function cadastrar() {
     var sobrenomeVar = sobrenome_input.value;
     var emailVar = emailCad_input.value;
     var empresaVar = empresaId;
-    var cnpjVar = cnpj_input.value;
     var senhaVar = senha.value;
   
     fetch("/usuarios/cadastrarGestor", {
@@ -278,7 +279,7 @@ function cadastrar() {
         senhaServer: senhaVar,
         sobrenomeServer: sobrenomeVar,
         empresaServer: empresaVar,
-        cnpjServer: cnpjVar
+
       })
     }).then(function (resposta) {
       console.log("resposta: ", resposta);

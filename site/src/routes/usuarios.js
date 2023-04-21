@@ -11,12 +11,12 @@ router.post("/validacao", function (req, res) {
     usuarioController.validacaoEmpresa(req, res);
 });
 
-router.post("/cadastrarUsuario", function (req, res) {
-    usuarioController.cadastrarUsuario(req, res);
+router.post("/validacao2", function (req, res) {
+    usuarioController.autenticarEmpresa(req, res);
 });
 
-router.post("/cadastrarUsuarioEmpresa", function (req, res) {
-    usuarioController.cadastrarUsuarioEmpresa(req, res);
+router.post("/cadastrarUsuario", function (req, res) {
+    usuarioController.cadastrarUsuario(req, res);
 });
 
 router.post("/cadastrarGestor", function (req, res) {
@@ -31,8 +31,16 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/autenticar2", function (req, res) {
+    usuarioController.autenticarEmpresa(req, res);
+});
+
 router.post("/autenticarUsuario", function (req, res) {
     usuarioController.entrar2(req, res);
+});
+
+router.post("/validarPID", function (req, res) {
+    usuarioController.validarPID(req, res);
 });
 
 module.exports = router;

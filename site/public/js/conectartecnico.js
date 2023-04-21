@@ -188,36 +188,32 @@ function entrar() {
 //
 function cadastrar() {
     var empresaVar = empresa_input.value;
-    var cnpjVar = cnpj_input.value;
-    var donoVar = dono_input.value;
   
-    if (empresaVar == "" || cnpjVar == "" || donoVar == "") {
+    if (empresaVar == "") {
       return false;
     } else {
       console.log("Todos os campos estão certos");
     }
   
-    fetch("/usuarios/validacao", {
+    fetch("/usuarios/autenticar2", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         empresaServer: empresaVar,
-        cnpjServer: cnpjVar,
-        donoServer: donoVar
       })
   
     }).then(function (resposta) {
       if (resposta.ok) {
         resposta.json().then(function (json) {
-          if (json[0].id == null) {
-            console.log("Cadastrando empresa...");
+          if (json.length < 1) {
+            //console.log("Cadastrando empresa...");
             console.log(json)
-            cadastrarEmpresa()
+            console.log("Empresa errada ou não está cadastrada");
           } else {
-            console.log("Cadastrando gestor...");
-            cadastrarGestor(json[0].id);
+            console.log("Cadastrando usuario...");
+            cadastrarUsuario(json[0].id);
           }
         });
       } else {
@@ -229,70 +225,63 @@ function cadastrar() {
     });
   
   }
-  
-  function cadastrarEmpresa() {
-    var empresaVar = empresa_input.value;
-    var cnpjVar = cnpj_input.value;
-    var donoVar = dono_input.value;
-  
-    console.log("Estou no CadastrarEmpresa");
-  
-    fetch("/usuarios/cadastrarEmpresa", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        empresaServer: empresaVar,
-        cnpjServer: cnpjVar,
-        donoServer: donoVar
-      })
-    }).then(function (resposta) {
-      console.log(resposta)
-      if (resposta.ok) {
-        console.log("Empresa cadastrada com sucesso");
-        cadastrar();
-      } else {
-        console.log("Deu erro ao cadastrar Empresa");
-      }
-  
-    }).catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
-  }
-  
-  function cadastrarUsuario() {
 
+  function cadastrarUsuario(empresaId) {
     var nomeVar = nome_input.value;
     var sobrenomeVar = sobrenome_input.value;
     var emailVar = emailCad_input.value;
-    var empresaVar = empresa_input.value;
+    var empresaVar = empresaId;
     var pidVar = pid.value;
     var senhaVar = senha.value;
   
-    fetch("/usuarios/cadastrarGestor", {
+    fetch("/usuarios/validarPID", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        sobrenomeServer: sobrenomeVar,
-        empresaServer: empresaVar,
         pidServer: pidVar
       })
     }).then(function (resposta) {
-      console.log("resposta: ", resposta);
-  
       if (resposta.ok) {
-        console.log("Gestor cadastrado com sucesso");
-        setTimeout(() => {
-          window.location = "index.html";
-        }, "2000");
+        console.log(resposta);
+        resposta.json().then(function (json) {
+          if (json.length > 0) {
+            // PID existe no banco de dados, cadastrar usuário
+            fetch("/usuarios/cadastrarUsuario", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                sobrenomeServer: sobrenomeVar,
+                empresaServer: empresaVar,
+                pidServer: pidVar
+              })
+            }).then(function (resposta) {
+              console.log("resposta: ", resposta);
+  
+              if (resposta.ok) {
+                console.log("Gestor cadastrado com sucesso");
+                setTimeout(() => {
+                  window.location = "index.html";
+                }, "2000");
+              } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+              }
+            }).catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
+            });
+          } else {
+            // PID não existe no banco de dados
+            console.log("PID não encontrado");
+          }
+        });
       } else {
-        throw ("Houve um erro ao tentar realizar o cadastro!");
+        console.log("Erro ao validar PID");
       }
     }).catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
@@ -300,3 +289,4 @@ function cadastrar() {
   
     return false;
   }
+  

@@ -26,6 +26,22 @@ function validacaoEmpresa(empresa, cnpj, dono) {
     return database.executar(instrucao);
 }
 
+function validacaoEmpresaUsuario(empresa) {
+    var instrucao = `
+        SELECT * FROM Empresa WHERE nome = '${empresa}';
+    `;
+
+    return database.executar(instrucao);
+}
+
+function validacaoPidCadastrado(pid) {
+    var instrucao = `
+        SELECT * FROM Usuario WHERE id = '${pid}';
+    `;
+
+    return database.executar(instrucao);
+}
+
 function cadastrarEmpresa(empresa, cnpj, dono) {
     var instrucao = `
         INSERT INTO Empresa (nome, cnpj, dono) VALUES ('${empresa}', '${cnpj}', '${dono}');
@@ -49,7 +65,7 @@ function cadastrarUsuario(nome, email, senha, sobrenome, pid, empresaCad) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
     var instrucao = `
-        INSERT INTO Usuario (PID, nome, sobrenome, email, senha, cargo, id_gestor) 
+        INSERT INTO Usuario (PID, nome, sobrenome, email, senha, cargo, id_empresa) 
             VALUES ('${pid}', '${nome}', '${sobrenome}', '${email}', '${senha}', 'Tecnico', '${empresaCad}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -62,5 +78,7 @@ module.exports = {
     validacaoEmpresa,
     cadastrarGestor,
     cadastrarUsuario,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    validacaoEmpresaUsuario,
+    validacaoPidCadastrado
 };
