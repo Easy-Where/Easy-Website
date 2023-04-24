@@ -598,20 +598,20 @@
         justify-content: center;
     }
 
-    .carousel{
+    .carousel {
         height: 90vh;
     }
 
     .carousel-item {
         height: 50vh;
         width: 50%;
-    box-shadow: 0 10px 60px 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 10px 60px 15px rgba(0, 0, 0, .5);
         transform: translate(var(--x));
     }
-
+    
 }
 
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 650px) {
     .carousel-item {
         width: 70%;
         left: 30%;
