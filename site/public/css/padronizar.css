@@ -36,10 +36,6 @@
     scroll-behavior: smooth;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background-color: var(--bg-color);
     overflow-x: hidden;
@@ -451,4 +447,171 @@ footer {
     height: 3px;
     width: 50%;
     border-radius: 10px;
+}
+
+
+
+
+/* RESPONSIVIDADE NAV E FOOTER */
+.btnmenu {
+    display: none;
+}
+
+.btnmenu a {
+    position: relative;
+    background: var(--luz);
+    color: var(--luz);
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.btnmenu a:hover {
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+
+.btnmenu a::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--bg-color);
+}
+
+.btnmenu a span {
+    position: relative;
+    z-index: 1;
+}
+
+.btnmenu a i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.btnmenu a i::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 70%;
+    width: 40px;
+    height: 4px;
+    background: var(--bg-color);
+    transform: translate(-50%) skewX(325deg) rotate(0deg);
+    transition: 0.5s;
+}
+
+.btnmenu a i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 33%;
+    width: 45px;
+    height: 4px;
+    background: var(--bg-color);
+    transform: translate(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.btnmenu a:hover i::before {
+    width: 20px;
+    left: 2px;
+    transform: skewX(0deg);
+}
+
+
+
+.btnmenu a:hover i::after {
+    width: 20px;
+    left: 82%;
+    transform: skewX(0deg);
+}
+
+.btnmenuSelect{
+    background: var(--clr) !important;
+    color: var(--clr) !important;
+    box-shadow: 0 0 35px var(--clr);
+}
+
+.ativo{
+    top: 0 !important;
+}
+
+.efeitoConect{
+    animation: arrival 800ms ease-in both alternate;
+}
+
+@keyframes arrival {
+    0%{
+
+        top: -30em;
+
+    } 75% {
+
+        top: 35em;
+
+    } 100% {
+        top: 30em;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .secoes {
+        width: 15em;
+        height: 35em;
+        display: flex;
+        padding-left: 2em;
+        border-radius: .5em;
+        align-items: center;
+        justify-content: center;
+        background-color: #252525f3;
+        position: absolute;
+        top: -100em;
+        right: 0;   
+        transition: all 500ms;
+    }
+
+    .secoes ul {
+        flex-direction: column;
+    }
+
+    .navbar {
+        padding: 0 2em;
+        justify-content: space-between;
+    }
+
+    .btnconectar {
+        position: absolute;
+        top: -30em;
+        right: 1.9em;
+    }
+
+    .btnconectar a{
+        font-size: .8em;
+    }
+
+    .btnmenu {
+        display: block;
+        cursor: pointer;
+    }
+
+    footer{
+        height: 70vh;
+    }
+
+
+    footer > * {
+        text-align: center;
+    }
+
+    .secoes-footer{
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
