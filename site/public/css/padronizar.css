@@ -531,31 +531,36 @@ footer {
     transform: skewX(0deg);
 }
 
-.btnmenuSelect{
+.btnmenuSelect {
     background: var(--clr) !important;
     color: var(--clr) !important;
     box-shadow: 0 0 35px var(--clr);
 }
 
-.ativo{
+.ativo {
     top: 0 !important;
 }
 
-.efeitoConect{
-    animation: arrival 800ms ease-in both alternate;
+.efeitoConect {
+    animation: arrival 1s ease-out both;
 }
 
 @keyframes arrival {
-    0%{
+    0% {
 
         top: -30em;
 
-    } 75% {
+    }
 
-        top: 35em;
+    75% {
 
-    } 100% {
         top: 30em;
+
+    }
+
+    100% {
+        top: 28em;
+
     }
 }
 
@@ -571,7 +576,7 @@ footer {
         background-color: #252525f3;
         position: absolute;
         top: -100em;
-        right: 0;   
+        right: 0;
         transition: all 500ms;
     }
 
@@ -590,7 +595,7 @@ footer {
         right: 1.9em;
     }
 
-    .btnconectar a{
+    .btnconectar a {
         font-size: .8em;
     }
 
@@ -599,16 +604,16 @@ footer {
         cursor: pointer;
     }
 
-    footer{
+    footer {
         height: 70vh;
     }
 
 
-    footer > * {
+    footer>* {
         text-align: center;
     }
 
-    .secoes-footer{
+    .secoes-footer {
         height: 100%;
         flex-direction: column;
         justify-content: space-around;

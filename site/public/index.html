@@ -36,7 +36,7 @@
                     </a>
                 </div>
 
-                <div class="secoes">
+                <div class="secoes" id="nav-responsivo">
                     <nav>
                         <ul>
                             <li>
@@ -55,9 +55,16 @@
                     </nav>
                 </div>
 
-                <div class="btnconectar">
+                <div class="btnconectar" id="btn-conectar">
                     <a href="preconectar.html">
                         <span>Conectar-se</span><i></i>
+                    </a>
+                </div>
+
+                <!-- BOTÃO MENU -->
+                <div class="btnmenu">
+                    <a onclick="btnMenu()" id="aMenu">
+                        <span>Menu</span><i></i>
                     </a>
                 </div>
             </div>
@@ -160,9 +167,9 @@
                             <h1>Marcos Marques</h1>
                         </div>
                         <p>
-                            "Após o uso do Easy Ware meus funcionários tem 
+                            "Após o uso do Easy Ware meus funcionários tem
                             trabalhado com muito mais <span>produtividade</span>,
-                             sem distrações, e <span>responsabilidade</span>"
+                            sem distrações, e <span>responsabilidade</span>"
                         </p>
                         <div class="title">Cliente</div>
                     </div>
@@ -171,8 +178,8 @@
                 <div class="carousel-item">
                     <div class="carousel-box cardtexto">
                         <div class="textcard">
-                            Fazemos uso dos dados coletados de forma inteligente, 
-                            mostrando para você de uma maneira acessível todo o fluxo de seu negócio. 
+                            Fazemos uso dos dados coletados de forma inteligente,
+                            mostrando para você de uma maneira acessível todo o fluxo de seu negócio.
                             Trazemos assim mais controle a você sobre o que realmente importa.
                         </div>
                     </div>
@@ -194,7 +201,7 @@
                             <h1>Maria Pimentel</h1>
                         </div>
                         <p>
-                            "Meus <span>prejuízos cairam</span> após a aquisição do Easy Ware. 
+                            "Meus <span>prejuízos cairam</span> após a aquisição do Easy Ware.
                             Conto com um suporte incrível para sempre me manter <span>atualizada</span>"
                         </p>
                         <div class="title">Cliente</div>
@@ -235,7 +242,7 @@
                 <div class="carousel-item">
                     <div class="carousel-box cardtexto">
                         <div class="textcard">
-                            Trazemos como princípio, a capacidade de se comunicar de maneira pragmática, 
+                            Trazemos como princípio, a capacidade de se comunicar de maneira pragmática,
                             portanto, usamos disso para trazer a você o sistema mais EASY possível.
                         </div>
                     </div>
@@ -337,7 +344,8 @@
                     <h1>Nossos serviços</h1>
                     <ul>
                         <a href="easyware.html">
-                            <li>Easy • Ware<div class="bar"></div></li>
+                            <li>Easy • Ware<div class="bar"></div>
+                            </li>
                         </a>
                     </ul>
                 </div>
@@ -363,4 +371,19 @@
         + '&ref=' + encodeURIComponent(document.URL);
     document.body.appendChild(ttChatLoaderS);
     //]]>
+</script>
+<script>
+
+    var btn = document.getElementById('aMenu')
+    var navMenu = document.getElementById('nav-responsivo')
+    var conect = document.getElementById('btn-conectar')
+
+    function btnMenu(){
+
+        navMenu.classList.toggle('ativo')
+        conect.classList.toggle('efeitoConect')
+        btn.classList.toggle('btnmenuSelect')
+
+    }
+
 </script>

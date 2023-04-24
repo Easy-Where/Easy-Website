@@ -361,3 +361,10 @@
 .textocolaboradores span {
     color: var(--clr);
 }
+
+
+@media only screen and (max-width: 1000px){
+    .text-more{
+        display: none;
+    }
+}
