@@ -455,3 +455,12 @@
         width: 30% !important;
     }
 }
+
+@media only screen and (max-width: 650px){
+    h1{
+        font-size: .7em;
+    }
+    .mobile{
+        display: none;
+    }
+}
