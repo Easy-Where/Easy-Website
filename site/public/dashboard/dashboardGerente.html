@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="dashboardGerente.css">
+
+    <script src="../js/dashboardGerente.js"></script>
+
+</head>
+<body>
+
+    <div class="body">
+
+        <div class="menu">
+
+            <div class="info">
+                <h3>Easy Ware</h1>
+                <div class="empresa">
+                    <h1>Nome Empresa</h1>
+                    <p>Nome Gerente</p>
+                </div>
+            </div>
+
+            <div class="navbar">
+                <p>Configuração</p>
+                <p><a href="../index.html">Sign-out</a></p>
+            </div>
+
+            <div class="helpdesk">
+                <div class="helpbox">
+                    <h3>Help Center</h3>
+                    <p>Please contact us for more question</p>
+                    <button>Go to help center</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="containerbox">
+
+                <div class="adicionar">
+                    <h1>Funcionarios</h1>
+                    <button onclick="tela()">Adicionar</button>
+                </div>
+    
+                <div class="lista">
+                    <div class="column">
+                        <div class="name">
+                            <h1>Nome</h1>
+                            <p>Diego Marques</p>
+                            
+                        </div>
+                        <div class="email">
+                            <h1>Email</h1>
+                            <p>diego.vieira@box.com.br</p>
+                        </div>
+                        <div class="senha">
+                            <h1>Senha</h1>
+                            <p>diego@123</p>
+                        </div>
+                        <div class="funcao">
+                            <h1>Função</h1>
+                            <p>Tecnico de T.I</p>
+                        </div>
+                        <div class="acess">
+                            <h1>Acesso</h1>
+                            <p>Sim</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="body2" style="display: none">
+        <div class="container2">
+
+            <div class="lines">
+                <div class="clear">
+
+                </div>
+                <div class="box">
+                    <div class="line1" onclick="tela2()">
+    
+                    </div>
+                    <div class="line2" onclick="tela2()">
+    
+                    </div>
+                </div>
+            </div>
+
+            <div class="labels">
+                <h1>Registro Funcionario</h1>
+                <div class="labelBox">
+                    <label for="Nome">Nome</label>
+                    <input type="text" placeholder="Digite seu nome!">
+                </div>
+                
+                <div class="labelBox">
+                    <label for="Email">Email</label>
+                    <input type="email" placeholder="Digite seu nome!">
+                </div>
+
+                <div class="labelBox">
+                    <label for="Senha">Senha</label>
+                    <input type="password" placeholder="Digite seu nome!">
+                </div>
+
+                <div class="labelBox">
+                    <label for="Funcao">Função</label>
+                    <select name="selFuncao" id="selFuncao">
+                        <option value="0">---</option>
+                        <option value="1">Tecnico de T.I</option>
+                        <option value="2">Funcionario HomeOffice</option>
+                    </select>
+                </div>
+
+                <div class="labelBox">
+                    <label for="Acesso">Acesso</label>
+                    <select name="selAcesso" id="selFuncao">
+                        <option value="0">---</option>
+                        <option value="1">Sim</option>
+                        <option value="2">Nao</option>
+                    </select>
+                </div>
+
+                <div class="buttons">
+                    <button>Limpar</button>
+                    <button>Registrar</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

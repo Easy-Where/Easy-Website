@@ -23,7 +23,7 @@
                     </a>
                 </div>
 
-                <div class="secoes">
+                <div class="secoes" id="nav-responsivo">
                     <nav>
                         <ul>
                             <li>
@@ -42,9 +42,16 @@
                     </nav>
                 </div>
 
-                <div class="btnconectar">
-                    <a href="preconectar.html">
+                <div class="btnconectar" id="btn-conectar">
+                    <a href="preconectar.html" >
                         <span>Conectar-se</span><i></i>
+                    </a>
+                </div>
+
+                <!-- BOTÃO MENU -->
+                <div class="btnmenu">
+                    <a onclick="btnMenu()" id="aMenu">
+                        <span>Menu</span><i></i>
                     </a>
                 </div>
             </div>
@@ -78,10 +85,10 @@
                         trazendo para você, uma solução EASY, mas sem perder a qualidade, ótimo
                         serviço, e claro, ótimos preços.
                         <span class="text-more">
-                        Contribuímos em diversas partes do Brasil para a criação de soluções tecnológicas que
-                        causassem diferenças sociais e ambientais. Acreditamos na evolução pessoal, mas
-                        principalmente na coletiva, e acreditamos que você possa fazer parte disso. <br>
-                        Obrigado pelo interesse em nos apoiar. </span>
+                            Contribuímos em diversas partes do Brasil para a criação de soluções tecnológicas que
+                            causassem diferenças sociais e ambientais. Acreditamos na evolução pessoal, mas
+                            principalmente na coletiva, e acreditamos que você possa fazer parte disso. <br>
+                            Obrigado pelo interesse em nos apoiar. </span>
                     </p>
                 </div>
 
@@ -305,7 +312,7 @@
                         <h1>Conheça nossos <span>colaboradores</span></h1>
                     </div>
 
-                    <div class="segmento">
+                    <div class="segmento segundoSeg">
                         <div class="card">
                             <div class="face face1">
                                 <div class="content">
@@ -317,7 +324,7 @@
                             <div class="face face2">
                                 <div class="content">
                                     <p>
-                                        Maior empresa de consultoria do mundo. 
+                                        Maior empresa de consultoria do mundo.
                                     </p>
 
                                     <div class="contato">
@@ -337,8 +344,8 @@
 
                         <div class="card">
                             <div class="face face1">
-                                <div class="content">
-                                    <img src="assets/sobre-box.jpg" alt="Logo da Box Delivery">
+                                <div class="content">   
+                                    <img src="assets/sobre-box.jpg" alt="Logo da Box Delivery" class="box">
                                     <h1>Box Delivery</h1>
                                 </div>
                             </div>
@@ -484,7 +491,8 @@
                     <h1>Nossos serviços</h1>
                     <ul>
                         <a href="easyware.html">
-                            <li>Easy • Ware<div class="bar"></div></li>
+                            <li>Easy • Ware<div class="bar"></div>
+                            </li>
                         </a>
                     </ul>
                 </div>
@@ -509,4 +517,18 @@
         + '&ref=' + encodeURIComponent(document.URL);
     document.body.appendChild(ttChatLoaderS);
     //]]>
+</script>
+<script>
+
+    var btn = document.getElementById('aMenu')
+    var navMenu = document.getElementById('nav-responsivo')
+    var conect = document.getElementById('btn-conectar')
+
+    function btnMenu() {
+
+        navMenu.classList.toggle('ativo')
+        conect.classList.toggle('efeitoConect')
+        btn.classList.toggle('btnmenuSelect')
+
+    }
 </script>

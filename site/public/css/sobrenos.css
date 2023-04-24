@@ -306,7 +306,7 @@
     color: white;
 }
 
-.conteudo i{
+.conteudo i {
     font-size: 30px;
     margin: 15px;
 }
@@ -347,7 +347,7 @@
     }
 }
 
-.textocolaboradores{
+.textocolaboradores {
     font-size: 60px;
     color: var(--luz);
     margin: 100px 0 50px 0;
@@ -363,8 +363,95 @@
 }
 
 
-@media only screen and (max-width: 1000px){
-    .text-more{
+@media only screen and (max-width: 1000px) {
+    h1 {
+        font-size: 0.8em;
+    }
+
+    .cardempresa {
+        width: 100%;
+        margin: 0;
+    }
+
+    .text-more {
         display: none;
+    }
+
+    .campocards {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .segmento {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        margin: 2em 0;
+        width: 90%;
+    }
+
+    .face{
+        width: 90%;
+    }
+
+    .face img{
+        width: 50%;
+    }
+
+   .face1 {
+        transform: translateY(40px);
+    }
+
+    .face2{
+        padding-bottom: 2em;
+    }
+
+
+    .card .face.face2 {
+        transform: translateY(0);
+        border-radius: 0 0 30px 30px;
+        transition: .6s;
+    }
+
+    .cardliquido{
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    .contato{
+        margin: 0;
+    }
+
+    .contato a{
+        margin: 0;
+    }
+
+    .segundoSeg{
+        margin: 3em auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .segundoSeg .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .segundoSeg .contato{
+        margin-top: 1em;
+    }
+
+    .segundoSeg .card img{
+        width: 50%;
+    }
+
+    .box{
+        width: 30% !important;
     }
 }
