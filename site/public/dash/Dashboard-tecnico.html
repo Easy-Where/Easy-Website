@@ -80,10 +80,10 @@
                         </div>
                         <div class="text">
                             <h5>Help Center</h5>
-                            <p>Please contact us for more questions.</p>
+                            <p>Contacte-nos em caso de dúvidas.</p>
                         </div>
                         <div class="btn-Help">
-                            <button>Go to help center</button>
+                            <button>Vá ao help center</button>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="analytics">
+                    <div class="analytics" id="parte-4">
                         <span class="analyticsTitle">Analytics</span>
                         <div class="kpis">
                             <div class="kpi">
@@ -392,6 +392,7 @@
     var parte1 = document.getElementById('parte-1')
     var parte2 = document.getElementById('parte-2')
     var parte3 = document.getElementById('parte-3')
+    var parte4 = document.getElementById('parte-4')
 
     function mudarOpcao1() {
         opcao1.classList.add('selecionado')
@@ -400,6 +401,7 @@
         parte1.style.left = '0'
         parte2.style.left = '0'
         parte3.style.right = '-200%'
+        parte4.style.left = '0'
     }
 
     function mudarOpcao2() {
@@ -409,5 +411,6 @@
         parte1.style.left = '-300%'
         parte2.style.left = '-200%'
         parte3.style.right = '0%'
+        parte4.style.left = '-200%'
     }
 </script>

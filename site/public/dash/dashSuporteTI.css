@@ -537,14 +537,16 @@ section {
 
 
 .analytics {
-    width: 95%;
+    width: 90%;
     height: 25%;
     margin: 0 auto 1em;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    position: relative;
+    transition: all 6mach00ms;
 }
 
 .analytics * {
@@ -552,7 +554,7 @@ section {
 }
 
 .analytics .kpis {
-    width: 100%;
+    width: 90%;
     height: 85%;
     border-radius: 8px;
     /* padding: 0 10px; */
@@ -639,9 +641,9 @@ section {
 
 .machines{
     width: 90%;
-    height: 60vh;
+    height: 80vh;
     position: absolute;
-    top: 35vh;
+    top: 15vh;
     margin: 0 5em;
     display: flex;
     align-items: center;
