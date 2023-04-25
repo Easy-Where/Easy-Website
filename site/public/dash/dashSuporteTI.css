@@ -758,3 +758,13 @@ section {
 .machines .content .card .titulo{
     font-size: 1.2em;
 }
+
+.hover span {
+    font-weight: bolder;
+    padding-right: 10px;
+    transition: .2s;
+}
+
+.hover span:hover {
+    color: #0084ff;
+}
