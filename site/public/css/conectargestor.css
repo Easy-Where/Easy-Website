@@ -578,3 +578,41 @@ input:valid~label {
 #prev-btn {
     background: #b8d6f1;
 }
+
+
+@media only screen and (max-width: 650px) {
+
+    .setaVoltar {
+        position: absolute;
+        left: -9em;
+        top: -4em;
+    }
+
+    .container {
+        min-width: 50em;
+        top: 2em;
+        transform: rotate(90deg);
+    }
+
+    .input-group{
+        width: 100%;
+    }
+
+    .form-container{
+        transform: rotate(-90deg);
+    }
+
+    .overlay-panel{
+        padding-bottom: 4em;
+        transform: rotate(-90deg);
+    }
+
+    .overlay-left{
+        transform: rotate(-90deg) !important;
+    }    
+
+    .sign-up-container{
+        transform: rotate(-90deg) translateY(25em) !important;
+    
+    }
+}

@@ -612,6 +612,10 @@
 }
 
 @media only screen and (max-width: 650px) {
+    .textochamativo img{
+        width: 40%;
+    }
+
     .carousel-item {
         width: 70%;
         left: 30%;
