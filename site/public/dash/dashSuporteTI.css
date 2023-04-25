@@ -342,6 +342,17 @@ section {
     transition: all .2s;
 }
 
+.fourth {
+    width: 50%;
+    height: 33vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+
+    transition: all .2s;
+}
+
 .first span,
 .second span {
     width: 90%;
@@ -349,7 +360,8 @@ section {
 }
 
 .first .dash1,
-.second .dash2 {
+.second .dash2,
+.fourth .dash4 {
     width: 90%;
     height: 100%;
 
@@ -374,6 +386,25 @@ section {
 .little-dash .dash2 {
     border: 2px solid #ffa500;
     animation: sombra2 700ms infinite alternate;
+}
+
+.second-dash .dash4 {
+    border: 2px solid #00ff2a;
+    animation: sombra3 700ms infinite alternate;
+}
+
+@keyframes sombra3 {
+    0% {
+
+        box-shadow: 0 0px 15px 0px #ffa60015;
+
+
+    }
+
+    100% {
+
+        box-shadow: 0 0 15px 0px #00ff2a;
+    }
 }
 
 @keyframes sombra2 {
@@ -414,10 +445,46 @@ section {
     z-index: 3000;
 }
 
+
+.second-dash .fourth:hover {
+    transform: scale(1.2);
+}
+
 /* .little-dash .first .dash1:hover{
     background-color: #232;
     display: flex;
 } */
+
+.dash1 .graph {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.dash1 p {
+    padding: 0 5px;
+    font-size: 13px;
+    color: #252525;
+}
+
+.dash1 .status {
+    display: flex;
+    align-items: center;
+}
+
+.dash1 .status .usage {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #FF4069;
+}
+
+.dash1 .status .avaliable {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #36A2EB;
+}
 
 .graph {
     width: 95%;
