@@ -40,14 +40,14 @@
 }
 
 /* Texto de Explicação do Easy • Ware */
-.alinhartexto{
+.alinhartexto {
     width: 100%;
     margin-top: 120px;
     display: flex;
     justify-content: center;
 }
 
-.cardexplicacao{
+.cardexplicacao {
     height: 90%;
     width: 94%;
     display: flex;
@@ -308,7 +308,7 @@ select option {
     padding: 10px;
 }
 
-.caixa p{
+.caixa p {
     font-size: 18px;
     text-align: center;
     color: var(--luz);
@@ -332,7 +332,7 @@ select option {
 }
 
 /* Botão de download */
-.fazerdownload{
+.fazerdownload {
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -350,7 +350,7 @@ select option {
     color: var(--clr);
 }
 
-.btndownload{
+.btndownload {
     margin: 50px;
 }
 
@@ -405,4 +405,106 @@ select option {
     color: var(--luz);
     box-shadow: 0 0 50px var(--clr);
     transition-delay: .2s;
+}
+
+
+@media only screen and (max-width: 650px) {
+    .container_easy-ware {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container_easy-ware .textochamativo img{
+        width: 9em;
+    }
+
+    .container_easy-ware .textochamativo p{
+        font-size: .8em;
+    }
+
+    .container_easy-ware .imagem_dash {
+        width: 95%;
+        height: 40vh;
+    }
+
+    .container_easy-ware .imagem_dash img{
+        width: 80%;
+    }
+
+    #img_sobrepoe{
+        right: 3em;
+    }
+
+    .cardexplicacao {
+        width: 80%;
+        padding: 0;
+        font-size: 1.5em;
+    }
+
+    .not-mobile {
+        display: none;
+    }
+
+    .simulador_container h1{
+        font-size: 2.5em;
+        text-align: center;
+    }
+    
+    .total_inputs{
+        height: auto;
+    }
+
+    .container_total{
+        height: auto;
+    }
+
+    .inputs-coletores, .resultado{
+        height: auto;     
+        width: 95%;  
+    }
+
+    .grupo_input{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-group{
+        width: 100%;
+    }
+
+    .input-group input, .input-group select{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .btncalcular{
+        margin: 3em 0;
+    }
+
+    .resultado h1{
+        font-size: 2em;
+    }
+
+    .caixas_calculo{
+        height: auto;
+        flex-direction: column;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .caixas_calculo h1{
+        font-size: 1.5em;
+    }
+
+    .fazerdownload{
+        width: 70%;
+        margin: 5em auto;
+    }
+
+    .fazerdownload h1{
+        font-size: 3em;
+        text-align: center;
+    }
+
 }

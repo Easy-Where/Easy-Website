@@ -31,16 +31,16 @@
         <header>
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html#home">
+                    <a href="index.html">
                         <img class="" src="assets/logo-light.png" alt="Logo da Easy" />
                     </a>
                 </div>
 
-                <div class="secoes">
+                <div class="secoes" id="nav-responsivo">
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html#home" data-text="&nbsp;Home">&nbsp;Home&nbsp;</a>
+                                <a href="index.html" data-text="&nbsp;Home">&nbsp;Home&nbsp;</a>
                             </li>
                             <li>
                                 <a href="index.html#servicos" data-text="&nbsp;Serviços">&nbsp;Serviços&nbsp;</a>
@@ -49,15 +49,22 @@
                                 <a href="index.html#vantagens" data-text="&nbsp;Vantagens">&nbsp;Vantagens&nbsp;</a>
                             </li>
                             <li>
-                                <a href="easyware.html#contato" data-text="&nbsp;Contato">&nbsp;Contato&nbsp;</a>
+                                <a href="sobrenos.html#contato" data-text="&nbsp;Contato">&nbsp;Contato&nbsp;</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
-                <div class="btnconectar">
+                <div class="btnconectar" id="btn-conectar">
                     <a href="preconectar.html">
                         <span>Conectar-se</span><i></i>
+                    </a>
+                </div>
+
+                <!-- BOTÃO MENU -->
+                <div class="btnmenu">
+                    <a onclick="btnMenu()" id="aMenu">
+                        <span>Menu</span><i></i>
                     </a>
                 </div>
             </div>
@@ -85,10 +92,10 @@
                     <p>
                         A melhor solução digital para Home-Office! <br>
                         Inicialmente focado no setor de vendas, o Easy • Ware tem se consolidado no mercado de tecnologia
-                        como a mais nova inovação para um Home-Office livre e com responsabilidade. o foco da nossa
+                        como a mais nova inovação para um Home-Office livre e com responsabilidade. <span class="not-mobile">o foco da nossa
                         aplicação é trazer a você todo o suporte para uma melhor administração dos dados de seus
                         funcionários, empresa e máquinas. Com isso contamos com o mais alto nível da tecnologia para
-                        auxiliar você de forma EASY a tomar as melhores decisões dentro de seu negócio.
+                        auxiliar você de forma EASY a tomar as melhores decisões dentro de seu negócio.</span>
                     </p>
                 </div>
             </div>
@@ -357,5 +364,19 @@
             evitar.innerHTML = `<p>${faturamentoCliente * 30 / 100}%</p>`
             lucro.innerHTML = `<p>${faturamentoFormatado}</p>`
         }
+    }
+</script>
+<script>
+
+    var btn = document.getElementById('aMenu')
+    var navMenu = document.getElementById('nav-responsivo')
+    var conect = document.getElementById('btn-conectar')
+
+    function btnMenu() {
+
+        navMenu.classList.toggle('ativo')
+        conect.classList.toggle('efeitoConect')
+        btn.classList.toggle('btnmenuSelect')
+
     }
 </script>
