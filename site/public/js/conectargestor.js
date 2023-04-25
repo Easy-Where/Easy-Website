@@ -163,7 +163,7 @@ function entrar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    window.location = "./dashboard/index.html";
+                    window.location = "./dash/Dashboard-gestor.html";
                 }, 1000); // apenas para exibir o loading
 
             });
