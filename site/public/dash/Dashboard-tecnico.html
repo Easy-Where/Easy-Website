@@ -167,38 +167,26 @@
                                     // }
 
                                     var aleato1 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato2 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato3 = (1 + Math.random() * 5).toFixed(0)
-                                    var aleato4 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato5 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato6 = (5 + Math.random() * 10).toFixed(0)
-                                    var aleato7 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato8 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato9 = (15 + Math.random() * 20).toFixed(0)
-                                    var aleato10 = (15 + Math.random() * 20).toFixed(0)
+                                    var aleato2 = (15 + Math.random() * 20).toFixed(0)
 
 
                                     const dash1 = document.getElementById('Dash-1');
+                                    var hide = true
 
                                     new Chart(dash1, {
-                                        type: 'line',
+                                        type: 'pie',
                                         data: {
-                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            labels: ['Disponivel', 'Usado'],
                                             datasets: [{
                                                 label: '',
-                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
+                                                data: [aleato1, aleato2],
                                                 borderWidth: 1
                                             }]
                                         },
                                         options: {
                                             plugins: {
                                                 legend: {
-                                                    display: false
-                                                }
-                                            },
-                                            scales: {
-                                                y: {
-                                                    beginAtZero: true
+                                                    display: hide
                                                 }
                                             }
                                         }
@@ -333,8 +321,55 @@
                             </div>
                         </div>
                         <div class="second">
-                            <div class="dash-2">
+                            <span>Network Average</span>
+                            <div class="dash2">
+                                <div class="graph">
+                                    <canvas id="Dash-4"></canvas>
+                                </div>
 
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                    var aleato1 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato2 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato3 = (10 + Math.random() * 20).toFixed(0)
+                                    var aleato4 = (10 + Math.random() * 10).toFixed(0)
+                                    var aleato5 = (10 + Math.random() * 10).toFixed(0)
+                                    var aleato6 = (10 + Math.random() * 10).toFixed(0)
+                                    var aleato7 = (10 + Math.random() * 10).toFixed(0)
+                                    var aleato8 = (10 + Math.random() * 5).toFixed(0)
+                                    var aleato9 = (10 + Math.random() * 5).toFixed(0)
+                                    var aleato10 = (10 + Math.random() * 5).toFixed(0)
+
+
+                                    const dash4 = document.getElementById('Dash-4');
+
+                                    new Chart(dash4, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['', '', '', '', '', '', '', '', '', ''],
+                                            datasets: [{
+                                                label: '',
+                                                backgroundColor: 'orange',
+                                                borderColor: 'orangered',
+                                                data: [aleato1, aleato2, aleato3, aleato4, aleato5, aleato6, aleato7, aleato8, aleato9, aleato10],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            },
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
+                                            }
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>

@@ -362,6 +362,10 @@ section {
     justify-content: center;
 }
 
+.dash1 labels {
+    display: none;
+}
+
 .little-dash .first .dash1 {
     border: 2px solid #55c1ff;
     animation: sombra1 700ms infinite alternate;
@@ -410,9 +414,9 @@ section {
     z-index: 3000;
 }
 
-
-/* .little-dash .first .dash1 > div:hover{
+/* .little-dash .first .dash1:hover{
     background-color: #232;
+    display: flex;
 } */
 
 .graph {
