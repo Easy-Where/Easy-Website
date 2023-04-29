@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Links para o CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/responsividade.css">
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
+    <!-- Script -->
+    <script src="../js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Light Center</title>
+</head>
+
+<body onload=" atualizarFeed()">
+    <!-- Sidebar -->
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="assets/easy-ware-logotipo-light.png" alt="Logo da Easy Ware">
+            </div>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                        <i class="uil uil-dashboard"></i>
+                        <span class="link-name">Dahsboard</span>
+                    </a></li>
+            </ul>
+
+            <ul class="logout-mode">
+                <li>
+                    <div class="btn-sair" onclick="limparSessao()">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Sair</span>
+                    </div>
+                </li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Tema</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+            <div class="perfil">
+                <div class="hello">
+                    <h3>Olá!,<span id="b_usuario">usuário</span>!</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="btns-dash">
+            <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Hack 1</button>
+            <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Hack 2</button>
+            <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Hack 3</button>
+            <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Hack 4</button>
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-temperature-three-quarter"></i>
+                    <span class="title-text">Temperatura e Umidade</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1 boxTemp">
+                        <span class="text">Risco</span>
+                        <span class="number">17ºC</span>
+                    </div>
+                    <div class="box box2 boxTemp">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                    <div class="box box3 boxTemp">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                    <div class="box box4 boxTemp">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1 boxUmi">
+                        <span class="text">Risco</span>
+                        <span class="number">39%</span>
+                    </div>
+                    <div class="box box2 boxUmi">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                    <div class="box box3 boxUmi">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                    <div class="box box4 boxUmi">
+                        <span class="text">---</span>
+                        <span class="number"></span>
+                    </div>
+                </div>
+
+                <div id="graficos">
+                    <div id="grafico1" class="display-block">
+                        <h3 class="tituloGraficos">
+                            <span id="tituloAquario1">123</span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas1"></canvas>
+                        </div>
+                        <div class="label-captura">
+                            <p id="avisoCaptura1" style="color: white"></p>
+                        </div>
+                    </div>
+
+                    <div id="grafico2" class="display-none">
+                        <h3 class="tituloGraficos">
+                            <span id="tituloAquario2"></span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas2"></canvas>
+                        </div>
+                        <div class="label-captura">
+                            <p id="avisoCaptura2" style="color: white"></p>
+                        </div>
+                    </div>
+
+                    <div id="grafico3" class="display-none">
+                        <h3 class="tituloGraficos">
+                            <span id="tituloAquario3"></span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas3"></canvas>
+                        </div>
+                        <div class="label-captura">
+                            <p id="avisoCaptura3" style="color: white"></p>
+                        </div>
+                    </div>
+
+                    <div id="grafico4" class="display-none">
+                        <h3 class="tituloGraficos">
+                            <span id="tituloAquario4"></span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas4"></canvas>
+                        </div>
+                        <div class="label-captura">
+                            <p id="avisoCaptura4" style="color: white"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legenda">
+                    <h1>Indíce de Temperatura:</h1>
+                    <ul>
+                        <li>
+                            <div class="bola b1"></div>Miníma:<br>Abaixo de 19ºC
+                        </li>
+                        <li>
+                            <div class="bola b2"></div>Alerta Miníma:<br> Entre 19ºC e 24ºC
+                        </li>
+                        <li>
+                            <div class="bola b3"></div>Ideal: <br> 25ºC
+                        </li>
+                        <li>
+                            <div class="bola b4"></div>Alerta Maxíma: <br> 26ºC
+                        </li>
+                        <li>
+                            <div class="bola b5"></div>Maxíma: <br> Acima de 26ºC
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="legenda">
+                    <h1>Indíce de Umidade:</h1>
+                    <ul>
+                        <li>
+                            <div class="bola b1"></div>Miníma:<br>Abaixo de 40%
+                        </li>
+                        <li>
+                            <div class="bola b2"></div>Alerta Miníma:<br> Entre 40% e 49%
+                        </li>
+                        <li>
+                            <div class="bola b3"></div>Ideal: <br> 50%
+                        </li>
+                        <li>
+                            <div class="bola b4"></div>Alerta Maxíma: <br> Entre 51% e 59%
+                        </li>
+                        <li>
+                            <div class="bola b5"></div>Maxíma: <br> Acima de 60%
+                        </li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
