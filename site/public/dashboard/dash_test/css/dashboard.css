@@ -4,17 +4,12 @@
   left: 250px;
   min-height: 100vh;
   width: calc(100% - 250px);
-  padding: 10px 14px;
+  padding: 14px;
   transition: .5s ease;
 }
 
-.overview {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-nav.close~.dashboard {
+nav.close~.dashboard,
+nav.close~.dashboard .top {
   left: 73px;
   width: calc(100% - 73px);
 }
@@ -27,23 +22,98 @@ nav.close~.dashboard {
   width: calc(100% - 250px);
   justify-content: space-between;
   align-items: center;
-  padding: 10px 14px;
-  background: #25252533;
+  padding: 6px;
+  background: var(--transparencia);
   transition: .5s ease;
   z-index: 10;
 }
 
-nav.close~.dashboard .top {
-  left: 73px;
-  width: calc(100% - 73px);
-}
-
 .dashboard .top .sidebar-toggle {
-  font-size: 26px;
+  font-size: 35px;
   color: var(--branco-perfeito);
   cursor: pointer;
 }
 
 .dashboard .dash-content {
   padding-top: 50px;
+}
+
+.content-kpis {
+  height: 100px;
+  width: 100%;
+  display: flex;
+}
+
+.kpi_box {
+  height: 120px;
+  width: 300px;
+  background: var(--transparencia);
+  margin: 0 1px 0 0;
+}
+
+.primeira {
+  border-radius: 7px 0 0 7px;
+}
+
+.quinta {
+  margin: 0;
+  border-radius: 0 7px 7px 0;
+}
+
+.content-charts {
+  height: 450px;
+  width: 100%;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.charts-cima,
+.charts-baixo {
+  height: 100%;
+  display: flex;
+}
+
+.charts-baixo {
+  margin-top: 14px;
+}
+
+.box-chart-cpu,
+.box-chart-gpu {
+  width: 50%;
+  height: 100%;
+  background: var(--transparencia);
+  border-radius: 7px;
+  transition: .2s;
+}
+
+.box-chart-gpu {
+  margin-left: 14px;
+}
+
+.box-chart-ram,
+.box-chart-disco,
+.box-chart-rede {
+  width: 34%;
+  height: 100%;
+  background: var(--transparencia);
+  border-radius: 7px;
+  transition: .2s;
+}
+
+.box-chart-disco {
+  margin: 0 14px;
+}
+
+.box-chart-cpu:hover,
+.box-chart-cpu:active,
+.box-chart-gpu:hover,
+.box-chart-gpu:active,
+.box-chart-ram:hover,
+.box-chart-ram:active,
+.box-chart-disco:hover,
+.box-chart-disco:active,
+.box-chart-rede:hover,
+.box-chart-rede:active {
+  border: 1px double var(--cor-principal);
 }

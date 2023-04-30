@@ -8,25 +8,26 @@
 }
 
 :root {
-    --cor-principal: #1175d1;
+    --cor-principal: #f1f1f1;
     --branco-perfeito: #f1f1f1;
     --seletor: #252525;
     --inicial-gradient: #021B79;
     --final-gradient: #0575E6;
-    --switch-inicial: #000;
-    --switch-final: #434343;
+    --switch-inicial: #252525;
+    --switch-final: #1175d1;
+    --transparencia: #2626264d;
 }
 
 body.dark {
     --cor-principal: #1175d1;
-    --inicial-gradient: #000;
-    --final-gradient: #434343;
+    --inicial-gradient: #29323c;
+    --final-gradient: #485563;
 }
 
 body {
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(-45deg, var(--inicial-gradient), var(--final-gradient));
+    background: linear-gradient(45deg, var(--inicial-gradient), var(--final-gradient));
 }
 
 /* Sidebar */
@@ -37,7 +38,7 @@ nav {
     height: 100%;
     width: 250px;
     padding: 10px 14px;
-    background: #25252533;
+    background: var(--transparencia);
     transition: .5s ease;
 }
 
@@ -60,7 +61,7 @@ nav .logo-image {
 
 nav .logo-image img {
     width: 220px;
-    object-fit: cover;
+    cursor: pointer;
 }
 
 nav.close .logo-name {
@@ -133,11 +134,13 @@ nav.close li a .link-name {
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name {
     color: var(--seletor);
+    transition: .5s;
 }
 
 body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name {
     color: var(--cor-principal);
+    transition: .2s ease
 }
 
 .menu-items .logout-mode {
