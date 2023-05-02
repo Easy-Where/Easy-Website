@@ -12,24 +12,23 @@
     --cor-texto: #252525;
     --branco-perfeito: #f1f1f1;
     --seletor: #1175d1;
-    --inicial-gradient: #021B79;
-    --final-gradient: #0575E6;
-    --switch-inicial: #252525;
-    --switch-final: #1175d1;
+    --inicial-gradient: ##E0EAFC;
+    --final-gradient: ##CFDEF3;
     --transparencia: #2626264d;
 }
 
 body.dark {
     --cor-principal: #252525;
     --cor-texto: #f1f1f1;
-    --inicial-gradient: #29323c;
-    --final-gradient: #485563;
+    --inicial-gradient: #000;
+    --final-gradient: #434343;
+    --transparencia: #a8a8a84d;
 }
 
 body {
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(45deg, var(--inicial-gradient), var(--final-gradient));
+    background: -webkit-linear-gradient(to top var(--inicial-gradient), var(--final-gradient));
 }
 
 /* Sidebar */
@@ -179,7 +178,7 @@ body.dark .nav-links li a:hover .link-name {
     height: 22px;
     width: 40px;
     border-radius: 25px;
-    background-color: var(--switch-inicial);
+    background-color: var(--cor-texto);
 }
 
 .switch:before {
@@ -190,7 +189,7 @@ body.dark .nav-links li a:hover .link-name {
     transform: translateY(-50%);
     height: 15px;
     width: 15px;
-    background-color: var(--switch-final);
+    background-color: var(--cor-principal);
     border-radius: 50%;
     transition: .3s ease;
 }
