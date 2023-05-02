@@ -1,43 +1,51 @@
-const body = document.querySelector("body")
+const body = document.querySelector("body");
 const modeToggle = body.querySelector(".mode-toggle");
-const img = document.querySelector("#Logo")
-sidebar = body.querySelector("nav");
-sidebarToggle = body.querySelector(".sidebar-toggle");
-
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark") {
-    body.classList.toggle("dark");
-}
+const img = document.querySelector("#Logo");
+const sidebar = body.querySelector("nav");
+const sidebarToggle = body.querySelector(".sidebar-toggle");
 
 modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
     if (body.classList.contains("dark")) {
         localStorage.setItem("mode", "dark");
+        if (sidebar.classList.contains("close")) {
+            img.src = 'assets/easy-ware-logotipo-close.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-light.png'
+        }
     } else {
         localStorage.setItem("mode", "light");
+        if (sidebar.classList.contains("close")) {
+            img.src = 'assets/easy-ware-logotipo-close-dark.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-dark.png'
+        }
     }
 });
-
-let getStatus = localStorage.getItem("status");
-if (getStatus && getStatus === "close") {
-    sidebar.classList.toggle("close");
-}
 
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
     if (sidebar.classList.contains("close")) {
         localStorage.setItem("status", "close");
-        img.src = 'assets/easy-ware-logotipo-close.png'
+        if (body.classList.contains("dark")) {
+            img.src = 'assets/easy-ware-logotipo-close.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-close-dark.png'
+        }
     } else {
         localStorage.setItem("status", "open");
-        img.src = 'assets/easy-ware-logotipo-light.png'
+        if (body.classList.contains("dark")) {
+            img.src = 'assets/easy-ware-logotipo-light.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-dark.png'
+        }
     }
 })
 
 // teste de gráfico
 var options = {
     chart: {
-        type: 'area'
+        type: 'bar'
     },
     series: [{
         data: [[1324508400000, 34], [1324594800000, 54], [1326236400000, 43]]

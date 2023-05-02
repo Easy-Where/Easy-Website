@@ -9,8 +9,9 @@
 
 :root {
     --cor-principal: #f1f1f1;
+    --cor-texto: #252525;
     --branco-perfeito: #f1f1f1;
-    --seletor: #6424cc;
+    --seletor: #1175d1;
     --inicial-gradient: #021B79;
     --final-gradient: #0575E6;
     --switch-inicial: #252525;
@@ -19,7 +20,8 @@
 }
 
 body.dark {
-    --cor-principal: #1175d1;
+    --cor-principal: #252525;
+    --cor-texto: #f1f1f1;
     --inicial-gradient: #29323c;
     --final-gradient: #485563;
 }
@@ -38,7 +40,7 @@ nav {
     height: 100%;
     width: 250px;
     padding: 10px 14px;
-    background: var(--transparencia);
+    background: var(--cor-principal);
     transition: .5s ease;
 }
 
@@ -48,19 +50,19 @@ nav.close {
 
 nav .logo-name {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--branco-perfeito);
+    border-bottom: 1px solid var(--cor-texto);
 }
 
 nav .logo-image {
     display: flex;
     justify-content: center;
-    min-width: 45px;
 }
 
 nav .logo-image img {
-    width: 220px;
+    width: 200px;
     cursor: pointer;
 }
 
@@ -68,11 +70,13 @@ nav.close .logo-name {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 21px;
+    padding: 26px;
 }
 
 nav.close .logo-image img {
-    width: 15px;
+    position: absolute;
+    top: 27px;
+    width: 13px;
 }
 
 nav .menu-items {
@@ -95,6 +99,10 @@ nav .menu-items {
     position: relative;
 }
 
+.menu-items li a span:hover {
+    transition: 0s;
+}
+
 .nav-links li a:hover:before {
     content: "";
     position: absolute;
@@ -106,7 +114,7 @@ nav .menu-items {
 }
 
 body.dark li a:hover:before {
-    background-color: var(--cor-principal);
+    background-color: var(--seletor);
 }
 
 .menu-items li a i {
@@ -116,13 +124,13 @@ body.dark li a:hover:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--branco-perfeito);
+    color: var(--cor-texto);
 }
 
 .menu-items li a .link-name {
     font-size: 18px;
     font-weight: 400;
-    color: var(--branco-perfeito);
+    color: var(--cor-texto);
     transition: 1.3s;
 }
 
@@ -139,13 +147,13 @@ nav.close li a .link-name {
 
 body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name {
-    color: var(--cor-principal);
+    color: var(--seletor);
     transition: .2s ease
 }
 
 .menu-items .logout-mode {
     padding-top: 10px;
-    border-top: 1px solid var(--branco-perfeito);
+    border-top: 1px solid var(--cor-texto);
 }
 
 .menu-items .mode {
