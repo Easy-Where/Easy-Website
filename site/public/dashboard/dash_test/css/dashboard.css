@@ -49,6 +49,9 @@ nav.close~.dashboard .top {
   width: 300px;
   background: var(--transparencia);
   margin: 0 1px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .primeira {
@@ -117,3 +120,8 @@ nav.close~.dashboard .top {
 .box-chart-rede:active {
   border: solid 2px var(--cor-principal);
 }
+
+/* #chart_cpu {
+  max-width: 650px;
+  margin: 35px auto;
+} */

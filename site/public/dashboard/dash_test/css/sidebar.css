@@ -12,8 +12,8 @@
     --cor-texto: #252525;
     --branco-perfeito: #f1f1f1;
     --seletor: #1175d1;
-    --inicial-gradient: ##E0EAFC;
-    --final-gradient: ##CFDEF3;
+    --inicial-gradient: #E0EAFC;
+    --final-gradient: #CFDEF3;
     --transparencia: #2626264d;
 }
 
@@ -21,14 +21,14 @@ body.dark {
     --cor-principal: #252525;
     --cor-texto: #f1f1f1;
     --inicial-gradient: #000;
-    --final-gradient: #434343;
+    --final-gradient: #252525;
     --transparencia: #a8a8a84d;
 }
 
 body {
     height: 100vh;
     overflow: hidden;
-    background: -webkit-linear-gradient(to top var(--inicial-gradient), var(--final-gradient));
+    background: linear-gradient(-45deg, var(--inicial-gradient), var(--final-gradient));
 }
 
 /* Sidebar */
@@ -148,6 +148,31 @@ body.dark .nav-links li a:hover i,
 body.dark .nav-links li a:hover .link-name {
     color: var(--seletor);
     transition: .2s ease
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 160px;
+}
+
+.perfil img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.perfil span {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cor-texto);
+    transition: 1s;
+    size: 0;
+}
+
+nav.close .perfil {
+    opacity: 0;
 }
 
 .menu-items .logout-mode {
