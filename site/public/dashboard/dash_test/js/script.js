@@ -62,8 +62,8 @@ var options = {
         height: 160,
         type: "radialBar",
     },
-    series: [10],
-    colors: [getChartColor(10)],
+    series: [50],
+    colors: [getChartColor(50)],
     plotOptions: {
         radialBar: {
             hollow: {
@@ -121,77 +121,6 @@ setInterval(() => {
     barraDeClock.value = valorAtual2;
 
     if (valorAtual2 === 100) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-
-// KPI da GPU
-var options2 = {
-    chart: {
-        offsetY: 0,
-        offsetX: 0,
-        height: 160,
-        type: "radialBar",
-    },
-    series: [10],
-    colors: [getChartColor(10)],
-    plotOptions: {
-        radialBar: {
-            hollow: {
-                margin: 0,
-                size: "60%",
-            },
-            track: {
-                dropShadow: {
-                    enabled: true,
-                    top: 2,
-                    left: 0,
-                    blur: 4,
-                    opacity: 0.15
-                }
-            },
-            dataLabels: {
-                name: {
-                    show: false
-                },
-                value: {
-                    offsetY: 8,
-                    color: "#f1f1f1",
-                    fontSize: "20px",
-                    show: true,
-                    fontFamily: "Montserrat"
-                }
-            }
-        }
-    },
-    stroke: {
-        lineCap: "round"
-    },
-    labels: ["Progress"]
-};
-
-new ApexCharts(document.querySelector("#kpi_chart_gpu"), options2).render();
-
-const barraDeTemperatura_gpu = document.getElementById("barra-de-temperatura-gpu");
-let valorAtual3 = 0;
-
-setInterval(() => {
-    valorAtual3 += 10;
-    barraDeTemperatura_gpu.value = valorAtual3;
-
-    if (valorAtual3 === 100) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-
-const barraDeClock_gpu = document.getElementById("barra-de-clock-gpu");
-let valorAtual4 = 0;
-
-setInterval(() => {
-    valorAtual4 += 10;
-    barraDeClock_gpu.value = valorAtual4;
-
-    if (valorAtual4 === 100) {
         clearInterval(intervalId);
     }
 }, 1000);
@@ -321,39 +250,5 @@ var options4 = {
 };
 
 var chart = new ApexCharts(document.querySelector("#chart_cpu"), options4);
-
-chart.render();
-
-// Gráfico GPU
-var options5 = {
-    chart: {
-        height: 200,
-        width: "100%",
-        type: "area",
-        animations: {
-            initialAnimation: {
-                enabled: false
-            }
-        }
-    },
-    series: [
-        {
-            name: "Series 1",
-            data: [
-                [1486684800000, 34],
-                [1486771200000, 43],
-                [1486857600000, 31],
-                [1486944000000, 43],
-                [1487030400000, 33],
-                [1487116800000, 52]
-            ]
-        }
-    ],
-    xaxis: {
-        type: 'datetime'
-    }
-};
-
-var chart = new ApexCharts(document.querySelector("#chart_gpu"), options5);
 
 chart.render();
