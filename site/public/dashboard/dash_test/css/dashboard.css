@@ -161,3 +161,7 @@ progress {
 .box-chart-disco {
   margin: 0 14px;
 }
+
+#chart_cpu {
+  max-width: 650px;
+}

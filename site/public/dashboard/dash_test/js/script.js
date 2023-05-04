@@ -289,3 +289,71 @@ var options4 = {
 };
 
 new ApexCharts(document.querySelector("#kpi_chart_disco"), options4).render();
+
+//Gráfico CPU
+var options4 = {
+    chart: {
+        height: 200,
+        width: "100%",
+        type: "area",
+        animations: {
+            initialAnimation: {
+                enabled: false
+            }
+        }
+    },
+    series: [
+        {
+            name: "Series 1",
+            data: [
+                [1486684800000, 34],
+                [1486771200000, 43],
+                [1486857600000, 31],
+                [1486944000000, 43],
+                [1487030400000, 33],
+                [1487116800000, 52]
+            ]
+        }
+    ],
+    xaxis: {
+        type: 'datetime'
+    }
+};
+
+var chart = new ApexCharts(document.querySelector("#chart_cpu"), options4);
+
+chart.render();
+
+// Gráfico GPU
+var options5 = {
+    chart: {
+        height: 200,
+        width: "100%",
+        type: "area",
+        animations: {
+            initialAnimation: {
+                enabled: false
+            }
+        }
+    },
+    series: [
+        {
+            name: "Series 1",
+            data: [
+                [1486684800000, 34],
+                [1486771200000, 43],
+                [1486857600000, 31],
+                [1486944000000, 43],
+                [1487030400000, 33],
+                [1487116800000, 52]
+            ]
+        }
+    ],
+    xaxis: {
+        type: 'datetime'
+    }
+};
+
+var chart = new ApexCharts(document.querySelector("#chart_gpu"), options5);
+
+chart.render();
