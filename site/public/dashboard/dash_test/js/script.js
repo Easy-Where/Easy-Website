@@ -43,90 +43,29 @@ sidebarToggle.addEventListener("click", () => {
 })
 
 // teste de gráfico
+function getChartColor(value) {
+    if (value > 80) {
+        return "#FF0000"; // vermelho
+    } else if (value > 50) {
+        return "#FFA500"; // laranja
+    } else {
+        return "#20E647"; // verde (cor original)
+    }
+}
+
 var options = {
     chart: {
-        width: "100%",
-        height: 380,
-        type: "bar"
-    },
-    plotOptions: {
-        bar: {
-            horizontal: true
-        }
-    },
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        width: 1,
-        colors: ["#fff"]
-    },
-    series: [
-        {
-            data: [44, 55, 41, 64, 22, 43, 21]
-        },
-        {
-            data: [53, 32, 33, 52, 13, 44, 32]
-        }
-    ],
-    xaxis: {
-        categories: [
-            "Korea",
-            "Canada",
-            "Poland",
-            "Italy",
-            "France",
-            "Japan",
-            "China"
-        ]
-    },
-    legend: {
-        position: "right",
-        verticalAlign: "top",
-        containerMargin: {
-            left: 35,
-            right: 60
-        }
-    },
-    responsive: [
-        {
-            breakpoint: 1000,
-            options: {
-                plotOptions: {
-                    bar: {
-                        horizontal: false
-                    }
-                },
-                legend: {
-                    position: "bottom"
-                }
-            }
-        }
-    ]
-};
-
-var chart = new ApexCharts(
-    document.querySelector("#responsive-chart"),
-    options
-);
-
-chart.render();
-
-
-//kpi teste
-var options = {
-    chart: {
+        height: 160,
         type: "radialBar",
     },
 
-    series: [15],
-    colors: ["#20E647"],
+    series: [67],
+    colors: [getChartColor(81)],
     plotOptions: {
         radialBar: {
             hollow: {
                 margin: 0,
-                size: "75%",
-                background: "#000"
+                size: "60%",
             },
             track: {
                 dropShadow: {
@@ -139,25 +78,14 @@ var options = {
             },
             dataLabels: {
                 name: {
-                    offsetY: -10,
-                    color: "#fff",
-                    fontSize: "13px"
+                    show: false
                 },
                 value: {
-                    color: "#fff",
-                    fontSize: "30px",
+                    color: "#f1f1f1",
+                    fontSize: "15px",
                     show: true
                 }
             }
-        }
-    },
-    fill: {
-        type: "gradient",
-        gradient: {
-            shade: "dark",
-            type: "vertical",
-            gradientToColors: ["#87D4F9"],
-            stops: [0, 100]
         }
     },
     stroke: {
@@ -166,6 +94,4 @@ var options = {
     labels: ["Progress"]
 };
 
-var chart = new ApexCharts(document.querySelector("#kpi_chart_cpu"), options);
-
-chart.render();
+new ApexCharts(document.querySelector("#kpi_chart_cpu"), options).render();

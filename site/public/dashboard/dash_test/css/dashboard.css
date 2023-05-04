@@ -52,6 +52,7 @@ nav.close~.dashboard .top {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: red;
 }
 
 .primeira {
@@ -88,6 +89,7 @@ nav.close~.dashboard .top {
   background: var(--transparencia);
   border-radius: 7px;
   transition: .2s;
+  border: 1px solid #ebebf0;
 }
 
 .box-chart-gpu {
@@ -102,26 +104,9 @@ nav.close~.dashboard .top {
   background: var(--transparencia);
   border-radius: 7px;
   transition: .10s;
+  border: 1px solid #ebebf0;
 }
 
 .box-chart-disco {
   margin: 0 14px;
 }
-
-.box-chart-cpu:hover,
-.box-chart-cpu:active,
-.box-chart-gpu:hover,
-.box-chart-gpu:active,
-.box-chart-ram:hover,
-.box-chart-ram:active,
-.box-chart-disco:hover,
-.box-chart-disco:active,
-.box-chart-rede:hover,
-.box-chart-rede:active {
-  border: solid 2px var(--cor-principal);
-}
-
-/* #chart_cpu {
-  max-width: 650px;
-  margin: 35px auto;
-} */
