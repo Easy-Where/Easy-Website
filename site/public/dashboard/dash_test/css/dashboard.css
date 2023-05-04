@@ -50,9 +50,60 @@ nav.close~.dashboard .top {
   background: var(--transparencia);
   margin: 0 1px 0 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background: red;
+}
+
+#kpi_chart_cpu,
+#kpi_chart_gpu,
+#kpi_chart_ram,
+#kpi_chart_disco {
+  margin-left: -20px;
+  width: 150px;
+  padding: -100px;
+}
+
+.barras {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding-right: 10px;
+}
+
+.barras span {
+  font-size: 15px;
+  align-self: flex-start;
+}
+
+.bar {
+  height: 32px;
+  width: 100%;
+}
+
+progress {
+  width: 100%;
+}
+
+.descricao_arma {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.descricao_arma span {
+  font-size: 20px;
+}
+
+.descricao_arma .diminuir {
+  font-size: 15px;
 }
 
 .primeira {
