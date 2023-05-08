@@ -141,8 +141,12 @@ nextBtn.forEach(btn => {
     const email = emailCad_input.value;
     var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
 
-    if (nome == "" || sobrenome == "" || email == "") {
-      modalErro("ERRO", "Existem campos vazios!")
+    if (nome == "") {
+      modalErro("ERRO", "O campo Nome está vazio")
+    } else if (sobrenome == "") {
+      modalErro("ERRO", "O campo Sobrenome está vazio")
+    } else if (email == "") {
+      modalErro("ERRO", "O campo Email está vazio")
     } else if (!validacaoEmail.test(email)) {
       modalErro("ERRO", "E-mail inválido! Certifique-se que<BR> seu e-mail segue essa estrutura: nome@example.com")
     } else {
@@ -157,9 +161,14 @@ nextBtn2.forEach(btn => {
     const cnpj = cnpj_input.value;
     const dono = dono_input.value;
 
-    if (empresa == "" || cnpj == "" || dono == "") {
-      console.log("A empresa, cnpj ou dono está errado");
-      modalErro("ERRO", "Existem campos vazios!")
+    if (empresa == "") {
+      modalErro("ERRO", "O campo Empresa está vazio")
+    } else if (cnpj == "") {
+      modalErro("ERRO", "O campo CPNJ está vazio")
+    } else if (dono == "") {
+      modalErro("ERRO", "O campo Dono está vazio")
+    } else if (cnpj.length < 18) {
+      modalErro("ERRO", "O campo CNPJ está menor do que o ideal")
     } else {
       handleNext();
     }
@@ -262,8 +271,10 @@ function cadastrar() {
   var senhaVar = senha_input.value;
   var confirmacao = confirmasenha.value;
 
-  if (empresaVar == "" || cnpjVar == "" || donoVar == "" || senhaVar == "" || confirmacao == "") {
-    modalErro("ERRO", "Existem campos vazios!")
+  if (senhaVar == "") {
+    modalErro("ERRO", "O campo Senha está vazio")
+  } else if (confirmacao == "") {
+    modalErro("ERRO", "O campo Confirmação de Senha está vazio")
   } else if (senhaVar.length <= 8) {
     modalErro("ERRO", "A senha deve ter mais de 8 caracteres")
   } else if (confirmacao != senhaVar) {

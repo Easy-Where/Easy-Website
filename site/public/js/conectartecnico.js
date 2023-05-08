@@ -156,8 +156,12 @@ nextBtn.forEach(btn => {
     const email = emailCad_input.value;
     var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
 
-    if (nome == "" || sobrenome == "" || email == "") {
-      modalErro("ERRO", "Existem campos vazios!")
+    if (nome == "") {
+      modalErro("ERRO", "O campo Nome está vazio")
+    } else if (sobrenome == "") {
+      modalErro("ERRO", "O campo Sobrenome está vazio")
+    } else if (email == "") {
+      modalErro("ERRO", "O campo Email está vazio")
     } else if (!validacaoEmail.test(email)) {
       modalErro("ERRO", "E-mail inválido! Certifique-se que<BR> seu e-mail segue essa estrutura: nome@example.com")
     } else {
@@ -171,8 +175,10 @@ nextBtn2.forEach(btn => {
     const empresa = empresa_input.value;
     const ppid = pid.value;
 
-    if (empresa == "" || ppid == "") {
-      modalErro("ERRO", "Existem campos vazios!")
+    if (empresa == "") {
+      modalErro("ERRO", "O campo Empresa está vazio")
+    } else if (ppid == "") {
+      modalErro("ERRO", "O campo Pid está vazio")
     } else {
       handleNext();
     }
@@ -249,8 +255,10 @@ function cadastrar() {
   var senhaVar = senha.value;
   var confirmacao = confirmasenha.value;
 
-  if (empresaVar == "" || senhaVar == "" || confirmacao == "") {
-    modalErro("ERRO", "Existem campos vazios!")
+  if (senhaVar == "") {
+    modalErro("ERRO", "O campo Senha está vazio")
+  } else if (confirmacao == "") {
+    modalErro("ERRO", "O campo Confirmação de Senha está vazio")
   } else if (senhaVar.length <= 8) {
     modalErro("ERRO", "A senha deve ter mais de 8 caracteres")
   } else if (confirmacao != senhaVar) {
