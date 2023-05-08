@@ -182,6 +182,54 @@ input:valid~label {
     }
 }
 
+/* Estilizando validação */
+.validacao {
+    position: absolute;
+    top: 5vh;
+    right: 40vw;
+    width: 25vw;
+    min-height: 150px;
+    margin-top: 40px;
+    color: var(--bg-color);
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    z-index: 9999;
+    border-radius: 7px;
+    flex-direction: column;
+    transform: translateY(-400px);
+    opacity: 0;
+    transition: 1s;
+}
+
+.validacao.active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: 1s;
+}
+
+.titulo_validacao {
+    font-size: 30px;
+    background-color: var(--clr);
+    color: var(--luz);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px 7px 0 0;
+}
+
+.texto_validacao {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--luz);
+    border-radius: 0 0 7px 7px;
+}
+
 /* Conectar-se */
 .container {
     background-color: var(--luz);

@@ -141,7 +141,6 @@ nextBtn.forEach(btn => {
     const email = emailCad_input.value;
     var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
 
-
     if (nome == "" || sobrenome == "" || email == "") {
       modalErro("ERRO", "Existem campos vazios!")
     } else if (!validacaoEmail.test(email)) {
