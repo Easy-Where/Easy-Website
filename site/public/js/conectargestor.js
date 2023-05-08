@@ -12,7 +12,7 @@ signInButton.addEventListener('click', () => {
 });
 
 // Ver senha Cadastro
-const input = document.querySelector("#senha");
+const input = document.querySelector("#senha_input");
 const img = document.querySelector("#trocarFigura");
 img.addEventListener('click', togglePass);
 
@@ -58,6 +58,8 @@ function togglePass2() {
 
 // Progresso da tela de cadastro
 const nextBtn = document.querySelectorAll('#next-btn');
+const nextBtn2 = document.querySelectorAll('#next-btn2');
+
 const prevBtn = document.querySelectorAll('#prev-btn');
 const pages = document.querySelectorAll('.page');
 const progress = document.querySelectorAll('.progresso-bar')
@@ -103,8 +105,33 @@ function handlePrev() {
 }
 
 nextBtn.forEach(btn => {
-  btn.addEventListener('click', handleNext);
+  btn.addEventListener('click', () => {
+    const nome = nome_input.value;
+    const sobrenome = sobrenome_input.value;
+    const email = emailCad_input.value;
+
+    if (nome == "" || sobrenome == "" || email == "") {
+      console.log("O nome, sobrenome ou email está errado");
+    } else {
+      handleNext();
+    }
+  });
 });
+
+nextBtn2.forEach(btn => {
+  btn.addEventListener('click', () => {
+        const empresa = empresa_input.value;
+        const cnpj = cnpj_input.value;
+        const dono = dono_input.value;
+
+        if (empresa == "" || cnpj == "" || dono == "") {
+            console.log("O nome, sobrenome ou email está errado");
+        } else {
+            handleNext();
+        }
+    });
+});
+
 
 prevBtn.forEach(btn => {
   btn.addEventListener('click', handlePrev);
@@ -209,7 +236,7 @@ function entrar() {
 //
 function cadastrar() {
   var empresaVar = empresa_input.value;
-  var cnpjVar = cnpj_input.value;
+  var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
   var donoVar = dono_input.value;
 
   if (empresaVar == "" || cnpjVar == "" || donoVar == "") {
@@ -255,7 +282,7 @@ function cadastrar() {
 
 function cadastrarEmpresa() {
   var empresaVar = empresa_input.value;
-  var cnpjVar = cnpj_input.value;
+  var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
   var donoVar = dono_input.value;
 
   console.log("Estou no CadastrarEmpresa");
@@ -289,7 +316,7 @@ function cadastrarGestor(empresaId) {
   var sobrenomeVar = sobrenome_input.value;
   var emailVar = emailCad_input.value;
   var empresaVar = empresaId;
-  var senhaVar = senha.value;
+  var senhaVar = senha_input.value;
 
   fetch("/usuarios/cadastrarGestor", {
     method: "POST",
