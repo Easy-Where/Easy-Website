@@ -573,6 +573,7 @@ input:valid~label {
 }
 
 #next-btn,
+#next-btn2,
 #submit-btn {
     background: var(--clr);
     color: var(--luz);

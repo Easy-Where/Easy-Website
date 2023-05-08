@@ -125,7 +125,7 @@ nextBtn2.forEach(btn => {
         const dono = dono_input.value;
 
         if (empresa == "" || cnpj == "" || dono == "") {
-            console.log("O nome, sobrenome ou email está errado");
+            console.log("A empresa, cnpj ou dono está errado");
         } else {
             handleNext();
         }

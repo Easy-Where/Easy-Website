@@ -73,6 +73,8 @@ function togglePass2() {
 
 // Progresso da tela de cadastro
 const nextBtn = document.querySelectorAll('#next-btn');
+const nextBtn2 = document.querySelectorAll('#next-btn2');
+
 const prevBtn = document.querySelectorAll('#prev-btn');
 const pages = document.querySelectorAll('.page');
 const progress = document.querySelectorAll('.progresso-bar')
@@ -118,7 +120,30 @@ function handlePrev(){
 }
 
 nextBtn.forEach(btn => {
-    btn.addEventListener('click', handleNext);
+  btn.addEventListener('click', () => {
+    const nome = nome_input.value;
+    const sobrenome = sobrenome_input.value;
+    const email = emailCad_input.value;
+
+    if (nome == "" || sobrenome == "" || email == "") {
+      console.log("O nome, sobrenome ou email está errado");
+    } else {
+      handleNext();
+    }
+  });
+});
+
+nextBtn2.forEach(btn => {
+  btn.addEventListener('click', () => {
+        const empresa = empresa_input.value;
+        const ppid = pid.value;
+
+        if (empresa == "" || ppid == "") {
+            console.log("A empresa ou o pid está errado");
+        } else {
+            handleNext();
+        }
+    });
 });
 
 prevBtn.forEach(btn => {
