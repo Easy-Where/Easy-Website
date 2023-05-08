@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Easy • Ware</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo">
+            </div>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li>
+                    <a href="painelusuarios.html">
+                        <i class="uil uil-dashboard"></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="arquivos.html">
+                        <i class="uil uil-file"></i>
+                        <span class="link-name">Arquivos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">Perfil</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="perfil">
+                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
+                <span>Olá, Dino</span>
+            </div>
+
+            <ul class="logout-mode">
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Tema</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                <div class="nav-links">
+                    <li>
+                        <a href="#">
+                            <i class="uil uil-map-marker-question"></i>
+                            <span class="link-name">Ajuda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Sair</span>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Painel de Usuários -->
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+        </div>
+
+        <div class="alinhamento_container">
+            <div class="container_perfil">
+                <div class="perfil_aparencia">
+                    <h1>Edite seus dados aqui</h1>
+                    <img src="assets/dinorock.jpg" alt="Imagem Atual">
+                    <div class="btnalterar">
+                        <a href="">
+                            <span>Alterar Foto</span><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="perfil_dados">
+                    <div class="inputs">
+                        <div class="field-input">
+                            <div class="field-group">
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="nome_input">
+                                    <label class="user-label">Nome</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="sobrenome_input">
+                                    <label class="user-label">Sobrenome</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-input">
+                            <div class="field-group">
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="email_input">
+                                    <label class="user-label">E-mail</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" id="pid">
+                                    <label class="user-label">PID (Seu Gestor)</label>
+                                    <img src="assets/perfilversenha.png" alt="Ver Senha" id="trocarFigurapid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-input">
+                            <div class="field-group">
+                                <div class="input-group zerarmargin">
+                                    <input required="" type="password" name="text" autocomplete="off" id="senha">
+                                    <label class="user-label">Senha</label>
+                                    <img src="assets/perfilversenha.png" alt="Ver Senha" id="trocarFigura">
+                                </div>
+                                <div class="input-group zerarmargin">
+                                    <input required="" type="password" name="text" autocomplete="off"
+                                        id="confirmasenha">
+                                    <label class="user-label">Confirmação de Senha</label>
+                                    <img src="assets/perfilversenha.png" alt="Ver Senha" id="confirmatrocarFigura">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btnalterar btnsalvar">
+                        <a href="">
+                            <span>Salvar Alterações</span><i></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/perfil.js"></script>
+</body>
+
+</html>

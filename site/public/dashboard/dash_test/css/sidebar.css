@@ -13,7 +13,7 @@
     --branco-perfeito: #f1f1f1;
     --seletor: #1175d1;
     --inicial-gradient: #E0EAFC;
-    --final-gradient: #CFDEF3;
+    --final-gradient: #a9c7f1;
     --transparencia: #2626264d;
 }
 
@@ -154,12 +154,12 @@ body.dark .nav-links li a:hover .link-name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    height: 160px;
+    justify-content: space-around;
+    height: 180px;
 }
 
 .perfil img {
-    width: 150px;
+    width: 125px;
     border-radius: 50%;
 }
 
