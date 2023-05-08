@@ -11,6 +11,36 @@ signInButton.addEventListener('click', () => {
   container.classList.remove("right-panel-active");
 });
 
+// Div de validação
+function modalErro(frase1, frase2) {
+  var divValidacao = document.querySelector(".validacao");
+  var textModal = document.querySelector(".titulo_validacao");
+  var textValidacao = document.querySelector(".texto_validacao");
+  textModal.innerHTML = frase1;
+  textValidacao.innerHTML = frase2;
+  divValidacao.classList.add("active");
+  setTimeout(() => {
+    divValidacao.classList.remove("active");
+  }, 3000)
+}
+
+function modalSucesso(frase1, frase2) {
+  var divValidacao = document.querySelector(".validacao");
+  var textModal = document.querySelector(".titulo_validacao");
+  var textValidacao = document.querySelector(".texto_validacao");
+
+  textModal.innerHTML = frase1;
+  textModal.style.background = "green";
+  textModal.style.color = "white";
+  textModal.style.fontSize = "1.1em";
+  textValidacao.innerHTML = frase2;
+
+  divValidacao.classList.add("active");
+  setTimeout(() => {
+    divValidacao.classList.remove("active");
+  }, 3000)
+}
+
 // Ver senha Cadastro
 const input = document.querySelector("#senha_input");
 const img = document.querySelector("#trocarFigura");
@@ -109,9 +139,13 @@ nextBtn.forEach(btn => {
     const nome = nome_input.value;
     const sobrenome = sobrenome_input.value;
     const email = emailCad_input.value;
+    var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
+
 
     if (nome == "" || sobrenome == "" || email == "") {
-      console.log("O nome, sobrenome ou email está errado");
+      modalErro("ERRO", "Existem campos vazios!")
+    } else if (!validacaoEmail.test(email)) {
+      modalErro("ERRO", "E-mail inválido! Certifique-se que<BR> seu e-mail segue essa estrutura: nome@example.com")
     } else {
       handleNext();
     }
@@ -120,16 +154,17 @@ nextBtn.forEach(btn => {
 
 nextBtn2.forEach(btn => {
   btn.addEventListener('click', () => {
-        const empresa = empresa_input.value;
-        const cnpj = cnpj_input.value;
-        const dono = dono_input.value;
+    const empresa = empresa_input.value;
+    const cnpj = cnpj_input.value;
+    const dono = dono_input.value;
 
-        if (empresa == "" || cnpj == "" || dono == "") {
-            console.log("A empresa, cnpj ou dono está errado");
-        } else {
-            handleNext();
-        }
-    });
+    if (empresa == "" || cnpj == "" || dono == "") {
+      console.log("A empresa, cnpj ou dono está errado");
+      modalErro("ERRO", "Existem campos vazios!")
+    } else {
+      handleNext();
+    }
+  });
 });
 
 
@@ -139,13 +174,9 @@ prevBtn.forEach(btn => {
 
 // Padronizar CNPJ
 function criaMascara(event) {
-  let tecla = event.key
-  let document = event.target.value.replace(/\D/g, "").trim()
+  let document = cnpj_input.value.replace(/\D+/g, "").trim()
 
-  const invalidLength = document.length > 14
-  const invalidKey = !["Backspace", "Delete"].includes(tecla)
-
-  if (invalidKey && invalidLength) {
+  if (document.length > 14) {
     return false
   } else {
     if (document.length > 11) {
@@ -161,16 +192,7 @@ function criaMascara(event) {
     }
   }
 
-  event.target.value = document
-
-  // let valorInput = document.getElementById(`cnpj_input`).value;
-  // const maximoInput = document.getElementById(`cnpj_input`).maxLength;
-  // const mascaras = {
-  //   cnpj: valorInput.replace(/[^\d]/g, "").replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")
-  // };
-
-  // valorInput.length === maximoInput ? document.getElementById(`cnpj_input`).value = mascaras[mascaraInput]
-  //   : document.getElementById(`cnpj_input`).value = valorSemPonto;
+  cnpj_input.value = document
 }
 
 // web-data-viz
@@ -238,11 +260,15 @@ function cadastrar() {
   var empresaVar = empresa_input.value;
   var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
   var donoVar = dono_input.value;
+  var senhaVar = senha_input.value;
+  var confirmacao = confirmasenha.value;
 
-  if (empresaVar == "" || cnpjVar == "" || donoVar == "") {
-    return false;
-  } else {
-    console.log("Todos os campos estão certos");
+  if (empresaVar == "" || cnpjVar == "" || donoVar == "" || senhaVar == "" || confirmacao == "") {
+    modalErro("ERRO", "Existem campos vazios!")
+  } else if (senhaVar.length <= 8) {
+    modalErro("ERRO", "A senha deve ter mais de 8 caracteres")
+  } else if (confirmacao != senhaVar) {
+    modalErro("ERRO", "Senhas diferentes")
   }
 
   fetch("/usuarios/validacao", {
@@ -258,6 +284,7 @@ function cadastrar() {
 
   }).then(function (resposta) {
     if (resposta.ok) {
+      modalSucesso("CADASTRO REALIZADO COM SUCESSO!", "Agora vamos fazer Login :)")
       resposta.json().then(function (json) {
         console.log(json)
         if (json.length < 1) {
