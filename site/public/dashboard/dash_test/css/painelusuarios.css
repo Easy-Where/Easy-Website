@@ -1,0 +1,62 @@
+/* Painel */
+.dashboard {
+    position: relative;
+    left: 250px;
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 14px;
+    transition: .5s ease;
+}
+
+nav.close~.dashboard,
+nav.close~.dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+}
+
+.dashboard .top {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    display: flex;
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    background: var(--cor-principal);
+    transition: .5s ease;
+    z-index: 10;
+}
+
+.dashboard .top .sidebar-toggle {
+    font-size: 35px;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.geral_users {
+    padding-top: 36px;
+}
+
+.content_box_users {
+    margin-top: 14px;
+    height: 185px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.user_box {
+    height: 100%;
+    width: 100%;
+    background: var(--transparencia);
+    margin: 0 14px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.terceira {
+    margin: 0;
+}
