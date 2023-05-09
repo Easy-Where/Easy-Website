@@ -55,8 +55,58 @@ nav.close~.dashboard .top {
     justify-content: flex-start;
     align-items: center;
     border-radius: 7px;
+    text-decoration: none;
+    padding: 14px 0;
+    transition: .5s;
+}
+
+.user_box:hover{
+    box-shadow: 0 0 10px 5px var(--seletor);
 }
 
 .terceira {
     margin: 0;
+}
+
+.user_box img {
+    width: 110px;
+    border-radius: 50%;
+}
+
+.total_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.sistema_operacional {
+    width: 40%;
+    height: 100%;
+    color: var(--cor-texto);
+    font-size: 100px;
+    border-right: 1px solid var(--cor-texto);
+    transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sistema_operacional img{
+    width: 100px;
+    border-radius: 0;
+}
+
+.user_perfil {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    text-align: center;
+}
+
+.user_box p {
+    font-size: 20px;
+    color: var(--cor-texto);
 }
