@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/painelusuarios.css">
+    <link rel="stylesheet" href="css/dashboardtecnico.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Easy • Ware</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -45,7 +46,7 @@
 
             <div class="perfil">
                 <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
-                <span>Olá, Dino</span>
+                <span>Olá, Dino do Rock</span>
             </div>
 
             <ul class="logout-mode">
@@ -77,81 +78,89 @@
         </div>
     </nav>
 
-    <!-- Painel de Usuários -->
+    <!-- Dashboard -->
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
         </div>
 
-        <div class="geral_users">
-            <div class="content_box_users">
-                <a class="user_box" href="dashboard.html">
-                    <div class="total_box">
-                        <div class="sistema_operacional">
-                            <img src="assets/windows_logo.png" alt="Sistema operacional do usuário">
+        <div class="dash-content">
+            <div class="content-kpis">
+                <div class="kpi_box primeira">
+                    <div class="box_grafico">
+                        <div id="kpi_chart_cpu"></div>
+                    </div>
+                    <div class="descricao_arma barras">
+                        <h1>CPU</h1>
+                        <div class="bar">
+                            <progress id="barra-de-temperatura-cpu" value="0" max="100"></progress>
+                            <span>Temperatura</span>
                         </div>
-                        <div class="user_perfil">
-                            <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário">
-                            <p>Dino Rock</p>
+                        <div class="bar">
+                            <progress id="barra-de-clock-cpu" value="0" max="100"></progress>
+                            <span>Clock</span>
                         </div>
                     </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="total_box">
-                        <div class="sistema_operacional">
-                            <img src="assets/linux_logo.png" alt="Sistema operacional do usuário">
+                </div>
+                <div class="kpi_box">
+                    <div class="box_grafico segunda">
+                        <div class="metrica_rede">
+                            <i class="uil uil-arrow-circle-up"></i>
+                            <span>1.4<span class="diminuir">GB</span></span>
                         </div>
-                        <div class="user_perfil">
-                            <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário">
-                            <p>Dino Rock</p>
-                        </div>
-                    </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="total_box">
-                        <div class="sistema_operacional">
-                            <img src="assets/apple_logo.png" alt="Sistema operacional do usuário">
-                        </div>
-                        <div class="user_perfil">
-                            <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário">
-                            <p>Dino Rock</p>
+                        <div class="metrica_rede">
+                            <i class="uil uil-arrow-circle-down"></i>
+                            <span>1.4<span class="diminuir">GB</span></span>
                         </div>
                     </div>
-                </a>
+                    <div class="descricao_arma">
+                        <h1>Rede</h1>
+                        <span>Conectado</span>
+                    </div>
+                </div>
+                <div class="kpi_box terceira">
+                    <div class="box_grafico">
+                        <div id="kpi_chart_ram"></div>
+                    </div>
+                    <div class="descricao_arma">
+                        <h1>RAM</h1>
+                        <span>1.4<span class="diminuir">GB</span></span>
+                    </div>
+                </div>
+                <div class="kpi_box quarta">
+                    <div class="box_grafico">
+                        <div id="kpi_chart_disco"></div>
+                    </div>
+                    <div class="descricao_arma">
+                        <h1>Disco</h1>
+                        <span>32<span class="diminuir">GB</span></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="content_box_users">
-                <a class="user_box" href="">
-                    <div class="primeira">
+            <div class="content-charts">
+                <div class="charts-cima">
+                    <div class="box-chart-cpu">
+                        <div id="wrapper">
+                            <div id="chart_cpu"></div>
+                        </div>
                     </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="segunda">
+                    <div class="box-chart-ram">
+                        <div id="chart_ram"></div>
                     </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="terceira">
+                </div>
+                <div class="charts-baixo">
+                    <div class="box-chart-rede">
+                        <div id="chart_rede"></div>
                     </div>
-                </a>
-            </div>
-
-            <div class="content_box_users">
-                <a class="user_box" href="">
-                    <div class="primeira">
+                    <div class="box-chart-disco">
+                        <div id="chart_disco"></div>
                     </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="segunda">
-                    </div>
-                </a>
-                <a class="user_box" href="">
-                    <div class="terceira">
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
-    <script src="js/painelusuarios.js"></script>
+    <script src="js/dashboardtecnico.js"></script>
 </body>
 
 </html>
