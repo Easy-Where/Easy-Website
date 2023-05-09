@@ -95,7 +95,7 @@ nav.close~.dashboard .top {
     margin-bottom: 14px;
 }
 
-.zerarmargin{
+.zerarmargin {
     margin-bottom: 0;
 }
 
@@ -159,6 +159,16 @@ input:valid~label {
     text-decoration: none;
 }
 
+.perfil_aparencia input {
+    position: relative;
+    width: 60%;
+    height: 40px;
+    bottom: -55px;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
 .btnalterar a:hover {
     background: var(--seletor);
     color: var(--seletor);
@@ -172,7 +182,8 @@ input:valid~label {
     background: var(--cor-principal);
 }
 
-.btnalterar a span {
+.btnalterar a span,
+.btnalterar a input {
     position: relative;
     z-index: 1;
 }
@@ -217,6 +228,6 @@ input:valid~label {
     left: 80%;
 }
 
-.btnsalvar{
+.btnsalvar {
     margin-top: -80px;
 }

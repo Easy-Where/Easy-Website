@@ -88,3 +88,12 @@ function togglePass3() {
         img3.src = 'assets/perfilversenha.png'
     }
 }
+
+const image = document.getElementById("imagem_perfil")
+const image2 = document.getElementById("imagem_perfil_sidebar")
+const input_trocavel = document.getElementById("input_troca_imagem")
+
+input_trocavel.addEventListener("change", () => {
+    image.src = URL.createObjectURL(input_trocavel.files[0]);
+    image2.src = URL.createObjectURL(input_trocavel.files[0]);
+});
