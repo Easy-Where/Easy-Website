@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboardgestor.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Easy • Ware</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo">
+            </div>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li>
+                    <a href="dashboardgestor.html">
+                        <i class="uil uil-home"></i>
+                        <span class="link-name">Administração</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="arquivos.html">
+                        <i class="uil uil-file"></i>
+                        <span class="link-name">Arquivos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfilgestor.html">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">Perfil</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="perfil">
+                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
+                <span>Olá, Dino do Rock</span>
+            </div>
+
+            <ul class="logout-mode">
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Tema</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                <div class="nav-links">
+                    <li>
+                        <a href="#">
+                            <i class="uil uil-map-marker-question"></i>
+                            <span class="link-name">Ajuda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="uil uil-signout"></i>
+                            <span class="link-name">Sair</span>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+        </div>
+
+        <div class="dash-content">
+            <div class="content-kpis">
+                <div class="kpi_box">
+
+                </div>
+                <div class="kpi_box">
+
+                </div>
+                <div class="kpi_box">
+
+                </div>
+                <div class="kpi_box">
+
+                </div>
+            </div>
+
+            <div class="dash_funcionarios_content">
+                <h1>Eu existo</h1>
+            </div>
+        </div>
+    </section>
+    <script src="js/dashboardgestor.js"></script>
+</body>
+
+</html>

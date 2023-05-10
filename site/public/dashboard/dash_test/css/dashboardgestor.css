@@ -1,0 +1,70 @@
+/* Dashboard */
+.dashboard {
+    position: relative;
+    left: 250px;
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 14px;
+    transition: .5s ease;
+}
+
+nav.close~.dashboard,
+nav.close~.dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+}
+
+.dashboard .top {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    display: flex;
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    background: var(--cor-principal);
+    transition: .5s ease;
+    z-index: 10;
+}
+
+.dashboard .top .sidebar-toggle {
+    font-size: 35px;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.dashboard .dash-content {
+    padding-top: 50px;
+}
+
+/* KPI's */
+.content-kpis {
+    height: 100px;
+    width: 100%;
+    display: flex;
+}
+
+.kpi_box {
+    height: 120px;
+    width: 100%;
+    background: var(--transparencia);
+    margin: 0 14px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 7px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.kpi_box:hover {
+    box-shadow: 0 0 10px 5px var(--seletor);
+}
+
+.dash_funcionarios_content{
+    width: 100%;
+    height: 100%;
+    margin: 14px;
+    background: var(--transparencia);
+}
