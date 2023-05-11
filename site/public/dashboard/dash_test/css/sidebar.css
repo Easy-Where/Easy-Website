@@ -38,7 +38,7 @@ nav {
     left: 0;
     height: 100%;
     width: 250px;
-    padding: 10px 14px;
+    padding: 0px 14px;
     background: var(--cor-principal);
     transition: .5s ease;
 }
@@ -48,38 +48,31 @@ nav.close {
 }
 
 nav .logo-name {
+    height: 85px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5px;
     border-bottom: 1px solid var(--cor-texto);
 }
 
-nav .logo-image {
-    display: flex;
-    justify-content: center;
-}
-
-nav .logo-image img {
-    width: 200px;
-    cursor: pointer;
+nav .logo-name img {
+    width: 190px;
+    transition: .5s;
 }
 
 nav.close .logo-name {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 26px;
 }
 
-nav.close .logo-image img {
-    position: absolute;
-    top: 27px;
-    width: 13px;
+nav.close .logo-name img {
+    width: 65px;
+    transition: 0s;
 }
 
 nav .menu-items {
-    margin-top: 20px;
     height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
