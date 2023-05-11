@@ -159,16 +159,6 @@ input:valid~label {
     text-decoration: none;
 }
 
-.perfil_aparencia input {
-    position: relative;
-    width: 60%;
-    height: 40px;
-    bottom: -55px;
-    opacity: 0;
-    z-index: 10;
-    cursor: pointer;
-}
-
 .btnalterar a:hover {
     background: var(--seletor);
     color: var(--seletor);

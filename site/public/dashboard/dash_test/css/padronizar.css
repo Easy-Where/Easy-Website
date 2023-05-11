@@ -95,17 +95,13 @@ nav .menu-items {
     transition: 0s;
 }
 
-.nav-links li a:hover:before {
+.pagina_atual a:before {
     content: "";
     position: absolute;
     left: -7px;
     height: 5px;
     width: 5px;
     border-radius: 50%;
-    background-color: var(--seletor);
-}
-
-body.dark li a:hover:before {
     background-color: var(--seletor);
 }
 
@@ -123,7 +119,7 @@ body.dark li a:hover:before {
     font-size: 18px;
     font-weight: 400;
     color: var(--cor-texto);
-    transition: 1.3s;
+    transition: 0s;
 }
 
 nav.close li a .link-name {
@@ -135,6 +131,10 @@ nav.close li a .link-name {
 .nav-links li a:hover .link-name {
     color: var(--seletor);
     transition: .5s;
+}
+
+.mode a:hover {
+    cursor: auto;
 }
 
 body.dark .nav-links li a:hover i,
