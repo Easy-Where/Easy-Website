@@ -1,11 +1,14 @@
+const maquina = JSON.parse(localStorage.getItem('info_maquina'))
+console.log(maquina)
+
 // KPI da CPU
 function getChartColor(value) {
     if (value >= 80) {
         return "#de1a1a"; // vermelho
     } else if (value >= 50) {
-        return "#f8f32b"; // laranja
+        return "#f8f32b"; // amarelo
     } else {
-        return "#1175d1"; // verde (cor original)
+        return "#1175d1"; // azul (cor original)
     }
 }
 

@@ -114,6 +114,7 @@ input:focus,
 input:valid {
     outline: none;
     border: 1.5px solid var(--seletor);
+    color: var(--cor-texto);
 }
 
 input:focus~label,
@@ -146,7 +147,7 @@ input:valid~label {
     filter: contrast(var(--seletor));
 }
 
-.btnalterar a {
+.btnsalvar a {
     position: relative;
     background: var(--cor-texto);
     color: var(--cor-texto);
@@ -159,32 +160,32 @@ input:valid~label {
     text-decoration: none;
 }
 
-.btnalterar a:hover {
+.btnsalvar a:hover {
     background: var(--seletor);
     color: var(--seletor);
     box-shadow: 0 0 35px var(--seletor);
 }
 
-.btnalterar a::before {
+.btnsalvar a::before {
     content: '';
     position: absolute;
     inset: 2px;
     background: var(--cor-principal);
 }
 
-.btnalterar a span,
-.btnalterar a input {
+.btnsalvar a span,
+.btnsalvar a input {
     position: relative;
     z-index: 1;
 }
 
-.btnalterar a i {
+.btnsalvar a i {
     position: absolute;
     inset: 0;
     display: block;
 }
 
-.btnalterar a i::before {
+.btnsalvar a i::before {
     content: '';
     position: absolute;
     top: 0;
@@ -196,12 +197,12 @@ input:valid~label {
     transition: 0.5s;
 }
 
-.btnalterar a:hover i::before {
+.btnsalvar a:hover i::before {
     width: 20px;
     left: 20%;
 }
 
-.btnalterar a i::after {
+.btnsalvar a i::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -213,11 +214,38 @@ input:valid~label {
     transition: 0.5s;
 }
 
-.btnalterar a:hover i::after {
+.btnsalvar a:hover i::after {
     width: 20px;
     left: 80%;
 }
 
 .btnsalvar {
     margin-top: -80px;
+}
+
+.btnalterar {
+    height: 40px;
+    width: 200px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--seletor);
+    transition: .5s;
+}
+
+.btnalterar input {
+    height: 100%;
+    display: none;
+    background: green;
+    width: 100%;
+}
+
+.btnalterar:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.btnalterar label:hover{
+    cursor: pointer;
 }

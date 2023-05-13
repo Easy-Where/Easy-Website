@@ -1,4 +1,9 @@
 /* Painel */
+body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .dashboard {
     position: relative;
     left: 250px;
@@ -40,17 +45,15 @@ nav.close~.dashboard .top {
 
 .content_box_users {
     margin-top: 14px;
-    height: 185px;
     width: 100%;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
 }
 
 .user_box {
-    height: 100%;
-    width: 100%;
+    height: 170px;
     background: var(--transparencia);
-    margin: 0 14px 0 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -82,8 +85,8 @@ nav.close~.dashboard .top {
 .sistema_operacional {
     width: 40%;
     height: 100%;
-    color: var(--cor-texto);
-    font-size: 100px;
+    color: var(--seletor);
+    font-size: 110px;
     border-right: 1px solid var(--cor-texto);
     transition: .5s;
     display: flex;
@@ -91,7 +94,7 @@ nav.close~.dashboard .top {
     justify-content: center;
 }
 
-.sistema_operacional img{
+.sistema_operacional i{
     width: 100px;
     border-radius: 0;
 }
@@ -109,4 +112,24 @@ nav.close~.dashboard .top {
 .user_box p {
     font-size: 20px;
     color: var(--cor-texto);
+}
+
+.status{
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    right: 20px;
+    background: #de1a1a;
+}
+
+.content_legendas{
+    width: 200px;
+    background: red;
+    display: flex;
+}
+
+.content ul li{
+    display: flex;
+    flex-direction: row;
 }
