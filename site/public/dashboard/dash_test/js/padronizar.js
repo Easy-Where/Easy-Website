@@ -7,6 +7,42 @@ const icone = document.querySelector("#mode_light_dark");
 const caixa_legenda = body.querySelector(".content_legendas");
 const botao_legendas = document.querySelector(".legendas");
 
+let getMode = localStorage.getItem("mode");
+if (getMode && getMode === "dark") {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+        if (sidebar.classList.contains("close")) {
+            img.src = 'assets/easy-ware-logotipo-close.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-light.png'
+            icone.classList.replace("uil-moon", "uil-sun")
+        }
+    } else {
+        if (sidebar.classList.contains("close")) {
+            img.src = 'assets/easy-ware-logotipo-close.png'
+        } else {
+            img.src = 'assets/easy-ware-logotipo-dark.png'
+            icone.classList.replace("uil-sun", "uil-moon")
+        }
+    }
+}
+
+let getStatus = localStorage.getItem("status");
+if (getStatus && getStatus === "close") {
+    sidebar.classList.toggle("close");
+    if (sidebar.classList.contains("close")) {
+        img.src = 'assets/easy-ware-logotipo-close.png'
+    } else {
+        if (body.classList.contains("dark")) {
+            img.src = 'assets/easy-ware-logotipo-light.png'
+            icone.classList.replace("uil-moon", "uil-sun")
+        } else {
+            img.src = 'assets/easy-ware-logotipo-dark.png'
+            icone.classList.replace("uil-sun", "uil-moon")
+        }
+    }
+}
+
 // Modo dark
 modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
