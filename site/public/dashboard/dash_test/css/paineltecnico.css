@@ -1,42 +1,7 @@
 /* Painel */
-body{
+body {
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-.dashboard {
-    position: relative;
-    left: 250px;
-    min-height: 100vh;
-    width: calc(100% - 250px);
-    padding: 14px;
-    transition: .5s ease;
-}
-
-nav.close~.dashboard,
-nav.close~.dashboard .top {
-    left: 73px;
-    width: calc(100% - 73px);
-}
-
-.dashboard .top {
-    position: fixed;
-    top: 0;
-    left: 250px;
-    display: flex;
-    width: calc(100% - 250px);
-    justify-content: space-between;
-    align-items: center;
-    padding: 3px;
-    background: var(--cor-principal);
-    transition: .5s ease;
-    z-index: 10;
-}
-
-.dashboard .top .sidebar-toggle {
-    font-size: 35px;
-    color: var(--cor-texto);
-    cursor: pointer;
 }
 
 .geral_users {
@@ -63,7 +28,7 @@ nav.close~.dashboard .top {
     transition: .5s;
 }
 
-.user_box:hover{
+.user_box:hover {
     box-shadow: 0 0 10px 5px var(--seletor);
 }
 
@@ -85,7 +50,7 @@ nav.close~.dashboard .top {
 .sistema_operacional {
     width: 40%;
     height: 100%;
-    color: var(--seletor);
+    color: var(--cor-texto);
     font-size: 110px;
     border-right: 1px solid var(--cor-texto);
     transition: .5s;
@@ -94,7 +59,7 @@ nav.close~.dashboard .top {
     justify-content: center;
 }
 
-.sistema_operacional i{
+.sistema_operacional i {
     width: 100px;
     border-radius: 0;
 }
@@ -114,22 +79,10 @@ nav.close~.dashboard .top {
     color: var(--cor-texto);
 }
 
-.status{
+.status {
     position: relative;
     height: 25px;
     width: 25px;
     border-radius: 100%;
     right: 20px;
-    background: #de1a1a;
-}
-
-.content_legendas{
-    width: 200px;
-    background: red;
-    display: flex;
-}
-
-.content ul li{
-    display: flex;
-    flex-direction: row;
 }

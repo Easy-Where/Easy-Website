@@ -4,6 +4,8 @@ const img = document.querySelector("#Logo");
 const sidebar = body.querySelector("nav");
 const sidebarToggle = body.querySelector(".sidebar-toggle");
 const icone = document.querySelector("#mode_light_dark");
+const caixa_legenda = body.querySelector(".content_legendas");
+const botao_legendas = document.querySelector(".legendas");
 
 // Modo dark
 modeToggle.addEventListener("click", () => {
@@ -42,5 +44,15 @@ sidebarToggle.addEventListener("click", () => {
             img.src = 'assets/easy-ware-logotipo-dark.png'
             icone.classList.replace("uil-sun", "uil-moon")
         }
+    }
+})
+
+// Fechar e abrir legendas
+botao_legendas.addEventListener("click", () => {
+    caixa_legenda.classList.toggle("fechado");
+    if (caixa_legenda.classList.contains("fechado")) {
+        localStorage.setItem("status", "fechado");
+    } else {
+        localStorage.setItem("status", "aberto");
     }
 })

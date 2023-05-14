@@ -1,14 +1,16 @@
 const maquinas = [
     { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Paulo Alvares", status: "ideal" },
-    { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Ruanzin Silva", status: "ruim" },
+    { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Ruanzin Rodrigues", status: "ruim" },
     { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Vini Cu", status: "ideal" },
     { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Landucci Big", status: "alerta" },
     { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Tomas Turbando", status: "alerta" },
-    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Mi Ahomba", status: "ruim" },
-    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Mi Ahomba", status: "ruim" },
-    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Mi Ahomba", status: "ruim" },
-    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Mi Ahomba", status: "ruim" },
-    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Mi Ahomba", status: "ruim" },
+    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Diego Vieira", status: "ruim" },
+    { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Augusto César", status: "alerta" },
+    { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Duda Wanda", status: "ruim" },
+    { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Bruno Pimentel", status: "alerta" },
+    { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Marquito Henrique", status: "ideal" },
+    { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Deyde Costa", status: "ideal" },
+    { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Jacinto Pinto", status: "ruim" },
 ]
 
 const statusCores = {

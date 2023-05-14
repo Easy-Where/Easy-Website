@@ -1,39 +1,4 @@
 /* Perfil */
-.dashboard {
-    position: relative;
-    left: 250px;
-    min-height: 100vh;
-    width: calc(100% - 250px);
-    padding: 14px;
-    transition: .5s ease;
-}
-
-nav.close~.dashboard,
-nav.close~.dashboard .top {
-    left: 73px;
-    width: calc(100% - 73px);
-}
-
-.dashboard .top {
-    position: fixed;
-    top: 0;
-    left: 250px;
-    display: flex;
-    width: calc(100% - 250px);
-    justify-content: space-between;
-    align-items: center;
-    padding: 3px;
-    background: var(--cor-principal);
-    transition: .5s ease;
-    z-index: 10;
-}
-
-.dashboard .top .sidebar-toggle {
-    font-size: 35px;
-    color: var(--cor-texto);
-    cursor: pointer;
-}
-
 .alinhamento_container {
     width: 100%;
     height: 100%;
