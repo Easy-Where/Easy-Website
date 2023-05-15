@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboardtecnico.css">
     <link rel="stylesheet" href="css/padronizar.css">
-    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/dashboardtecnico.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Easy • Ware</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -24,8 +24,8 @@
             <ul class="nav-links">
                 <li class="pagina_atual">
                     <a href="paineltecnico.html">
-                        <i class="uil uil-apps"></i>
-                        <span class="link-name">Painel</span>
+                        <i class="uil uil-arrow-left"></i>
+                        <span class="link-name">Voltar</span>
                     </a>
                 </li>
                 <li>
@@ -44,8 +44,17 @@
 
             <div class="perfil">
                 <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
-                <span>Olá, Dino do Rock</span>
+                <span>Olá, User User</span>
             </div>
+
+            <ul class="info_maquina_fixas">
+                <li>Nome: <span id="nomeDaMaquina">Null</span></li>
+                <li>SO: <span id="SODaMaquina">Null</span></li>
+                <li>Fabricante: <span id="fabricanteDaMaquina">Null</span></li>
+                <li>Modelo: <span id="modeloDaMaquina">Null</span></li>
+            </ul>
+
+            <i class="uil uil-windows so"></i>
 
             <ul class="logout-mode">
                 <li class="mode">
@@ -80,6 +89,11 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="profile">
+                <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário" id="fotoDoUsuario">
+                <span id="nomeDoUsuario">Nome Usuário</span>
+            </div>
 
             <div class="content_legendas">
                 <div class="title_legenda">
@@ -150,19 +164,21 @@
             <div class="content-charts">
                 <div class="charts-cima">
                     <div class="box-chart-cpu">
-                        <div id="wrapper">
-                            <div id="chart_cpu"></div>
-                        </div>
+                        <h1>CPU</h1>
+                        <div id="chart_cpu"></div>
                     </div>
                     <div class="box-chart-ram">
+                        <h1>RAM</h1>
                         <div id="chart_ram"></div>
                     </div>
                 </div>
                 <div class="charts-baixo">
                     <div class="box-chart-rede">
+                        <h1>Rede</h1>
                         <div id="chart_rede"></div>
                     </div>
                     <div class="box-chart-disco">
+                        <h1>Disco</h1>
                         <div id="chart_disco"></div>
                     </div>
                 </div>

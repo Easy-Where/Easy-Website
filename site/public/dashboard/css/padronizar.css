@@ -67,7 +67,7 @@ nav .logo-name {
 
 nav .logo-name img {
     width: 190px;
-    transition: .5s;
+    transition: .6s;
 }
 
 nav.close .logo-name {
@@ -139,7 +139,7 @@ nav.close li a .link-name {
 .nav-links li a:hover i,
 .nav-links li a:hover .link-name {
     color: var(--seletor);
-    transition: .5s;
+    transition: .6s;
 }
 
 .mode a:hover {
@@ -163,17 +163,23 @@ body.dark .nav-links li a:hover .link-name {
 .perfil img {
     width: 125px;
     border-radius: 50%;
+    transition: .6s;
 }
 
 .perfil span {
+    width: 200px;
     font-size: 18px;
     font-weight: 400;
     color: var(--cor-texto);
-    transition: 1s;
     size: 0;
+    text-align: center;
 }
 
-nav.close .perfil {
+nav.close .perfil img{
+    width: 50px;
+}
+
+nav.close .perfil span{
     opacity: 0;
 }
 
