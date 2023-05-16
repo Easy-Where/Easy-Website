@@ -46,11 +46,6 @@
     align-items: center;
 }
 
-.field-group {
-    display: flex;
-    gap: 14px;
-}
-
 .field-input {
     position: relative;
 }

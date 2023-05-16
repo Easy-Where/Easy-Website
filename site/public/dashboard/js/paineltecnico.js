@@ -8,9 +8,9 @@ const maquinas = [
     { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Augusto César", status: "alerta" },
     { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Duda Wanda", status: "ruim" },
     { so: "Windows", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Bruno Pimentel", status: "alerta" },
-    // { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Marquito Henrique", status: "ideal" },
-    // { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Deyde Costa", status: "ideal" },
-    // { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Jacinto Pinto", status: "ruim" },
+    { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Marquito Henrique", status: "ideal" },
+    { so: "Linux", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Deyde Costa", status: "ideal" },
+    { so: "Mac", imagem_usuario: "../assets/dinorock.jpg", nome_usuario: "Jacinto Pinto", status: "ruim" },
 ]
 
 const statusCores = {

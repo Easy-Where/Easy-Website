@@ -93,6 +93,7 @@ nav .menu-items {
 }
 
 .menu-items li a {
+    width: 200px;
     display: flex;
     align-items: center;
     height: 50px;
@@ -125,10 +126,14 @@ nav .menu-items {
 }
 
 .menu-items li a .link-name {
+    width: 150px;
     font-size: 18px;
     font-weight: 400;
     color: var(--cor-texto);
     transition: 0s;
+    size: 0;
+    text-align: start;
+    transition: .7s;
 }
 
 nav.close li a .link-name {
@@ -272,7 +277,7 @@ nav.close~.dashboard .top {
     align-items: center;
     gap: .5rem;
     transition: 1s;
-    background: var(--cor-texto);
+    background: var(--transparencia);
     overflow-x: hidden;
     border-radius: 7px;
 }
@@ -288,7 +293,7 @@ nav.close~.dashboard .top {
 
 .title_legenda i {
     margin-left: .5rem;
-    color: var(--cor-principal);
+    color: var(--cor-texto);
     font-size: 30px;
 }
 
@@ -304,7 +309,7 @@ nav.close~.dashboard .top {
 }
 
 .content_legendas ul li {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .legend1 {

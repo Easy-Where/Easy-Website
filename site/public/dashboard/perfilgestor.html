@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/perfiltecnico.css">
     <link rel="stylesheet" href="css/padronizar.css">
+    <link rel="stylesheet" href="css/perfiltecnico.css">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Easy • Ware</title>
@@ -21,7 +21,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li>
+                <li class="pagina_atual">
                     <a href="dashboardgestor.html">
                         <i class="uil uil-home"></i>
                         <span class="link-name">Administração</span>
@@ -33,17 +33,23 @@
                         <span class="link-name">Arquivos</span>
                     </a>
                 </li>
-                <li class="pagina_atual">
+                <li>
                     <a href="perfilgestor.html">
                         <i class="uil uil-user"></i>
                         <span class="link-name">Perfil</span>
                     </a>
                 </li>
+                <li>
+                    <a href="adicionar.html">
+                        <i class="uil uil-plus"></i>
+                        <span class="link-name">Funcionários</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="perfil">
-                <img src="assets/user-icon.png" alt="Imagem de perfil do usuário" id="imagem_perfil_sidebar">
-                <span>Olá, Dino</span>
+                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
+                <span>Olá, Dino do Rock</span>
             </div>
 
             <ul class="logout-mode">
@@ -86,11 +92,9 @@
                 <div class="perfil_aparencia">
                     <h1>Edite seus dados aqui</h1>
                     <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil">
-                    <input type="file" id="input_troca_imagem">
                     <div class="btnalterar">
-                        <a href="">
-                            <span>Alterar Foto</span><i></i>
-                        </a>
+                        <label for="input_troca_imagem">Alterar Foto</label>
+                        <input type="file" id="input_troca_imagem"><i></i>
                     </div>
                 </div>
                 <div class="perfil_dados">

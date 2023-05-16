@@ -1,13 +1,15 @@
 /* Dashboard */
 .dashboard .dash-content {
+    height: 100%;
     padding-top: 50px;
 }
 
 /* KPI's */
 .content-kpis {
-    height: 100px;
+    height: 120px;
     width: 100%;
     display: flex;
+    margin-bottom: 14px;
 }
 
 .kpi_box {
@@ -23,13 +25,92 @@
     cursor: pointer;
 }
 
+.quarta {
+    margin: 0;
+}
+
 .kpi_box:hover {
     box-shadow: 0 0 10px 5px var(--seletor);
 }
 
-.dash_funcionarios_content{
+.dash_funcionarios_content {
+    width: 100%;
+    height: 453px;
+    background: var(--transparencia);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* teste */
+#table_users {
     width: 100%;
     height: 100%;
-    margin: 14px;
-    background: var(--transparencia);
+}
+
+#table_users table {
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+#table_users table th {
+    border-right: 1px solid var(--transparencia);
+}
+
+#table_users table td {
+    border-right: 1px solid var(--transparencia);
+    border-bottom: 1px solid var(--transparencia);
+    color: var(--cor-texto);
+}
+
+#table_users table .ultimo {
+    border-right: none;
+}
+
+#table_users table th,
+#table_users table td {
+    padding: 6px;
+    text-align: center;
+}
+
+#table_users table th {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--seletor);
+    background: var(--cor-principal);
+}
+
+#table_users table tr:hover {
+    background-color: #1175d180;
+}
+
+.nome-cell,
+.gestor-cell {
+    width: 250px;
+}
+
+.funcao-cell {
+    width: 120px;
+}
+
+.email-cell {
+    width: 350px;
+}
+
+.added-cell {
+    width: 160px;
+}
+
+.status-cell {
+    width: 150px;
+}
+
+.status {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    left: 45px;
 }

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboardgestor.css">
     <link rel="stylesheet" href="css/padronizar.css">
+    <link rel="stylesheet" href="css/dashboardgestor.css">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Easy • Ware</title>
@@ -25,7 +25,7 @@
                 <li class="pagina_atual">
                     <a href="dashboardgestor.html">
                         <i class="uil uil-home"></i>
-                        <span class="link-name">Administração</span>
+                        <span class="link-name dartamanho">Visão Geral</span>
                     </a>
                 </li>
                 <li>
@@ -38,6 +38,12 @@
                     <a href="perfilgestor.html">
                         <i class="uil uil-user"></i>
                         <span class="link-name">Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="adicionar.html">
+                        <i class="uil uil-plus"></i>
+                        <span class="link-name">Funcionários</span>
                     </a>
                 </li>
             </ul>
@@ -80,6 +86,17 @@
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="content_legendas">
+                <div class="title_legenda">
+                    <i class="uil uil-tag legendas"></i>
+                </div>
+                <ul>
+                    <li class="legend1">Ideal</li>
+                    <li class="legend2">Alerta</li>
+                    <li class="legend3">Crítico</li>
+                </ul>
+            </div>
         </div>
 
         <div class="dash-content">
@@ -93,17 +110,30 @@
                 <div class="kpi_box">
 
                 </div>
-                <div class="kpi_box">
+                <div class="kpi_box quarta">
 
                 </div>
             </div>
 
             <div class="dash_funcionarios_content">
-                <h1>Eu existo</h1>
+                <div id="table_users">
+                    <table id="tabela">
+                        <tr>
+                            <th>ID</th>
+                            <th class="nome-cell">Nome</th>
+                            <th class="funcao-cell">Função</th>
+                            <th class="email-cell">E-mail</th>
+                            <th class="added-cell">Teste</th>
+                            <th class="gestor-cell">Gestor</th>
+                            <th class="status-cell ultimo">Status &#8693;</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
     <script src="js/padronizar.js"></script>
+    <script src="js/dashboardgestor.js"></script>
 </body>
 
 </html>
