@@ -19,7 +19,7 @@
 
 .perfil_aparencia {
     height: 100%;
-    width: 35%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -39,24 +39,22 @@
 
 .perfil_dados {
     height: 100%;
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .field-input {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 110px;
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 14px;
-}
-
-.zerarmargin {
-    margin-bottom: 0;
 }
 
 .input-group input {
@@ -118,6 +116,7 @@ input:valid~label {
     padding: 10px 30px;
     transition: 0.5s;
     text-decoration: none;
+    top: 10px;
 }
 
 .btnsalvar a:hover {
@@ -208,4 +207,26 @@ input:valid~label {
 
 .btnalterar label:hover{
     cursor: pointer;
+}
+
+.estado_container{
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    right: 85px;
+    top: 120px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.estado_container i{
+    font-size: 40px;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+.estado_container .uil-trash-alt{
+    color: #de1a1a;
 }
