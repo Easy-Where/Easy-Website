@@ -48,7 +48,7 @@
             </ul>
 
             <div class="perfil">
-                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
+                <img src="assets/user-icon.png" alt="Imagem de perfil do usuário">
                 <span>Olá, Dino do Rock</span>
             </div>
 
@@ -88,7 +88,7 @@
         </div>
 
         <div class="estado_container">
-            <i class="uil uil-redo"></i>
+            <i class="uil uil-redo" onclick="resetarInputs()"></i>
             <i class="uil uil-trash-alt"></i>
         </div>
 
@@ -119,12 +119,12 @@
                         <div class="input-group zerarmargin">
                             <input required="" type="password" name="text" autocomplete="off" id="senha">
                             <label class="user-label">Senha</label>
-                            <img src="assets/perfilversenha.png" alt="Ver Senha" id="trocarFigura">
+                            <i class="uil uil-eye" id="trocarFigura"></i>
                         </div>
                         <div class="input-group zerarmargin">
                             <input required="" type="password" name="text" autocomplete="off" id="confirmasenha">
                             <label class="user-label">Confirmação de Senha</label>
-                            <img src="assets/perfilversenha.png" alt="Ver Senha" id="confirmatrocarFigura">
+                            <i class="uil uil-eye" id="confirmatrocarFigura"></i>
                         </div>
                     </div>
                     <div class="btnsalvar">
@@ -136,8 +136,8 @@
             </div>
         </div>
     </section>
-    <script src="js/perfiltecnico.js"></script>
     <script src="js/padronizar.js"></script>
+    <script src="js/perfiltecnico.js"></script>
 </body>
 
 </html>
