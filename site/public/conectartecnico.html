@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy | Conectar-se</title>
     <link rel="icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="css/conectartecnico.css">
-    <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/conectargestor.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 
 <body>
@@ -33,8 +33,8 @@
     </div>
 
     <!-- Seta de volta -->
-    <a href="preconectar.html" id="ativarseta"  class="setaVoltar">
-        <i class="fa-solid fa-arrow-left" id="setavoltar"></i>
+    <a href="preconectar.html" id="ativarseta" class="setaVoltar">
+        <i class="uil uil-arrow-left" id="setavoltar"></i>
         <div class="bar"></div>
     </a>
 
@@ -102,7 +102,7 @@
                             <div class="input-group">
                                 <input required="" type="password" name="text" autocomplete="off" id="pid">
                                 <label class="user-label">PID (Seu Gestor)</label>
-                                <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigurapid">
+                                <i class="uil uil-eye" id="trocarFigurapid"></i>
                             </div>
                         </div>
                     </div>
@@ -122,14 +122,14 @@
                             <div class="input-group">
                                 <input required="" type="password" name="text" autocomplete="off" id="senha">
                                 <label class="user-label">Senha</label>
-                                <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigura">
+                                <i class="uil uil-eye" id="trocarFigura"></i>
                             </div>
                         </div>
                         <div class="field-input">
                             <div class="input-group">
                                 <input required="" type="password" name="text" autocomplete="off" id="confirmasenha">
                                 <label class="user-label">Confirmação de Senha</label>
-                                <img src="assets/conectar-versenha.png" alt="Ver Senha" id="confirmatrocarFigura">
+                                <i class="uil uil-eye" id="confirmatrocarFigura"></i>
                             </div>
                         </div>
                     </div>
@@ -145,6 +145,7 @@
             </div>
         </div>
 
+        <!-- Login -->
         <div class="form-container sign-in-container">
             <h1>Bem-vindo de volta!</h1>
             <div class="input-group">
@@ -154,7 +155,7 @@
             <div class="input-group">
                 <input required="" type="password" name="text" autocomplete="off" id="senha2">
                 <label class="user-label">Senha</label>
-                <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigura2">
+                <i class="uil uil-eye" id="trocarFigura2"></i>
             </div>
             <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
             <div class="btn">
@@ -164,22 +165,23 @@
             </div>
         </div>
 
+        <!-- Mascára -->
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <img src="assets/conectar-background-login.png" alt="Imagem para logar">
                     <h1>Já é cliente?</h1>
                     <button class="cta" id="signIn">
-                        <i class="fa-solid fa-arrow-left"></i>
+                        <i class="uil uil-arrow-left"></i>
                         <span>Logar</span>
                     </button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <img src="assets/conectar-background-cadastro.png" alt="Imagem para cadastro">
                     <h1>Primeira vez?</h1>
-                    <button class="cta" id="signUp" onclick="cadastrar()">
+                    <button class="cta" id="signUp" onclick="">
                         <span>Cadastrar</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="uil uil-arrow-right"></i>
                     </button>
                 </div>
             </div>

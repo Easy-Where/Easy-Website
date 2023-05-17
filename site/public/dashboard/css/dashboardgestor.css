@@ -6,14 +6,14 @@
 
 /* KPI's */
 .content-kpis {
-    height: 120px;
+    height: 225px;
     width: 100%;
     display: flex;
     margin-bottom: 14px;
 }
 
 .kpi_box {
-    height: 120px;
+    height: 100%;
     width: 100%;
     background: var(--transparencia);
     margin: 0 14px 0 0;
@@ -25,7 +25,11 @@
     cursor: pointer;
 }
 
-.quarta {
+#chart_total{
+    background: red;
+}
+
+.segunda {
     margin: 0;
 }
 
@@ -35,7 +39,7 @@
 
 .dash_funcionarios_content {
     width: 100%;
-    height: 453px;
+    height: 347px;
     background: var(--transparencia);
     border-radius: 7px;
     display: flex;

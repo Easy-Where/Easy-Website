@@ -49,10 +49,10 @@ img.addEventListener('click', togglePass);
 function togglePass() {
   if (input.type == "password") {
     input.type = "text";
-    img.src = 'assets/conectar-escondersenha.png'
+    img.classList.replace("uil-eye", "uil-eye-slash")
   } else {
     input.type = "password";
-    img.src = 'assets/conectar-versenha.png'
+    img.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 
@@ -64,10 +64,10 @@ img4.addEventListener('click', togglePass4);
 function togglePass4() {
   if (input4.type == "password") {
     input4.type = "text";
-    img4.src = 'assets/conectar-escondersenha.png'
+    img4.classList.replace("uil-eye", "uil-eye-slash")
   } else {
     input4.type = "password";
-    img4.src = 'assets/conectar-versenha.png'
+    img4.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 
@@ -79,10 +79,10 @@ img3.addEventListener('click', togglePass3);
 function togglePass3() {
   if (input3.type == "password") {
     input3.type = "text";
-    img3.src = 'assets/conectar-escondersenha.png'
+    img3.classList.replace("uil-eye", "uil-eye-slash")
   } else {
     input3.type = "password";
-    img3.src = 'assets/conectar-versenha.png'
+    img3.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 
@@ -94,10 +94,10 @@ img2.addEventListener('click', togglePass2);
 function togglePass2() {
   if (input2.type == "password") {
     input2.type = "text";
-    img2.src = 'assets/conectar-escondersenha.png'
+    img2.classList.replace("uil-eye", "uil-eye-slash")
   } else {
     input2.type = "password";
-    img2.src = 'assets/conectar-versenha.png'
+    img2.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 

@@ -36,3 +36,60 @@ function getUsuarios(index) {
     const usuario = usuarios[index]
     localStorage.setItem('info_usuario', JSON.stringify(usuario))
 }
+
+// KPI da CPU
+function getChartColor(value) {
+    if (value >= 80) {
+        return "#de1a1a"; // vermelho
+    } else if (value >= 50) {
+        return "#f8f32b"; // amarelo
+    } else {
+        return "#1175d1"; // azul (cor original)
+    }
+}
+
+var geral = {
+    chart: {
+        offsetY: 0,
+        offsetX: 0,
+        height: 260,
+        type: "radialBar",
+    },
+    series: [50],
+    colors: [getChartColor(50)],
+    plotOptions: {
+        radialBar: {
+            hollow: {
+                margin: 0,
+                size: "60%",
+            },
+            track: {
+                dropShadow: {
+                    enabled: true,
+                    top: 2,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.15
+                }
+            },
+            dataLabels: {
+                name: {
+                    show: false
+                },
+                value: {
+                    offsetY: 8,
+                    color: "#f1f1f1",
+                    fontSize: "20px",
+                    show: true,
+                    fontFamily: "Montserrat"
+                }
+            }
+        }
+    },
+    stroke: {
+        lineCap: "round"
+    },
+    labels: ["Progress"]
+};
+
+new ApexCharts(document.querySelector("#chart_total"), geral).render();
