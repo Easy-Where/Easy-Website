@@ -1,68 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Easy | Esqueci minha senha</title>
-    <link rel="icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="css/padronizar.css">
-    <link rel="stylesheet" href="css/esquecisenha.css">
-    <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/padronizar.css" />
+    <link rel="stylesheet" href="css/esquecisenha.css" />
+    <script
+      src="https://kit.fontawesome.com/390ed0de69.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <main>
-        <!-- Blur Background -->
-        <div class="efeito-blur">
-            <div class="lado esquerdo">
-                <div class="blur"></div>
-                <div class="blur"></div>
-                <div class="blur"></div>
-            </div>
-            <div class="lado direito">
-                <div class="blur"></div>
-                <div class="blur"></div>
-            </div>
+      <!-- Blur Background -->
+      <div class="efeito-blur">
+        <div class="lado esquerdo">
+          <div class="blur"></div>
+          <div class="blur"></div>
+          <div class="blur"></div>
         </div>
-
-        <!-- Seta de volta -->
-        <a href="conectargestor.html" id="ativarseta">
-            <i class="fa-solid fa-arrow-left" id="setavoltar"></i>
-            <div class="bar"></div>
-        </a>
-
-        <!-- Esqueci minha senha -->
-        <div class="container-servicos">
-            <div class="box">
-                <div class="quadradinho" style="--i:0;"></div>
-                <div class="quadradinho" style="--i:1;"></div>
-                <div class="quadradinho" style="--i:2;"></div>
-                <div class="quadradinho" style="--i:3;"></div>
-                <div class="quadradinho" style="--i:4;"></div>
-                <div class="servicos">
-                    <div class="quadrado-principal">
-                        <div class="input-group">
-                            <input required="" type="text" name="text" autocomplete="off">
-                            <label id="primeira" class="user-label">Seu e-mail</label>
-                        </div>
-                        <div class="input-group">
-                            <input required="" type="password" name="text" autocomplete="off" id="senha">
-                            <label id="ultima" class="user-label">Ultima senha usada</label>
-                            <img src="assets/conectar-versenha.png" alt="Ver Senha" id="trocarFigura">
-                        </div>
-                        <div class="btnenviar">
-                            <a href="">
-                                Enviar E-mail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="lado direito">
+          <div class="blur"></div>
+          <div class="blur"></div>
         </div>
+      </div>
+
+      <!-- Seta de volta -->
+      <a href="conectargestor.html" id="ativarseta">
+        <i class="fa-solid fa-arrow-left" id="setavoltar"></i>
+        <div class="bar"></div>
+      </a>
+
+      <!-- Esqueci minha senha -->
+      <div class="container-servicos">
+        <div class="box">
+          <div class="quadradinho" style="--i: 0"></div>
+          <div class="quadradinho" style="--i: 1"></div>
+          <div class="quadradinho" style="--i: 2"></div>
+          <div class="quadradinho" style="--i: 3"></div>
+          <div class="quadradinho" style="--i: 4"></div>
+          <div class="servicos">
+            <div class="quadrado-principal">
+              <div class="input-group">
+                <input required="" type="text" name="text" autocomplete="off" />
+                <label id="primeira" class="user-label">Seu e-mail</label>
+              </div>
+              <div class="input-group">
+                <input
+                  required=""
+                  type="password"
+                  name="text"
+                  autocomplete="off"
+                  id="senha"
+                />
+                <label id="ultima" class="user-label">Ultima senha usada</label>
+                <img
+                  src="assets/conectar-versenha.png"
+                  alt="Ver Senha"
+                  id="trocarFigura"
+                />
+              </div>
+              <div class="btnenviar">
+                <a href=""> Enviar E-mail </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="js/esquecisenha.js"></script>
-</body>
-
+  </body>
 </html>

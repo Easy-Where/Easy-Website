@@ -1,385 +1,478 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Easy</title>
-    <link rel="icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/padronizar.css">
-    <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/padronizar.css" />
+    <script src="https://kit.fontawesome.com/390ed0de69.js"
+crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <main>
-        <!-- Blur Background -->
-        <div class="efeito-blur">
-            <div class="lado esquerdo">
-                <div class="blur"></div>
-                <div class="blur"></div>
-                <div class="blur"></div>
+      <!-- Blur Background -->
+      <div class="efeito-blur">
+        <div class="lado esquerdo">
+          <div class="blur"></div>
+          <div class="blur"></div>
+          <div class="blur"></div>
+        </div>
+        <div class="lado direito">
+          <div class="blur"></div>
+          <div class="blur"></div>
+        </div>
+      </div>
+
+      <!-- Navbar -->
+      <header>
+        <div class="navbar">
+          <div class="logo">
+            <a href="index.html#home">
+              <img class="" src="assets/logo-light.png" alt="Logo da Easy" />
+            </a>
+          </div>
+
+          <div class="secoes" id="nav-responsivo">
+            <nav>
+              <ul>
+                <li>
+                  <a href="index.html#home" data-text="&nbsp;Home"
+                    >&nbsp;Home&nbsp;</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#servicos" data-text="&nbsp;Serviços"
+                    >&nbsp;Serviços&nbsp;</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#vantagens" data-text="&nbsp;Vantagens"
+                    >&nbsp;Vantagens&nbsp;</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#contato" data-text="&nbsp;Contato"
+                    >&nbsp;Contato&nbsp;</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="btnconectar" id="btn-conectar">
+            <a href="preconectar.html"> <span>Conectar-se</span><i></i> </a>
+          </div>
+
+          <!-- BOTÃO MENU -->
+          <div class="btnmenu">
+            <a onclick="btnMenu()" id="aMenu"> <span>Menu</span><i></i> </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Home -->
+      <section id="home">
+        <div class="container-home">
+          <div class="divulgaempresa">
+            <div class="textochamativo">
+              <img src="assets/logotipo-light.png" alt="Logomarca Easy" />
+              <div class="loaderfrases">
+                <p>A tecnologia que</p>
+                <div class="frases">
+                  <span class="frase">fala sua língua!</span>
+                  <span class="frase">cria soluções!</span>
+                  <span class="frase">te inspira!</span>
+                  <span class="frase">é inteligente!</span>
+                  <span class="frase">é para todos!</span>
+                  <span class="frase">fala sua língua!</span>
+                </div>
+              </div>
             </div>
-            <div class="lado direito">
-                <div class="blur"></div>
-                <div class="blur"></div>
+
+            <div class="btnsobrenos">
+              <a href="sobrenos.html"> <span>Sobre nós</span><i></i> </a>
             </div>
+          </div>
+
+          <div class="imagemchamativa">
+            <div class="loaderimage">
+              <div class="imagens">
+                <img
+                  class="image"
+                  src="assets/home-fala.png"
+                  alt="Imagem de interação humano-máquina"
+                />
+                <img
+                  class="image"
+                  src="assets/home-cria.png"
+                  alt="Imagem criativa"
+                />
+                <img
+                  class="image"
+                  src="assets/home-inspira.png"
+                  alt="Imagem inspiradora"
+                />
+                <img
+                  class="image"
+                  src="assets/home-inteligente.png"
+                  alt="Imagem inteligência artificial"
+                />
+                <img
+                  class="image"
+                  src="assets/home-todos.png"
+                  alt="Imagem de todos"
+                />
+                <img
+                  class="image"
+                  src="assets/home-fala.png"
+                  alt="Imagem de interação humano-máquina"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Serviços -->
+      <section id="servicos">
+        <div class="container-servicos">
+          <div class="titulo-servicos">
+            <h1>Nossos <span>serviços</span></h1>
+          </div>
+
+          <div class="box">
+            <div class="quadradinho" style="--i: 0"></div>
+            <div class="quadradinho" style="--i: 1"></div>
+            <div class="quadradinho" style="--i: 2"></div>
+            <div class="quadradinho" style="--i: 3"></div>
+            <div class="quadradinho" style="--i: 4"></div>
+            <div class="servicos">
+              <div class="quadrado-principal">
+                <div class="servico-chamado">
+                  <img
+                    src="assets/easy-ware-logotipo-light.png"
+                    alt="Logotipo Easy Ware"
+                  />
+                </div>
+                <p>
+                  Sua empresa possui uma organização interamente Home-Office?
+                  Conheça essa solução inovadora para você não perder tempo e
+                  dinheiro.
+                </p>
+                <div class="btnsabermais">
+                  <a href="easyware.html"> Saber Mais </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vantagens -->
+      <section id="vantagens">
+        <div class="titulo-vantagens">
+          <h1>Nossas <span>vantagens</span></h1>
         </div>
 
-        <!-- Navbar -->
-        <header>
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html#home">
-                        <img class="" src="assets/logo-light.png" alt="Logo da Easy" />
-                    </a>
-                </div>
-
-                <div class="secoes" id="nav-responsivo">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="index.html#home" data-text="&nbsp;Home">&nbsp;Home&nbsp;</a>
-                            </li>
-                            <li>
-                                <a href="index.html#servicos" data-text="&nbsp;Serviços">&nbsp;Serviços&nbsp;</a>
-                            </li>
-                            <li>
-                                <a href="index.html#vantagens" data-text="&nbsp;Vantagens">&nbsp;Vantagens&nbsp;</a>
-                            </li>
-                            <li>
-                                <a href="index.html#contato" data-text="&nbsp;Contato">&nbsp;Contato&nbsp;</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="btnconectar" id="btn-conectar">
-                    <a href="preconectar.html">
-                        <span>Conectar-se</span><i></i>
-                    </a>
-                </div>
-
-                <!-- BOTÃO MENU -->
-                <div class="btnmenu">
-                    <a onclick="btnMenu()" id="aMenu">
-                        <span>Menu</span><i></i>
-                    </a>
-                </div>
+        <div class="carousel">
+          <div class="carousel-item">
+            <div class="carousel-box cardvantagem">
+              <div class="container-cliente">
+                <img src="assets/vantagens-card1.png" alt="Produtividade" />
+              </div>
+              <div class="title">Produtividade</div>
             </div>
-        </header>
+          </div>
 
-        <!-- Home -->
-        <section id="home">
-            <div class="container-home">
-                <div class="divulgaempresa">
-                    <div class="textochamativo">
-                        <img src="assets/logotipo-light.png" alt="Logomarca Easy">
-                        <div class="loaderfrases">
-                            <p>A tecnologia que</p>
-                            <div class="frases">
-                                <span class="frase">fala sua língua!</span>
-                                <span class="frase">cria soluções!</span>
-                                <span class="frase">te inspira!</span>
-                                <span class="frase">é inteligente!</span>
-                                <span class="frase">é para todos!</span>
-                                <span class="frase">fala sua língua!</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="btnsobrenos">
-                        <a href="sobrenos.html">
-                            <span>Sobre nós</span><i></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="imagemchamativa">
-                    <div class="loaderimage">
-                        <div class="imagens">
-                            <img class="image" src="assets/home-fala.png" alt="Imagem de interação humano-máquina">
-                            <img class="image" src="assets/home-cria.png" alt="Imagem criativa">
-                            <img class="image" src="assets/home-inspira.png" alt="Imagem inspiradora">
-                            <img class="image" src="assets/home-inteligente.png" alt="Imagem inteligência artificial">
-                            <img class="image" src="assets/home-todos.png" alt="Imagem de todos">
-                            <img class="image" src="assets/home-fala.png" alt="Imagem de interação humano-máquina">
-                        </div>
-                    </div>
-                </div>
+          <div class="carousel-item">
+            <div class="carousel-box cardcliente">
+              <div class="container-cliente">
+                <img
+                  src="assets/vantagens-card2.png"
+                  alt="Usuário do Easy Ware"
+                />
+                <h1>Marcos Marques</h1>
+              </div>
+              <p>
+                "Após o uso do Easy Ware meus funcionários tem trabalhado com
+                muito mais <span>produtividade</span>, sem distrações, e
+                <span>responsabilidade</span>"
+              </p>
+              <div class="title">Cliente</div>
             </div>
-        </section>
+          </div>
 
-        <!-- Serviços -->
-        <section id="servicos">
-            <div class="container-servicos">
-                <div class="titulo-servicos">
-                    <h1>Nossos <span>serviços</span></h1>
-                </div>
-
-                <div class="box">
-                    <div class="quadradinho" style="--i:0;"></div>
-                    <div class="quadradinho" style="--i:1;"></div>
-                    <div class="quadradinho" style="--i:2;"></div>
-                    <div class="quadradinho" style="--i:3;"></div>
-                    <div class="quadradinho" style="--i:4;"></div>
-                    <div class="servicos">
-                        <div class="quadrado-principal">
-                            <div class="servico-chamado">
-                                <img src="assets/easy-ware-logotipo-light.png" alt="Logotipo Easy Ware">
-                            </div>
-                            <p>
-                                Sua empresa possui uma organização interamente Home-Office?
-                                Conheça essa solução inovadora para você não perder tempo e dinheiro.
-                            </p>
-                            <div class="btnsabermais">
-                                <a href="easyware.html">
-                                    Saber Mais
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="carousel-item">
+            <div class="carousel-box cardtexto">
+              <div class="textcard">
+                Fazemos uso dos dados coletados de forma inteligente, mostrando
+                para você de uma maneira acessível todo o fluxo de seu negócio.
+                Trazemos assim mais controle a você sobre o que realmente
+                importa.
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Vantagens -->
-        <section id="vantagens">
-            <div class="titulo-vantagens">
-                <h1>Nossas <span>vantagens</span></h1>
+          <div class="carousel-item">
+            <div class="carousel-box cardvantagem">
+              <div class="container-cliente">
+                <img
+                  src="assets/vantagens-card4.png"
+                  alt="Usuário do Easy Ware"
+                />
+              </div>
+              <div class="title">Queda de prejuízos</div>
             </div>
+          </div>
 
-            <div class="carousel">
-                <div class="carousel-item">
-                    <div class="carousel-box cardvantagem">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card1.png" alt="Produtividade">
-                        </div>
-                        <div class="title">Produtividade</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardcliente">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card2.png" alt="Usuário do Easy Ware">
-                            <h1>Marcos Marques</h1>
-                        </div>
-                        <p>
-                            "Após o uso do Easy Ware meus funcionários tem
-                            trabalhado com muito mais <span>produtividade</span>,
-                            sem distrações, e <span>responsabilidade</span>"
-                        </p>
-                        <div class="title">Cliente</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardtexto">
-                        <div class="textcard">
-                            Fazemos uso dos dados coletados de forma inteligente,
-                            mostrando para você de uma maneira acessível todo o fluxo de seu negócio.
-                            Trazemos assim mais controle a você sobre o que realmente importa.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardvantagem">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card4.png" alt="Usuário do Easy Ware">
-                        </div>
-                        <div class="title">Queda de prejuízos</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardcliente">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card5.png" alt="Usuário do Easy Ware">
-                            <h1>Maria Pimentel</h1>
-                        </div>
-                        <p>
-                            "Meus <span>prejuízos cairam</span> após a aquisição do Easy Ware.
-                            Conto com um suporte incrível para sempre me manter <span>atualizada</span>"
-                        </p>
-                        <div class="title">Cliente</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardtexto">
-                        <div class="textcard">
-                            Garantimos uma melhoria considerável na administração financeira de sua empresa,
-                            nossa solução oferece lucros e benefícios a longo prazo a todos os agentes do seu negócio.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardvantagem">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card7.png" alt="Usuário do Easy Ware">
-                        </div>
-                        <div class="title">Facilidade</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardcliente">
-                        <div class="container-cliente">
-                            <img src="assets/vantagens-card8.png" alt="Usuário do Easy Ware">
-                            <h1>Paula Rocha</h1>
-                        </div>
-                        <p>
-                            "Hoje meu trabalho é muito mais <span>fácil</span> com a solução da Easy Ware"
-                        </p>
-                        <div class="title">Cliente</div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="carousel-box cardtexto">
-                        <div class="textcard">
-                            Trazemos como princípio, a capacidade de se comunicar de maneira pragmática,
-                            portanto, usamos disso para trazer a você o sistema mais EASY possível.
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-box ultimocard">
-                        <h1>Venha ser</h1>
-                        <img src="assets/logo-light.png" alt="Logo Easy">
-                        <h1>você também!</h1>
-                    </div>
-                </div>
+          <div class="carousel-item">
+            <div class="carousel-box cardcliente">
+              <div class="container-cliente">
+                <img
+                  src="assets/vantagens-card5.png"
+                  alt="Usuário do Easy Ware"
+                />
+                <h1>Maria Pimentel</h1>
+              </div>
+              <p>
+                "Meus <span>prejuízos cairam</span> após a aquisição do Easy
+                Ware. Conto com um suporte incrível para sempre me manter
+                <span>atualizada</span>"
+              </p>
+              <div class="title">Cliente</div>
             </div>
-        </section>
+          </div>
 
-        <!-- Footer -->
-        <div class="container-footer" id="contato">
-            <div>
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave"
-                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(17,117,209,0.7)" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(17,117,209,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(17,117,209,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(17,117,209)" />
-                    </g>
-                </svg>
+          <div class="carousel-item">
+            <div class="carousel-box cardtexto">
+              <div class="textcard">
+                Garantimos uma melhoria considerável na administração financeira
+                de sua empresa, nossa solução oferece lucros e benefícios a
+                longo prazo a todos os agentes do seu negócio.
+              </div>
             </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-box cardvantagem">
+              <div class="container-cliente">
+                <img
+                  src="assets/vantagens-card7.png"
+                  alt="Usuário do Easy Ware"
+                />
+              </div>
+              <div class="title">Facilidade</div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-box cardcliente">
+              <div class="container-cliente">
+                <img
+                  src="assets/vantagens-card8.png"
+                  alt="Usuário do Easy Ware"
+                />
+                <h1>Paula Rocha</h1>
+              </div>
+              <p>
+                "Hoje meu trabalho é muito mais <span>fácil</span> com a solução
+                da Easy Ware"
+              </p>
+              <div class="title">Cliente</div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-box cardtexto">
+              <div class="textcard">
+                Trazemos como princípio, a capacidade de se comunicar de maneira
+                pragmática, portanto, usamos disso para trazer a você o sistema
+                mais EASY possível.
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-box ultimocard">
+              <h1>Venha ser</h1>
+              <img src="assets/logo-light.png" alt="Logo Easy" />
+              <h1>você também!</h1>
+            </div>
+          </div>
         </div>
-        <footer>
-            <div class="secoes-footer">
-                <div class="secao-footer">
-                    <h1>Parceiros</h1>
-                    <ul>
-                        <li>Accenture<div class="bar"></div>
-                        </li>
-                        <li>Box Delivery<div class="bar"></div>
-                        </li>
-                        <li>SPTech<div class="bar"></div>
-                        </li>
-                    </ul>
+      </section>
+
+      <!-- Footer -->
+      <div class="container-footer" id="contato">
+        <div>
+          <svg
+            class="waves"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28"
+            preserveAspectRatio="none"
+            shape-rendering="auto"
+          >
+            <defs>
+              <path
+                id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              />
+            </defs>
+            <g class="parallax">
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="0"
+                fill="rgba(17,117,209,0.7)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="3"
+                fill="rgba(17,117,209,0.5)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="5"
+                fill="rgba(17,117,209,0.3)"
+              />
+              <use
+                xlink:href="#gentle-wave"
+                x="48"
+                y="7"
+                fill="rgba(17,117,209)"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <footer>
+        <div class="secoes-footer">
+          <div class="secao-footer">
+            <h1>Parceiros</h1>
+            <ul>
+              <li>
+                Accenture
+                <div class="bar"></div>
+              </li>
+              <li>
+                Box Delivery
+                <div class="bar"></div>
+              </li>
+              <li>
+                SPTech
+                <div class="bar"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="secao-footer">
+            <div class="container-redes">
+              <div class="menu">
+                <div class="toggle">
+                  <i class="fa-solid fa-globe"></i>
                 </div>
-                <div class="secao-footer">
-                    <div class="container-redes">
-                        <div class="menu">
-                            <div class="toggle">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
-                            <ul>
-                                <li style="--i:0; --color: #f04244;">
-                                    <a href="mailto: easy.developer@outlook.com" target="_blank">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:1; --color: #161b22;">
-                                    <a href="https://github.com/PauloCezaretto/Easy" target="_blank">
-                                        <i class="fa-brands fa-github"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:2; --color: #0a66c2;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:3; --color: #23c861;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:4; --color: #087ae9;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:5; --color: #dc00b2;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:6; --color: #1d9bf0;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li style="--i:7; --color: #bb3166;">
-                                    <a href="#">
-                                        <i class="fa-brands fa-dribbble"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- <h1 id="textofooter">Nossas redes</h1> -->
-                    </div>
-                </div>
-                <div class="secao-footer">
-                    <h1>Nossos serviços</h1>
-                    <ul>
-                        <a href="easyware.html">
-                            <li>Easy • Ware<div class="bar"></div>
-                            </li>
-                        </a>
-                    </ul>
-                </div>
+                <ul>
+                  <li style="--i: 0; --color: #f04244">
+                    <a
+                      href="mailto: easy.developer@outlook.com"
+                      target="_blank"
+                    >
+                      <i class="fa-solid fa-envelope"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 1; --color: #161b22">
+                    <a
+                      href="https://github.com/PauloCezaretto/Easy"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 2; --color: #0a66c2">
+                    <a href="#">
+                      <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 3; --color: #23c861">
+                    <a href="#">
+                      <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 4; --color: #087ae9">
+                    <a href="#">
+                      <i class="fa-brands fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 5; --color: #dc00b2">
+                    <a href="#">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 6; --color: #1d9bf0">
+                    <a href="#">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li style="--i: 7; --color: #bb3166">
+                    <a href="#">
+                      <i class="fa-brands fa-dribbble"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- <h1 id="textofooter">Nossas redes</h1> -->
             </div>
-        </footer>
+          </div>
+          <div class="secao-footer">
+            <h1>Nossos serviços</h1>
+            <ul>
+              <a href="easyware.html">
+                <li>
+                  Easy • Ware
+                  <div class="bar"></div>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </main>
     <script src="js/index.js"></script>
-</body>
-
+  </body>
 </html>
 
 <script type="text/javascript">
-    //<![CDATA[
-    var ttChatLoaderS = document.createElement('script');
-    document.tomticketChatLoaderScriptVersion = 2;
-    ttChatLoaderS.src = 'https://easy.tomticket.com/scripts-chat/chat.min.js'
-        + '?id=EP61574'
-        + '&account=3940736P06042023044352'
-        + '&autoOpen=0'
-        + '&hideWhenOffline=0'
-        + '&d=easy'
-        + '&ts=' + new Date().getTime()
-        + '&ref=' + encodeURIComponent(document.URL);
-    document.body.appendChild(ttChatLoaderS);
-    //]]>
+  //<![CDATA[
+  var ttChatLoaderS = document.createElement("script");
+  document.tomticketChatLoaderScriptVersion = 2;
+  ttChatLoaderS.src =
+    "https://easy.tomticket.com/scripts-chat/chat.min.js" +
+    "?id=EP61574" +
+    "&account=3940736P06042023044352" +
+    "&autoOpen=0" +
+    "&hideWhenOffline=0" +
+    "&d=easy" +
+    "&ts=" +
+    new Date().getTime() +
+    "&ref=" +
+    encodeURIComponent(document.URL);
+  document.body.appendChild(ttChatLoaderS);
+  //]]>
 </script>
 <script>
-    var btn = document.getElementById('aMenu')
-    var navMenu = document.getElementById('nav-responsivo')
-    var conect = document.getElementById('btn-conectar')
+  var btn = document.getElementById("aMenu");
+  var navMenu = document.getElementById("nav-responsivo");
+  var conect = document.getElementById("btn-conectar");
 
-    function btnMenu(){
-        navMenu.classList.toggle('ativo')
-        conect.classList.toggle('efeitoConect')
-        btn.classList.toggle('btnmenuSelect')
-    }
+  function btnMenu() {
+    navMenu.classList.toggle("ativo");
+    conect.classList.toggle("efeitoConect");
+    btn.classList.toggle("btnmenuSelect");
+  }
 </script>
