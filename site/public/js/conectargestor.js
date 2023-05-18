@@ -203,10 +203,8 @@ function criaMascara(event) {
   cnpj_input.value = document
 }
 
-// web-data-viz
-
-function entrar() {
-
+// Logar
+function logar() {
   var emailVar = email_input.value;
   var senhaVar = senha2.value;
 
@@ -263,7 +261,7 @@ function entrar() {
   return false;
 }
 
-//
+// Cadastrar
 function cadastrar() {
   var empresaVar = empresa_input.value;
   var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
@@ -316,6 +314,7 @@ function cadastrar() {
   });
 
 }
+
 
 function cadastrarEmpresa() {
   var empresaVar = empresa_input.value;

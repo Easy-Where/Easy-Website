@@ -12,5 +12,3 @@ function togglePass() {
         img.src = 'assets/conectar-versenha.png'
     }
 }
-
-// Enviar e-mail
