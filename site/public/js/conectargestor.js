@@ -137,14 +137,11 @@ function handlePrev() {
 nextBtn.forEach(btn => {
   btn.addEventListener('click', () => {
     const nome = nome_input.value;
-    const sobrenome = sobrenome_input.value;
     const email = emailCad_input.value;
     var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
 
     if (nome == "") {
       modalErro("ERRO", "O campo Nome está vazio")
-    } else if (sobrenome == "") {
-      modalErro("ERRO", "O campo Sobrenome está vazio")
     } else if (email == "") {
       modalErro("ERRO", "O campo Email está vazio")
     } else if (!validacaoEmail.test(email)) {
@@ -349,7 +346,6 @@ function cadastrarEmpresa() {
 
 function cadastrarGestor(empresaId) {
   var nomeVar = nome_input.value;
-  var sobrenomeVar = sobrenome_input.value;
   var emailVar = emailCad_input.value;
   var empresaVar = empresaId;
   var senhaVar = senha_input.value;
