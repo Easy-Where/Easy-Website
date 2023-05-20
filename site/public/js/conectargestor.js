@@ -41,6 +41,21 @@ function modalSucesso(frase1, frase2) {
   }, 3000)
 }
 
+// Ver senha Login
+const input2 = document.querySelector("#senha2");
+const img2 = document.querySelector("#trocarFigura2");
+img2.addEventListener('click', togglePass2);
+
+function togglePass2() {
+  if (input2.type == "password") {
+    input2.type = "text";
+    img2.classList.replace("uil-eye", "uil-eye-slash")
+  } else {
+    input2.type = "password";
+    img2.classList.replace("uil-eye-slash", "uil-eye")
+  }
+}
+
 // Ver senha Cadastro
 const input = document.querySelector("#senha_input");
 const img = document.querySelector("#trocarFigura");
@@ -68,21 +83,6 @@ function togglePass4() {
   } else {
     input4.type = "password";
     img4.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Ver senha Login
-const input2 = document.querySelector("#senha2");
-const img2 = document.querySelector("#trocarFigura2");
-img2.addEventListener('click', togglePass2);
-
-function togglePass2() {
-  if (input2.type == "password") {
-    input2.type = "text";
-    img2.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input2.type = "password";
-    img2.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 
@@ -178,7 +178,7 @@ prevBtn.forEach(btn => {
 });
 
 // Padronizar CNPJ
-function criaMascara(event) {
+function maskCNPJ(event) {
   let document = cnpj_input.value.replace(/\D+/g, "").trim()
 
   if (document.length > 14) {
@@ -200,17 +200,35 @@ function criaMascara(event) {
   cnpj_input.value = document
 }
 
+// Padronizar Telefone
+function maskPhone(event) {
+  let phone = telefone_input.value.replace(/\D+/g, "").trim()
+  
+  if (phone.length > 11) {
+      return false
+  }
+
+  if (phone.length > 10) {
+      phone = phone.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")
+  } else if (phone.length > 6) {
+      phone = phone.replace(/^(\d{2})(\d{4})/, "($1) $2-")
+  } else if (phone.length > 1) {
+      phone = phone.replace(/^(\d{2})/, "($1) ")
+  }
+
+  telefone_input.value = phone
+}
+
 // Logar
 function logar() {
   var emailVar = email_input.value;
   var senhaVar = senha2.value;
 
-  if (emailVar == "" || senhaVar == "") {
-
-    return false;
-  } else {
-
-  }
+  if (emailVar == "") {
+    modalErro("ERRO", "O campo E-mail está vazio")
+  } else if (senhaVar == "") {
+    modalErro("ERRO", "O campo Senha está vazio")
+  } 
 
   console.log("FORM LOGIN: ", emailVar);
   console.log("FORM SENHA: ", senhaVar);

@@ -589,15 +589,6 @@ input:valid~label {
     gap: .5rem;
 }
 
-.field-group {
-    display: flex;
-    gap: .5rem;
-}
-
-.field-input {
-    position: relative;
-}
-
 .btn button {
     width: 100%;
     border-color: transparent;

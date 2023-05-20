@@ -141,6 +141,7 @@ function cadastrarGestor(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var telefone = req.body.telefoneServer;
     var empresaCad = req.body.empresaServer;
 
     if (empresaCad == undefined) {

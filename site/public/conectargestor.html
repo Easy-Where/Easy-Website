@@ -64,47 +64,41 @@
         <div class="page active">
           <h1>Sobre Você</h1>
           <div class="field">
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="nome_input" />
-                <label class="user-label">Nome e Sobrenome</label>
-              </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="nome_input" />
+              <label class="user-label">Nome e Sobrenome</label>
             </div>
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="emailCad_input" />
-                <label class="user-label">E-mail</label>
-              </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
+              <label class="user-label">Telefone</label>
+            </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="emailCad_input" />
+              <label class="user-label">E-mail</label>
             </div>
           </div>
-
           <div class="btn">
             <button type="button" id="next-btn">
               <img src="assets/next.svg" alt="" />
             </button>
           </div>
         </div>
+
         <div class="page">
           <h1>Sobre sua empresa</h1>
           <div class="field">
-            <div class="field-input">
-              <div class="field-group">
-                <div class="input-group">
-                  <input required="" type="text" name="text" autocomplete="off" id="empresa_input" />
-                  <label class="user-label">Empresa</label>
-                </div>
-                <div class="input-group">
-                  <input required="" type="text" name="text" autocomplete="off" id="cnpj_input" maxlength="18"
-                    onkeyup="criaMascara(event)" />
-                  <label class="user-label">CNPJ</label>
-                </div>
-              </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="empresa_input" />
+              <label class="user-label">Empresa</label>
             </div>
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="dono_input" />
-                <label class="user-label">Dono</label>
-              </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="cnpj_input" maxlength="18"
+                onkeyup="maskCNPJ(event)" />
+              <label class="user-label">CNPJ</label>
+            </div>
+            <div class="input-group">
+              <input required="" type="text" autocomplete="off" id="dono_input" />
+              <label class="user-label">Dono</label>
             </div>
           </div>
           <div class="btn">
@@ -116,31 +110,26 @@
             </button>
           </div>
         </div>
+
         <div class="page">
           <h1>Protegendo sua conta</h1>
           <div class="field">
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="password" name="text" autocomplete="off" id="senha_input" />
-                <label class="user-label">Senha</label>
-                <i class="uil uil-eye" id="trocarFigura"></i>
-              </div>
+            <div class="input-group">
+              <input required="" type="password" autocomplete="off" id="senha_input" />
+              <label class="user-label">Senha</label>
+              <i class="uil uil-eye" id="trocarFigura"></i>
             </div>
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="password" name="text" autocomplete="off" id="confirmasenha" />
-                <label class="user-label">Confirmação de Senha</label>
-                <i class="uil uil-eye" id="confirmatrocarFigura"></i>
-              </div>
+            <div class="input-group">
+              <input required="" type="password" autocomplete="off" id="confirmasenha_input" />
+              <label class="user-label">Confirmação de Senha</label>
+              <i class="uil uil-eye" id="confirmatrocarFigura"></i>
             </div>
           </div>
           <div class="btn">
             <button type="button" id="prev-btn">
               <img src="assets/prev.svg" alt="" />
             </button>
-            <button type="submit" id="submit-btn" onclick="cadastrar()">
-              Cadastrar
-            </button>
+            <button type="submit" id="submit-btn" onclick="cadastrar()">Cadastrar</button>
           </div>
         </div>
       </div>
