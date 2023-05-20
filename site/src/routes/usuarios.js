@@ -39,8 +39,4 @@ router.post("/autenticarUsuario", function (req, res) {
     usuarioController.entrar2(req, res);
 });
 
-router.post("/validarPID", function (req, res) {
-    usuarioController.validarPID(req, res);
-});
-
 module.exports = router;

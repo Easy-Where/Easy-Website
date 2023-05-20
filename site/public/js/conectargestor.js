@@ -238,7 +238,7 @@ function logar() {
         sessionStorage.ID_USUARIO = json.id;
 
         setTimeout(function () {
-          window.location = "./dashboard/index.html";
+          window.location = "../dashboard/dashboardgestor.html";
         }, 1000); // apenas para exibir o loading
 
       });
@@ -261,7 +261,7 @@ function logar() {
 // Cadastrar
 function cadastrar() {
   var empresaVar = empresa_input.value;
-  var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
+  var cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
   var donoVar = dono_input.value;
   var senhaVar = senha_input.value;
   var confirmacao = confirmasenha.value;
@@ -290,16 +290,16 @@ function cadastrar() {
   }).then(function (resposta) {
     if (resposta.ok) {
       modalSucesso("CADASTRO REALIZADO COM SUCESSO!", "Agora vamos fazer Login :)")
-      resposta.json().then(function (json) {
-        console.log(json)
-        if (json.length < 1) {
+      resposta.json().then(function (resposta) {
+        console.log(resposta)
+        if (resposta.length < 1) {
           console.log("Cadastrando empresa...");
-          console.log(json)
+          console.log(resposta)
           cadastrarEmpresa()
         } else {
           console.log("Cadastrando gestor...");
-          console.log(json[0].id);
-          cadastrarGestor(json[0].id);
+          console.log(resposta[0].id_empresa);
+          cadastrarGestor(resposta[0].id_empresa);
         }
       });
     } else {
@@ -315,7 +315,7 @@ function cadastrar() {
 
 function cadastrarEmpresa() {
   var empresaVar = empresa_input.value;
-  var cnpjVar = cnpj_input.value.replace(/\D+/g).trim();
+  var cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
   var donoVar = dono_input.value;
 
   console.log("Estou no CadastrarEmpresa");
@@ -359,7 +359,6 @@ function cadastrarGestor(empresaId) {
       nomeServer: nomeVar,
       emailServer: emailVar,
       senhaServer: senhaVar,
-      sobrenomeServer: sobrenomeVar,
       empresaServer: empresaVar,
 
     })
@@ -369,7 +368,7 @@ function cadastrarGestor(empresaId) {
     if (resposta.ok) {
       console.log("Gestor cadastrado com sucesso");
       setTimeout(() => {
-        window.location = "index.html";
+        window.location = "conectargestor.html";
       }, "2000");
     } else {
       throw ("Houve um erro ao tentar realizar o cadastro!");
