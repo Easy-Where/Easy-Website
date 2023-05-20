@@ -41,48 +41,14 @@ function modalSucesso(frase1, frase2) {
   }, 3000)
 }
 
-// Ver senha Login
-const input2 = document.querySelector("#senha2");
-const img2 = document.querySelector("#trocarFigura2");
-img2.addEventListener('click', togglePass2);
-
-function togglePass2() {
-  if (input2.type == "password") {
-    input2.type = "text";
-    img2.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input2.type = "password";
-    img2.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Ver senha Cadastro
-const input = document.querySelector("#senha_input");
-const img = document.querySelector("#trocarFigura");
-img.addEventListener('click', togglePass);
-
-function togglePass() {
+// Ver e cobrir senha
+function verSenha(input, icone) {
   if (input.type == "password") {
     input.type = "text";
-    img.classList.replace("uil-eye", "uil-eye-slash")
+    icone.classList.replace("uil-eye", "uil-eye-slash")
   } else {
     input.type = "password";
-    img.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Ver senha confirmação de senha
-const input4 = document.querySelector("#confirmasenha");
-const img4 = document.querySelector("#confirmatrocarFigura");
-img4.addEventListener('click', togglePass4);
-
-function togglePass4() {
-  if (input4.type == "password") {
-    input4.type = "text";
-    img4.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input4.type = "password";
-    img4.classList.replace("uil-eye-slash", "uil-eye")
+    icone.classList.replace("uil-eye-slash", "uil-eye")
   }
 }
 
@@ -91,6 +57,7 @@ const nextBtn = document.querySelectorAll('#next-btn');
 const nextBtn2 = document.querySelectorAll('#next-btn2');
 
 const prevBtn = document.querySelectorAll('#prev-btn');
+const prevBtn2 = document.querySelectorAll('#prev-btn2');
 const pages = document.querySelectorAll('.page');
 const progress = document.querySelectorAll('.progresso-bar')
 
@@ -174,6 +141,10 @@ nextBtn2.forEach(btn => {
 
 
 prevBtn.forEach(btn => {
+  btn.addEventListener('click', handlePrev);
+});
+
+prevBtn2.forEach(btn => {
   btn.addEventListener('click', handlePrev);
 });
 
@@ -282,7 +253,7 @@ function cadastrar() {
   var cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
   var donoVar = dono_input.value;
   var senhaVar = senha_input.value;
-  var confirmacao = confirmasenha.value;
+  var confirmacao = confirma_input.value;
 
   if (senhaVar == "") {
     modalErro("ERRO", "O campo Senha está vazio")

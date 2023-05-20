@@ -65,15 +65,15 @@
           <h1>Sobre Você</h1>
           <div class="field">
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="nome_input" />
+              <input required="" type="text" id="nome_input" />
               <label class="user-label">Nome e Sobrenome</label>
             </div>
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
+              <input required="" type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
               <label class="user-label">Telefone</label>
             </div>
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="emailCad_input" />
+              <input required="" type="text" id="emailCad_input" />
               <label class="user-label">E-mail</label>
             </div>
           </div>
@@ -88,16 +88,16 @@
           <h1>Sobre sua empresa</h1>
           <div class="field">
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="empresa_input" />
+              <input required="" type="text" id="empresa_input" />
               <label class="user-label">Empresa</label>
             </div>
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="cnpj_input" maxlength="18"
+              <input required="" type="text" id="cnpj_input" maxlength="18"
                 onkeyup="maskCNPJ(event)" />
               <label class="user-label">CNPJ</label>
             </div>
             <div class="input-group">
-              <input required="" type="text" autocomplete="off" id="dono_input" />
+              <input required="" type="text" id="dono_input" />
               <label class="user-label">Dono</label>
             </div>
           </div>
@@ -115,18 +115,18 @@
           <h1>Protegendo sua conta</h1>
           <div class="field">
             <div class="input-group">
-              <input required="" type="password" autocomplete="off" id="senha_input" />
+              <input required="" type="password" id="senha_input" />
               <label class="user-label">Senha</label>
-              <i class="uil uil-eye" id="trocarFigura"></i>
+              <i class="uil uil-eye" id="verSenhaCriada" onclick="verSenha(senha_input, verSenhaCriada)"></i>
             </div>
             <div class="input-group">
-              <input required="" type="password" autocomplete="off" id="confirmasenha_input" />
+              <input required="" type="password" id="confirma_input" />
               <label class="user-label">Confirmação de Senha</label>
-              <i class="uil uil-eye" id="confirmatrocarFigura"></i>
+              <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirma_input, verConfirmacao)"></i>
             </div>
           </div>
           <div class="btn">
-            <button type="button" id="prev-btn">
+            <button type="button" id="prev-btn2">
               <img src="assets/prev.svg" alt="" />
             </button>
             <button type="submit" id="submit-btn" onclick="cadastrar()">Cadastrar</button>
@@ -139,13 +139,13 @@
     <div class="form-container sign-in-container">
       <h1>Bem-vindo de volta!</h1>
       <div class="input-group">
-        <input required="" type="text" name="text" autocomplete="off" id="email_input" />
+        <input required="" type="text" name="text" id="email_input" />
         <label class="user-label">E-mail</label>
       </div>
       <div class="input-group">
-        <input required="" type="password" name="text" autocomplete="off" id="senha2" />
+        <input required="" type="password" name="text" id="senha2" />
         <label class="user-label">Senha</label>
-        <i class="uil uil-eye" id="trocarFigura2"></i>
+        <i class="uil uil-eye" id="verLogin" onclick="verSenha(senha2, verLogin)"></i>
       </div>
       <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
       <div class="btn">
