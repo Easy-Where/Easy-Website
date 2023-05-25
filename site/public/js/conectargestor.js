@@ -1,3 +1,11 @@
+// Div de validação
+let divValidacao = document.querySelector(".validacao");
+let textModal = document.querySelector(".titulo_validacao");
+let textValidacao = document.querySelector(".texto_validacao");
+
+//Seta de voltar cadastro na empresa
+const setaVoltaCadastro = document.getElementById("voltarEmpresa");
+
 // Alternar entre telas
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -13,28 +21,10 @@ signInButton.addEventListener('click', () => {
 
 // Modal de erro
 function modalErro(frase1, frase2) {
-  var divValidacao = document.querySelector(".validacao");
-  var textModal = document.querySelector(".titulo_validacao");
-  var textValidacao = document.querySelector(".texto_validacao");
   textModal.innerHTML = frase1;
   textValidacao.innerHTML = frase2;
   divValidacao.classList.add("active");
-  setTimeout(() => {
-    divValidacao.classList.remove("active");
-  }, 3000)
-}
 
-// Modal de sucesso
-function modalSucesso(frase1, frase2) {
-  var divValidacao = document.querySelector(".validacao");
-  var textModal = document.querySelector(".titulo_validacao");
-  var textValidacao = document.querySelector(".texto_validacao");
-
-  textModal.innerHTML = frase1;
-  textValidacao.innerHTML = frase2;
-  textModal.style.background = "#1175d1";
-
-  divValidacao.classList.add("active");
   setTimeout(() => {
     divValidacao.classList.remove("active");
   }, 3000)
@@ -60,12 +50,14 @@ function avancaPraDois() {
   const telefone = telefone_input.value;
   const email = emailCad_input.value;
   let validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
+  const primeiraEtapa = document.getElementById('primeiraEtapa');
+  const segundaEtapa = document.getElementById('segundaEtapa');
 
   if (nome == "") {
     modalErro("Campo vazio", "&quotNome&quot está vazio")
   } else if (telefone == "") {
     modalErro("Campo vazio", "&quotTelefone&quot está vazio")
-  } else if(telefone.length < 15){
+  } else if (telefone.length < 15) {
     modalErro("Dado incorreto", "&quotTelefone&quot está incompleto")
   } else if (email == "") {
     modalErro("Campo vazio", "&quotEmail&quot está vazio")
@@ -73,6 +65,8 @@ function avancaPraDois() {
     modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com")
   } else {
     slideAtual.style.marginLeft = "-300px";
+    primeiraEtapa.classList.remove('current');
+    segundaEtapa.classList.add('active', 'current');
   }
 };
 
@@ -81,6 +75,8 @@ function avancaPraTres() {
   const empresa = empresa_input.value;
   const cnpj = cnpj_input.value;
   const dono = dono_input.value;
+  const segundaEtapa = document.getElementById('segundaEtapa');
+  const terceiraEtapa = document.getElementById('terceiraEtapa');
 
   if (empresa == "") {
     modalErro("Campo vazio", "&quotEmpresa&quot está vazio")
@@ -92,21 +88,33 @@ function avancaPraTres() {
     modalErro("Campo vazio", "&quotDono&quot está vazio")
   } else {
     slideAtual.style.marginLeft = "-600px";
+    segundaEtapa.classList.remove('current');
+    terceiraEtapa.classList.add('active', 'current');
   }
 };
 
 // Cadastro de usuário
 function voltaPraUm() {
+  const primeiraEtapa = document.getElementById('primeiraEtapa');
+  const segundaEtapa = document.getElementById('segundaEtapa');
+
   slideAtual.style.marginLeft = "0px";
+  primeiraEtapa.classList.add('current');
+  segundaEtapa.classList.remove('active', 'current');
 };
 
 // Cadastro de empresa
 function voltaPraDois() {
+  const segundaEtapa = document.getElementById('segundaEtapa');
+  const terceiraEtapa = document.getElementById('terceiraEtapa');
+
   slideAtual.style.marginLeft = "-300px";
+  segundaEtapa.classList.add('current');
+  terceiraEtapa.classList.remove('active', 'current');
 };
 
 // Padronizar CNPJ
-function maskCNPJ(event) {
+function maskCNPJ() {
   let document = cnpj_input.value.replace(/\D+/g, "").trim()
 
   if (document.length > 14) {
@@ -129,7 +137,7 @@ function maskCNPJ(event) {
 }
 
 // Padronizar Telefone
-function maskPhone(event) {
+function maskPhone() {
   let phone = telefone_input.value.replace(/\D+/g, "").trim()
 
   if (phone.length > 11) {
@@ -145,6 +153,39 @@ function maskPhone(event) {
   }
 
   telefone_input.value = phone
+}
+
+// Cadastrar nova empresa
+function div_cadastro_empresa() {
+  setaVoltaCadastro.classList.add('ativo')
+  cadastrar_empresa.innerHTML = `
+  <div class="input-group">
+    <input required="" type="text" id="empresa_input" />
+    <label class="user-label">Empresa</label>
+  </div>
+  <div class="input-group">
+    <input required="" type="text" id="cnpj_input" maxlength="18" onkeyup="maskCNPJ(event)" />
+    <label class="user-label">CNPJ</label>
+  </div>
+  <div class="input-group">
+    <input required="" type="text" id="dono_input" />
+    <label class="user-label">Dono</label>
+  </div> `
+}
+
+// Voltar a seleção de empresa
+function voltarCadastro() {
+  setaVoltaCadastro.classList.remove('ativo')
+  cadastrar_empresa.innerHTML = `
+  <div class="input-group">
+    <select required="" id="">
+      <option value="">-Escolha sua empresa-</option>
+    </select>
+  </div>
+  <div class="cadastro_empresa">
+    <p>Não encontrou sua empresa? Cadastre aqui!</p>
+    <i class="uil uil-plus-circle" onclick="div_cadastro_empresa()"></i>
+  </div>`
 }
 
 // Logar
@@ -235,7 +276,8 @@ function cadastrar() {
 
   }).then(function (resposta) {
     if (resposta.ok) {
-      modalSucesso("Cadastro realizado!", "Vamos fazer login?")
+      textModal.style.background = "#1175d1";
+      modalErro("Cadastro realizado!", "Vamos fazer login?")
       resposta.json().then(function (resposta) {
         console.log(resposta)
         if (resposta.length < 1) {
@@ -266,6 +308,7 @@ function cadastrar() {
           console.log("Cadastrando gestor...");
           console.log(resposta[0].id_empresa);
           let nomeVar = nome_input.value;
+          let telefoneVar = telefone_input.value;
           let emailVar = emailCad_input.value;
           let empresaVar = resposta[0].id_empresa;
           let senhaVar = senha_input.value;
@@ -277,6 +320,7 @@ function cadastrar() {
             },
             body: JSON.stringify({
               nomeServer: nomeVar,
+              telefoneServer: telefoneVar,
               emailServer: emailVar,
               senhaServer: senhaVar,
               empresaServer: empresaVar,

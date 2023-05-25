@@ -38,22 +38,25 @@
     <div class="bar"></div>
   </a>
 
+  <!-- Seta de voltar cadastro da empresa-->
+  <i class="uil uil-arrow-left" id="voltarEmpresa" onclick="voltarCadastro()"></i>
+
   <!-- Conectar -->
   <div class="container" id="container">
     <!-- Cadastro -->
     <div class="form-container sign-up-container">
       <div class="progresso">
-        <div class="progresso-bar active current">
+        <div class="progresso-bar active current" id="primeiraEtapa">
           <span>
             <i class="uil uil-user"></i>
           </span>
         </div>
-        <div class="progresso-bar">
+        <div class="progresso-bar" id="segundaEtapa">
           <span>
             <i class="uil uil-building"></i>
           </span>
         </div>
-        <div class="progresso-bar">
+        <div class="progresso-bar" id="terceiraEtapa">
           <span>
             <i class="uil uil-padlock"></i>
           </span>
@@ -70,7 +73,7 @@
                 <label class="user-label">Nome e Sobrenome</label>
               </div>
               <div class="input-group">
-                <input required="" type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
+                <input required="" type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)" />
                 <label class="user-label">Telefone</label>
               </div>
               <div class="input-group">
@@ -87,19 +90,15 @@
 
           <div class="page two">
             <h1>Sobre sua empresa</h1>
-            <div class="field">
+            <div class="field" id="cadastrar_empresa">
               <div class="input-group">
-                <input required="" type="text" id="empresa_input" />
-                <label class="user-label">Empresa</label>
+                <select required="" id="selectEmpresas">
+                  <option value="">-Escolha sua empresa-</option>
+                </select>
               </div>
-              <div class="input-group">
-                <input required="" type="text" id="cnpj_input" maxlength="18"
-                  onkeyup="maskCNPJ(event)" />
-                <label class="user-label">CNPJ</label>
-              </div>
-              <div class="input-group">
-                <input required="" type="text" id="dono_input" />
-                <label class="user-label">Dono</label>
+              <div class="cadastro_empresa">
+                <p>Não encontrou sua empresa? Cadastre aqui!</p>
+                <i class="uil uil-plus-circle" onclick="div_cadastro_empresa()"></i>
               </div>
             </div>
             <div class="btn">

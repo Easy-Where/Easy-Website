@@ -148,7 +148,7 @@ function cadastrarGestor(req, res) {
         res.status(400).send("Sua empresa está undefined!");
     } else {
 
-        usuarioModel.cadastrarGestor(nome, email, senha, empresaCad)
+        usuarioModel.cadastrarGestor(nome, telefone, email, senha, empresaCad)
             .then(
                 function (resultado) {
                     res.json(resultado);
