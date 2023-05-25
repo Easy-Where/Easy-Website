@@ -286,11 +286,6 @@ nav.close~.dashboard .top {
     width: 43px;
 }
 
-.title_legenda {
-    display: flex;
-    gap: .5rem;
-}
-
 .title_legenda i {
     margin-left: .5rem;
     color: var(--cor-texto);
@@ -305,11 +300,20 @@ nav.close~.dashboard .top {
     display: flex;
     gap: 1rem;
     list-style: none;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .content_legendas ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
+}
+
+.content_legendas ul span{
+    font-size: 12px;
+    width: 56px;
 }
 
 .legend1 {

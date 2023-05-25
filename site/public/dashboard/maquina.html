@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/padronizar.css">
-    <link rel="stylesheet" href="css/dashboardgestor.css">
+    <link rel="stylesheet" href="css/perfiltecnico.css">
+    <link rel="stylesheet" href="css/maquina.css">
     <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <title>Easy • Ware</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li class="pagina_atual">
+                <li>
                     <a href="dashboardgestor.html">
                         <i class="uil uil-home"></i>
                         <span class="link-name dartamanho">Visão Geral</span>
@@ -40,7 +40,7 @@
                         <span class="link-name">Perfil</span>
                     </a>
                 </li>
-                <li>
+                <li class="pagina_atual">
                     <a href="maquina.html">
                         <i class="uil uil-plus"></i>
                         <span class="link-name">Máquinas</span>
@@ -49,7 +49,7 @@
             </ul>
 
             <div class="perfil">
-                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
+                <img src="assets/user-icon.png" alt="Imagem de perfil do usuário">
                 <span>Olá, Dino do Rock</span>
             </div>
 
@@ -82,52 +82,49 @@
         </div>
     </nav>
 
-    <!-- Dashboard -->
+    <!-- Painel de Usuários -->
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-
-            <div class="content_legendas">
-                <div class="title_legenda">
-                    <i class="uil uil-tag legendas"></i>
-                </div>
-                <ul>
-                    <li class="legend1">Ideal</li>
-                    <li class="legend2">Alerta</li>
-                    <li class="legend3">Crítico</li>
-                </ul>
-            </div>
         </div>
 
-        <div class="dash-content">
-            <div class="content-kpis">
-                <div class="kpi_box primeira">
-                    <div id="chart_total"></div>
-                </div>
-                <div class="kpi_box segunda">
-                    <div id="chart_ideal"></div>
-                </div>
-            </div>
+        <div class="estado_container">
+            <i class="uil uil-redo" onclick="resetarInputs()"></i>
+        </div>
 
-            <div class="dash_funcionarios_content">
-                <div id="table_users">
-                    <table id="tabela">
-                        <tr>
-                            <th>ID</th>
-                            <th class="nome-cell">Nome</th>
-                            <th class="funcao-cell">Função</th>
-                            <th class="email-cell">E-mail</th>
-                            <th class="added-cell">Teste</th>
-                            <th class="gestor-cell">Gestor</th>
-                            <th class="status-cell ultimo">Status &#8693;</th>
-                        </tr>
-                    </table>
+        <div class="alinhamento_container">
+            <div class="container_perfil">
+                <div class="explicacao">
+                    <h1>Adicionar nova máquina</h1>
+                    <img src="assets/adicionarmaquina.png" alt="Adicionar Máquinas">
+                    <p>$NOME, nessa seção você fará a associação de uma de suas máquinas a um de seus funcionários</p>
+                </div>
+                <div class="perfil_dados">
+                    <div class="field-input">
+                        <div class="input-group processarmaquina">
+                            <select required="" id="">
+                                <option value="">-Escolha uma máquina-</option>
+                            </select>
+                            <i class="uil uil-plus-circle"></i>
+                        </div>
+                        <div class="input-group">
+                            <select required="" id="">
+                                <option value="">-Escolha um funcionário-</option>
+                            </select>
+                            <i class="uil uil-plus-circle"></i>
+                        </div>
+                    </div>
+                    <div class="btnsalvar">
+                        <a href="">
+                            <span>Salvar Alterações</span><i></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <script src="js/padronizar.js"></script>
-    <script src="js/dashboardgestor.js"></script>
+    <script src="js/perfiltecnico.js"></script>
 </body>
 
 </html>

@@ -521,6 +521,10 @@ input:valid~label {
     box-shadow: 0 0 10px var(--bg-color);
 }
 
+.progresso-bar.current span{
+    animation: pulse;
+}
+
 .progresso-bar.current span::before {
     content: '';
     background: var(--clr);
@@ -529,6 +533,15 @@ input:valid~label {
     left: 0;
     z-index: -1;
     animation: pulse 1.5s infinite;
+}
+
+.progresso-bar i{
+    font-size: 23px;
+    color: var(--bg-color);
+}
+
+.progresso-bar.active i{
+    color: var(--luz);
 }
 
 @keyframes pulse {
@@ -555,11 +568,6 @@ input:valid~label {
     background: var(--clr);
     border-color: var(--clr);
 }
-
-.progresso-bar.active img {
-    filter: invert(100%);
-}
-
 /* Cadastro */
 .content-pages{
     margin-top: 20px;
