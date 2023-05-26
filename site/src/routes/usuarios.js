@@ -23,10 +23,6 @@ router.post("/cadastrarGestor", function (req, res) {
     usuarioController.cadastrarGestor(req, res);
 });
 
-router.post("/cadastrarEmpresa", function (req, res) {
-    usuarioController.cadastrarEmpresa(req, res);
-});
-
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

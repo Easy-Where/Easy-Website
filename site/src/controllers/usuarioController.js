@@ -104,38 +104,6 @@ function validacaoEmpresa(req, res) {
     }
 }
 
-function cadastrarEmpresa(req, res) {
-
-    var empresa = req.body.empresaServer;
-    var cnpj = req.body.cnpjServer;
-    var dono = req.body.donoServer;
-
-    if (empresa == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
-    } else if (dono == undefined) {
-        res.status(400).send("Seu dono está undefined!");
-    } else {
-
-        usuarioModel.cadastrarEmpresa(empresa, cnpj, dono)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
 function cadastrarGestor(req, res) {
 
     var nome = req.body.nomeServer;
@@ -226,7 +194,6 @@ module.exports = {
     entrar,
     entrar2,
     validacaoEmpresa,
-    cadastrarEmpresa,
     cadastrarGestor,
     cadastrarUsuario,
     autenticarEmpresa,

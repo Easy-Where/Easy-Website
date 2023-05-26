@@ -2,9 +2,21 @@
 let divValidacao = document.querySelector(".validacao");
 let textModal = document.querySelector(".titulo_validacao");
 let textValidacao = document.querySelector(".texto_validacao");
+let contador = 0;
 
-//Seta de voltar cadastro na empresa
-const setaVoltaCadastro = document.getElementById("voltarEmpresa");
+// Gerar PID 
+function gerarNumeroPid() {
+  var numero = Math.floor(Math.random() * 100000000);
+  if (numerosGerados.includes(numero)) {
+    return gerarNumeroPid();
+  } else {
+    numerosGerados.push(numero);
+    return numero;
+  }
+}
+
+// Array para armazenar os números gerados
+var numerosGerados = [];
 
 // Alternar entre telas
 const signUpButton = document.getElementById('signUp');
@@ -72,24 +84,35 @@ function avancaPraDois() {
 
 // Finalizar cadastro
 function avancaPraTres() {
-  const empresa = empresa_input.value;
-  const cnpj = cnpj_input.value;
-  const dono = dono_input.value;
-  const segundaEtapa = document.getElementById('segundaEtapa');
-  const terceiraEtapa = document.getElementById('terceiraEtapa');
-
-  if (empresa == "") {
-    modalErro("Campo vazio", "&quotEmpresa&quot está vazio")
-  } else if (cnpj == "") {
-    modalErro("Campo vazio", "&quotCPNJ&quot está vazio")
-  } else if (cnpj.length < 18) {
-    modalErro("Dado incorreto", "CNPJ está incompleto")
-  } else if (dono == "") {
-    modalErro("Campo vazio", "&quotDono&quot está vazio")
+  if (contador == 0) {
+    const empresaSelect = selectEmpresas.value;
+    if (empresaSelect == "") {
+      modalErro("Campo vazio", "Selecione uma empresa")
+    } else {
+      slideAtual.style.marginLeft = "-600px";
+      segundaEtapa.classList.remove('current');
+      terceiraEtapa.classList.add('active', 'current');
+    }
   } else {
-    slideAtual.style.marginLeft = "-600px";
-    segundaEtapa.classList.remove('current');
-    terceiraEtapa.classList.add('active', 'current');
+    const empresa = empresa_input.value;
+    const cnpj = cnpj_input.value;
+    const dono = dono_input.value;
+    const segundaEtapa = document.getElementById('segundaEtapa');
+    const terceiraEtapa = document.getElementById('terceiraEtapa');
+
+    if (empresa == "") {
+      modalErro("Campo vazio", "&quotEmpresa&quot está vazio")
+    } else if (cnpj == "") {
+      modalErro("Campo vazio", "&quotCPNJ&quot está vazio")
+    } else if (cnpj.length < 18) {
+      modalErro("Dado incorreto", "CNPJ está incompleto")
+    } else if (dono == "") {
+      modalErro("Campo vazio", "&quotDono&quot está vazio")
+    } else {
+      slideAtual.style.marginLeft = "-600px";
+      segundaEtapa.classList.remove('current');
+      terceiraEtapa.classList.add('active', 'current');
+    }
   }
 };
 
@@ -157,34 +180,56 @@ function maskPhone() {
 
 // Cadastrar nova empresa
 function div_cadastro_empresa() {
-  setaVoltaCadastro.classList.add('ativo')
+  contador++;
   cadastrar_empresa.innerHTML = `
-  <div class="input-group">
-    <input required="" type="text" id="empresa_input" />
-    <label class="user-label">Empresa</label>
+  <h1>Sobre sua empresa</h1>
+  <div class="field">
+   <div class="input-group">
+     <input required="" type="text" id="empresa_input" />
+     <label class="user-label">Empresa</label>
+   </div>
+   <div class="input-group">
+     <input required="" type="text" id="cnpj_input" maxlength="18" onkeyup="maskCNPJ(event)" />
+     <label class="user-label">CNPJ</label>
+   </div>
+   <div class="input-group">
+     <input required="" type="text" id="dono_input" />
+     <label class="user-label">Dono</label>
+   </div> 
   </div>
-  <div class="input-group">
-    <input required="" type="text" id="cnpj_input" maxlength="18" onkeyup="maskCNPJ(event)" />
-    <label class="user-label">CNPJ</label>
-  </div>
-  <div class="input-group">
-    <input required="" type="text" id="dono_input" />
-    <label class="user-label">Dono</label>
-  </div> `
+  <div class="btn">
+    <button type="button" id="prev-btn" onclick="voltarCadastro()">
+      Cancelar
+    </button>
+    <button type="button" id="next-btn2" onclick="cadastrarEmpresa()">
+      Cadastrar
+    </button>
+  </div>`
 }
 
 // Voltar a seleção de empresa
 function voltarCadastro() {
-  setaVoltaCadastro.classList.remove('ativo')
+  contador--;
   cadastrar_empresa.innerHTML = `
-  <div class="input-group">
-    <select required="" id="">
-      <option value="">-Escolha sua empresa-</option>
-    </select>
+  <h1>Sobre sua empresa</h1>
+  <div class="field">
+    <div class="input-group">
+      <select required="" id="selectEmpresas">
+        <option value="">-Escolha sua empresa-</option>
+      </select>
+    </div>
+    <div class="cadastro_empresa">
+      <p>Não encontrou sua empresa? Cadastre aqui!</p>
+      <i class="uil uil-plus-circle" onclick="div_cadastro_empresa()"></i>
+    </div>
   </div>
-  <div class="cadastro_empresa">
-    <p>Não encontrou sua empresa? Cadastre aqui!</p>
-    <i class="uil uil-plus-circle" onclick="div_cadastro_empresa()"></i>
+  <div class="btn">
+    <button type="button" id="prev-btn" onclick="voltaPraUm()">
+      <img src="assets/prev.svg" alt="" />
+    </button>
+    <button type="button" id="next-btn2" onclick="avancaPraTres()">
+      <img src="assets/next.svg" alt="" />
+    </button>
   </div>`
 }
 
@@ -247,11 +292,11 @@ function logar() {
 
 // Cadastrar
 function cadastrar() {
-  var empresaVar = empresa_input.value;
-  var cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
-  var donoVar = dono_input.value;
-  var senhaVar = senha_input.value;
-  var confirmacao = confirma_input.value;
+  let empresaVar = empresa_input.value;
+  let cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
+  let donoVar = dono_input.value;
+  let senhaVar = senha_input.value;
+  let confirmacao = confirma_input.value;
 
   if (senhaVar == "") {
     modalErro("Campo vazio", "&quotSenha&quot está vazio")
@@ -347,4 +392,127 @@ function cadastrar() {
   }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
   });
+}
+
+// function signUp() {
+//   let nomeVar = nome_input.value;
+//   let telefoneVar = telefone_input.value;
+//   let emailVar = emailCad_input.value;
+//   let empresaVar = resposta[0].id_empresa;
+//   let senhaVar = senha_input.value;
+//   let pid = gerarNumeroPid();
+//   const fkEmpresa = document.getElementById('sl_enterprise');
+
+//   nomeServer: nome_input.value.value;
+//   telefoneServer: telefone_input.value;
+//   emailServer: emailCad_input.value;
+//   empresaServer: resposta[0].id_empresa;
+//   senhaServer: senha_input.value;
+//   fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+
+//   console.log(User);
+
+//   // Ao negar o atributo do JSON, conferimos se ele está vazio ou não
+//   let isInvalid =
+//     !User.nameServer |
+//     !User.officeServer |
+//     !User.emailServer |
+//     !User.passServer |
+//     !User.codigoPatrimonioServer |
+//     !User.fkEmpresaServer;
+
+
+//   if (isInvalid) {
+//     alert('⚠ Campos não preenchidos corretamente!');
+//   } else {
+//     fetch('/usuarios/cadastrar', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+
+//       // Aqui passamos somente o JSON criado lá em cima
+//       body: JSON.stringify(User),
+//     })
+//       .then(function (resposta) {
+//         console.log('resposta: ', resposta);
+
+//         if (resposta.ok) {
+//           alert('Cadastro realizado com sucesso!');
+
+//           sessionStorage.setItem('EMAIL', User.emailServer);
+
+//           setTimeout(() => {
+//             window.location = 'sign-page.html';
+//           }, '2000');
+//         } else {
+//           throw 'Houve um erro ao tentar realizar o cadastro!';
+//         }
+//       })
+//       .catch(function (resposta) {
+//         console.log(`#ERRO: ${resposta}`);
+//       });
+
+//     return false;
+//   }
+// }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await fetch('/empresa/selectEmpresas');
+
+    const empresas = await response.json();
+
+    empresas.forEach((empresa) => {
+      selectEmpresas.innerHTML += `<option value="${empresa.id_empresa}">${empresa.nome}</option>`;
+    });
+    localStorage.setItem('optionsEmpresas', JSON.stringify(empresasResponse));
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Cadastrar empresas
+function cadastrarEmpresa() {
+  const Enterprise = {
+    empresaServer: empresa_input.value,
+    cnpjServer: cnpj_input.value.replace(/\D+/g, '').trim(),
+    donoServer: dono_input.value
+  };
+
+  console.log("Nome:", Enterprise.empresaServer);
+  console.log("CNPJ:", Enterprise.cnpjServer);
+  console.log("Dono:", Enterprise.donoServer);
+
+  const validInput = Enterprise.empresaServer && Enterprise.cnpjServer && Enterprise.donoServer;
+
+  if (validInput) {
+    fetch('/empresas/cadastrarEmpresa', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(Enterprise)
+    }).then((res) => {
+      console.log("Resposta:", res);
+      if (res.ok) {
+        modalErro("Cadastro realizado!", "Sua empresa está em nosso sistema")
+        setTimeout(() => {
+          voltarCadastro()
+        }, 2000)
+      }
+    }).catch((error) => {
+      console.log("ERRO:", error);
+    })
+    return false
+  } else {
+    textModal.style.background = "#1175d1";
+    if (Enterprise.empresaServer == "") {
+      modalErro("Campo vazio", "&quotNome&quot está vazio")
+    } else if (Enterprise.cnpjServer == "") {
+      modalErro("Campo vazio", "&quotCNPJ&quot está vazio")
+    } else if (Enterprise.donoServer == "") {
+      modalErro("Campo vazio", "&quotDono&quot está vazio")
+    }
+  }
 }
