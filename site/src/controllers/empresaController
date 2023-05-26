@@ -1,16 +1,16 @@
 var empresaModel = require("../models/empresaModel");
 
-// function selectEmpresas(req, res) {
-//   empresaModel
-//     .selectEmpresas()
-//     .then((response) => {
-//       res.json(response);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       res.status(500).json(error.sqlMessage);
-//     });
-// }
+function selectEmpresas(req, res) {
+  empresaModel
+    .selectEmpresas()
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
 
 // Cadastrando empresa 
 function cadastrarEmpresa(req, res) {
@@ -94,7 +94,7 @@ function cadastrarEmpresa(req, res) {
 
 module.exports = {
   cadastrarEmpresa,
-  // selectEmpresas,
+  selectEmpresas,
   // excluirEmpresa,
   // atualizarEmpresa,
 };
