@@ -7,7 +7,6 @@ let textValidacao = document.querySelector(".texto_validacao");
 
 // Gerar PID
 const inputPid = document.getElementById("pid_input");
-inputPid.classList.add("valid");
 function gerarNumeroPid() {
   var numero = Math.floor(Math.random() * 1000000);
   pid_input.value = numero;
@@ -188,7 +187,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const empresas = await response.json();
 
     empresas.forEach((empresa) => {
-      selectEmpresas.innerHTML += `<option value="${empresa.id_empresa}">${empresa.nome}</option>`;
+      selectEmpresas.innerHTML += `<option value="${empresa.id}">${empresa.nome}</option>`;
     });
   } catch (error) {
     console.log(error);

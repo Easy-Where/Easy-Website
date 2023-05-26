@@ -82,7 +82,7 @@ function cadastrarTecnico() {
         'Content-Type': 'application/json',
       },
 
-      body: JSON.stringify(User),
+      body: JSON.stringify(usuario),
     })
       .then(function (resposta) {
         console.log('resposta: ', resposta);
@@ -90,7 +90,7 @@ function cadastrarTecnico() {
         if (resposta.ok) {
           textModal.style.background = "#1175d1";
           modalErro("Cadastro realizado!", "Vamos fazer login?")
-          sessionStorage.setItem('EMAIL', User.emailServer);
+          sessionStorage.setItem('EMAIL', usuario.emailServer);
           setTimeout(() => {
             window.location = 'conectartecnico.html';
           }, '2000');

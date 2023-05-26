@@ -6,7 +6,7 @@ function cadastrarGestor(req, res) {
   let telefone = req.body.telefoneServer;
   let email = req.body.emailServer;
   let senha = req.body.senhaServer;
-  let pid = req.body.senhaServer;
+  let pid = req.body.pidServer;
   let fkEmpresa = req.body.fkEmpresaServer;
 
   if (nome == undefined) {
@@ -148,7 +148,7 @@ function loginTecnico(req, res) {
 
 // Puxando gestores
 function selectGestores(req, res) {
-  empresaModel
+  usuarioModel
     .selectGestores()
     .then((response) => {
       res.json(response);

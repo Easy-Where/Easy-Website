@@ -2,8 +2,7 @@ var empresaModel = require("../models/empresaModel");
 
 // Puxando empresas
 function selectEmpresas(req, res) {
-  empresaModel
-    .selectEmpresas()
+  empresaModel.selectEmpresas()
     .then((response) => {
       res.json(response);
     })
