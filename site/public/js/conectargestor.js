@@ -457,20 +457,20 @@ function cadastrar() {
 //   }
 // }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const response = await fetch('/empresa/selectEmpresas');
+// document.addEventListener('DOMContentLoaded', async () => {
+//   try {
+//     const response = await fetch('/empresa/selectEmpresas');
 
-    const empresas = await response.json();
+//     const empresas = await response.json();
 
-    empresas.forEach((empresa) => {
-      selectEmpresas.innerHTML += `<option value="${empresa.id_empresa}">${empresa.nome}</option>`;
-    });
-    localStorage.setItem('optionsEmpresas', JSON.stringify(empresasResponse));
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     empresas.forEach((empresa) => {
+//       selectEmpresas.innerHTML += `<option value="${empresa.id_empresa}">${empresa.nome}</option>`;
+//     });
+//     localStorage.setItem('optionsEmpresas', JSON.stringify(empresasResponse));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 // Cadastrar empresas
 function cadastrarEmpresa() {

@@ -42,12 +42,6 @@ function validacaoPidCadastrado(pid) {
     return database.executar(instrucao);
 }
 
-function cadastrarEmpresa(empresa, cnpj, dono) {
-    var instrucao = `INSERT INTO Empresa (nome, cnpj, dono) VALUES ('${empresa}', '${cnpj}', '${dono}');`;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 function cadastrarGestor(nome, telefone, email, senha, empresaCad) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
@@ -76,7 +70,6 @@ module.exports = {
     validacaoEmpresa,
     cadastrarGestor,
     cadastrarUsuario,
-    cadastrarEmpresa,
     validacaoEmpresaUsuario,
     validacaoPidCadastrado
 };
