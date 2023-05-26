@@ -1,5 +1,11 @@
 var database = require("../database/config")
 
+// Cadastrar gestor no banco de dados 
+function cadastrarGestor(nome, telefone, email, senha, pid, fkEmpresa) {
+    var instrucao = `INSERT INTO Usuario (nome, telefone, email, senha, pid, cargo, fk_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', ${pid}, 'Gestor', '${fkEmpresa}');`;
+    return database.executar(instrucao);
+}
+
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
@@ -42,17 +48,6 @@ function validacaoPidCadastrado(pid) {
     return database.executar(instrucao);
 }
 
-function cadastrarGestor(nome, telefone, email, senha, empresaCad) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
-    var instrucao = `
-        INSERT INTO Usuario (nome, telefone, email, senha, cargo, fk_empresa) 
-            VALUES ('${nome}', '${telefone}', '${email}', '${senha}', 'Gestor', '${empresaCad}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 function cadastrarUsuario(nome, email, senha, empresaCad) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
@@ -65,10 +60,10 @@ function cadastrarUsuario(nome, email, senha, empresaCad) {
 }
 
 module.exports = {
+    cadastrarGestor,
     entrar,
     entrar2,
     validacaoEmpresa,
-    cadastrarGestor,
     cadastrarUsuario,
     validacaoEmpresaUsuario,
     validacaoPidCadastrado

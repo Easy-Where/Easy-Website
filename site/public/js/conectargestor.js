@@ -11,8 +11,8 @@ const inputPid = document.getElementById("pid_input");
 inputPid.classList.add('valid')
 function gerarNumeroPid() {
   var numero = Math.floor(Math.random() * 1000000);
-    pid_input.value = numero;
-    console.log(numero)
+  pid_input.value = numero;
+  console.log(numero)
 }
 
 // Alternar entre telas
@@ -288,156 +288,159 @@ function logar() {
 }
 
 // Cadastrar
-function cadastrar() {
-  let empresaVar = empresa_input.value;
-  let cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
-  let donoVar = dono_input.value;
-  let senhaVar = senha_input.value;
-  let confirmacao = confirma_input.value;
+// function cadastrar() {
+//   let empresaVar = empresa_input.value;
+//   let cnpjVar = cnpj_input.value.replace(/\D+/g, "").trim();
+//   let donoVar = dono_input.value;
+//   let senhaVar = senha_input.value;
+//   let confirmacao = confirma_input.value;
 
-  if (senhaVar == "") {
-    modalErro("Campo vazio", "&quotSenha&quot está vazio")
-  } else if (confirmacao == "") {
-    modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio")
-  } else if (senhaVar.length <= 8) {
-    modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres")
-  } else if (confirmacao != senhaVar) {
-    modalErro("Dado incorreto", "Senhas diferentes")
-  }
+//   if (senhaVar == "") {
+//     modalErro("Campo vazio", "&quotSenha&quot está vazio")
+//   } else if (confirmacao == "") {
+//     modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio")
+//   } else if (senhaVar.length <= 8) {
+//     modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres")
+//   } else if (confirmacao != senhaVar) {
+//     modalErro("Dado incorreto", "Senhas diferentes")
+//   }
 
-  fetch("/usuarios/validacao", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      empresaServer: empresaVar,
-      cnpjServer: cnpjVar,
-      donoServer: donoVar
-    })
+//   fetch("/usuarios/validacao", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       empresaServer: empresaVar,
+//       cnpjServer: cnpjVar,
+//       donoServer: donoVar
+//     })
 
-  }).then(function (resposta) {
-    if (resposta.ok) {
-      textModal.style.background = "#1175d1";
-      modalErro("Cadastro realizado!", "Vamos fazer login?")
-      resposta.json().then(function (resposta) {
-        console.log(resposta)
-        if (resposta.length < 1) {
-          console.log("Cadastrando empresa...");
-          console.log(resposta);
-          fetch("/usuarios/cadastrarEmpresa", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              empresaServer: empresaVar,
-              cnpjServer: cnpjVar,
-              donoServer: donoVar
-            })
-          }).then(function (resposta) {
-            console.log(resposta)
-            if (resposta.ok) {
-              console.log("Empresa cadastrada com sucesso");
-              cadastrar();
-            } else {
-              console.log("Deu erro ao cadastrar Empresa");
-            }
-          }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-          });
-        } else {
-          console.log("Cadastrando gestor...");
-          console.log(resposta[0].id_empresa);
-          let nomeVar = nome_input.value;
-          let telefoneVar = telefone_input.value;
-          let emailVar = emailCad_input.value;
-          let empresaVar = resposta[0].id_empresa;
-          let senhaVar = senha_input.value;
+//   }).then(function (resposta) {
+//     if (resposta.ok) {
+//       textModal.style.background = "#1175d1";
+//       modalErro("Cadastro realizado!", "Vamos fazer login?")
+//       resposta.json().then(function (resposta) {
+//         console.log(resposta)
+//         if (resposta.length < 1) {
+//           console.log("Cadastrando empresa...");
+//           console.log(resposta);
+//           fetch("/usuarios/cadastrarEmpresa", {
+//             method: "POST",
+//             headers: {
+//               "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//               empresaServer: empresaVar,
+//               cnpjServer: cnpjVar,
+//               donoServer: donoVar
+//             })
+//           }).then(function (resposta) {
+//             console.log(resposta)
+//             if (resposta.ok) {
+//               console.log("Empresa cadastrada com sucesso");
+//               cadastrar();
+//             } else {
+//               console.log("Deu erro ao cadastrar Empresa");
+//             }
+//           }).catch(function (resposta) {
+//             console.log(`#ERRO: ${resposta}`);
+//           });
+//         } else {
+//           console.log("Cadastrando gestor...");
+//           console.log(resposta[0].id_empresa);
+//           let nomeVar = nome_input.value;
+//           let telefoneVar = telefone_input.value;
+//           let emailVar = emailCad_input.value;
+//           let empresaVar = resposta[0].id_empresa;
+//           let senhaVar = senha_input.value;
 
-          fetch("/usuarios/cadastrarGestor", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nomeServer: nomeVar,
-              telefoneServer: telefoneVar,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-              empresaServer: empresaVar,
-            })
-          }).then(function (resposta) {
-            console.log("resposta: ", resposta);
+//           fetch("/usuarios/cadastrarGestor", {
+//             method: "POST",
+//             headers: {
+//               "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//               nomeServer: nomeVar,
+//               telefoneServer: telefoneVar,
+//               emailServer: emailVar,
+//               senhaServer: senhaVar,
+//               empresaServer: empresaVar,
+//             })
+//           }).then(function (resposta) {
+//             console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-              console.log("Gestor cadastrado com sucesso");
-              setTimeout(() => {
-                window.location = "conectargestor.html";
-              }, "2000");
-            } else {
-              throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-          }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-          });
-        }
-      });
-    } else {
-      console.log("Erro ao validar dados");
-    }
-  }).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
-}
+//             if (resposta.ok) {
+//               console.log("Gestor cadastrado com sucesso");
+//               setTimeout(() => {
+//                 window.location = "conectargestor.html";
+//               }, "2000");
+//             } else {
+//               throw ("Houve um erro ao tentar realizar o cadastro!");
+//             }
+//           }).catch(function (resposta) {
+//             console.log(`#ERRO: ${resposta}`);
+//           });
+//         }
+//       });
+//     } else {
+//       console.log("Erro ao validar dados");
+//     }
+//   }).catch(function (resposta) {
+//     console.log(`#ERRO: ${resposta}`);
+//   });
+// }
 
-function signUp() {
-  let nomeVar = nome_input.value;
-  let telefoneVar = telefone_input.value;
-  let emailVar = emailCad_input.value;
-  let empresaVar = resposta[0].id_empresa;
-  let senhaVar = senha_input.value;
-  let pid = gerarNumeroPid();
+// Cadastrar gestor
+function cadastrarGestor() {
   const fkEmpresa = document.getElementById('selectEmpresas');
 
-  nomeServer: nome_input.value.value;
-  telefoneServer: telefone_input.value;
-  emailServer: emailCad_input.value;
-  empresaServer: resposta[0].id_empresa;
-  senhaServer: senha_input.value;
-  fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+  const usuario = {
+    nomeServer: nome_input.value.value,
+    telefoneServer: telefone_input.value,
+    emailServer: emailCad_input.value,
+    senhaServer: senha_input.value,
+    confirmacaoVar: confirma_input.value,
+    pidServer: pid_input.value,
+    fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+  }
 
-  let isInvalid =
-    !User.nameServer |
-    !User.officeServer |
-    !User.emailServer |
-    !User.passServer |
-    !User.codigoPatrimonioServer |
-    !User.fkEmpresaServer;
+  let invalido =
+    !usuario.nomeServer |
+    !usuario.telefoneServer |
+    !usuario.emailServer |
+    !usuario.senhaServer |
+    !usuario.confirmacaoVar |
+    !usuario.pidServer |
+    !usuario.fkEmpresaServer;
 
-
-  if (isInvalid) {
-    alert('⚠ Campos não preenchidos corretamente!');
+  if (invalido) {
+    if (usuario.senhaServer == "") {
+      modalErro("Campo vazio", "&quotSenha&quot está vazio")
+    } else if (usuario.confirmacaoVar == "") {
+      modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio")
+    } else if (usuario.senhaServer.length <= 8) {
+      modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres")
+    } else if (usuario.confirmacaoVar != usuario.senhaServer) {
+      modalErro("Dado incorreto", "Senhas diferentes")
+    }
   } else {
-    fetch('/usuarios/cadastrar', {
+    fetch('/usuarios/cadastrarGestor', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
 
-      // Aqui passamos somente o JSON criado lá em cima
       body: JSON.stringify(User),
     })
       .then(function (resposta) {
         console.log('resposta: ', resposta);
 
         if (resposta.ok) {
-          alert('Cadastro realizado com sucesso!');
-
+          modalErro("Cadastro realizado!", "Vamos fazer login?")
           sessionStorage.setItem('EMAIL', User.emailServer);
-
           setTimeout(() => {
-            window.location = 'sign-page.html';
+            window.location = 'conectargestor.html';
           }, '2000');
         } else {
           throw 'Houve um erro ao tentar realizar o cadastro!';
