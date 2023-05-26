@@ -90,7 +90,7 @@
             <div class="field">
               <div class="input-group">
                 <select required="" id="selectEmpresas">
-                  <option value="">-Escolha sua empresa-</option>
+                  <option value="">-Selecione sua empresa-</option>
                 </select>
               </div>
               <div class="cadastro_empresa">
@@ -146,13 +146,13 @@
         <label class="user-label">E-mail</label>
       </div>
       <div class="input-group">
-        <input required="" type="password" name="text" id="senha2" />
+        <input required="" type="password" name="text" id="senha_login" />
         <label class="user-label">Senha</label>
-        <i class="uil uil-eye" id="verLogin" onclick="verSenha(senha2, verLogin)"></i>
+        <i class="uil uil-eye" id="verLogin" onclick="verSenha(senha_login, verLogin)"></i>
       </div>
       <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
       <div class="btn">
-        <button type="submit" id="btnconectar" onclick="logar()">
+        <button type="submit" id="btnconectar" onclick="login()">
           Conectar
         </button>
       </div>
@@ -180,6 +180,7 @@
       </div>
     </div>
   </div>
+  <script src="js/conectarglobal.js"></script>
   <script src="js/conectargestor.js"></script>
 </body>
 

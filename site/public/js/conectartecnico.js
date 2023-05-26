@@ -1,361 +1,222 @@
-// Alternar entre telas
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+// Cadastro de empresa
+function avancaPraDois() {
+  const nome = nome_input.value;
+  const telefone = telefone_input.value;
+  const email = emailCad_input.value;
+  let validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
+  const primeiraEtapa = document.getElementById('primeiraEtapa');
+  const segundaEtapa = document.getElementById('segundaEtapa');
 
-signUpButton.addEventListener('click', () => {
-  container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-  container.classList.remove("right-panel-active");
-});
-
-// Div de validação
-function modalErro(frase1, frase2) {
-  var divValidacao = document.querySelector(".validacao");
-  var textModal = document.querySelector(".titulo_validacao");
-  var textValidacao = document.querySelector(".texto_validacao");
-  textModal.innerHTML = frase1;
-  textValidacao.innerHTML = frase2;
-  divValidacao.classList.add("active");
-  setTimeout(() => {
-    divValidacao.classList.remove("active");
-  }, 3000)
-}
-
-function modalSucesso(frase1, frase2) {
-  var divValidacao = document.querySelector(".validacao");
-  var textModal = document.querySelector(".titulo_validacao");
-  var textValidacao = document.querySelector(".texto_validacao");
-
-  textModal.innerHTML = frase1;
-  textModal.style.background = "green";
-  textModal.style.color = "white";
-  textModal.style.fontSize = "1.1em";
-  textValidacao.innerHTML = frase2;
-
-  divValidacao.classList.add("active");
-  setTimeout(() => {
-    divValidacao.classList.remove("active");
-  }, 3000)
-}
-
-// Ver senha Cadastro
-const input = document.querySelector("#senha");
-const img = document.querySelector("#trocarFigura");
-img.addEventListener('click', togglePass);
-
-function togglePass() {
-  if (input.type == "password") {
-    input.type = "text";
-    img.classList.replace("uil-eye", "uil-eye-slash")
+  if (nome == "") {
+    modalErro("Campo vazio", "&quotNome&quot está vazio")
+  } else if (telefone == "") {
+    modalErro("Campo vazio", "&quotTelefone&quot está vazio")
+  } else if (telefone.length < 15) {
+    modalErro("Dado incorreto", "&quotTelefone&quot está incompleto")
+  } else if (email == "") {
+    modalErro("Campo vazio", "&quotEmail&quot está vazio")
+  } else if (!validacaoEmail.test(email)) {
+    modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com")
   } else {
-    input.type = "password";
-    img.classList.replace("uil-eye-slash", "uil-eye")
+    slideAtual.style.marginLeft = "-300px";
+    primeiraEtapa.classList.remove('current');
+    segundaEtapa.classList.add('active', 'current');
   }
-}
-
-// Ver senha confirmação de senha
-const input4 = document.querySelector("#confirmasenha");
-const img4 = document.querySelector("#confirmatrocarFigura");
-img4.addEventListener('click', togglePass4);
-
-function togglePass4() {
-  if (input4.type == "password") {
-    input4.type = "text";
-    img4.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input4.type = "password";
-    img4.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Ver senha PID
-const input3 = document.querySelector("#pid");
-const img3 = document.querySelector("#trocarFigurapid");
-img3.addEventListener('click', togglePass3);
-
-function togglePass3() {
-  if (input3.type == "password") {
-    input3.type = "text";
-    img3.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input3.type = "password";
-    img3.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Ver senha Login
-const input2 = document.querySelector("#senha2");
-const img2 = document.querySelector("#trocarFigura2");
-img2.addEventListener('click', togglePass2);
-
-function togglePass2() {
-  if (input2.type == "password") {
-    input2.type = "text";
-    img2.classList.replace("uil-eye", "uil-eye-slash")
-  } else {
-    input2.type = "password";
-    img2.classList.replace("uil-eye-slash", "uil-eye")
-  }
-}
-
-// Progresso da tela de cadastro
-const nextBtn = document.querySelectorAll('#next-btn');
-const nextBtn2 = document.querySelectorAll('#next-btn2');
-
-const prevBtn = document.querySelectorAll('#prev-btn');
-const pages = document.querySelectorAll('.page');
-const progress = document.querySelectorAll('.progresso-bar')
-
-let currentPage = 0;
-
-function showCurrentPage(index) {
-  pages.forEach((page, i) => {
-    if (i == index) {
-      page.classList.add('active');
-    } else {
-      page.classList.remove('active');
-    }
-  });
-
-  progress.forEach((progressBar, i) => {
-    if (i == index) {
-      progressBar.classList.add('current');
-    } else {
-      progressBar.classList.remove('current');
-    }
-  })
 };
 
-function addProgress(index) {
-  progress[index].classList.add('active');
-}
+// Finalizar cadastro
+function avancaPraTres() {
+  const empresaSelect = selectEmpresas.value;
+  const gestorSelect = selectGestores.value;
+  if (empresaSelect == "") {
+    modalErro("Campo vazio", "Selecione uma empresa")
+  } else if (gestorSelect == "") {
+    modalErro("Campo vazio", "Selecione um gestor")
+  } else {
+    slideAtual.style.marginLeft = "-600px";
+    segundaEtapa.classList.remove('current');
+    terceiraEtapa.classList.add('active', 'current');
+  }
+};
 
-function subProgress(index) {
-  progress[index + 1].classList.remove('active');
-}
+// function cadastrarTecnico(empresaId) {
+//   var nomeVar = nome_input.value;
+//   var sobrenomeVar = sobrenome_input.value;
+//   var emailVar = emailCad_input.value;
+//   var empresaVar = empresaId;
+//   var pidVar = pid.value;
+//   var senhaVar = senha.value;
 
-function handleNext() {
-  currentPage++;
-  showCurrentPage(currentPage);
-  addProgress(currentPage);
-}
+//   fetch("/usuarios/validarPID", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       pidServer: pidVar
+//     })
+//   }).then(function (resposta) {
+//     if (resposta.ok) {
+//       console.log(resposta);
+//       resposta.json().then(function (json) {
+//         if (json.length > 0) {
+//           // PID existe no banco de dados, cadastrar usuário
+//           fetch("/usuarios/cadastrarUsuario", {
+//             method: "POST",
+//             headers: {
+//               "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//               nomeServer: nomeVar,
+//               emailServer: emailVar,
+//               senhaServer: senhaVar,
+//               sobrenomeServer: sobrenomeVar,
+//               empresaServer: empresaVar,
+//               pidServer: pidVar
+//             })
+//           }).then(function (resposta) {
+//             console.log("resposta: ", resposta);
 
-function handlePrev() {
-  currentPage--;
-  showCurrentPage(currentPage);
-  subProgress(currentPage);
-}
+//             if (resposta.ok) {
+//               console.log("Gestor cadastrado com sucesso");
+//               setTimeout(() => {
+//                 window.location = "index.html";
+//               }, "2000");
+//             } else {
+//               throw ("Houve um erro ao tentar realizar o cadastro!");
+//             }
+//           }).catch(function (resposta) {
+//             console.log(`#ERRO: ${resposta}`);
+//           });
+//         } else {
+//           // PID não existe no banco de dados
+//           console.log("PID não encontrado");
+//         }
+//       });
+//     } else {
+//       console.log("Erro ao validar PID");
+//     }
+//   }).catch(function (resposta) {
+//     console.log(`#ERRO: ${resposta}`);
+//   });
 
-nextBtn.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const nome = nome_input.value;
-    const sobrenome = sobrenome_input.value;
-    const email = emailCad_input.value;
-    var validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
+//   return false;
+// }
 
-    if (nome == "") {
-      modalErro("ERRO", "O campo Nome está vazio")
-    } else if (sobrenome == "") {
-      modalErro("ERRO", "O campo Sobrenome está vazio")
-    } else if (email == "") {
-      modalErro("ERRO", "O campo Email está vazio")
-    } else if (!validacaoEmail.test(email)) {
-      modalErro("ERRO", "E-mail inválido! Certifique-se que<BR> seu e-mail segue essa estrutura: nome@example.com")
-    } else {
-      handleNext();
+// Cadastrar gestor
+function cadastrarTecnico() {
+  const fkEmpresa = document.getElementById('selectEmpresas');
+  const fkGestor = document.getElementById('selectGestores');
+
+  const usuario = {
+    nomeServer: nome_input.value.value,
+    telefoneServer: telefone_input.value,
+    emailServer: emailCad_input.value,
+    senhaServer: senha_input.value,
+    confirmacaoVar: confirma_input.value,
+    pidServer: pid_input.value,
+    fkGestorServer: fkGestor.value != '' ? fkGestor.value : null,
+    fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+  }
+
+  let invalido =
+    !usuario.nomeServer |
+    !usuario.telefoneServer |
+    !usuario.emailServer |
+    !usuario.senhaServer |
+    !usuario.confirmacaoVar |
+    !usuario.pidServer |
+    !usuario.fkGestorServer |
+    !usuario.fkEmpresaServer;
+
+  if (invalido) {
+    if (usuario.senhaServer == "") {
+      modalErro("Campo vazio", "&quotSenha&quot está vazio")
+    } else if (usuario.confirmacaoVar == "") {
+      modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio")
+    } else if (usuario.senhaServer.length <= 8) {
+      modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres")
+    } else if (usuario.confirmacaoVar != usuario.senhaServer) {
+      modalErro("Dado incorreto", "Senhas diferentes")
     }
-  });
-});
+  } else {
+    fetch('/usuarios/cadastrarTecnico', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
 
-nextBtn2.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const empresa = empresa_input.value;
-    const ppid = pid.value;
+      body: JSON.stringify(User),
+    })
+      .then(function (resposta) {
+        console.log('resposta: ', resposta);
 
-    if (empresa == "") {
-      modalErro("ERRO", "O campo Empresa está vazio")
-    } else if (ppid == "") {
-      modalErro("ERRO", "O campo Pid está vazio")
-    } else {
-      handleNext();
-    }
-  });
-});
-
-prevBtn.forEach(btn => {
-  btn.addEventListener('click', handlePrev);
-});
-
-// web-data-viz
-
-function entrar() {
-
-  var emailVar = email_input.value;
-  var senhaVar = senha2.value;
-
-  if (emailVar == "" || senhaVar == "") {
+        if (resposta.ok) {
+          textModal.style.background = "#1175d1";
+          modalErro("Cadastro realizado!", "Vamos fazer login?")
+          sessionStorage.setItem('EMAIL', User.emailServer);
+          setTimeout(() => {
+            window.location = 'conectartecnico.html';
+          }, '2000');
+        } else {
+          throw 'Houve um erro ao tentar realizar o cadastro!';
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
 
     return false;
+  }
+}
+
+// Login tecnico
+function loginTecnico() {
+  const emailVar = email_login.value;
+  const senhaVar = senha_login.value;
+
+  if (emailVar == "") {
+    modalErro("Campo vazio", "&quotE-mail&quot está vazio");
+  } else if (senhaVar == "") {
+    modalErro("Campo vazio", "&quotSenha&quot está vazio");
   } else {
-
-  }
-
-  console.log("FORM LOGIN: ", emailVar);
-  console.log("FORM SENHA: ", senhaVar);
-
-  fetch("/usuarios/autenticarUsuario", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      emailServer: emailVar,
-      senhaServer: senhaVar
+    fetch("/usuarios/loginTecnico", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
     })
-  }).then(function (resposta) {
-    console.log("ESTOU NO THEN DO entrar()!")
-    console.log(resposta)
-    if (resposta.ok) {
-      console.log(resposta);
-      resposta.json().then(json => {
-        console.log(json);
-        console.log(JSON.stringify(json));
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
 
-        sessionStorage.EMAIL_USUARIO = json.email;
-        sessionStorage.NOME_USUARIO = json.nome;
-        sessionStorage.ID_USUARIO = json.id;
+        if (resposta.ok) {
+          console.log(resposta);
 
-        setTimeout(function () {
-          window.location = "./dashboard/index.html";
-        }, 1000); // apenas para exibir o loading
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
 
-      });
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
 
-    } else {
-      console.log("Houve um erro ao tentar realizar o login!");
-      resposta.text().then(texto => {
-        console.error(texto);
-
-      });
-    }
-
-  }).catch(function (erro) {
-    console.log(erro);
-  })
-
-  return false;
-}
-
-//
-function cadastrar() {
-  var empresaVar = empresa_input.value;
-  var senhaVar = senha.value;
-  var confirmacao = confirmasenha.value;
-
-  if (senhaVar == "") {
-    modalErro("ERRO", "O campo Senha está vazio")
-  } else if (confirmacao == "") {
-    modalErro("ERRO", "O campo Confirmação de Senha está vazio")
-  } else if (senhaVar.length <= 8) {
-    modalErro("ERRO", "A senha deve ter mais de 8 caracteres")
-  } else if (confirmacao != senhaVar) {
-    modalErro("ERRO", "Senhas diferentes")
-  }
-
-  fetch("/usuarios/autenticar2", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      empresaServer: empresaVar,
-    })
-
-  }).then(function (resposta) {
-    if (resposta.ok) {
-      resposta.json().then(function (json) {
-        if (json.length < 1) {
-          //console.log("Cadastrando empresa...");
-          console.log(json)
-          console.log("Empresa errada ou não está cadastrada");
-        } else {
-          console.log("Cadastrando usuario...");
-          cadastrarUsuario(json[0].id);
-        }
-      });
-    } else {
-      console.log("Erro ao validar dados");
-    }
-
-  }).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
-
-}
-
-function cadastrarUsuario(empresaId) {
-  var nomeVar = nome_input.value;
-  var sobrenomeVar = sobrenome_input.value;
-  var emailVar = emailCad_input.value;
-  var empresaVar = empresaId;
-  var pidVar = pid.value;
-  var senhaVar = senha.value;
-
-  fetch("/usuarios/validarPID", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      pidServer: pidVar
-    })
-  }).then(function (resposta) {
-    if (resposta.ok) {
-      console.log(resposta);
-      resposta.json().then(function (json) {
-        if (json.length > 0) {
-          // PID existe no banco de dados, cadastrar usuário
-          fetch("/usuarios/cadastrarUsuario", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nomeServer: nomeVar,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-              sobrenomeServer: sobrenomeVar,
-              empresaServer: empresaVar,
-              pidServer: pidVar
-            })
-          }).then(function (resposta) {
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-              console.log("Gestor cadastrado com sucesso");
-              setTimeout(() => {
-                window.location = "index.html";
-              }, "2000");
-            } else {
-              throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-          }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
+            setTimeout(function () {
+              window.location = "dashboardtecnico.html";
+            }, 1000);
           });
         } else {
-          // PID não existe no banco de dados
-          console.log("PID não encontrado");
-        }
-      });
-    } else {
-      console.log("Erro ao validar PID");
-    }
-  }).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-  });
+          console.log("Houve um erro ao tentar realizar o login!");
 
-  return false;
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+    return false;
+  }
 }

@@ -2,13 +2,13 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Easy | Conectar-se</title>
-  <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="css/conectar.css" />
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <link rel="icon" href="assets/favicon.ico"/>
+  <link rel="stylesheet" href="css/conectar.css"/>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
 </head>
 
 <body>
@@ -40,104 +40,103 @@
 
   <!-- Conectar -->
   <div class="container" id="container">
+    <!-- Cadastro -->
     <div class="form-container sign-up-container">
       <div class="progresso">
-        <div class="progresso-bar active current">
+        <div class="progresso-bar active current" id="primeiraEtapa">
           <span>
-            <img src="assets/email.svg" alt="" />
+            <i class="uil uil-user"></i>
           </span>
         </div>
-        <div class="progresso-bar">
+        <div class="progresso-bar" id="segundaEtapa">
           <span>
-            <img src="assets/user.svg" alt="" />
+            <i class="uil uil-building"></i>
           </span>
         </div>
-        <div class="progresso-bar">
+        <div class="progresso-bar" id="terceiraEtapa">
           <span>
-            <img src="assets/password.svg" alt="" />
+            <i class="uil uil-padlock"></i>
           </span>
         </div>
       </div>
 
-      <div class="pages">
-        <div class="page active">
-          <h1>Sobre Você</h1>
-          <div class="field">
-            <div class="field-input">
+      <div class="content-pages">
+        <div class="pages">
+          <div class="page one">
+            <h1>Sobre Você</h1>
+            <div class="field">
               <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="nome_input" />
-                <label class="user-label">Nome</label>
+                <input required="" type="text" id="nome_input" />
+                <label class="user-label">Nome e Sobrenome</label>
               </div>
               <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="sobrenome_input" />
-                <label class="user-label">Sobrenome</label>
+                <input required="" type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)" />
+                <label class="user-label">Telefone</label>
               </div>
-            </div>
-            <div class="field-input">
               <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="emailCad_input" />
+                <input required="" type="text" id="emailCad_input" />
                 <label class="user-label">E-mail</label>
               </div>
             </div>
+            <div class="btn">
+              <button type="button" id="next-btn" onclick="avancaPraDois()">
+                <img src="assets/next.svg" alt="" />
+              </button>
+            </div>
           </div>
 
-          <div class="btn">
-            <button type="button" id="next-btn">
-              <img src="assets/next.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="page">
-          <h1>Sobre sua empresa</h1>
-          <div class="field">
-            <div class="field-input">
+          <div class="page two" id="cadastrar_empresa">
+            <h1>Sobre sua empresa</h1>
+            <div class="field">
               <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" id="empresa_input" />
-                <label class="user-label">Empresa</label>
+                <select required="" id="selectEmpresas">
+                  <option value="">-Selecione sua empresa-</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <select required="" id="selectGestores">
+                  <option value="">-Selecione seu gestor-</option>
+                </select>
+              </div>
+              <div class="cadastro_empresa">
+                <p>Não encontrou? Fale com seu gestor.</p>
               </div>
             </div>
-            <div class="field-input">
-              <div class="input-group">
-                <input required="" type="password" name="text" autocomplete="off" id="pid" />
-                <label class="user-label">PID (Seu Gestor)</label>
-                <i class="uil uil-eye" id="trocarFigurapid"></i>
-              </div>
+            <div class="btn">
+              <button type="button" id="prev-btn" onclick="voltaPraUm()">
+                <img src="assets/prev.svg" alt="" />
+              </button>
+              <button type="button" id="next-btn2" onclick="avancaPraTres()">
+                <img src="assets/next.svg" alt="" />
+              </button>
             </div>
           </div>
-          <div class="btn">
-            <button type="button" id="prev-btn">
-              <img src="assets/prev.svg" alt="" />
-            </button>
-            <button type="button" id="next-btn2">
-              <img src="assets/next.svg" alt="" />
-            </button>
-          </div>
-        </div>
-        <div class="page">
-          <h1>Protegendo sua conta</h1>
-          <div class="field">
-            <div class="field-input">
+
+          <div class="page tree">
+            <h1>Protegendo sua conta</h1>
+            <div class="field">
               <div class="input-group">
-                <input required="" type="password" name="text" autocomplete="off" id="senha" />
+                <input type="password" id="pid_input" readonly=""/>
+                <label class="user-label">PID</label>
+                <i class="uil uil-eye" id="verPid" onclick="verSenha(pid_input, verPid)"></i>
+              </div>
+              <div class="input-group">
+                <input required="" type="password" id="senha_input"/>
                 <label class="user-label">Senha</label>
-                <i class="uil uil-eye" id="trocarFigura"></i>
+                <i class="uil uil-eye" id="verSenhaCriada" onclick="verSenha(senha_input, verSenhaCriada)"></i>
               </div>
-            </div>
-            <div class="field-input">
               <div class="input-group">
-                <input required="" type="password" name="text" autocomplete="off" id="confirmasenha" />
+                <input required="" type="password" id="confirma_input"/>
                 <label class="user-label">Confirmação de Senha</label>
-                <i class="uil uil-eye" id="confirmatrocarFigura"></i>
+                <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirma_input, verConfirmacao)"></i>
               </div>
             </div>
-          </div>
-          <div class="btn">
-            <button type="button" id="prev-btn">
-              <img src="assets/prev.svg" alt="" />
-            </button>
-            <button type="submit" id="submit-btn" onclick="cadastrar()">
-              Cadastrar
-            </button>
+            <div class="btn">
+              <button type="button" id="prev-btn2" onclick="voltaPraDois()">
+                <img src="assets/prev.svg" alt="" />
+              </button>
+              <button type="submit" id="submit-btn" onclick="cadastrarGestor()">Cadastrar</button>
+            </div>
           </div>
         </div>
       </div>
@@ -147,17 +146,17 @@
     <div class="form-container sign-in-container">
       <h1>Bem-vindo de volta!</h1>
       <div class="input-group">
-        <input required="" type="text" name="text" autocomplete="off" id="email_input" />
+        <input required="" type="text" name="text" id="email_input" />
         <label class="user-label">E-mail</label>
       </div>
       <div class="input-group">
-        <input required="" type="password" name="text" autocomplete="off" id="senha2" />
+        <input required="" type="password" name="text" id="senha_login" />
         <label class="user-label">Senha</label>
-        <i class="uil uil-eye" id="trocarFigura2"></i>
+        <i class="uil uil-eye" id="verLogin" onclick="verSenha(senha_login, verLogin)"></i>
       </div>
       <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
       <div class="btn">
-        <button type="submit" id="btnconectar" onclick="entrar()">
+        <button type="submit" id="btnconectar" onclick="login()">
           Conectar
         </button>
       </div>
@@ -185,7 +184,8 @@
       </div>
     </div>
   </div>
-  <script src="js/conectartecnico.js"></script>
+  <script src="js/conectarglobal.js"></script>
+  <script src="js/conectargestor.js"></script>
 </body>
 
 </html>

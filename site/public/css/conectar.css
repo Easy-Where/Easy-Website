@@ -120,9 +120,9 @@ section:valid,
   border: 1.5px solid var(--clr);
 }
 
-input:focus ~ label,
-input:valid ~ label,
-#pid_input ~ label {
+input:focus~label,
+input:valid~label,
+#pid_input~label {
   transform: translateY(-40%) scale(0.8);
   background-color: var(--luz);
   padding: 0 0.2em;
@@ -307,6 +307,7 @@ input:valid ~ label,
 }
 
 @keyframes show {
+
   0%,
   49.99% {
     opacity: 0;
@@ -641,10 +642,6 @@ input:valid ~ label,
   font-size: 18px;
 }
 
-.btn button:hover {
-  transform: scale(1.1);
-}
-
 .btn {
   display: flex;
   gap: 0.5rem;
@@ -666,6 +663,13 @@ input:valid ~ label,
 
 #prev-btn {
   background: #b8d6f1;
+}
+
+#next-btn:hover,
+#next-btn2:hover,
+#submit-btn:hover,
+#prev-btn:hover {
+  background: #4b6cb7;
 }
 
 @media only screen and (max-width: 650px) {

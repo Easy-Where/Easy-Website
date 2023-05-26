@@ -2,25 +2,25 @@ var database = require("../database/config")
 
 // Cadastrar gestor no banco de dados 
 function cadastrarGestor(nome, telefone, email, senha, pid, fkEmpresa) {
-    var instrucao = `INSERT INTO Usuario (nome, telefone, email, senha, pid, cargo, fk_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', ${pid}, 'Gestor', '${fkEmpresa}');`;
+    var instrucao = `INSERT INTO Usuario (nome, telefone, email, senha, cargo, pid, fk_gestor, fk_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', 'Gestor', '${pid}', 'null', '${fkEmpresa}');`;
     return database.executar(instrucao);
 }
 
-function entrar(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
-    var instrucao = `
-        SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Gestor';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+// Logar gestor no banco de dados
+function loginGestor(email, senha) {
+    var instrucao = `SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Gestor';`;
     return database.executar(instrucao);
 }
 
-function entrar2(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
-    var instrucao = `
-        SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Tecnico';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+// Cadastrar técnico no banco de dados
+function cadastrarTecnico(nome, telefone, email, senha, pid, fkGestor, fkEmpresa) {
+    var instrucao = `INSERT INTO Usuario (nome, telefone, email, senha, cargo, pid, fk_gestor, fk_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', 'Técnico', '${pid}', '${fkGestor}', '${fkEmpresa}');`;
+    return database.executar(instrucao);
+}
+
+// Logar técnico no banco de dados
+function loginTecnico(email, senha) {
+    var instrucao = `SELECT * FROM Usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Técnico';`;
     return database.executar(instrucao);
 }
 
@@ -48,23 +48,12 @@ function validacaoPidCadastrado(pid) {
     return database.executar(instrucao);
 }
 
-function cadastrarUsuario(nome, email, senha, empresaCad) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
-    var instrucao = `
-        INSERT INTO Usuario (PID, nome, email, senha, cargo, fk_empresa) 
-            VALUES ('${pid}', '${nome}', '${email}', '${senha}', 'Tecnico', '${empresaCad}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 module.exports = {
     cadastrarGestor,
-    entrar,
-    entrar2,
+    cadastrarTecnico,
+    loginGestor,
+    loginTecnico,
     validacaoEmpresa,
-    cadastrarUsuario,
     validacaoEmpresaUsuario,
     validacaoPidCadastrado
 };
