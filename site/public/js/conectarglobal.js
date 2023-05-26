@@ -11,7 +11,6 @@ inputPid.classList.add("valid");
 function gerarNumeroPid() {
   var numero = Math.floor(Math.random() * 1000000);
   pid_input.value = numero;
-  console.log(numero);
 }
 
 // Alternar entre telas
@@ -178,7 +177,7 @@ function login() {
 // Preencher automaticamente campo de email do usuário
 document.addEventListener("DOMContentLoaded", () => {
   const sessionEmail = sessionStorage.getItem("EMAIL");
-  email_login.value = sessionEmail ? sessionEmail : "";
+  email_input.value = sessionEmail ? sessionEmail : "";
 });
 
 // Select no banco de empresas

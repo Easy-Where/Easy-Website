@@ -629,6 +629,15 @@ input:valid~label,
   cursor: pointer;
 }
 
+.associacao_empresa_gestor {
+  height: 60px;
+}
+
+.associacao_empresa_gestor p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
 .btn button {
   width: 100%;
   border-color: transparent;
@@ -668,8 +677,13 @@ input:valid~label,
 #next-btn:hover,
 #next-btn2:hover,
 #submit-btn:hover,
-#prev-btn:hover {
+#prev-btn:hover,
+#btnconectar:hover {
   background: #4b6cb7;
+}
+
+#btnconectar:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 650px) {

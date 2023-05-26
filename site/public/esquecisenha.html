@@ -8,10 +8,7 @@
     <link rel="icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="css/padronizar.css" />
     <link rel="stylesheet" href="css/esquecisenha.css" />
-    <script
-      src="https://kit.fontawesome.com/390ed0de69.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
   </head>
 
   <body>
@@ -46,25 +43,15 @@
           <div class="servicos">
             <div class="quadrado-principal">
               <div class="input-group">
-                <input required="" type="text" name="text" autocomplete="off" />
+                <input required="" type="text" name="text" autocomplete="off" id="email_input"/>
                 <label id="primeira" class="user-label">Seu e-mail</label>
               </div>
               <div class="input-group">
-                <input
-                  required=""
-                  type="password"
-                  name="text"
-                  autocomplete="off"
-                  id="senha"
-                />
+                <input required="" type="password" name="text" autocomplete="off" id="senha_input"/>
                 <label id="ultima" class="user-label">Ultima senha usada</label>
-                <img
-                  src="assets/conectar-versenha.png"
-                  alt="Ver Senha"
-                  id="trocarFigura"
-                />
+                <i class="uil uil-eye" id="verLogin" onclick="verSenha(senha_login, verLogin)"></i>
               </div>
-              <div class="btnenviar">
+              <div class="btnenviar" onclick="enviarEmail()">
                 <a href=""> Enviar E-mail </a>
               </div>
             </div>

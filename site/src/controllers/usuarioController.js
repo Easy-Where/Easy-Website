@@ -146,54 +146,17 @@ function loginTecnico(req, res) {
   }
 }
 
-function validacaoEmpresa(req, res) {
-  var empresa = req.body.empresaServer;
-  var cnpj = req.body.cnpjServer;
-  var dono = req.body.donoServer;
-
-  if (empresa == undefined) {
-    res.status(400).send("Sua empresa está undefined!");
-  } else if (cnpj == undefined) {
-    res.status(400).send("Seu email está undefined!");
-  } else if (dono == undefined) {
-    res.status(400).send("Sua senha está undefined!");
-  } else {
-    usuarioModel
-      .validacaoEmpresa(empresa, cnpj, dono)
-      .then(function (resultado) {
-        res.json(resultado);
-      })
-      .catch(function (erro) {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          erro.sqlMessage
-        );
-        res.status(500).json(erro.sqlMessage);
-      });
-  }
-}
-
-function autenticarEmpresa(req, res) {
-  var empresaCad = req.body.empresaServer;
-
-  if (empresaCad == undefined) {
-    res.status(400).send("Sua empresa está undefined!");
-  } else {
-    usuarioModel
-      .validacaoEmpresaUsuario(empresaCad)
-      .then(function (resultado) {
-        res.json(resultado);
-      })
-      .catch(function (erro) {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro! Erro: ",
-          erro.sqlMessage
-        );
-        res.status(500).json(erro.sqlMessage);
-      });
-  }
+// Puxando gestores
+function selectGestores(req, res) {
+  empresaModel
+    .selectGestores()
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
 }
 
 module.exports = {
@@ -201,6 +164,5 @@ module.exports = {
   cadastrarTecnico,
   loginGestor,
   loginTecnico,
-  validacaoEmpresa,
-  autenticarEmpresa,
+  selectGestores
 };

@@ -1,7 +1,5 @@
-// var mysql = require("mysql2");
 var sql = require('mssql');
 
-// CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
     server: "svr-projeto-easy.database.windows.net",
     database: "bd-projeto-easy",
@@ -17,7 +15,6 @@ var sqlServerConfig = {
     }
 }
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
     database: "SEU_DATABASE",
@@ -26,7 +23,6 @@ var mySqlConfig = {
 };
 
 function executar(instrucao) {
-    // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
