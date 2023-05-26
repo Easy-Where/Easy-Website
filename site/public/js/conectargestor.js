@@ -1,3 +1,5 @@
+gerarNumeroPid();
+
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
 let textModal = document.querySelector(".titulo_validacao");
@@ -5,18 +7,13 @@ let textValidacao = document.querySelector(".texto_validacao");
 let contador = 0;
 
 // Gerar PID 
+const inputPid = document.getElementById("pid_input");
+inputPid.classList.add('valid')
 function gerarNumeroPid() {
-  var numero = Math.floor(Math.random() * 100000000);
-  if (numerosGerados.includes(numero)) {
-    return gerarNumeroPid();
-  } else {
-    numerosGerados.push(numero);
-    return numero;
-  }
+  var numero = Math.floor(Math.random() * 1000000);
+    pid_input.value = numero;
+    console.log(numero)
 }
-
-// Array para armazenar os números gerados
-var numerosGerados = [];
 
 // Alternar entre telas
 const signUpButton = document.getElementById('signUp');
@@ -394,68 +391,65 @@ function cadastrar() {
   });
 }
 
-// function signUp() {
-//   let nomeVar = nome_input.value;
-//   let telefoneVar = telefone_input.value;
-//   let emailVar = emailCad_input.value;
-//   let empresaVar = resposta[0].id_empresa;
-//   let senhaVar = senha_input.value;
-//   let pid = gerarNumeroPid();
-//   const fkEmpresa = document.getElementById('sl_enterprise');
+function signUp() {
+  let nomeVar = nome_input.value;
+  let telefoneVar = telefone_input.value;
+  let emailVar = emailCad_input.value;
+  let empresaVar = resposta[0].id_empresa;
+  let senhaVar = senha_input.value;
+  let pid = gerarNumeroPid();
+  const fkEmpresa = document.getElementById('selectEmpresas');
 
-//   nomeServer: nome_input.value.value;
-//   telefoneServer: telefone_input.value;
-//   emailServer: emailCad_input.value;
-//   empresaServer: resposta[0].id_empresa;
-//   senhaServer: senha_input.value;
-//   fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+  nomeServer: nome_input.value.value;
+  telefoneServer: telefone_input.value;
+  emailServer: emailCad_input.value;
+  empresaServer: resposta[0].id_empresa;
+  senhaServer: senha_input.value;
+  fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
 
-//   console.log(User);
-
-//   // Ao negar o atributo do JSON, conferimos se ele está vazio ou não
-//   let isInvalid =
-//     !User.nameServer |
-//     !User.officeServer |
-//     !User.emailServer |
-//     !User.passServer |
-//     !User.codigoPatrimonioServer |
-//     !User.fkEmpresaServer;
+  let isInvalid =
+    !User.nameServer |
+    !User.officeServer |
+    !User.emailServer |
+    !User.passServer |
+    !User.codigoPatrimonioServer |
+    !User.fkEmpresaServer;
 
 
-//   if (isInvalid) {
-//     alert('⚠ Campos não preenchidos corretamente!');
-//   } else {
-//     fetch('/usuarios/cadastrar', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
+  if (isInvalid) {
+    alert('⚠ Campos não preenchidos corretamente!');
+  } else {
+    fetch('/usuarios/cadastrar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
 
-//       // Aqui passamos somente o JSON criado lá em cima
-//       body: JSON.stringify(User),
-//     })
-//       .then(function (resposta) {
-//         console.log('resposta: ', resposta);
+      // Aqui passamos somente o JSON criado lá em cima
+      body: JSON.stringify(User),
+    })
+      .then(function (resposta) {
+        console.log('resposta: ', resposta);
 
-//         if (resposta.ok) {
-//           alert('Cadastro realizado com sucesso!');
+        if (resposta.ok) {
+          alert('Cadastro realizado com sucesso!');
 
-//           sessionStorage.setItem('EMAIL', User.emailServer);
+          sessionStorage.setItem('EMAIL', User.emailServer);
 
-//           setTimeout(() => {
-//             window.location = 'sign-page.html';
-//           }, '2000');
-//         } else {
-//           throw 'Houve um erro ao tentar realizar o cadastro!';
-//         }
-//       })
-//       .catch(function (resposta) {
-//         console.log(`#ERRO: ${resposta}`);
-//       });
+          setTimeout(() => {
+            window.location = 'sign-page.html';
+          }, '2000');
+        } else {
+          throw 'Houve um erro ao tentar realizar o cadastro!';
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
 
-//     return false;
-//   }
-// }
+    return false;
+  }
+}
 
 // Select no banco de empresas
 document.addEventListener('DOMContentLoaded', async () => {
@@ -480,10 +474,6 @@ function cadastrarEmpresa() {
     donoServer: dono_input.value
   };
 
-  console.log("Nome:", Enterprise.empresaServer);
-  console.log("CNPJ:", Enterprise.cnpjServer);
-  console.log("Dono:", Enterprise.donoServer);
-
   const validInput = Enterprise.empresaServer && Enterprise.cnpjServer && Enterprise.donoServer;
 
   if (validInput) {
@@ -494,7 +484,6 @@ function cadastrarEmpresa() {
       },
       body: JSON.stringify(Enterprise)
     }).then((res) => {
-      console.log("Resposta:", res);
       if (res.ok) {
         modalErro("Cadastro realizado!", "Sua empresa está em nosso sistema")
         setTimeout(() => {

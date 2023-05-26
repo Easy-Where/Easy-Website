@@ -10,7 +10,7 @@ router.post('/cadastrarEmpresa', (req, res) => {
 
 // Rota para select de empresas 
 router.get('/selectEmpresas', (req, res) => {
-empresaController.selectEmpresas(req, res)
+  empresaController.selectEmpresas(req, res)
 });
 
 // Rota para deletar empresas

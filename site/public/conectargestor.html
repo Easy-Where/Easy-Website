@@ -112,12 +112,17 @@
             <h1>Protegendo sua conta</h1>
             <div class="field">
               <div class="input-group">
-                <input required="" type="password" id="senha_input" />
+                <input type="password" id="pid_input" readonly=""/>
+                <label class="user-label">PID</label>
+                <i class="uil uil-eye" id="verPid" onclick="verSenha(pid_input, verPid)"></i>
+              </div>
+              <div class="input-group">
+                <input required="" type="password" id="senha_input"/>
                 <label class="user-label">Senha</label>
                 <i class="uil uil-eye" id="verSenhaCriada" onclick="verSenha(senha_input, verSenhaCriada)"></i>
               </div>
               <div class="input-group">
-                <input required="" type="password" id="confirma_input" />
+                <input required="" type="password" id="confirma_input"/>
                 <label class="user-label">Confirmação de Senha</label>
                 <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirma_input, verConfirmacao)"></i>
               </div>
