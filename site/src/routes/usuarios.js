@@ -28,4 +28,14 @@ router.get("/selectGestores/:fkEmpresa", (req, res) => {
   usuarioController.selectGestores(req, res);
 });
 
+// Rota para atualizar os dados do usuário
+router.get("/selectPID", (req, res) => {
+  usuarioController.selectPID(req, res);
+});
+
+// Rota para atualizar os dados do usuário
+router.put('/atualizarDados/:pid', function (req, res) {
+  usuarioController.atualizarDados(req, res);
+});
+
 module.exports = router;

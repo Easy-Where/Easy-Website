@@ -31,10 +31,24 @@ function selectGestores(fkEmpresa) {
   return database.executar(instrucao);
 }
 
+// Select de gestores no banco de dados
+function selectPID() {
+  var instrucao = `SELECT pid FROM usuario;`;
+  return database.executar(instrucao);
+}
+
+// Atualizar usuário no banco de dados
+function atualizarDados(nome, telefone, email, senha, pid) {
+  var instrucao = ` UPDATE usuario SET nome = '${nome}', telefone = '${telefone}', email = '${email}', senha = '${senha}' WHERE pid = ${pid};`;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
   loginGestor,
   loginTecnico,
-  selectGestores
+  selectGestores,
+  selectPID,
+  atualizarDados
 };

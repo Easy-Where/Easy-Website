@@ -6,8 +6,7 @@ function avancaPraDois() {
   const nome = nome_input.value;
   const telefone = telefone_input.value;
   const email = emailCad_input.value;
-  let validacaoEmail =
-    /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
+  let validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
   const primeiraEtapa = document.getElementById("primeiraEtapa");
   const segundaEtapa = document.getElementById("segundaEtapa");
 
@@ -20,10 +19,7 @@ function avancaPraDois() {
   } else if (email == "") {
     modalErro("Campo vazio", "&quotEmail&quot está vazio");
   } else if (!validacaoEmail.test(email)) {
-    modalErro(
-      "Dado incorreto",
-      "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com"
-    );
+    modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
   } else {
     slideAtual.style.marginLeft = "-300px";
     primeiraEtapa.classList.remove("current");
@@ -202,6 +198,7 @@ function cadastrarGestor() {
           textModal.style.background = "#1175d1";
           modalErro("Cadastro realizado!", "Vamos fazer login?");
           sessionStorage.setItem("EMAIL", usuario.emailServer);
+          sessionStorage.setItem('pidUser', usuario.pidServer)
           setTimeout(() => {
             window.location = "conectargestor.html";
           }, "2000");
@@ -254,6 +251,8 @@ function loginGestor() {
             }, 1000);
           });
         } else {
+          modalErro("Dados inválidos", "&quotE-mail&quot ou &quotSenha&quot inválido");
+
           console.log("Houve um erro ao tentar realizar o login!");
 
           resposta.text().then((texto) => {
@@ -268,6 +267,7 @@ function loginGestor() {
   }
 }
 
+//Select de empresas
 async function selecionarEmpresas() {
   try {
     const response = await fetch("/empresas/selectEmpresas");

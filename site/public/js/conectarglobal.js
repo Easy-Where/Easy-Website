@@ -1,3 +1,4 @@
+let pidsExistentes = [];
 gerarNumeroPid();
 
 // Div de validação
@@ -5,11 +6,32 @@ let divValidacao = document.querySelector(".validacao");
 let textModal = document.querySelector(".titulo_validacao");
 let textValidacao = document.querySelector(".texto_validacao");
 
+// Validar PID existente
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("/usuarios/selectPID");
+
+    const usuario = await response.json();
+
+    usuario.forEach((user) => {
+      pidsExistentes.push(user.pid);
+      console.log("PIDS ATUAIS:" + pidsExistentes);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // Gerar PID
 const inputPid = document.getElementById("pid_input");
 function gerarNumeroPid() {
-  var numero = Math.floor(Math.random() * 1000000);
-  pid_input.value = numero;
+  let pidGerado = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+  if(pidsExistentes.includes(pidGerado)){
+    gerarNumeroPid()
+  }else{
+    pid_input.value = pidGerado;
+    console.log("Novo valor a ser iputado: " + pid_input.value)
+  }
 }
 
 // Alternar entre telas

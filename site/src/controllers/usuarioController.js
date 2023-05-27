@@ -143,7 +143,7 @@ function loginTecnico(req, res) {
   }
 }
 
-// Puxando gestores
+// Puxar gestores
 function selectGestores(req, res) {
   let fkEmpresa = req.params.fkEmpresa;
   usuarioModel.selectGestores(fkEmpresa)
@@ -156,10 +156,55 @@ function selectGestores(req, res) {
     });
 }
 
+// Puxar gestores
+function selectPID(req, res) {
+  usuarioModel.selectPID()
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
+// Atualizar usuário
+function atualizarDados(req, res) {
+  let pid = req.params.pid;
+  let nome = req.body.nomeServer;
+  let telefone = req.body.telefoneServer;
+  let email = req.body.emailServer;
+  let senha = req.body.senhaServer;
+
+  if (nome == undefined) {
+    res.status(400).send('Seu nome está undefined');
+  } else if (telefone == undefined) {
+    res.status(400).send('Seu telefone está undefined');
+  } else if (email == undefined) {
+    res.status(400).send('Seu email está undefined');
+  } else if (senha == undefined) {
+    res.status(400).send('Sua senha está undefined');
+  } else if (pid == undefined) {
+    res.status(400).send('Seu pid está undefined');
+  } else {
+    usuarioModel.atualizarDados(nome, telefone, email, senha, pid)
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch((erro) => {
+        console.log(erro);
+        console.log('\nHouve um erro ao atualizar o funcionario! Erro: ', erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
   loginGestor,
   loginTecnico,
-  selectGestores
+  selectGestores,
+  selectPID,
+  atualizarDados
 };
