@@ -43,39 +43,27 @@ function avancaPraTres() {
 function cadastrarTecnico() {
   const fkEmpresa = document.getElementById('selectEmpresas');
   const fkGestor = document.getElementById('selectGestores');
-
+  const confirmacaoVar = confirma_input.value
+  
   const usuario = {
-    nomeServer: nome_input.value.value,
-    telefoneServer: telefone_input.value,
+    nomeServer: nome_input.value,
+    telefoneServer: telefone_input.value.replace(/\D+/g, "").trim(),
     emailServer: emailCad_input.value,
     senhaServer: senha_input.value,
-    confirmacaoVar: confirma_input.value,
     pidServer: pid_input.value,
-    fkGestorServer: fkGestor.value != '' ? fkGestor.value : null,
-    fkEmpresaServer: fkEmpresa.value != '' ? fkEmpresa.value : null
+    fkGestorServer: fkGestor.value,
+    fkEmpresaServer: fkEmpresa.value
   }
 
-  let invalido =
-    !usuario.nomeServer |
-    !usuario.telefoneServer |
-    !usuario.emailServer |
-    !usuario.senhaServer |
-    !usuario.confirmacaoVar |
-    !usuario.pidServer |
-    !usuario.fkGestorServer |
-    !usuario.fkEmpresaServer;
-
-  if (invalido) {
     if (usuario.senhaServer == "") {
       modalErro("Campo vazio", "&quotSenha&quot está vazio")
-    } else if (usuario.confirmacaoVar == "") {
+    } else if (confirmacaoVar == "") {
       modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio")
     } else if (usuario.senhaServer.length <= 8) {
       modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres")
-    } else if (usuario.confirmacaoVar != usuario.senhaServer) {
+    } else if (confirmacaoVar != usuario.senhaServer) {
       modalErro("Dado incorreto", "Senhas diferentes")
-    }
-  } else {
+    } else {
     fetch('/usuarios/cadastrarTecnico', {
       method: 'POST',
       headers: {
@@ -86,7 +74,6 @@ function cadastrarTecnico() {
     })
       .then(function (resposta) {
         console.log('resposta: ', resposta);
-
         if (resposta.ok) {
           textModal.style.background = "#1175d1";
           modalErro("Cadastro realizado!", "Vamos fazer login?")
@@ -139,7 +126,7 @@ function loginTecnico() {
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-              window.location = "dashboardtecnico.html";
+              window.location = "dashboard/dashboardtecnico.html";
             }, 1000);
           });
         } else {
@@ -154,5 +141,22 @@ function loginTecnico() {
         console.log(erro);
       });
     return false;
+  }
+}
+
+// Select no banco de gestores
+async function trazerGestores(){
+  let fkEmpresa = selectEmpresas.value;
+  selectGestores.innerHTML = `<option value="">-Selecione seu gestor-</option>`;
+  try {
+    const respondeGestores = await fetch(`/usuarios/selectGestores/${fkEmpresa}`);
+
+    const gestor = await respondeGestores.json();
+
+    gestor.forEach((gestor) => {
+      selectGestores.innerHTML += `<option value="${gestor.pid}">${gestor.nome} - ${gestor.pid}</option>`;
+    });
+  } catch (error) {
+    console.log(error);
   }
 }

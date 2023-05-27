@@ -118,6 +118,7 @@ function voltarCadastro() {
       <img src="assets/next.svg" alt="" />
     </button>
   </div>`;
+  selecionarEmpresas()
 }
 
 // Cadastrar empresas
@@ -167,7 +168,7 @@ function cadastrarEmpresa() {
 function cadastrarGestor() {
   const fkEmpresa = document.getElementById("selectEmpresas");
   const confirmacaoVar = confirma_input.value
-  console.log(fkEmpresa.value)
+
   const usuario = {
     nomeServer: nome_input.value,
     telefoneServer: telefone_input.value.replace(/\D+/g, "").trim(),
@@ -177,15 +178,15 @@ function cadastrarGestor() {
     fkEmpresaServer: fkEmpresa.value,
   };
 
-    if (usuario.senhaServer == "") {
-      modalErro("Campo vazio", "&quotSenha&quot está vazio");
-    } else if (confirmacaoVar == "") {
-      modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio");
-    } else if (usuario.senhaServer.length <= 8) {
-      modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
-    } else if (confirmacaoVar != usuario.senhaServer) {
-      modalErro("Dado incorreto", "Senhas diferentes");
-    } else {
+  if (usuario.senhaServer == "") {
+    modalErro("Campo vazio", "&quotSenha&quot está vazio");
+  } else if (confirmacaoVar == "") {
+    modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio");
+  } else if (usuario.senhaServer.length <= 8) {
+    modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
+  } else if (confirmacaoVar != usuario.senhaServer) {
+    modalErro("Dado incorreto", "Senhas diferentes");
+  } else {
     fetch("/usuarios/cadastrarGestor", {
       method: "POST",
       headers: {
@@ -249,7 +250,7 @@ function loginGestor() {
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-              window.location = "dashboardgestor.html";
+              window.location = "dashboard/dashboardgestor.html";
             }, 1000);
           });
         } else {
@@ -267,17 +268,16 @@ function loginGestor() {
   }
 }
 
-// Select no banco de gestores
-document.addEventListener("DOMContentLoaded", async () => {
+async function selecionarEmpresas() {
   try {
-    const respondeGestores = await fetch("/usuarios/selectGestores");
+    const response = await fetch("/empresas/selectEmpresas");
 
-    const gestor = await respondeGestores.json();
+    const empresas = await response.json();
 
-    gestor.forEach((gestor) => {
-      selectGestores.innerHTML += `<option value="${gestor.pid}">${gestor.nome} - ${gestor.pid}</option>`;
+    empresas.forEach((empresa) => {
+      selectEmpresas.innerHTML += `<option value="${empresa.id}">${empresa.nome}</option>`;
     });
   } catch (error) {
     console.log(error);
   }
-});
+}

@@ -48,8 +48,7 @@ function loginGestor(req, res) {
   } else if (senha == undefined) {
     res.status(400).send("Sua senha está indefinida!");
   } else {
-    usuarioModel
-      .entrar(email, senha)
+    usuarioModel.loginGestor(email, senha)
       .then(function (resultado) {
         console.log(`\nResultados encontrados: ${resultado.length}`);
         console.log(`Resultados: ${JSON.stringify(resultado)}`);
@@ -77,10 +76,9 @@ function cadastrarTecnico(req, res) {
   let telefone = req.body.telefoneServer;
   let email = req.body.emailServer;
   let senha = req.body.senhaServer;
-  let pid = req.body.senhaServer;
-  let fkGestor = req.body.empresaServer;
+  let pid = req.body.pidServer;
+  let fkGestor = req.body.fkGestorServer;
   let fkEmpresa = req.body.fkEmpresaServer;
-
 
   if (nome == undefined) {
     res.status(400).send("Seu nome está undefined!");
@@ -97,13 +95,13 @@ function cadastrarTecnico(req, res) {
   } else if (fkEmpresa == undefined) {
     res.status(400).send("Sua empresa está undefined!");
   } else {
-    usuarioModel
-      .cadastrarGestor(nome, telefone, email, senha, pid, fkGestor, fkEmpresa)
+    usuarioModel.cadastrarTecnico(nome, telefone, email, senha, pid, fkGestor, fkEmpresa)
       .then(function (resultado) {
         res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro);
+        console.log(fkGestor, fkEmpresa)
         console.log(
           "\nHouve um erro ao realizar o cadastro! Erro: ",
           erro.sqlMessage
@@ -123,8 +121,7 @@ function loginTecnico(req, res) {
   } else if (senha == undefined) {
     res.status(400).send("Sua senha está indefinida!");
   } else {
-    usuarioModel
-      .entrar(email, senha)
+    usuarioModel.loginTecnico(email, senha)
       .then(function (resultado) {
         console.log(`\nResultados encontrados: ${resultado.length}`);
         console.log(`Resultados: ${JSON.stringify(resultado)}`);
@@ -148,8 +145,8 @@ function loginTecnico(req, res) {
 
 // Puxando gestores
 function selectGestores(req, res) {
-  usuarioModel
-    .selectGestores()
+  let fkEmpresa = req.params.fkEmpresa;
+  usuarioModel.selectGestores(fkEmpresa)
     .then((response) => {
       res.json(response);
     })

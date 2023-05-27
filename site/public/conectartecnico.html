@@ -89,7 +89,7 @@
             <h1>Sobre sua empresa</h1>
             <div class="field">
               <div class="input-group">
-                <select required="" id="selectEmpresas">
+                <select required="" id="selectEmpresas" onchange="trazerGestores()">
                   <option value="">-Selecione sua empresa-</option>
                 </select>
               </div>
@@ -135,7 +135,7 @@
               <button type="button" id="prev-btn2" onclick="voltaPraDois()">
                 <img src="assets/prev.svg" alt="" />
               </button>
-              <button type="submit" id="submit-btn" onclick="cadastrarGestor()">Cadastrar</button>
+              <button type="submit" id="submit-btn" onclick="cadastrarTecnico()">Cadastrar</button>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@
     <div class="form-container sign-in-container">
       <h1>Bem-vindo de volta!</h1>
       <div class="input-group">
-        <input required="" type="text" name="text" id="email_input" />
+        <input required="" type="text" name="text" id="email_login" />
         <label class="user-label">E-mail</label>
       </div>
       <div class="input-group">
@@ -156,7 +156,7 @@
       </div>
       <a id="esqueci" href="esquecisenha.html">Esqueceu sua senha?</a>
       <div class="btn">
-        <button type="submit" id="btnconectar" onclick="login()">
+        <button type="submit" id="btnconectar" onclick="loginTecnico()">
           Conectar
         </button>
       </div>
@@ -185,7 +185,7 @@
     </div>
   </div>
   <script src="js/conectarglobal.js"></script>
-  <script src="js/conectargestor.js"></script>
+  <script src="js/conectartecnico.js"></script>
 </body>
 
 </html>

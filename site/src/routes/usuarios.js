@@ -24,7 +24,7 @@ router.post("/loginTecnico", function (req, res) {
 });
 
 // Rota para select de gestores
-router.get("/selectGestores", (req, res) => {
+router.get("/selectGestores/:fkEmpresa", (req, res) => {
   usuarioController.selectGestores(req, res);
 });
 

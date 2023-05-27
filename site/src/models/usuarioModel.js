@@ -14,6 +14,7 @@ function loginGestor(email, senha) {
 
 // Cadastrar técnico no banco de dados
 function cadastrarTecnico( nome, telefone, email, senha, pid, fkGestor, fkEmpresa) {
+  console.log (fkGestor, fkEmpresa)
   var instrucao = `INSERT INTO usuario (nome, telefone, email, senha, cargo, pid, pid_gestor, id_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', 'Técnico', '${pid}', '${fkGestor}', '${fkEmpresa}');`;
   return database.executar(instrucao);
 }
@@ -25,8 +26,8 @@ function loginTecnico(email, senha) {
 }
 
 // Select de gestores no banco de dados
-function selectGestores() {
-  var instrucao = `SELECT * FROM usuario ORDER BY nome ASC;`;
+function selectGestores(fkEmpresa) {
+  var instrucao = `SELECT * FROM usuario WHERE cargo = 'Gestor' AND id_empresa = '${fkEmpresa}' ORDER BY nome ASC;`;
   return database.executar(instrucao);
 }
 
