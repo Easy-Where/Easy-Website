@@ -93,13 +93,3 @@ var geral = {
 };
 
 new ApexCharts(document.querySelector("#chart_total"), geral).render();
-
-// Fechar e abrir legendas
-botao_legendas.addEventListener("click", () => {
-    caixa_legenda.classList.toggle("fechado");
-    if (caixa_legenda.classList.contains("fechado")) {
-        localStorage.setItem("status", "fechado");
-    } else {
-        localStorage.setItem("status", "aberto");
-    }
-})

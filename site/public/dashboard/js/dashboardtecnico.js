@@ -479,13 +479,3 @@ function generateDayWiseTimeSeries(baseval, count, yrange) {
     }
     return series;
 }
-
-// Fechar e abrir legendas
-botao_legendas.addEventListener("click", () => {
-    caixa_legenda.classList.toggle("fechado");
-    if (caixa_legenda.classList.contains("fechado")) {
-        localStorage.setItem("status", "fechado");
-    } else {
-        localStorage.setItem("status", "aberto");
-    }
-})

@@ -198,7 +198,6 @@ function cadastrarGestor() {
           textModal.style.background = "#1175d1";
           modalErro("Cadastro realizado!", "Vamos fazer login?");
           sessionStorage.setItem("EMAIL", usuario.emailServer);
-          sessionStorage.setItem('pidUser', usuario.pidServer)
           setTimeout(() => {
             window.location = "conectargestor.html";
           }, "2000");
@@ -245,6 +244,9 @@ function loginGestor() {
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
+
+            sessionStorage.setItem('emailUser', emailVar);
+            sessionStorage.setItem('senhaUser', senhaVar);
 
             setTimeout(function () {
               window.location = "dashboard/dashboardgestor.html";

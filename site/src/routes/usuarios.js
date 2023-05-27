@@ -28,9 +28,14 @@ router.get("/selectGestores/:fkEmpresa", (req, res) => {
   usuarioController.selectGestores(req, res);
 });
 
-// Rota para atualizar os dados do usuário
+// Rota para validar PID's existentes
 router.get("/selectPID", (req, res) => {
   usuarioController.selectPID(req, res);
+});
+
+// Rota para exibir o PID do usuário
+router.get("/exibirPIDUsuario/:emailUsuario/:senhaUsuario", (req, res) => {
+  usuarioController.exibirPIDUsuario(req, res);
 });
 
 // Rota para atualizar os dados do usuário

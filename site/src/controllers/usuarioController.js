@@ -156,9 +156,23 @@ function selectGestores(req, res) {
     });
 }
 
-// Puxar gestores
+// Puxar PID's
 function selectPID(req, res) {
   usuarioModel.selectPID()
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
+// Puxar PID do usuário
+function exibirPIDUsuario(req, res) {
+  let email = req.params.emailUsuario;
+  let senha = req.params.senhaUsuario;
+  usuarioModel.exibirPIDUsuario(email, senha)
     .then((response) => {
       res.json(response);
     })
@@ -206,5 +220,6 @@ module.exports = {
   loginTecnico,
   selectGestores,
   selectPID,
+  exibirPIDUsuario,
   atualizarDados
 };

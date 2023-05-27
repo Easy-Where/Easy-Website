@@ -1,7 +1,22 @@
-// Definir PID
-const pidUsuario = JSON.parse(sessionStorage.getItem('pidUser'))
-console.log(pidUsuario)
-puxarPID.innerHTML = pidUsuario
+// Exibir e trazer PID do usuário
+const emailUsuario = sessionStorage.getItem('emailUser')
+const senhaUsuario = sessionStorage.getItem('senhaUser')
+let pidUsuario = 0
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch(`/usuarios/exibirPIDUsuario/${emailUsuario}/${senhaUsuario}`);
+
+    const pidUser = await response.json();
+
+    pidUser.forEach((user) => {
+      puxarPID.innerHTML = user.pid
+      pidUsuario = user.pid
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
@@ -76,7 +91,7 @@ function atualizarDados() {
   const usuario = {
     nomeServer: nome_input.value,
     telefoneServer: telefone_input.value.replace(/\D+/g, "").trim(),
-    emailServer: emailCad_input.value,
+    emailServer: email_input.value,
     senhaServer: senha_input.value,
   };
 
@@ -88,7 +103,7 @@ function atualizarDados() {
     modalErro("Campo vazio", "&quotE-mail&quot está vazio");
   } else if (usuario.senhaServer == "") {
     modalErro("Campo vazio", "&quotSenha&quot está vazio");
-  } else if (usuario.telefoneServer.length < 15) {
+  } else if (usuario.telefoneServer.length < 11) {
     modalErro("Dado incorreto", "&quotTelefone&quot está incompleto");
   } else if (!validacaoEmail.test(usuario.emailServer)) {
     modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
@@ -97,6 +112,7 @@ function atualizarDados() {
   } else if (confirmacaoVar != usuario.senhaServer) {
     modalErro("Dado incorreto", "Senhas diferentes");
   } else {
+    console.log(pidUsuario)
     fetch(`/usuarios/atualizarDados/${pidUsuario}`, {
       method: "PUT",
       headers: {

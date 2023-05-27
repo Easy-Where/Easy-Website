@@ -2,13 +2,13 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/padronizar.css" />
-  <link rel="stylesheet" href="css/perfil.css" />
-  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/padronizar.css"/>
+  <link rel="stylesheet" href="css/perfil.css"/>
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
   <title>Easy • Ware</title>
 </head>
 
@@ -92,9 +92,14 @@
     <div class="top">
       <i class="uil uil-bars sidebar-toggle"></i>
 
-      <div class="content_pid">
-        <i class="uil uil-key-skeleton"></i>
-        <h1>Seu PID: <span id="puxarPID">------</span></h1>
+      <div class="content_legendas">
+        <div class="title_legenda">
+          <i class="uil uil-key-skeleton legendas"></i>
+        </div>
+        <ul>
+          <li>Seu PID:</li>
+          <li id="puxarPID">------</li>
+        </ul>
       </div>
     </div>
 
@@ -107,39 +112,39 @@
       <div class="container_perfil">
         <div class="perfil_aparencia">
           <h1>Edite seus dados aqui</h1>
-          <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil" />
+          <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil"/>
           <div class="btnalterar">
             <label for="input_troca_imagem">Alterar Foto</label>
-            <input type="file" id="input_troca_imagem" /><i></i>
+            <input type="file" id="input_troca_imagem"/><i></i>
           </div>
         </div>
         <div class="perfil_dados">
           <div class="field-input">
             <div class="input-group">
-              <input required type="text" id="nome_input" />
+              <input required type="text" id="nome_input"/>
               <label class="user-label">Nome e Sobrenome</label>
             </div>
             <div class="input-group">
-              <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)" />
+              <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
               <label class="user-label">Telefone</label>
             </div>
             <div class="input-group">
-              <input required type="text" id="email_input" />
+              <input required type="text" id="email_input"/>
               <label class="user-label">E-mail</label>
             </div>
             <div class="input-group zerarmargin">
-              <input required type="password" id="senha_input" />
+              <input required type="password" id="senha_input"/>
               <label class="user-label">Senha</label>
               <i class="uil uil-eye" id="verSenhaInput" onclick="verSenha(senha_input, verSenhaInput)"></i>
             </div>
             <div class="input-group zerarmargin">
-              <input required type="password" id="confirmasenha_input" />
+              <input required type="password" id="confirmasenha_input"/>
               <label class="user-label">Confirmação de Senha</label>
               <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirmasenha_input, verConfirmacao)"></i>
             </div>
           </div>
           <div class="btnsalvar" onclick="atualizarDados()">
-            <a href=""><span>Salvar Alterações</span><i></i> </a>
+            <a><span>Salvar Alterações</span><i></i></a>
           </div>
         </div>
       </div>
