@@ -43,4 +43,9 @@ router.put('/atualizarDados/:pid', function (req, res) {
   usuarioController.atualizarDados(req, res);
 });
 
+// Rota para exibir os funcionários
+router.get("/selectFuncionarios/:pidUsado", (req, res) => {
+  usuarioController.selectFuncionarios(req, res);
+});
+
 module.exports = router;

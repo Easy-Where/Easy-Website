@@ -39,13 +39,19 @@ function selectPID() {
 
 // Select do PID do usuário
 function exibirPIDUsuario(email, senha) {
-  var instrucao = `SELECT pid FROM usuario WHERE email = '${email}' AND senha = '${senha}';`;
+  var instrucao = `SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';`;
   return database.executar(instrucao);
 }
 
 // Atualizar usuário no banco de dados
 function atualizarDados(nome, telefone, email, senha, pid) {
   var instrucao = ` UPDATE usuario SET nome = '${nome}', telefone = '${telefone}', email = '${email}', senha = '${senha}' WHERE pid = '${pid}';`;
+  return database.executar(instrucao);
+}
+
+// Select dos funcionários de um gestor
+function selectFuncionarios(pid) {
+  var instrucao = `SELECT * FROM usuario WHERE pid_gestor = '${pid}';`;
   return database.executar(instrucao);
 }
 
@@ -57,5 +63,6 @@ module.exports = {
   selectGestores,
   selectPID,
   exibirPIDUsuario,
-  atualizarDados
+  atualizarDados,
+  selectFuncionarios
 };

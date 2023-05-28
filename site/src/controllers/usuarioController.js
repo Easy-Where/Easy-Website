@@ -213,6 +213,19 @@ function atualizarDados(req, res) {
   }
 }
 
+// Puxar funcionários de um gestor
+function selectFuncionarios(req, res) {
+  let pid = req.params.pidUsado;
+  usuarioModel.selectFuncionarios(pid)
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -221,5 +234,6 @@ module.exports = {
   selectGestores,
   selectPID,
   exibirPIDUsuario,
-  atualizarDados
+  atualizarDados,
+  selectFuncionarios
 };

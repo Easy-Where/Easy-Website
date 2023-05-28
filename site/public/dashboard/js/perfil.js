@@ -1,22 +1,4 @@
-// Exibir e trazer PID do usuário
-const emailUsuario = sessionStorage.getItem('emailUser')
-const senhaUsuario = sessionStorage.getItem('senhaUser')
-let pidUsuario = 0
-
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch(`/usuarios/exibirPIDUsuario/${emailUsuario}/${senhaUsuario}`);
-
-    const pidUser = await response.json();
-
-    pidUser.forEach((user) => {
-      puxarPID.innerHTML = user.pid
-      pidUsuario = user.pid
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+puxarPID.innerHTML = pidUsado
 
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
