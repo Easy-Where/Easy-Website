@@ -1,4 +1,29 @@
-puxarPID.innerHTML = pidUsado
+// Exibir e definir informações do usuário
+const emailUsuario = sessionStorage.getItem("emailUser");
+const senhaUsuario = sessionStorage.getItem("senhaUser");
+let pidUsado = 0
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch(`/usuarios/exibirPIDUsuario/${emailUsuario}/${senhaUsuario}`);
+
+    const dataUser = await response.json();
+
+    dataUser.forEach((user) => {
+      puxarNome.innerHTML = user.nome;
+      puxarPID.innerHTML = user.pid;
+      atualizarPID(user.pid)
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+function atualizarPID(pid){
+  pidUsado = pid;
+  sessionStorage.setItem('pidUser', pidUsado);
+}
 
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
@@ -69,6 +94,7 @@ function resetarInputs() {
 function atualizarDados() {
   let validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
   const confirmacaoVar = confirmasenha_input.value
+  const pidUsuario = sessionStorage.getItem("pidUser");
 
   const usuario = {
     nomeServer: nome_input.value,
@@ -105,9 +131,7 @@ function atualizarDados() {
       .then((resposta) => {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
-          textModal.style.background = "#1175d1";
           modalErro("Dados atualizados!", "Recarregue a página");
-
         } else {
           throw "Houve um erro ao tentar atualizar os dados!";
         }

@@ -216,9 +216,11 @@ function atualizarDados(req, res) {
 // Puxar funcionários de um gestor
 function selectFuncionarios(req, res) {
   let pid = req.params.pidUsado;
+  console.log('Bati na controller 2')
   usuarioModel.selectFuncionarios(pid)
     .then((response) => {
       res.json(response);
+      console.log('Bati na controller 2')
     })
     .catch((error) => {
       console.log(error);

@@ -125,6 +125,9 @@ function loginTecnico() {
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
 
+            sessionStorage.setItem('emailUser', emailVar);
+            sessionStorage.setItem('senhaUser', senhaVar);
+
             setTimeout(function () {
               window.location = "dashboard/dashboardtecnico.html";
             }, 1000);
