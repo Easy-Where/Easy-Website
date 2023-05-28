@@ -1,6 +1,5 @@
-const maquina = JSON.parse(localStorage.getItem('info_maquina'))
-console.log(maquina.nome_usuario)
-nomeDoUsuario.innerHTML = maquina.nome_usuario
+// const maquina = JSON.parse(localStorage.getItem('info_maquina'))
+// nomeDoUsuario.innerHTML = maquina.nome_usuario
 
 // KPI da CPU
 function getChartColor(value) {

@@ -52,5 +52,5 @@ function getMaquinas(index){
     console.log(maquinas[index])
 
     const maquina = maquinas[index]
-    localStorage.setItem('info_maquina', JSON.stringify(maquina))
+    // localStorage.setItem('info_maquina', JSON.stringify(maquina))
 }
