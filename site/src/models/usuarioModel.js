@@ -55,6 +55,11 @@ function selectFuncionarios(pid) {
   return database.executar(instrucao);
 }
 
+function painel(pid) {
+  var instrucao = `SELECT * FROM usuario WHERE pid_gestor = '${pid}';`;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -64,5 +69,6 @@ module.exports = {
   selectPID,
   exibirPIDUsuario,
   atualizarDados,
-  selectFuncionarios
+  selectFuncionarios,
+  painel
 };
