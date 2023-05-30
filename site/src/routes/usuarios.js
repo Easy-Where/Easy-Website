@@ -49,8 +49,4 @@ router.get("/selectFuncionarios/:pidUsado", (req, res) => {
   usuarioController.selectFuncionarios(req, res);
 });
 
-router.get("/painel/:pidUsado", (req, res) => {
-  usuarioController.painel(req, res);
-});
-
 module.exports = router;

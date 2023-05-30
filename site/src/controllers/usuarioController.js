@@ -228,18 +228,6 @@ function selectFuncionarios(req, res) {
     });
 }
 
-function painel(req, res) {
-  const pid = req.params.pidUsado;
-  usuarioModel.painel(pid)
-    .then((response) => {
-      res.json(response);
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json(error.sqlMessage);
-    });
-}
-
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -250,5 +238,4 @@ module.exports = {
   exibirPIDUsuario,
   atualizarDados,
   selectFuncionarios,
-  painel
 };

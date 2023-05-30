@@ -1,192 +1,202 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/padronizar.css">
-    <link rel="stylesheet" href="css/dashboardtecnico.css">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/padronizar.css" />
+    <link rel="stylesheet" href="css/dashboardtecnico.css" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
     <title>Easy • Ware</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Sidebar -->
     <nav>
-        <div class="logo-name">
-            <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo">
+      <div class="logo-name">
+        <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo"/>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li class="pagina_atual">
+            <a href="paineltecnico.html">
+              <i class="uil uil-arrow-left"></i>
+              <span class="link-name">Voltar</span>
+            </a>
+          </li>
+          <li>
+            <a href="arquivos.html">
+              <i class="uil uil-file"></i>
+              <span class="link-name">Arquivos</span>
+            </a>
+          </li>
+          <li>
+            <a href="perfiltecnico.html">
+              <i class="uil uil-user"></i>
+              <span class="link-name">Perfil</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="perfil">
+          <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário" />
+          <span>Olá, User User</span>
         </div>
 
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li class="pagina_atual">
-                    <a href="paineltecnico.html">
-                        <i class="uil uil-arrow-left"></i>
-                        <span class="link-name">Voltar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="arquivos.html">
-                        <i class="uil uil-file"></i>
-                        <span class="link-name">Arquivos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="perfiltecnico.html">
-                        <i class="uil uil-user"></i>
-                        <span class="link-name">Perfil</span>
-                    </a>
-                </li>
-            </ul>
+        <ul class="info_maquina_fixas">
+          <li>Nome: <span id="nomeDaMaquina">Null</span></li>
+          <li>SO: <span id="SODaMaquina">Null</span></li>
+          <li>Fabricante: <span id="fabricanteDaMaquina">Null</span></li>
+          <li>Modelo: <span id="modeloDaMaquina">Null</span></li>
+        </ul>
 
-            <div class="perfil">
-                <img src="assets/dinorock.jpg" alt="Imagem de perfil do usuário">
-                <span>Olá, User User</span>
+        <i class="uil uil-windows so"></i>
+
+        <ul class="logout-mode">
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon" id="mode_light_dark"></i>
+              <span class="link-name">Tema</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
             </div>
-
-            <ul class="info_maquina_fixas">
-                <li>Nome: <span id="nomeDaMaquina">Null</span></li>
-                <li>SO: <span id="SODaMaquina">Null</span></li>
-                <li>Fabricante: <span id="fabricanteDaMaquina">Null</span></li>
-                <li>Modelo: <span id="modeloDaMaquina">Null</span></li>
-            </ul>
-
-            <i class="uil uil-windows so"></i>
-
-            <ul class="logout-mode">
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon" id="mode_light_dark"></i>
-                        <span class="link-name">Tema</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                <div class="nav-links">
-                    <li>
-                        <a href="#">
-                            <i class="uil uil-map-marker-question"></i>
-                            <span class="link-name">Ajuda</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="uil uil-signout"></i>
-                            <span class="link-name">Sair</span>
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </div>
+          </li>
+          <div class="nav-links">
+            <li>
+              <a href="#">
+                <i class="uil uil-map-marker-question"></i>
+                <span class="link-name">Ajuda</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">Sair</span>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
     </nav>
 
     <!-- Dashboard -->
     <section class="dashboard">
-        <div class="top">
-            <i class="uil uil-bars sidebar-toggle"></i>
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
 
-            <div class="profile">
-                <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário" id="fotoDoUsuario">
-                <span id="nomeDoUsuario">Nome Usuário</span>
-            </div>
-
-            <div class="content_legendas">
-                <div class="title_legenda">
-                    <i class="uil uil-tag legendas"></i>
-                </div>
-                <ul>
-                    <li class="legend1">Ideal<span>Até 40%</span></li>
-                    <li class="legend2">Alerta<span>Até 70%</span></li>
-                    <li class="legend3">Crítico<span>Até 100%</span></li>
-                </ul>
-            </div>
+        <div class="profile">
+          <img
+            src="assets/dinorock.jpg"
+            alt="Foto de perfil do usuário"
+            id="fotoDoUsuario"
+          />
+          <span id="nomeDoUsuario">Nome Usuário</span>
         </div>
 
-        <div class="dash-content">
-            <div class="content-kpis">
-                <div class="kpi_box primeira">
-                    <div class="box_grafico">
-                        <div id="kpi_chart_cpu"></div>
-                    </div>
-                    <div class="descricao_arma barras">
-                        <h1>CPU</h1>
-                        <div class="bar">
-                            <progress id="barra-de-temperatura-cpu" value="0" max="100"></progress>
-                            <span>Temperatura</span>
-                        </div>
-                        <div class="bar">
-                            <progress id="barra-de-clock-cpu" value="0" max="100"></progress>
-                            <span>Clock</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="kpi_box">
-                    <div class="box_grafico segunda">
-                        <div class="metrica_rede">
-                            <i class="uil uil-arrow-circle-up"></i>
-                            <span>1.4<span class="diminuir">MB</span></span>
-                        </div>
-                        <div class="metrica_rede">
-                            <i class="uil uil-arrow-circle-down"></i>
-                            <span>1.4<span class="diminuir">MB</span></span>
-                        </div>
-                    </div>
-                    <div class="descricao_arma">
-                        <h1>Rede</h1>
-                        <span>Conectado</span>
-                    </div>
-                </div>
-                <div class="kpi_box terceira">
-                    <div class="box_grafico">
-                        <div id="kpi_chart_ram"></div>
-                    </div>
-                    <div class="descricao_arma">
-                        <h1>RAM</h1>
-                        <span>1.4<span class="diminuir">GB</span></span>
-                    </div>
-                </div>
-                <div class="kpi_box quarta">
-                    <div class="box_grafico">
-                        <div id="kpi_chart_disco"></div>
-                    </div>
-                    <div class="descricao_arma">
-                        <h1>Disco</h1>
-                        <span>32<span class="diminuir">GB</span></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-charts">
-                <div class="charts-cima">
-                    <div class="box-chart-cpu">
-                        <h1>CPU</h1>
-                        <div id="chart_cpu"></div>
-                    </div>
-                    <div class="box-chart-ram">
-                        <h1>RAM</h1>
-                        <div id="chart_ram"></div>
-                    </div>
-                </div>
-                <div class="charts-baixo">
-                    <div class="box-chart-rede">
-                        <h1>Rede</h1>
-                        <div id="chart_rede"></div>
-                    </div>
-                    <div class="box-chart-disco">
-                        <h1>Disco</h1>
-                        <div id="chart_disco"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="content_legendas">
+          <div class="title_legenda">
+            <i class="uil uil-tag legendas"></i>
+          </div>
+          <ul>
+            <li class="legend1">Ideal<span>Até 40%</span></li>
+            <li class="legend2">Alerta<span>Até 70%</span></li>
+            <li class="legend3">Crítico<span>Até 100%</span></li>
+          </ul>
         </div>
+      </div>
+
+      <div class="dash-content">
+        <div class="content-kpis">
+          <div class="kpi_box primeira">
+            <div class="box_grafico">
+              <div id="kpi_chart_cpu"></div>
+            </div>
+            <div class="descricao_arma barras">
+              <h1>CPU</h1>
+              <div class="bar">
+                <progress
+                  id="barra-de-temperatura-cpu"
+                  value="0"
+                  max="100"
+                ></progress>
+                <span>Temperatura</span>
+              </div>
+              <div class="bar">
+                <progress
+                  id="barra-de-clock-cpu"
+                  value="0"
+                  max="100"
+                ></progress>
+                <span>Clock</span>
+              </div>
+            </div>
+          </div>
+          <div class="kpi_box">
+            <div class="box_grafico segunda">
+              <div class="metrica_rede">
+                <i class="uil uil-arrow-circle-up"></i>
+                <span>1.4<span class="diminuir">MB</span></span>
+              </div>
+              <div class="metrica_rede">
+                <i class="uil uil-arrow-circle-down"></i>
+                <span>1.4<span class="diminuir">MB</span></span>
+              </div>
+            </div>
+            <div class="descricao_arma">
+              <h1>Rede</h1>
+              <span>Conectado</span>
+            </div>
+          </div>
+          <div class="kpi_box terceira">
+            <div class="box_grafico">
+              <div id="kpi_chart_ram"></div>
+            </div>
+            <div class="descricao_arma">
+              <h1>RAM</h1>
+              <span>1.4<span class="diminuir">GB</span></span>
+            </div>
+          </div>
+          <div class="kpi_box quarta">
+            <div class="box_grafico">
+              <div id="kpi_chart_disco"></div>
+            </div>
+            <div class="descricao_arma">
+              <h1>Disco</h1>
+              <span>32<span class="diminuir">GB</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-charts">
+          <div class="charts-cima">
+            <div class="box-chart-cpu">
+              <h1>CPU</h1>
+              <div id="chart_cpu"></div>
+            </div>
+            <div class="box-chart-ram">
+              <h1>RAM</h1>
+              <div id="chart_ram"></div>
+            </div>
+          </div>
+          <div class="charts-baixo">
+            <div class="box-chart-rede">
+              <h1>Rede</h1>
+              <div id="chart_rede"></div>
+            </div>
+            <div class="box-chart-disco">
+              <h1>Disco</h1>
+              <div id="chart_disco"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <script src="js/padronizar.js"></script>
     <script src="js/dashboardtecnico.js"></script>
-</body>
-
+  </body>
 </html>

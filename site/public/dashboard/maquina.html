@@ -1,130 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/padronizar.css">
-    <link rel="stylesheet" href="css/perfiltecnico.css">
-    <link rel="stylesheet" href="css/maquina.css">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/padronizar.css" />
+    <link rel="stylesheet" href="css/perfiltecnico.css" />
+    <link rel="stylesheet" href="css/maquina.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
     <title>Easy • Ware</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Sidebar -->
     <nav>
-        <div class="logo-name">
-            <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo">
+      <div class="logo-name">
+        <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo"/>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="dashboardgestor.html">
+              <i class="uil uil-home"></i>
+              <span class="link-name dartamanho">Visão Geral</span>
+            </a>
+          </li>
+          <li>
+            <a href="arquivos.html">
+              <i class="uil uil-file"></i>
+              <span class="link-name">Arquivos</span>
+            </a>
+          </li>
+          <li>
+            <a href="perfilgestor.html">
+              <i class="uil uil-user"></i>
+              <span class="link-name">Perfil</span>
+            </a>
+          </li>
+          <li class="pagina_atual">
+            <a href="maquina.html">
+              <i class="uil uil-plus"></i>
+              <span class="link-name">Máquinas</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="perfil">
+          <img src="assets/user-icon.png" alt="Imagem de perfil do usuário" />
+          <span>Olá, <span id="puxarNome">...</span></span>
         </div>
 
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li>
-                    <a href="dashboardgestor.html">
-                        <i class="uil uil-home"></i>
-                        <span class="link-name dartamanho">Visão Geral</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="arquivos.html">
-                        <i class="uil uil-file"></i>
-                        <span class="link-name">Arquivos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="perfilgestor.html">
-                        <i class="uil uil-user"></i>
-                        <span class="link-name">Perfil</span>
-                    </a>
-                </li>
-                <li class="pagina_atual">
-                    <a href="maquina.html">
-                        <i class="uil uil-plus"></i>
-                        <span class="link-name">Máquinas</span>
-                    </a>
-                </li>
-            </ul>
+        <ul class="logout-mode">
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon" id="mode_light_dark"></i>
+              <span class="link-name">Tema</span>
+            </a>
 
-            <div class="perfil">
-                <img src="assets/user-icon.png" alt="Imagem de perfil do usuário">
-                <span>Olá, <span id="puxarNome">...</span></span>
+            <div class="mode-toggle">
+              <span class="switch"></span>
             </div>
-
-            <ul class="logout-mode">
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon" id="mode_light_dark"></i>
-                        <span class="link-name">Tema</span>
-                    </a>
-
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                <div class="nav-links">
-                    <li>
-                        <a href="#">
-                            <i class="uil uil-map-marker-question"></i>
-                            <span class="link-name">Ajuda</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="uil uil-signout"></i>
-                            <span class="link-name">Sair</span>
-                        </a>
-                    </li>
-                </div>
-            </ul>
-        </div>
+          </li>
+          <div class="nav-links">
+            <li>
+              <a href="#">
+                <i class="uil uil-map-marker-question"></i>
+                <span class="link-name">Ajuda</span>
+              </a>
+            </li>
+            <li>
+              <a href="../index.html">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">Sair</span>
+              </a>
+            </li>
+          </div>
+        </ul>
+      </div>
     </nav>
 
     <!-- Painel de Usuários -->
     <section class="dashboard">
-        <div class="top">
-            <i class="uil uil-bars sidebar-toggle"></i>
-        </div>
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+      </div>
 
-        <div class="estado_container">
-            <i class="uil uil-redo" onclick="resetarInputs()"></i>
-        </div>
+      <div class="estado_container">
+        <i class="uil uil-redo" onclick="resetarInputs()"></i>
+      </div>
 
-        <div class="alinhamento_container">
-            <div class="container_perfil">
-                <div class="explicacao">
-                    <h1>Adicionar nova máquina</h1>
-                    <img src="assets/adicionarmaquina.png" alt="Adicionar Máquinas">
-                    <p>Nessa seção você fará a associação de uma de suas máquinas a um de seus funcionários</p>
-                </div>
-                <div class="perfil_dados">
-                    <div class="field-input">
-                        <div class="input-group processarmaquina">
-                            <select required="" id="">
-                                <option value="">-Escolha uma máquina-</option>
-                            </select>
-                            <i class="uil uil-plus-circle"></i>
-                        </div>
-                        <div class="input-group">
-                            <select required="" id="">
-                                <option value="">-Escolha um funcionário-</option>
-                            </select>
-                            <i class="uil uil-plus-circle"></i>
-                        </div>
-                    </div>
-                    <div class="btnsalvar">
-                        <a href="">
-                            <span>Salvar Alterações</span><i></i>
-                        </a>
-                    </div>
-                </div>
+      <div class="alinhamento_container">
+        <div class="container_perfil">
+          <div class="explicacao">
+            <h1>Adicionar nova máquina</h1>
+            <img src="assets/adicionarmaquina.png" alt="Adicionar Máquinas" />
+            <p>
+              Nessa seção você fará a associação de uma de suas máquinas a um de
+              seus funcionários
+            </p>
+          </div>
+          <div class="perfil_dados">
+            <div class="field-input">
+              <div class="input-group processarmaquina">
+                <select required="" id="">
+                  <option value="">-Escolha uma máquina-</option>
+                </select>
+                <i class="uil uil-plus-circle"></i>
+              </div>
+              <div class="input-group">
+                <select required="" id="">
+                  <option value="">-Escolha um funcionário-</option>
+                </select>
+                <i class="uil uil-plus-circle"></i>
+              </div>
             </div>
+            <div class="btnsalvar">
+              <a href=""> <span>Salvar Alterações</span><i></i> </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
     <script src="js/padronizar.js"></script>
     <script src="js/perfiltecnico.js"></script>
-</body>
-
+  </body>
 </html>

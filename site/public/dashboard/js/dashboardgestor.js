@@ -23,9 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 //Selecionar funcionários
 async function selectFuncionarios() {
   try {
-    const objetoFuncionario = await fetch(
-      `/usuarios/selectFuncionarios/${pidUsado}`
-    );
+    const objetoFuncionario = await fetch(`/usuarios/selectFuncionarios/${pidUsado}`);
+    
     const funcionarios = await objetoFuncionario.json();
 
     funcionarios.slice(1).forEach((funcionario) => {

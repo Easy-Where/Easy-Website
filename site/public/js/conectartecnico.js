@@ -122,14 +122,15 @@ function loginTecnico() {
             console.log(JSON.stringify(json));
 
             sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.NOME_USUARIO = json.nome_usuario;
+            sessionStorage.ID_USUARIO = json.id_usuario;
+            sessionStorage.ID_EMPRESA = json.id_empresa;
 
             sessionStorage.setItem('emailUser', emailVar);
             sessionStorage.setItem('senhaUser', senhaVar);
 
             setTimeout(function () {
-              window.location = "dashboard/dashboardtecnico.html";
+              window.location = "dashboard/paineltecnico.html";
             }, 1000);
           });
         } else {
