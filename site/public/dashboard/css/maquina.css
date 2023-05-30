@@ -89,7 +89,7 @@ select option {
     position: absolute;
     font-size: 23px;
     top: 8px;
-    right: 10px;
+    right: -1.5em;
     cursor: pointer;
     color: var(--cor-texto);
 }
@@ -218,4 +218,139 @@ select option {
     font-size: 40px;
     color: var(--cor-texto);
     cursor: pointer;
+}
+
+/* MODAIS */
+
+
+.modalCadastroMaquina,
+.modalCadastroFuncionario{
+    width: 100%;
+    height: 0vh;
+    z-index: 999;
+    position: absolute;
+    top: 0vh;
+    left: 0;
+    display: none;
+}
+
+.modalCadastroFuncionario{
+    z-index: 998;
+}
+
+.fundo{
+    display: block;
+    background-color: #a9c7f155;
+    animation: firula 1s forwards linear;
+}
+
+@keyframes firula {
+    0%{
+        opacity: 0;
+    } 100%{
+        opacity: 1;
+    }
+}
+
+.modalCadastroMaquina .modal,
+.modalCadastroFuncionario .modal{
+    position: relative;
+    top: 10%;
+    left: 30%;
+    width: 45%;
+    height: 60vh;
+    background-color: #151515;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+}
+
+.modalCadastroMaquina .modal::before,
+.modalCadastroFuncionario .modal::before{
+    content: '';
+    position: absolute;
+    top: -65%;
+    left: 5%;
+    width: 45%;
+    height: 70vh;
+    background: linear-gradient(0deg, transparent, var(--seletor));
+    transform-origin: bottom right;
+    animation: animet 6s linear infinite;
+}
+.modal::after{
+    content: '';
+    position: absolute;
+    top: -65%;
+    left: 5%;
+    width: 45%;
+    height: 70vh;
+    background: linear-gradient(0deg, transparent, var(--seletor));
+    transform-origin: bottom right;
+    animation: animet 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animet {
+    0%{
+        transform: rotate(0deg);
+    } 100%{
+        transform: rotate(360deg);
+    }
+}
+
+.modalCadastroMaquina .container,
+.modalCadastroFuncionario .container{
+    position: absolute;
+    inset: 5px;
+    background: var(--bg-color);
+    z-index: 10;
+    border-radius: 8px;
+} 
+
+.container span{
+    color: var(--seletor);
+    font-size: 2em;
+    margin: .3em .5em;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+}
+
+.container form{
+    width: 90%;
+    margin: 2em auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.container form .inputModal{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container form h2{
+    color: var(--seletor);
+}
+
+.container form .inputModal label{
+    color: var(--cor-texto);
+}
+
+.container form .inputModal input{
+    background: none;
+    border: 1px solid var(--seletor);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1em;
+    color: var(--cor-texto);
+}
+
+form .inputModal input:active,
+form .inputModal input:focus{
+    outline: 1px solid var(--seletor);
 }
