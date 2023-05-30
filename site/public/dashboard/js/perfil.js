@@ -1,29 +1,22 @@
-// Exibir e definir informações do usuário
-const emailUsuario = sessionStorage.getItem("emailUser");
-const senhaUsuario = sessionStorage.getItem("senhaUser");
-let pidUsado = 0
+const pid = sessionStorage.getItem('PID');
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch(`/usuarios/exibirPIDUsuario/${emailUsuario}/${senhaUsuario}`);
+window.onload = function () {
+  dadosFacilitadores(pid)
+};
 
-    const dataUser = await response.json();
-
-    dataUser.forEach((user) => {
-      puxarNome.innerHTML = user.nome;
-      puxarPID.innerHTML = user.pid;
-      atualizarPID(user.pid)
+// Trazer dados para facilitar o perfil do usuário
+function dadosFacilitadores(pid) {
+  puxarPID.innerHTML = pid
+  fetch(`/usuarios/dadosFacilitadores/${pid}`).then((resposta) => {
+    resposta.json().then((usuario) => {
+      puxarNome.innerHTML = JSON.stringify(usuario.nome);
+      nome_input.value = JSON.stringify(usuario.nome);
+      telefone_input.value = JSON.stringify(usuario.telefone);
+      email_input.value = JSON.stringify(usuario.email);
     });
-
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-function atualizarPID(pid){
-  pidUsado = pid;
-  sessionStorage.setItem('pidUser', pidUsado);
+  });
 }
+
 
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
@@ -31,7 +24,7 @@ let textModal = document.querySelector(".titulo_validacao");
 let textValidacao = document.querySelector(".texto_validacao");
 
 // Modal de erro
-function modalErro(frase1, frase2) {
+function chamarModal(frase1, frase2) {
   textModal.innerHTML = frase1;
   textValidacao.innerHTML = frase2;
   divValidacao.classList.add("active");
@@ -94,7 +87,6 @@ function resetarInputs() {
 function atualizarDados() {
   let validacaoEmail = /^(\w{2,})([._]?\w+)*@(\w{3,})([._]\w{2,})?([.-])[\w]{2,}$/;
   const confirmacaoVar = confirmasenha_input.value
-  const pidUsuario = sessionStorage.getItem("pidUser");
 
   const usuario = {
     nomeServer: nome_input.value,
@@ -104,24 +96,23 @@ function atualizarDados() {
   };
 
   if (usuario.nomeServer == "") {
-    modalErro("Campo vazio", "&quotNome&quot está vazio");
+    chamarModal("Campo vazio", "&quotNome&quot está vazio");
   } else if (usuario.telefoneServer == "") {
-    modalErro("Campo vazio", "&quotTelefone&quot está vazio");
+    chamarModal("Campo vazio", "&quotTelefone&quot está vazio");
   } else if (usuario.emailServer == "") {
-    modalErro("Campo vazio", "&quotE-mail&quot está vazio");
+    chamarModal("Campo vazio", "&quotE-mail&quot está vazio");
   } else if (usuario.senhaServer == "") {
-    modalErro("Campo vazio", "&quotSenha&quot está vazio");
+    chamarModal("Campo vazio", "&quotSenha&quot está vazio");
   } else if (usuario.telefoneServer.length < 11) {
-    modalErro("Dado incorreto", "&quotTelefone&quot está incompleto");
+    chamarModal("Dado incorreto", "&quotTelefone&quot está incompleto");
   } else if (!validacaoEmail.test(usuario.emailServer)) {
-    modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
+    chamarModal("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
   } else if (usuario.senhaServer.length <= 8) {
-    modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
+    chamarModal("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
   } else if (confirmacaoVar != usuario.senhaServer) {
-    modalErro("Dado incorreto", "Senhas diferentes");
+    chamarModal("Dado incorreto", "Senhas diferentes");
   } else {
-    console.log(pidUsuario)
-    fetch(`/usuarios/atualizarDados/${pidUsuario}`, {
+    fetch(`/usuarios/atualizarDados/${pid}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -131,7 +122,11 @@ function atualizarDados() {
       .then((resposta) => {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
-          modalErro("Dados atualizados!", "Recarregue a página");
+          textModal.style.background = "#1175d1";
+          chamarModal("Dados atualizados!", "Recarregando a página");
+          setTimeout(function () {
+            location.reload()
+          }, 2000);
         } else {
           throw "Houve um erro ao tentar atualizar os dados!";
         }

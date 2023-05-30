@@ -48,7 +48,7 @@ signInButton.addEventListener("click", () => {
 });
 
 // Modal de erro
-function modalErro(frase1, frase2) {
+function chamarModal(frase1, frase2) {
   textModal.innerHTML = frase1;
   textValidacao.innerHTML = frase2;
   divValidacao.classList.add("active");

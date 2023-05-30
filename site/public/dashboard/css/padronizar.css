@@ -15,6 +15,9 @@
     --inicial-gradient: #E0EAFC;
     --final-gradient: #a9c7f1;
     --transparencia: #2626264d;
+    --bg-color: #252525;
+    --luz: #f1f1f1;
+    --clr: #1175d1;
 }
 
 ::-webkit-scrollbar {

@@ -44,6 +44,12 @@ function exibirPIDUsuario(email, senha) {
   return database.executar(instrucao);
 }
 
+// Select dos dados facilitadores do usuário
+function dadosFacilitadores(pid) {
+  var instrucao = `SELECT * FROM usuario WHERE pid = '${pid}';`;
+  return database.executar(instrucao);
+}
+
 // Atualizar usuário no banco de dados
 function atualizarDados(nome, telefone, email, senha, pid) {
   var instrucao = ` UPDATE usuario SET nome = '${nome}', telefone = '${telefone}', email = '${email}', senha = '${senha}' WHERE pid = '${pid}';`;
@@ -64,6 +70,7 @@ module.exports = {
   selectGestores,
   selectPID,
   exibirPIDUsuario,
+  dadosFacilitadores,
   atualizarDados,
   selectFuncionarios,
 };

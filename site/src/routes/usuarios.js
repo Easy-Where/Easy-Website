@@ -38,6 +38,11 @@ router.get("/exibirPIDUsuario/:emailUsuario/:senhaUsuario", (req, res) => {
   usuarioController.exibirPIDUsuario(req, res);
 });
 
+// Rota para facilitar atualização de dados do usuário
+router.get("/dadosFacilitadores/:pid", (req, res) => {
+  usuarioController.dadosFacilitadores(req, res);
+});
+
 // Rota para atualizar os dados do usuário
 router.put('/atualizarDados/:pid', function (req, res) {
   usuarioController.atualizarDados(req, res);

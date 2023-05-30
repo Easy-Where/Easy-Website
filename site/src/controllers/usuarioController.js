@@ -182,6 +182,19 @@ function exibirPIDUsuario(req, res) {
     });
 }
 
+// Puxar dados facilitadores do usuário
+function dadosFacilitadores(req, res) {
+  let pid = req.params.pid;
+  usuarioModel.dadosFacilitadores(pid)
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
 // Atualizar usuário
 function atualizarDados(req, res) {
   let pid = req.params.pid;
@@ -236,6 +249,7 @@ module.exports = {
   selectGestores,
   selectPID,
   exibirPIDUsuario,
+  dadosFacilitadores,
   atualizarDados,
   selectFuncionarios,
 };

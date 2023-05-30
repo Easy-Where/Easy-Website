@@ -11,15 +11,15 @@ function avancaPraDois() {
   const segundaEtapa = document.getElementById("segundaEtapa");
 
   if (nome == "") {
-    modalErro("Campo vazio", "&quotNome&quot está vazio");
+    chamarModal("Campo vazio", "&quotNome&quot está vazio");
   } else if (telefone == "") {
-    modalErro("Campo vazio", "&quotTelefone&quot está vazio");
+    chamarModal("Campo vazio", "&quotTelefone&quot está vazio");
   } else if (telefone.length < 15) {
-    modalErro("Dado incorreto", "&quotTelefone&quot está incompleto");
+    chamarModal("Dado incorreto", "&quotTelefone&quot está incompleto");
   } else if (email == "") {
-    modalErro("Campo vazio", "&quotEmail&quot está vazio");
+    chamarModal("Campo vazio", "&quotEmail&quot está vazio");
   } else if (!validacaoEmail.test(email)) {
-    modalErro("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
+    chamarModal("Dado incorreto", "E-mail inválido! Certifique-se que<br>seu e-mail segue essa estrutura: nome@example.com");
   } else {
     slideAtual.style.marginLeft = "-300px";
     primeiraEtapa.classList.remove("current");
@@ -32,7 +32,7 @@ function avancaPraTres() {
   if (contador == 0) {
     const empresaSelect = selectEmpresas.value;
     if (empresaSelect == "") {
-      modalErro("Campo vazio", "Selecione uma empresa");
+      chamarModal("Campo vazio", "Selecione uma empresa");
     } else {
       slideAtual.style.marginLeft = "-600px";
       segundaEtapa.classList.remove("current");
@@ -46,13 +46,13 @@ function avancaPraTres() {
     const terceiraEtapa = document.getElementById("terceiraEtapa");
 
     if (empresa == "") {
-      modalErro("Campo vazio", "&quotEmpresa&quot está vazio");
+      chamarModal("Campo vazio", "&quotEmpresa&quot está vazio");
     } else if (cnpj == "") {
-      modalErro("Campo vazio", "&quotCPNJ&quot está vazio");
+      chamarModal("Campo vazio", "&quotCPNJ&quot está vazio");
     } else if (cnpj.length < 18) {
-      modalErro("Dado incorreto", "CNPJ está incompleto");
+      chamarModal("Dado incorreto", "CNPJ está incompleto");
     } else if (dono == "") {
-      modalErro("Campo vazio", "&quotDono&quot está vazio");
+      chamarModal("Campo vazio", "&quotDono&quot está vazio");
     } else {
       slideAtual.style.marginLeft = "-600px";
       segundaEtapa.classList.remove("current");
@@ -138,7 +138,7 @@ function cadastrarEmpresa() {
     })
       .then((res) => {
         if (res.ok) {
-          modalErro("Cadastro realizado!", "Sua empresa está em nosso sistema");
+          chamarModal("Cadastro realizado!", "Sua empresa está em nosso sistema");
           setTimeout(() => {
             voltarCadastro();
           }, 2000);
@@ -151,11 +151,11 @@ function cadastrarEmpresa() {
   } else {
     textModal.style.background = "#1175d1";
     if (Enterprise.empresaServer == "") {
-      modalErro("Campo vazio", "&quotNome&quot está vazio");
+      chamarModal("Campo vazio", "&quotNome&quot está vazio");
     } else if (Enterprise.cnpjServer == "") {
-      modalErro("Campo vazio", "&quotCNPJ&quot está vazio");
+      chamarModal("Campo vazio", "&quotCNPJ&quot está vazio");
     } else if (Enterprise.donoServer == "") {
-      modalErro("Campo vazio", "&quotDono&quot está vazio");
+      chamarModal("Campo vazio", "&quotDono&quot está vazio");
     }
   }
 }
@@ -175,13 +175,13 @@ function cadastrarGestor() {
   };
 
   if (usuario.senhaServer == "") {
-    modalErro("Campo vazio", "&quotSenha&quot está vazio");
+    chamarModal("Campo vazio", "&quotSenha&quot está vazio");
   } else if (confirmacaoVar == "") {
-    modalErro("Campo vazio", "&quotConfirmação de Senha&quot está vazio");
+    chamarModal("Campo vazio", "&quotConfirmação de Senha&quot está vazio");
   } else if (usuario.senhaServer.length <= 8) {
-    modalErro("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
+    chamarModal("Aumente a segurança", "A senha deve ter mais de 8 caracteres");
   } else if (confirmacaoVar != usuario.senhaServer) {
-    modalErro("Dado incorreto", "Senhas diferentes");
+    chamarModal("Dado incorreto", "Senhas diferentes");
   } else {
     fetch("/usuarios/cadastrarGestor", {
       method: "POST",
@@ -196,7 +196,7 @@ function cadastrarGestor() {
 
         if (resposta.ok) {
           textModal.style.background = "#1175d1";
-          modalErro("Cadastro realizado!", "Vamos fazer login?");
+          chamarModal("Cadastro realizado!", "Vamos fazer login?");
           sessionStorage.setItem("EMAIL", usuario.emailServer);
           setTimeout(() => {
             window.location = "conectargestor.html";
@@ -219,9 +219,9 @@ function loginGestor() {
   const senhaVar = senha_login.value;
 
   if (emailVar == "") {
-    modalErro("Campo vazio", "&quotE-mail&quot está vazio");
+    chamarModal("Campo vazio", "&quotE-mail&quot está vazio");
   } else if (senhaVar == "") {
-    modalErro("Campo vazio", "&quotSenha&quot está vazio");
+    chamarModal("Campo vazio", "&quotSenha&quot está vazio");
   } else {
     fetch("/usuarios/loginGestor", {
       method: "POST",
@@ -253,7 +253,7 @@ function loginGestor() {
             }, 1000);
           });
         } else {
-          modalErro("Dados inválidos", "&quotE-mail&quot ou &quotSenha&quot inválido");
+          chamarModal("Dados inválidos", "&quotE-mail&quot ou &quotSenha&quot inválido");
 
           console.log("Houve um erro ao tentar realizar o login!");
 
