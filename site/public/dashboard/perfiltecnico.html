@@ -1,143 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/padronizar.css" />
-    <link rel="stylesheet" href="css/perfil.css" />
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
-    <title>Easy • Ware</title>
-  </head>
 
-  <body>
-    <!-- Sidebar -->
-    <nav>
-      <div class="logo-name">
-        <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/padronizar.css" />
+  <link rel="stylesheet" href="css/perfil.css" />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <title>Easy • Ware</title>
+</head>
+
+<body>
+  <!-- Div de validação -->
+  <div class="validacao">
+    <div class="titulo_validacao"></div>
+    <div class="texto_validacao"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav>
+    <div class="logo-name">
+      <img src="assets/easy-ware-logotipo-dark.png" alt="Logo da Easy Ware" id="Logo" />
+    </div>
+
+    <div class="menu-items">
+      <ul class="nav-links">
+        <li>
+          <a href="paineltecnico.html">
+            <i class="uil uil-apps"></i>
+            <span class="link-name">Painel</span>
+          </a>
+        </li>
+        <li>
+          <a href="arquivos.html">
+            <i class="uil uil-file"></i>
+            <span class="link-name">Arquivos</span>
+          </a>
+        </li>
+        <li class="pagina_atual">
+          <a href="perfiltecnico.html">
+            <i class="uil uil-user"></i>
+            <span class="link-name">Perfil</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="perfil">
+        <img src="assets/user-icon.png" alt="Imagem de perfil do usuário" id="imagem_perfil_sidebar" />
+        <span>Olá, <span id="puxarNome">...</span></span>
       </div>
 
-      <div class="menu-items">
-        <ul class="nav-links">
-          <li>
-            <a href="paineltecnico.html">
-              <i class="uil uil-apps"></i>
-              <span class="link-name">Painel</span>
-            </a>
-          </li>
-          <li>
-            <a href="arquivos.html">
-              <i class="uil uil-file"></i>
-              <span class="link-name">Arquivos</span>
-            </a>
-          </li>
-          <li class="pagina_atual">
-            <a href="perfiltecnico.html">
-              <i class="uil uil-user"></i>
-              <span class="link-name">Perfil</span>
-            </a>
-          </li>
-        </ul>
+      <ul class="logout-mode">
+        <li class="mode">
+          <a href="#">
+            <i class="uil uil-moon" id="mode_light_dark"></i>
+            <span class="link-name">Tema</span>
+          </a>
 
-        <div class="perfil">
-          <img src="assets/user-icon.png" alt="Imagem de perfil do usuário" id="imagem_perfil_sidebar"/>
-          <span>Olá, <span id="puxarNome">...</span></span>
-        </div>
-
-        <ul class="logout-mode">
-          <li class="mode">
+          <div class="mode-toggle">
+            <span class="switch"></span>
+          </div>
+        </li>
+        <div class="nav-links">
+          <li>
             <a href="#">
-              <i class="uil uil-moon" id="mode_light_dark"></i>
-              <span class="link-name">Tema</span>
+              <i class="uil uil-map-marker-question"></i>
+              <span class="link-name">Ajuda</span>
             </a>
-
-            <div class="mode-toggle">
-              <span class="switch"></span>
-            </div>
           </li>
-          <div class="nav-links">
-            <li>
-              <a href="#">
-                <i class="uil uil-map-marker-question"></i>
-                <span class="link-name">Ajuda</span>
-              </a>
-            </li>
-            <li>
-              <a href="../index.html">
-                <i class="uil uil-signout"></i>
-                <span class="link-name">Sair</span>
-              </a>
-            </li>
-          </div>
+          <li>
+            <a href="../index.html">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Sair</span>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Painel de Usuários -->
+  <section class="dashboard">
+    <div class="top">
+      <i class="uil uil-bars sidebar-toggle"></i>
+
+      <div class="content_legendas">
+        <div class="title_legenda">
+          <i class="uil uil-key-skeleton legendas"></i>
+        </div>
+        <ul>
+          <li>Seu PID:</li>
+          <li id="puxarPID">------</li>
         </ul>
       </div>
-    </nav>
+    </div>
 
-    <!-- Painel de Usuários -->
-    <section class="dashboard">
-        <div class="top">
-          <i class="uil uil-bars sidebar-toggle"></i>
-    
-          <div class="content_legendas">
-            <div class="title_legenda">
-              <i class="uil uil-key-skeleton legendas"></i>
-            </div>
-            <ul>
-              <li>Seu PID:</li>
-              <li id="puxarPID">------</li>
-            </ul>
+    <div class="estado_container">
+      <i class="uil uil-redo" onclick="resetarInputs()"></i>
+      <i class="uil uil-trash-alt"></i>
+    </div>
+
+    <div class="alinhamento_container">
+      <div class="container_perfil">
+        <div class="perfil_aparencia">
+          <h1>Edite seus dados aqui</h1>
+          <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil" />
+          <div class="btnalterar">
+            <label for="input_troca_imagem">Alterar Foto</label>
+            <input type="file" id="input_troca_imagem" /><i></i>
           </div>
         </div>
-    
-        <div class="estado_container">
-          <i class="uil uil-redo" onclick="resetarInputs()"></i>
-          <i class="uil uil-trash-alt"></i>
-        </div>
-    
-        <div class="alinhamento_container">
-          <div class="container_perfil">
-            <div class="perfil_aparencia">
-              <h1>Edite seus dados aqui</h1>
-              <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil"/>
-              <div class="btnalterar">
-                <label for="input_troca_imagem">Alterar Foto</label>
-                <input type="file" id="input_troca_imagem"/><i></i>
-              </div>
+        <div class="perfil_dados">
+          <div class="field-input">
+            <div class="input-group">
+              <input required type="text" id="nome_input" />
+              <label class="user-label">Nome e Sobrenome</label>
             </div>
-            <div class="perfil_dados">
-              <div class="field-input">
-                <div class="input-group">
-                  <input required type="text" id="nome_input"/>
-                  <label class="user-label">Nome e Sobrenome</label>
-                </div>
-                <div class="input-group">
-                  <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
-                  <label class="user-label">Telefone</label>
-                </div>
-                <div class="input-group">
-                  <input required type="text" id="email_input"/>
-                  <label class="user-label">E-mail</label>
-                </div>
-                <div class="input-group zerarmargin">
-                  <input required type="password" id="senha_input"/>
-                  <label class="user-label">Senha</label>
-                  <i class="uil uil-eye" id="verSenhaInput" onclick="verSenha(senha_input, verSenhaInput)"></i>
-                </div>
-                <div class="input-group zerarmargin">
-                  <input required type="password" id="confirmasenha_input"/>
-                  <label class="user-label">Confirmação de Senha</label>
-                  <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirmasenha_input, verConfirmacao)"></i>
-                </div>
-              </div>
-              <div class="btnsalvar" onclick="atualizarDados()">
-                <a><span>Salvar Alterações</span><i></i></a>
-              </div>
+            <div class="input-group">
+              <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)" />
+              <label class="user-label">Telefone</label>
+            </div>
+            <div class="input-group">
+              <input required type="text" id="email_input" />
+              <label class="user-label">E-mail</label>
+            </div>
+            <div class="input-group zerarmargin">
+              <input required type="password" id="senha_input" />
+              <label class="user-label">Senha</label>
+              <i class="uil uil-eye" id="verSenhaInput" onclick="verSenha(senha_input, verSenhaInput)"></i>
+            </div>
+            <div class="input-group zerarmargin">
+              <input required type="password" id="confirmasenha_input" />
+              <label class="user-label">Confirmação de Senha</label>
+              <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirmasenha_input, verConfirmacao)"></i>
             </div>
           </div>
+          <div class="btnsalvar" onclick="atualizarDados()">
+            <a><span>Salvar Alterações</span><i></i></a>
+          </div>
         </div>
-      </section>
-    <script src="js/padronizar.js"></script>
-    <script src="js/perfil.js"></script>
-  </body>
+      </div>
+    </div>
+  </section>
+  <script src="js/padronizar.js"></script>
+  <script src="js/perfil.js"></script>
+</body>
+
 </html>

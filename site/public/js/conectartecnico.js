@@ -125,9 +125,7 @@ function loginTecnico() {
             sessionStorage.NOME_USUARIO = json.nome_usuario;
             sessionStorage.ID_USUARIO = json.id_usuario;
             sessionStorage.ID_EMPRESA = json.id_empresa;
-
-            sessionStorage.setItem('emailUser', emailVar);
-            sessionStorage.setItem('senhaUser', senhaVar);
+            sessionStorage.PID = json.pid;
 
             setTimeout(function () {
               window.location = "dashboard/paineltecnico.html";

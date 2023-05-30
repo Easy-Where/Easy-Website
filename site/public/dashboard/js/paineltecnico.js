@@ -1,3 +1,6 @@
+const pid = sessionStorage.getItem('PID');
+console.log(pid);
+
 window.onload = function() {
   gerarPainel()
 };
@@ -60,38 +63,7 @@ function gerarPainel() {
   })
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   for (let [index, maquina] of maquinas.entries()) {
-//     let icon = ""
-//     if (maquina.so == "Windows") {
-//       icon = "uil-windows"
-//     } else if (maquina.so == "Mac") {
-//       icon = "uil-apple"
-//     } else {
-//       icon = "uil-linux"
-//     }
-
-//     const statusCor = statusCores[maquina.status]
-
-//     painel_usuarios.innerHTML += `
-//         <a class="user_box" href="dashboardtecnico.html" onclick="getMaquinas(${index})">
-//         <div class="total_box">
-//             <div class="sistema_operacional">
-//                 <i class="uil ${icon}"></i>
-//             </div>
-//             <div class="user_perfil">
-//                 <img src="assets/dinorock.jpg" alt="Foto de perfil do usuário">
-//                 <p>${maquina.nome_usuario}</p>
-//             </div>
-//             <div class="status" style="background-color: ${statusCor}"></div>
-//         </div>
-//         </a>`
-//   }
-// })
-
 function getMaquinas(index) {
-  // console.log(maquinas[index])
-
   // const maquina = maquinas[index]
   // localStorage.setItem('info_maquina', JSON.stringify(maquina))
 

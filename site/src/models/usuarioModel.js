@@ -21,7 +21,8 @@ function cadastrarTecnico( nome, telefone, email, senha, pid, fkGestor, fkEmpres
 
 // Logar técnico no banco de dados
 function loginTecnico(email, senha) {
-  var instrucao = `SELECT u.id AS id_usuario, e.id AS id_empresa, email, u.nome AS nome_usuario FROM usuario AS u JOIN empresa AS e ON e.id = id_empresa WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Técnico';`;
+  // `SELECT u.id AS id_usuario, e.id AS id_empresa, email, u.nome AS nome_usuario FROM usuario AS u JOIN empresa AS e ON e.id = id_empresa WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Técnico';`;
+  var instrucao = `SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}' AND cargo = 'Técnico';`;
   return database.executar(instrucao);
 }
 
