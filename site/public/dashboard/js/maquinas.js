@@ -1,6 +1,4 @@
-let layoutModalMaquina = document.querySelector(".modalCadastroMaquina")
 let layoutModalFuncioanrio = document.querySelector(".modalCadastroFuncionario")
-let modalMaquina = document.getElementById('modal-maquina')
 
 
 function cadastrarMaquina(){
