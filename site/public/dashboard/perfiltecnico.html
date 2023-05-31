@@ -81,6 +81,20 @@
     </div>
   </nav>
 
+  <!-- Div de excluir usuário  -->
+  <div class="deletar_container" id="modalDelete">
+    <div class="fechar_excluir" onclick="fecharModalExclusao()">
+      <i class="uil uil-times"></i>
+    </div>
+    <div class="title_excluir">
+      <p><span id="puxarNomeModal">...</span>, aqui você vai excluir a sua conta, tem certeza que deseja continuar essa ação?</p>
+    </div>
+    <div class="botoes_excluir">
+      <button onclick="confirmaExcluirUsuario()">Sim</button>
+      <button onclick="fecharModalExclusao()">Cancelar</button>
+    </div>
+  </div>
+
   <!-- Painel de Usuários -->
   <section class="dashboard">
     <div class="top">
@@ -99,40 +113,40 @@
 
     <div class="estado_container">
       <i class="uil uil-redo" onclick="resetarInputs()"></i>
-      <i class="uil uil-trash-alt"></i>
+      <i class="uil uil-trash-alt" onclick="chamarModalExclusao()"></i>
     </div>
 
     <div class="alinhamento_container">
       <div class="container_perfil">
         <div class="perfil_aparencia">
           <h1>Edite seus dados aqui</h1>
-          <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil" />
+          <img src="assets/user-icon.png" alt="Imagem Atual" id="imagem_perfil"/>
           <div class="btnalterar">
             <label for="input_troca_imagem">Alterar Foto</label>
-            <input type="file" id="input_troca_imagem" /><i></i>
+            <input type="file" id="input_troca_imagem"/><i></i>
           </div>
         </div>
         <div class="perfil_dados">
           <div class="field-input">
             <div class="input-group">
-              <input required type="text" id="nome_input" />
+              <input required type="text" id="nome_input"/>
               <label class="user-label">Nome e Sobrenome</label>
             </div>
             <div class="input-group">
-              <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)" />
+              <input required type="text" id="telefone_input" maxlength="15" onkeyup="maskPhone(event)"/>
               <label class="user-label">Telefone</label>
             </div>
             <div class="input-group">
-              <input required type="text" id="email_input" />
+              <input required type="text" id="email_input"/>
               <label class="user-label">E-mail</label>
             </div>
             <div class="input-group zerarmargin">
-              <input required type="password" id="senha_input" />
+              <input required type="password" id="senha_input"/>
               <label class="user-label">Senha</label>
               <i class="uil uil-eye" id="verSenhaInput" onclick="verSenha(senha_input, verSenhaInput)"></i>
             </div>
             <div class="input-group zerarmargin">
-              <input required type="password" id="confirmasenha_input" />
+              <input required type="password" id="confirmasenha_input"/>
               <label class="user-label">Confirmação de Senha</label>
               <i class="uil uil-eye" id="verConfirmacao" onclick="verSenha(confirmasenha_input, verConfirmacao)"></i>
             </div>

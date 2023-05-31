@@ -1,22 +1,27 @@
 const pid = sessionStorage.getItem('PID');
+const id = sessionStorage.getItem('ID_USUARIO');
 
 window.onload = function () {
   dadosFacilitadores(pid)
+  console.log(pid)
 };
 
 // Trazer dados para facilitar o perfil do usuário
-function dadosFacilitadores(pid) {
-  puxarPID.innerHTML = pid
-  fetch(`/usuarios/dadosFacilitadores/${pid}`).then((resposta) => {
-    resposta.json().then((usuario) => {
-      puxarNome.innerHTML = JSON.stringify(usuario.nome);
-      nome_input.value = JSON.stringify(usuario.nome);
-      telefone_input.value = JSON.stringify(usuario.telefone);
-      email_input.value = JSON.stringify(usuario.email);
-    });
+function dadosFacilitadores(pidUser) {
+  puxarPID.innerHTML = pidUser
+  fetch(`/usuarios/dadosFacilitadores/${pidUser}`).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then((usuario) => {
+        puxarNome.innerHTML = usuario.nome;
+        nome_input.value = usuario.nome;
+        telefone_input.value = usuario.telefone;
+        email_input.value = usuario.email;
+      });
+    } else {
+      console.error('Erro na resposta do servidor');
+    }
   });
 }
-
 
 // Div de validação
 let divValidacao = document.querySelector(".validacao");
@@ -137,4 +142,67 @@ function atualizarDados() {
 
     return false;
   }
+}
+
+// Abrir modal para excluir o usuário
+const divExcluir = document.querySelector('.deletar_container')
+function chamarModalExclusao() {
+  divExcluir.classList.add('active');
+}
+
+// Fechar modal para excluir o usuário
+function fecharModalExclusao() {
+  divExcluir.classList.remove('active');
+  modalDelete.innerHTML = `
+  <div class="fechar_excluir" onclick="fecharModalExclusao()">
+    <i class="uil uil-times"></i>
+  </div>
+  <div class="title_excluir">
+    <p><span id="puxarNomeModal">...</span>, aqui você vai excluir a sua conta, tem certeza que deseja continuar essa ação?</p>
+  </div>
+  <div class="botoes_excluir">
+    <button onclick="confirmaExcluirUsuario()">Sim</button>
+    <button onclick="fecharModalExclusao()">Cancelar</button>
+  </div>
+    `
+}
+
+// Confirma exclusão do usuário
+function confirmaExcluirUsuario() {
+  modalDelete.innerHTML = `
+    <div class="fechar_excluir" onclick="fecharModalExclusao()">
+      <i class="uil uil-times"></i>
+    </div>
+    <div class="title_excluir excluirAlternativa">
+      <p><span id="puxarNomeModal">...</span>, insira seu PID para confirmar a ação</p>
+      <div class="input-group">
+        <input required type="text"/>
+        <label class="user-label">PID</label>
+      </div>
+    </div>
+    <div class="botoes_excluir">
+      <button onclick="apagarUsuario()">Sim</button>
+      <button onclick="fecharModalExclusao()">Cancelar</button>
+    </div>`
+}
+
+// Apagar usuário
+function apagarUsuario() {
+  fetch(`/usuarios/apagarUsuario/${pid}/${id}`, {
+    method: 'DELETE',
+  }).then(async (res) => {
+    if (res.ok) {
+      const text = await res.text();
+      if (text) {
+        const data = JSON.parse(text);
+        console.log(data);
+        setTimeout(() => {
+          window.location = "../index.html";
+        }, 2500);
+      }
+      chamarModal('Usuário excluído', 'Redirecionando ao início...');
+    } else {
+      console.error('Erro ao excluir o usuário');
+    }
+  });
 }

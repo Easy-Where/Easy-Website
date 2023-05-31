@@ -87,6 +87,20 @@
     </div>
   </nav>
 
+  <!-- Div de excluir usuário  -->
+  <div class="deletar_container" id="modalDelete">
+    <div class="fechar_excluir" onclick="fecharModalExclusao()">
+      <i class="uil uil-times"></i>
+    </div>
+    <div class="title_excluir">
+      <p><span id="puxarNomeModal">...</span>, aqui você vai excluir a sua conta, tem certeza que deseja continuar essa ação?</p>
+    </div>
+    <div class="botoes_excluir">
+      <button onclick="confirmaExcluirUsuario()">Sim</button>
+      <button onclick="fecharModalExclusao()">Cancelar</button>
+    </div>
+  </div>
+
   <!-- Painel de Usuários -->
   <section class="dashboard">
     <div class="top">
@@ -105,7 +119,7 @@
 
     <div class="estado_container">
       <i class="uil uil-redo" onclick="resetarInputs()"></i>
-      <i class="uil uil-trash-alt"></i>
+      <i class="uil uil-trash-alt" onclick="chamarModalExclusao()"></i>
     </div>
 
     <div class="alinhamento_container">

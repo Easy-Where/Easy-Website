@@ -229,7 +229,6 @@ function atualizarDados(req, res) {
 // Puxar funcionários de um gestor
 function selectFuncionarios(req, res) {
   let pid = req.params.pidUsado;
-  console.log('Bati na controller 2')
   usuarioModel.selectFuncionarios(pid)
     .then((response) => {
       res.json(response);
@@ -238,6 +237,22 @@ function selectFuncionarios(req, res) {
     .catch((error) => {
       console.log(error);
       res.status(500).json(error.sqlMessage);
+    });
+}
+
+// Apagar usuário
+function apagarUsuario(req, res) {
+  var pid = req.params.pid;
+  var id = req.params.id;
+
+  usuarioModel.apagarUsuario(pid, id)
+    .then(function (resultado) {
+      res.json(resultado);
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log('Houve um erro ao deletar o post: ', erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
     });
 }
 
@@ -252,4 +267,5 @@ module.exports = {
   dadosFacilitadores,
   atualizarDados,
   selectFuncionarios,
+  apagarUsuario
 };

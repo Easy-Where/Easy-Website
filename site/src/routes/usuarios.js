@@ -50,8 +50,12 @@ router.put('/atualizarDados/:pid', function (req, res) {
 
 // Rota para exibir os funcionários
 router.get("/selectFuncionarios/:pidUsado", (req, res) => {
-  console.log('Bati na rota')
   usuarioController.selectFuncionarios(req, res);
+});
+
+// Rota para apagar o funcionário
+router.delete('/apagarUsuario/:pid/:id', function (req, res) {
+  usuarioController.apagarUsuario(req, res);
 });
 
 module.exports = router;

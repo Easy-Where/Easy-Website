@@ -244,9 +244,7 @@ function loginGestor() {
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
-
-            sessionStorage.setItem('emailUser', emailVar);
-            sessionStorage.setItem('senhaUser', senhaVar);
+            sessionStorage.PID = json.pid;
 
             setTimeout(function () {
               window.location = "dashboard/dashboardgestor.html";
