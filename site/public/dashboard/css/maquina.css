@@ -221,9 +221,6 @@ select option {
 }
 
 /* MODAIS */
-
-
-.modalCadastroMaquina,
 .modalCadastroFuncionario{
     width: 100%;
     height: 0vh;
@@ -405,6 +402,10 @@ form .inputModal input:focus{
     color: var(--cor-texto);
     cursor: pointer;
     transition: all .5s;
+<<<<<<< HEAD
+=======
+    outline: none;
+>>>>>>> a21f61c6c6b4eac46aed759aced63bca627a7fec
 }
 
 .container form .botoes button:focus,
