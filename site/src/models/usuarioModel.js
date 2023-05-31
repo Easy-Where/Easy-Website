@@ -76,6 +76,12 @@ function apagarUsuarioTecnico(pid, id) {
   return database.executar(instrucao);
 }
 
+// Cadastrar vendedor
+function cadastrarVendedor(nome, telefone, email, senha, pid, fkGestor, fkEmpresa) {
+  var instrucao = `INSERT INTO usuario (nome, telefone, email, senha, cargo, pid, pid_gestor, id_empresa) VALUES ('${nome}', '${telefone}', '${email}', '${senha}', 'Vendedor', '${pid}', '${fkGestor}', '${fkEmpresa}');`;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -88,5 +94,6 @@ module.exports = {
   atualizarDados,
   selectFuncionarios,
   apagarUsuario,
-  apagarUsuarioTecnico
+  apagarUsuarioTecnico,
+  cadastrarVendedor
 };

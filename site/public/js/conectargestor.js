@@ -245,6 +245,7 @@ function loginGestor() {
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
             sessionStorage.PID = json.pid;
+            sessionStorage.FK_EMPRESA = json.id_empresa;
 
             setTimeout(function () {
               window.location = "dashboard/dashboardgestor.html";

@@ -12,7 +12,6 @@ function closeModalMaquina(){
     // layoutModalMaquina.style.top = "-100vh"
     // modalMaquina.style.left = "-300%"
     layoutModalMaquina.classList.remove('fundo')
-
 }
 
 function cadastrarFuncionario(){
@@ -24,5 +23,4 @@ function closeModalFuncionario(){
     // layoutModalMaquina.style.top = "-100vh"
     // modalMaquina.style.left = "-300%"
     layoutModalFuncioanrio.classList.remove('fundo')
-
 }

@@ -63,4 +63,9 @@ router.delete('/apagarUsuarioTecnico/:pid/:id', function (req, res) {
   usuarioController.apagarUsuarioTecnico(req, res);
 });
 
+// Rota para cadastrar o vendedor
+router.post("/cadastrarVendedor", function (req, res) {
+  usuarioController.cadastrarVendedor(req, res);
+});
+
 module.exports = router;
