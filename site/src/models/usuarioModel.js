@@ -69,6 +69,13 @@ function apagarUsuario(pid, id) {
   return database.executar(instrucao);
 }
 
+// Delete dos usuários técnicos
+function apagarUsuarioTecnico(pid, id) {
+  var instrucao = `DELETE FROM log_uso WHERE id_usuario = ${id};
+  DELETE FROM usuario WHERE pid = ${pid};`;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -80,5 +87,6 @@ module.exports = {
   dadosFacilitadores,
   atualizarDados,
   selectFuncionarios,
-  apagarUsuario
+  apagarUsuario,
+  apagarUsuarioTecnico
 };

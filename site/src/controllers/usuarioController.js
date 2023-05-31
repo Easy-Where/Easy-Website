@@ -256,6 +256,22 @@ function apagarUsuario(req, res) {
     });
 }
 
+// Apagar usuário técnico
+function apagarUsuarioTecnico(req, res) {
+  var pid = req.params.pid;
+  var id = req.params.id;
+
+  usuarioModel.apagarUsuarioTecnico(pid, id)
+    .then(function (resultado) {
+      res.json(resultado);
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log('Houve um erro ao deletar o post: ', erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -267,5 +283,6 @@ module.exports = {
   dadosFacilitadores,
   atualizarDados,
   selectFuncionarios,
-  apagarUsuario
+  apagarUsuario,
+  apagarUsuarioTecnico
 };

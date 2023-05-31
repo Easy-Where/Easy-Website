@@ -3,7 +3,6 @@ const id = sessionStorage.getItem('ID_USUARIO');
 
 window.onload = function () {
   dadosFacilitadores(pid)
-  console.log(pid)
 };
 
 // Trazer dados para facilitar o perfil do usuário
@@ -12,10 +11,13 @@ function dadosFacilitadores(pidUser) {
   fetch(`/usuarios/dadosFacilitadores/${pidUser}`).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then((usuario) => {
-        puxarNome.innerHTML = usuario.nome;
-        nome_input.value = usuario.nome;
-        telefone_input.value = usuario.telefone;
-        email_input.value = usuario.email;
+        console.log(usuario)
+        puxarNome.innerHTML = usuario[0].nome;
+        puxarNomeModal.innerHTML = usuario[0].nome;
+        nome_input.value = usuario[0].nome;
+        telefone_input.value = usuario[0].telefone;
+        maskPhone()
+        email_input.value = usuario[0].email;
       });
     } else {
       console.error('Erro na resposta do servidor');
@@ -176,7 +178,7 @@ function confirmaExcluirUsuario() {
     <div class="title_excluir excluirAlternativa">
       <p><span id="puxarNomeModal">...</span>, insira seu PID para confirmar a ação</p>
       <div class="input-group">
-        <input required type="text"/>
+        <input required type="text" maxlength="6"/>
         <label class="user-label">PID</label>
       </div>
     </div>
@@ -189,6 +191,27 @@ function confirmaExcluirUsuario() {
 // Apagar usuário
 function apagarUsuario() {
   fetch(`/usuarios/apagarUsuario/${pid}/${id}`, {
+    method: 'DELETE',
+  }).then(async (res) => {
+    if (res.ok) {
+      const text = await res.text();
+      if (text) {
+        const data = JSON.parse(text);
+        console.log(data);
+        setTimeout(() => {
+          window.location = "../index.html";
+        }, 2500);
+      }
+      chamarModal('Usuário excluído', 'Redirecionando ao início...');
+    } else {
+      console.error('Erro ao excluir o usuário');
+    }
+  });
+}
+
+// Apagar usuário
+function apagarUsuarioTecnico() {
+  fetch(`/usuarios/apagarUsuarioTecnico/${pid}/${id}`, {
     method: 'DELETE',
   }).then(async (res) => {
     if (res.ok) {

@@ -58,4 +58,9 @@ router.delete('/apagarUsuario/:pid/:id', function (req, res) {
   usuarioController.apagarUsuario(req, res);
 });
 
+// Rota para apagar o técnico
+router.delete('/apagarUsuarioTecnico/:pid/:id', function (req, res) {
+  usuarioController.apagarUsuarioTecnico(req, res);
+});
+
 module.exports = router;
