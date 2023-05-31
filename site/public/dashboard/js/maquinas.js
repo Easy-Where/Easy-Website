@@ -1,7 +1,7 @@
 let layoutModalFuncioanrio = document.querySelector(".modalCadastroFuncionario")
 
 
-function cadastrarFuncionario(){
+function abrirModal(){
     // modalMaquina.style.left = "30%"
     layoutModalFuncioanrio.classList.add('fundo')
 }

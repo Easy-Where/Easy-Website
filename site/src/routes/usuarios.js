@@ -68,4 +68,14 @@ router.post("/cadastrarVendedor", function (req, res) {
   usuarioController.cadastrarVendedor(req, res);
 });
 
+// Rota para select de técnico
+router.get("/selectTecnicos/:fkEmpresa", (req, res) => {
+  usuarioController.selectTecnicos(req, res);
+});
+
+// Rota para select de vendeores
+router.get("/selectVendedor/:fkEmpresa", (req, res) => {
+  usuarioController.selectVendedor(req, res);
+});
+
 module.exports = router;

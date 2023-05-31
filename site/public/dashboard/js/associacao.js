@@ -1,3 +1,39 @@
+let pidsExistentes = [];
+gerarNumeroPid();
+
+// Validar PID existente
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("/usuarios/selectPID");
+
+    const usuario = await response.json();
+
+    usuario.forEach((user) => {
+      pidsExistentes.push(user.pid);
+      console.log("PIDS ATUAIS:" + pidsExistentes);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Gerar PID
+const inputPid = document.getElementById("pid_input");
+function gerarNumeroPid() {
+  let pidGerado = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+  if(pidsExistentes.includes(pidGerado)){
+    gerarNumeroPid()
+  }else{
+    pid_input.value = pidGerado;
+    console.log("Novo valor a ser iputado: " + pid_input.value)
+  }
+}
+
+// Div de validação
+let divValidacao = document.querySelector(".validacao");
+let textModal = document.querySelector(".titulo_validacao");
+let textValidacao = document.querySelector(".texto_validacao");
+
 // Modal de erro
 function chamarModal(frase1, frase2) {
   textModal.innerHTML = frase1;
@@ -29,18 +65,18 @@ function maskPhone() {
 }
 
 // Cadastrar vendedor
+const fkEmpresa = sessionStorage.getItem("FK_EMPRESA");
 function cadastrarVendedor() {
-  const fkEmpresa = sessionStorage.getItem("FK_EMPRESA");
   const fkGestor = sessionStorage.getItem("PID");
   const confirmacaoVar = confirma_input.value;
 
   const usuario = {
     nomeServer: nome_input.value,
     telefoneServer: telefone_input.value.replace(/\D+/g, "").trim(),
-    emailServer: emailCad_input.value,
+    emailServer: email_input.value,
     senhaServer: senha_input.value,
     pidServer: pid_input.value,
-    fkGestorServer: fkGestora,
+    fkGestorServer: fkGestor,
     fkEmpresaServer: fkEmpresa,
   };
 
@@ -87,36 +123,30 @@ function cadastrarVendedor() {
 
 // Select no banco de técnicos
 async function trazerTecnicos() {
-  let fkEmpresa = selectEmpresas.value;
-  selectGestores.innerHTML = `<option value="">-Selecione seu gestor-</option>`;
+  selectTecnicos.innerHTML = `<option value="">-Selecione seu gestor-</option>`;
   try {
-    const respondeGestores = await fetch(
-      `/usuarios/selectGestores/${fkEmpresa}`
-    );
+    const respondeTecnicos = await fetch(`/usuarios/selectTecnicos/${fkEmpresa}`);
 
-    const gestor = await respondeGestores.json();
+    const tecnico = await respondeTecnicos.json();
 
-    gestor.forEach((gestor) => {
-      selectGestores.innerHTML += `<option value="${gestor.pid}">${gestor.nome} - ${gestor.pid}</option>`;
+    tecnico.forEach((tecnico) => {
+      selectTecnicos.innerHTML += `<option value="${tecnico.pid}">${tecnico.nome} - ${tecnico.pid}</option>`;
     });
   } catch (error) {
     console.log(error);
   }
 }
 
-// Select no banco de gestores
+// Select no banco de vendedores
 async function trazerVendedores() {
-  let fkEmpresa = selectEmpresas.value;
-  selectGestores.innerHTML = `<option value="">-Selecione seu gestor-</option>`;
+  selectVendedor.innerHTML = `<option value="">-Selecione seu vendedor-</option>`;
   try {
-    const respondeGestores = await fetch(
-      `/usuarios/selectGestores/${fkEmpresa}`
-    );
+    const respondeVendedor = await fetch(`/usuarios/selectVendedor/${fkEmpresa}`);
 
-    const gestor = await respondeGestores.json();
+    const vendedor = await respondeVendedor.json();
 
-    gestor.forEach((gestor) => {
-      selectGestores.innerHTML += `<option value="${gestor.pid}">${gestor.nome} - ${gestor.pid}</option>`;
+    vendedor.forEach((vendedor) => {
+      selectVendedor.innerHTML += `<option value="${vendedor.pid}">${vendedor.nome} - ${vendedor.pid}</option>`;
     });
   } catch (error) {
     console.log(error);

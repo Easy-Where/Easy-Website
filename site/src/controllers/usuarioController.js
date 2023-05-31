@@ -313,6 +313,32 @@ function cadastrarVendedor(req, res) {
   }
 }
 
+// Puxar técnicos
+function selectTecnicos(req, res) {
+  let fkEmpresa = req.params.fkEmpresa;
+  usuarioModel.selectTecnicos(fkEmpresa)
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
+// Puxar vendedores
+function selectVendedor(req, res) {
+  let fkEmpresa = req.params.fkEmpresa;
+  usuarioModel.selectVendedor(fkEmpresa)
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error.sqlMessage);
+    });
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -326,5 +352,7 @@ module.exports = {
   selectFuncionarios,
   apagarUsuario,
   apagarUsuarioTecnico,
-  cadastrarVendedor
+  cadastrarVendedor,
+  selectTecnicos,
+  selectVendedor
 };

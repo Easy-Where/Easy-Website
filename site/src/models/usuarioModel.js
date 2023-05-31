@@ -82,6 +82,18 @@ function cadastrarVendedor(nome, telefone, email, senha, pid, fkGestor, fkEmpres
   return database.executar(instrucao);
 }
 
+// Select de técnicos
+function selectTecnicos(fkEmpresa) {
+  var instrucao = `SELECT * FROM usuario WHERE cargo = 'Técnico' AND id_empresa = '${fkEmpresa}' ORDER BY nome ASC;`;
+  return database.executar(instrucao);
+}
+
+// Select de vendedores
+function selectVendedor(fkEmpresa) {
+  var instrucao = `SELECT * FROM usuario WHERE cargo = 'Vendedor' AND id_empresa = '${fkEmpresa}' ORDER BY nome ASC;`;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrarGestor,
   cadastrarTecnico,
@@ -95,5 +107,7 @@ module.exports = {
   selectFuncionarios,
   apagarUsuario,
   apagarUsuarioTecnico,
-  cadastrarVendedor
+  cadastrarVendedor,
+  selectTecnicos,
+  selectVendedor
 };

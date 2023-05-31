@@ -257,7 +257,7 @@ select option {
     top: 10%;
     left: 30%;
     width: 45%;
-    height: 70vh;
+    height: 83vh;
     background-color: #151515;
     border-radius: 8px;
     overflow: hidden;
@@ -270,7 +270,7 @@ select option {
     top: -65%;
     left: 5%;
     width: 45%;
-    height: 80vh;
+    height: 93vh;
     background: linear-gradient(0deg, transparent, var(--seletor));
     transform-origin: bottom right;
     animation: animet 6s linear infinite;
@@ -281,7 +281,7 @@ select option {
     top: -65%;
     left: 5%;
     width: 45%;
-    height: 80vh;
+    height: 93vh;
     background: linear-gradient(0deg, transparent, var(--seletor));
     transform-origin: bottom right;
     animation: animet 6s linear infinite;
@@ -320,7 +320,7 @@ select option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
 }
 
 .container form .inputModal{
@@ -379,7 +379,7 @@ form .inputModal input:focus{
     height: 70%;
     display: flex;
     flex-direction: column;
-    gap: 2.5em;
+    gap: 1.5em;
 }
 
 .container form .botoes{
@@ -402,10 +402,6 @@ form .inputModal input:focus{
     color: var(--cor-texto);
     cursor: pointer;
     transition: all .5s;
-<<<<<<< HEAD
-=======
-    outline: none;
->>>>>>> a21f61c6c6b4eac46aed759aced63bca627a7fec
 }
 
 .container form .botoes button:focus,

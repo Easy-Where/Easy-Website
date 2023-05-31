@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/padronizar.css" />
-  <link rel="stylesheet" href="css/perfiltecnico.css" />
   <link rel="stylesheet" href="css/maquina.css" />
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
@@ -16,6 +15,12 @@
 </head>
 
 <body>
+  <!-- Div de validação -->
+  <div class="validacao">
+    <div class="titulo_validacao"></div>
+    <div class="texto_validacao"></div>
+  </div>
+
   <!-- Sidebar -->
   <nav>
     <div class="logo-name">
@@ -88,6 +93,16 @@
   <section class="dashboard">
     <div class="top">
       <i class="uil uil-bars sidebar-toggle"></i>
+
+      <div class="content_legendas">
+        <div class="title_legenda">
+          <i class="uil uil-key-skeleton legendas"></i>
+        </div>
+        <ul>
+          <li>Seu PID:</li>
+          <li id="puxarPID">------</li>
+        </ul>
+      </div>
     </div>
 
     <div class="estado_container">
@@ -107,16 +122,15 @@
         <div class="perfil_dados">
           <div class="field-input">
             <div class="input-group processarmaquina">
-              <select required="" id="">
+              <select required="" id="selectTecnicos">
                 <option value="">- Escolha um técnico -</option>
               </select>
-              <i class="uil uil-plus-circle"></i>
             </div>
             <div class="input-group">
-              <select required="" id="">
+              <select required="" id="selectVendedor">
                 <option value="">- Escolha um funcionário -</option>
               </select>
-              <i class="uil uil-plus-circle" onclick="cadastrarVendedor()"></i>
+              <i class="uil uil-plus-circle" onclick="abrirModal()"></i>
             </div>
           </div>
           <div class="btnsalvar">
@@ -139,30 +153,30 @@
             <div class="inputsForm">
               <div class="inputModal">
                 <label for="input-pid">Nome</label>
-                <input type="text" id="input-pid">
+                <input type="text" id="nome_input">
               </div>
               <div class="inputModal">
                 <div class="row">
                   <label for="input-pid">PID</label>
-                  <input type="text" id="input-pid">
+                  <input type="text" id="pid_input" readonly="">
                 </div>
                 <div class="row">
                   <label for="input-pid">Telefone</label>
-                  <input type="text" id="input-pid">
+                  <input type="text" id="telefone_input">
                 </div>
               </div>
               <div class="inputModal">
                 <label for="input-pid">Email</label>
-                <input type="text" id="input-pid">
+                <input type="text" id="email_input">
               </div>
               <div class="inputModal">
                 <div class="row">
                   <label for="input-pid">Senha</label>
-                  <input type="text" id="input-pid">
+                  <input type="text" id="senha_input">
                 </div>
                 <div class="row">
                   <label for="input-pid">Confirme sua senha</label>
-                  <input type="text" id="input-pid">
+                  <input type="text" id="confirma_input">
                 </div>
               </div>
             </div>
