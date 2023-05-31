@@ -126,36 +126,8 @@
       </div>
     </div>
 
+    
     <!-- Modais de cadastro -->
-    <div class="modalCadastroMaquina">
-      <div class="modal" id="modal-maquina">
-        <div class="container">
-          <span class="material-symbols-outlined" onclick="closeModalMaquina()">
-            close
-          </span>
-          <form>
-            <h2>Cadastro máquina</h2>
-            <div class="inputModal">
-              <label for="input-pid">Sistema operacional</label>
-              <input type="text" id="input-pid">
-            </div>
-            <div class="inputModal">
-              <label for="input-pid">Fabricante</label>
-              <input type="text" id="input-pid">
-            </div>
-            <div class="inputModal">
-              <label for="input-pid">Nome</label>
-              <input type="text" id="input-pid">
-            </div>
-            <div class="inputModal">
-              <label for="input-pid">Modelo</label>
-              <input type="text" id="input-pid">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
     <div class="modalCadastroFuncionario">
       <div class="modal" id="modal-funcionario">
         <div class="container">
@@ -163,23 +135,41 @@
             close
           </span>
           <form>
-            <h2>Cadastro funcionário</h2>
-            <div class="inputModal">
-              <label for="input-pid">PID</label>
-              <input type="text" id="input-pid">
+            <h2>Cadastrar funcionário</h2>
+            <div class="inputsForm">
+              <div class="inputModal">
+                <label for="input-pid">Nome</label>
+                <input type="text" id="input-pid">
+              </div>
+              <div class="inputModal">
+                <div class="row">
+                  <label for="input-pid">PID</label>
+                  <input type="text" id="input-pid">
+                </div>
+                <div class="row">
+                  <label for="input-pid">Telefone</label>
+                  <input type="text" id="input-pid">
+                </div>
+              </div>
+              <div class="inputModal">
+                <label for="input-pid">Email</label>
+                <input type="text" id="input-pid">
+              </div>
+              <div class="inputModal">
+                <div class="row">
+                  <label for="input-pid">Senha</label>
+                  <input type="text" id="input-pid">
+                </div>
+                <div class="row">
+                  <label for="input-pid">Confirme sua senha</label>
+                  <input type="text" id="input-pid">
+                </div>
+              </div>
             </div>
-            <div class="inputModal">
-              <label for="input-pid">Nome</label>
-              <input type="text" id="input-pid">
+            <div class="botoes">
+              <button>Cadastrar</button>
+              <button onclick="closeModalFuncionario()">Cancelar</button>
             </div>
-            <div class="inputModal">
-              <label for="input-pid">Email</label>
-              <input type="text" id="input-pid">
-            </div>
-            <div class="inputModal">
-              <label for="input-pid">Telefone</label>
-              <input type="text" id="input-pid">
-            </div>  
           </form>
         </div>
       </div>
